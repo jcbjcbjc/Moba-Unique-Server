@@ -1,0 +1,9 @@
+{
+  "BagMaxGridCount": 30,
+  "MaxTranCount": 9,
+  "MaxMatchTime": 30,
+  "SoldierWaveCreateCount": 2,
+  "SoldierWaveWaitTime": 60,
+  "LiveIntervalForwardTime": 1,
+  "SoldierMaxCount": 4
+}

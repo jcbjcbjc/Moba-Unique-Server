@@ -1,0 +1,85 @@
+{
+  "1": {
+    "ID": 1,
+    "SpawnID": 1,
+    "SpawnMonID": 1001,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 120
+  },
+  "2": {
+    "ID": 2,
+    "SpawnID": 1,
+    "SpawnMonID": 1002,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 120
+  },
+  "3": {
+    "ID": 3,
+    "SpawnID": 1,
+    "SpawnMonID": 1003,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 120
+  },
+  "4": {
+    "ID": 4,
+    "SpawnID": 1,
+    "SpawnMonID": 1004,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 120
+  },
+  "5": {
+    "ID": 5,
+    "SpawnID": 1,
+    "SpawnMonID": 1005,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 120
+  },
+  "6": {
+    "ID": 6,
+    "SpawnID": 2,
+    "SpawnMonID": 2001,
+    "IsSpawnPeriod": true,
+    "SpawnPeriod": 60
+  },
+  "7": {
+    "ID": 7,
+    "SpawnID": 3,
+    "SpawnMonID": 2002,
+    "IsSpawnPeriod": true,
+    "SpawnPeriod": 60
+  },
+  "8": {
+    "ID": 8,
+    "SpawnID": 4,
+    "SpawnMonID": 2003,
+    "IsSpawnPeriod": true,
+    "SpawnPeriod": 60
+  },
+  "9": {
+    "ID": 9,
+    "SpawnID": 5,
+    "SpawnMonID": 2004,
+    "IsSpawnPeriod": true,
+    "SpawnPeriod": 60
+  },
+  "10": {
+    "ID": 10,
+    "SpawnID": 6,
+    "SpawnMonID": 3003,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 5
+  },
+  "11": {
+    "ID": 11,
+    "SpawnID": 7,
+    "SpawnMonID": 3004,
+    "IsSpawnPeriod": false,
+    "SpawnPeriod": 5
+  },
+  "12": {
+    "ID": 12,
+    "SpawnID": 8,
+    "SpawnMonID": 4004,
+    "IsSpawnPeriod": false
+  }
+}

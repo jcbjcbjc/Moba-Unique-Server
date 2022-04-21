@@ -1,0 +1,14 @@
+{
+  "1": {
+    "ID": 1,
+    "Name": "竞技道具",
+    "Description": "竞技道具",
+    "Status": 1
+  },
+  "2": {
+    "ID": 2,
+    "Name": "宝石",
+    "Description": "宝石",
+    "Status": 1
+  }
+}

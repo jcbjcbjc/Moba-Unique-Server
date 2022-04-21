@@ -1,0 +1,68 @@
+{
+  "1": {
+    "ID": 1,
+    "Name": "2秒眩晕",
+    "Description": "2秒眩晕",
+    "Icon": "UI/Skill/warrior_buff_xy",
+    "Target": "Target",
+    "Trigger": "SkillHit",
+    "Effect": "Stun",
+    "Duration": 2000.0,
+    "ATTFator": 0.1
+  },
+  "2": {
+    "ID": 2,
+    "Name": "英勇",
+    "Description": "防御力增加50%",
+    "Icon": "UI/Skill/warrior_buff_yy",
+    "Target": "Self",
+    "Trigger": "SkillCast",
+    "Duration": 3000.0,
+    "ATTFator": 0.1,
+    "DEFRatio": 0.5
+  },
+  "3": {
+    "ID": 3,
+    "Name": "破甲",
+    "Description": "防御力降低50%",
+    "Icon": "UI/Skill/warrior_debuff_pj",
+    "Target": "Target",
+    "Trigger": "SkillHit",
+    "Duration": 5000.0,
+    "ATTFator": 0.1,
+    "DEFRatio": -0.5
+  },
+  "4": {
+    "ID": 4,
+    "Name": "燃烧",
+    "Description": "每秒造成XXX点法术伤害",
+    "Icon": "UI/Skill/wizzard_debuff_hy",
+    "Target": "Target",
+    "Trigger": "SkillHit",
+    "Duration": 5000.0,
+    "Interval": 1000.0,
+    "ATTFator": 0.1
+  },
+  "5": {
+    "ID": 5,
+    "Name": "流血",
+    "Description": "每秒造成XXX点物理伤害",
+    "Icon": "UI/Skill/archer_debuff_lx",
+    "Target": "Target",
+    "Trigger": "SkillHit",
+    "Duration": 5000.0,
+    "Interval": 1000.0,
+    "ATTFator": 0.1
+  },
+  "6": {
+    "ID": 6,
+    "Name": "中毒",
+    "Description": "每秒造成XXX点法术伤害",
+    "Icon": "UI/Skill/archer_debuff_zd",
+    "Target": "Target",
+    "Trigger": "SkillHit",
+    "Duration": 5000.0,
+    "Interval": 1000.0,
+    "ATTFator": 0.1
+  }
+}

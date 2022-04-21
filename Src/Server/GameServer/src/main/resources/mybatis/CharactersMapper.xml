@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.game.dao.CharacterDao">
+  
+  <insert id="addList" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+   insert into `character` (cId,level,exp,userId,attSpot,defSpot,hpSpot,criSpot,resuSpot,speedSpot,cdSpot,att,def,hp,cri,resu,speed,cd) values
+   <foreach collection ="list" item="item" index= "index" separator =",">
+      (
+      #{item.cId},
+      #{item.level},
+      #{item.exp},
+      #{item.userId},
+      #{item.attSpot},
+      #{item.defSpot},
+      #{item.hpSpot},
+      #{item.criSpot},
+      #{item.resuSpot},
+      #{item.speedSpot},
+      #{item.cdSpot},
+      #{item.att},
+      #{item.def},
+      #{item.hp},
+      #{item.cri},
+      #{item.resu},
+      #{item.speed},
+      #{item.cd}
+      )
+    </foreach>
+  </insert>
+
+<update id="update" parameterType="com.game.entity.Character">
+  update `character` set cId=#{cId},level=#{level},exp=#{exp},userId=#{userId},attSpot=#{attSpot},defSpot=#{defSpot},
+  hpSpot=#{hpSpot},criSpot=#{criSpot},resuSpot=#{resuSpot},speedSpot=#{speedSpot},cdSpot=#{cdSpot}
+  ,att=#{att},def=#{def},hp=#{hp},cri=#{cri},resu=#{resu},speed=#{speed},cd=#{cd}
+   where id=#{id}
+</update>
+
+<select id="queryByUserId" parameterType="java.lang.Integer" resultType="com.game.entity.Character">
+   select * from `character` where userId=#{userId}
+</select>
+
+<select id="queryById" parameterType="java.lang.Integer" resultType="com.game.entity.Character">
+   select * from `character` where id=#{id}
+</select>
+
+<select id="queryIdsByUserId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+   select id from `character` where userId=#{userId}
+</select>
+
+<!-- 查询战力排行 -->
+<select id="queryCombatPowerStat" resultType="com.game.entity.Character">
+   SELECT c.* FROM `user` u INNER JOIN  `character` c  ON u.`characterId`=c.`id` ORDER BY c.att+c.def DESC
+</select>
+
+<!-- 根据用户id配置id查询 -->
+<select id="queryByUserIdCId"  resultType="com.game.entity.Character">
+   select * from `character` where userId=#{userId} and cId=#{cId} limit 1
+</select>
+</mapper>

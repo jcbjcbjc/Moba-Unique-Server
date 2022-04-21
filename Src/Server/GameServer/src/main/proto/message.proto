@@ -1,0 +1,735 @@
+syntax = "proto3";
+// option java_multiple_files = true;
+option java_package = "com.game.proto";
+option java_outer_classname = "Message";
+
+
+
+
+////////////////////////////////////////////////////////////////
+//
+//  Basic Defines
+//  Defines needed in NetSession
+//
+////////////////////////////////////////////////////////////////
+
+enum Result
+{
+	Success = 0;
+	Failed = 1;
+}
+
+enum CharacterClass
+{
+	NONE = 0;
+	WARRIOR = 1;
+	WIZARD = 2;
+	ASSASSIN = 3;
+	NoticeMonsters = 4;
+	Monsters = 5;
+	Soldier = 6;
+	Cart = 7;
+}
+
+
+enum ItemType
+{
+	SPORTS = 0; //竞技道具
+	ATTSTONE = 1;// 攻石
+	DEFSTONE = 2; // 防石
+	RESUSTONE = 3; // 复活石
+	HPSTONE = 4; // 血量石
+    CDSTONE = 5;  //CD石
+    CRISTONE = 6;  //暴击石
+    SPEEDSTONE = 7;  //速度石
+}
+
+enum AddAttrType
+{
+	GEM = 0;
+	SPAR = 1;
+}
+
+enum ItemFunction
+{
+    RecoverHP = 0;
+    RecoverMP = 1;
+    AddBuf = 2;
+    AddExp = 3;
+    AddMoney = 4;
+    AddItem = 5;
+    AddBuff = 6;
+    AddSkillPoint = 7;
+}
+
+enum BagHandleType
+{
+   SELL = 0;
+   TRAN = 1;
+   CANCELTRAN = 2;
+}
+
+enum TipsType{
+   Tips=0;
+   Popup=1;
+}
+
+//NetWorking User message
+message NUser {
+	int32 id = 1;   
+	string nickname = 2;  //昵称
+	int64 coin= 3;
+	NCharacter character = 4;   //已选角色信息
+	repeated UnLockCharacter unLockCharacters = 5;  //解锁角色信息
+	bool isFollow = 6;
+	repeated NItem bag = 7;  //背包
+	bool status = 8; // 在线状态
+	int32 fenSiCount = 9;
+	UserStatus userStatus=10;  //用户状态
+	string biFen = 11;  //比分
+	TeamType teamType = 12;  //队伍类型
+	int32 roomNum = 13; //房间人数
+	
+}
+
+message UnLockCharacter {
+	int32 tid = 1; // db id
+	int32 cid = 2; // 配置id 角色1,2,3   
+}
+// NetWork Message on Character
+message NCharacter {
+	int32 tid = 1; // db id
+	int32 cid = 2; // 配置id 角色1,2,3
+	int32 level = 3;
+	int64 exp = 4;
+	int32 userId = 5;
+	int32 att = 6;
+	int32 def = 7;
+	int32 hp = 8;
+	int32 cri = 9;
+	int32 resu = 10;
+	int32 speed = 11;
+	int32 cd = 12;
+	int32 attSpot = 13;
+	int32 defSpot = 14;
+	int32 hpSpot = 15;
+	int32 criSpot = 16;
+	int32 resuSpot = 17;
+	int32 speedSpot = 18;
+	int32 cdSpot = 19;
+	int64 levelExp = 20;
+	int32 speedValue = 21;
+}
+// 只需要id和数量
+message NItem
+{
+	int32 itemId = 1; // 道具id
+	int32 count = 2; // 数量
+	bool isTran = 3;  //是否交易
+	int64 money = 4;  //金额
+}
+
+
+// 后处理 状态
+enum StatusAction
+{
+	UPDATE = 0;
+	ADD = 1;
+	DELETE = 2;
+}
+// 后处理 业务
+enum StatusType
+{
+	MONEY = 0;
+	EXP = 1;
+	SKILL_POINT = 2;
+	ITEM = 3;
+}
+
+message NStatus
+{
+	StatusType type = 1;
+	StatusAction action = 2;
+	int32 id = 3;
+	int64 value = 4;
+}
+
+
+message StatusNotify
+{
+	repeated NStatus status = 1;
+}
+
+message NUserStatusChange
+{
+	int32 userId = 1; // 用户id
+	bool status = 2; // 是否在线
+}
+
+message NAuctionItem
+{
+  int32 id = 1; //拍卖id
+  int32 userId = 2; // 用户id
+  int32 itemId = 3; // 道具id
+  int32 count = 4; // 数量
+  int64 biddingPrice = 5; // 竞拍价
+  int64 currentPrice = 6; // 现价
+  int32 bidderUserId = 7; // 出价者用户id
+  string bidderNickName = 8; // 出价者用户昵称
+  int64 remainingTime = 9; // 剩余时间/毫秒
+}
+
+// 用户状态
+enum UserStatus
+{
+	Normal = 0; //正常
+	Game = 1; //游戏中
+	Room = 2; //房间中
+	Live=3; //观看直播中
+	GameOver=4; //游戏结束
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  Messages
+//
+////////////////////////////////////////////////////////////////
+
+message NetMessage{
+	NetMessageRequest Request = 1;
+	NetMessageResponse Response = 2;
+}
+
+message NetMessageRequest{
+	// 注册
+	UserRegisterRequest userRegister = 1;
+	// 登录
+	UserLoginRequest userLogin = 2;
+	CharacterDetailRequest characterDetail = 3;
+	UpdateNickNameRequest updateNickName = 4;
+	AttrPromoteRequest attrPromote = 5;
+	CombatPowerRankingRequest combatPowerRanking = 6;
+	ItemBuyRequest itemBuy=7;
+	FollowRequest followReq = 8;
+	UnLockRequest unLockReq=9;
+	SwitchCharacterRequest switchCharacterReq=10;
+	BagHandleRequest bagHandleReq=11;
+	QueryTranRequest queryTranReq=12;
+	BuyTranRequest buyTranReq=13;
+	HeartBeatRequest heartBeatReq=14;
+	OfferPriceRequest offerPriceReq=15;
+	AuctionRequest auctionReq=16;
+	GetAuctionListRequest getAuctionListReq=17;
+	MyRoomRequest myRoomReq=18;
+	InviteRequest inviteReq=19;
+	InviteResponse inviteRes=20;
+	KickOutRequest kickOutReq=21;
+	RoomStartGameRequest roomStartGameReq=22;
+	NickNameSearchRequest nickNameSearchReq=23;
+	AddRoomRequest addRoomReq=24;
+	AddRoomResponse addRoomRes=25;
+	OutRoomRequest outRoomReq=26;
+	ChatRequest chatReq=27;
+	UserStatusQueryRequest userStatusQueryReq=28;
+	StartMatchRequest startMatchReq=29;
+	GameOver2Request gameOver2Req=30;
+	AddLiveRequest addLiveReq=31;
+	UploadBiFenRequest uploadBiFenReq=32;
+	FollowListRequest followListReq=33;
+	ValidateOpenRoomRequest validateOpenRoomReq=34;
+}
+
+message NetMessageResponse{
+	UserRegisterResponse userRegister = 1;
+	UserLoginResponse userLogin = 2;
+    CharacterDetailResponse characterDetail = 3;
+    UpdateNickNameResponse updateNickName = 4;
+    AttrPromoteInfoResponse attrPromote = 5;
+    CombatPowerRankingResponse combatPowerRanking = 6;
+	ItemBuyResponse itemBuy = 7;
+    FollowResponse followRes = 8;
+
+    UnLockResponse unLockRes = 10;
+    SwitchCharacterResponse switchCharacterRes=11;
+    BagHandleResponse bagHandleRes=12;
+    UserStatusChangeResponse userStatusChangeRes=13;
+    QueryTranResponse queryTranRes=14;
+    BuyTranResponse buyTranRes=15;
+    HeartBeatResponse heartBeatRes=16;
+    OfferPriceResponse offerPriceRes=17;
+    AuctionResponse auctionRes=18;
+    GetAuctionListResponse getAuctionListRes=19;
+    TipsResponse tipsRes=20;
+    MyRoomResponse myRoomRes=21;
+ 	InviteRequest inviteReq=22;
+	InviteResponse inviteRes=23;
+	KickOutResponse kickOutRes=24;
+	RoomStartGameResponse roomStartGameRes=25;
+	NickNameSearchResponse nickNameSearchRes=26;
+	FollowListResponse followListRes=27;
+    AddRoomRequest addRoomReq=28;
+	AddRoomResponse addRoomRes=29;
+    OutRoomResponse outRoomRes=30;
+    ChatResponse chatRes=31;
+    UserStatusQueryResponse userStatusQueryRes=32;
+    StartMatchResponse startMatchRes=33;
+    MatchResponse matchRes=34;
+    AddLiveResponse addLiveRes=35;
+    ValidateOpenRoomResponse validateOpenRoomRes=36;
+	StatusNotify statusNotify = 100;
+
+}
+
+
+//登录
+message UserLoginRequest {
+	string userName = 1;
+	string passward = 2;
+}
+
+message UserLoginResponse {
+	Result result = 1;
+	string errormsg = 2;
+	NUser user = 3;   //当前用户角色信息
+
+}
+
+//注册
+message UserRegisterRequest
+{
+	string userName = 1;
+	string password = 2;
+}
+
+message UserRegisterResponse {
+	Result result = 1;
+	string errormsg = 2;
+}
+
+//英雄详情
+message CharacterDetailRequest
+{
+	int32 userId = 1;
+	int32 tCharacterId = 2;
+}
+
+message CharacterDetailResponse {
+    Result result = 1;
+	string errormsg = 2;
+	NUser user = 3;
+}
+
+//修改昵称
+message UpdateNickNameRequest
+{
+	string nickname = 1;
+}
+
+message UpdateNickNameResponse {
+	Result result = 1;
+	string errormsg = 2;
+}
+
+//获取属性信息
+message AttrPromoteInfoResponse
+{
+    Result result = 1;
+	string errormsg = 2;
+	int32 spot = 3;  //点数
+	int32 attrValue = 4;  //属性值
+}
+
+//属性提升请求
+message AttrPromoteRequest
+{
+	int32 tCharacterId = 1;
+	AttrPromoteType attrPromoteType = 2;
+}
+
+enum AttrPromoteType
+{
+  Att = 0;
+  Def = 1;
+  Hp = 2;
+  Cri = 3;
+  Resu = 4;
+  Speed = 5;
+  Cd = 6;
+}
+
+//战力排行
+message CombatPowerRankingRequest
+{
+}
+
+message CombatPowerRankingResponse {
+	repeated NUser users = 1;
+	int32 myRanking = 2;  //我的排行
+}
+
+// 购买物品,需要知道 物品id,物品数量
+message ItemBuyRequest
+{
+    int32 shopId = 1;
+	int32 itemId = 2;
+	int32 count = 3;
+}
+
+message ItemBuyResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+}
+
+
+//关注或取消关注
+message FollowRequest
+{
+	int32 userId = 1;
+	bool isFollow = 2;  //是否关注
+}
+
+message FollowResponse
+{
+	Result result = 1;// 如果申请添加的人 不在线,或者是自己,直接返回错误提示
+	string errormsg = 2;
+}
+
+
+
+//解锁请求
+message UnLockRequest
+{
+	int32 cCharacterId = 1;
+}
+
+message UnLockResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	UnLockCharacter unLockCharacter=3;
+}
+
+//切换英雄请求
+message SwitchCharacterRequest
+{
+	int32 tCharacterId = 1;
+}
+
+message SwitchCharacterResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	NCharacter character = 3;   //已选角色信息
+}
+
+//背包操作请求
+message BagHandleRequest
+{
+  int32 itemId = 1;
+  BagHandleType bagHandleType = 2;
+  int64 money = 3;
+}
+
+message BagHandleResponse
+{
+    Result result = 1;
+	string errormsg = 2;
+}
+
+//用户状态变更列表
+message UserStatusChangeResponse{
+    repeated NUserStatusChange userStatusChanges = 1;
+}
+
+//查询用户交易请求
+message QueryTranRequest{
+  int32 userId = 1;
+}
+message QueryTranResponse{
+  repeated NItem items = 1;  //交易列表 
+  Result result = 2;
+  string errormsg = 3;
+}
+
+//购买用户交易请求
+message BuyTranRequest{
+  int32 userId = 1;
+  int32 itemId = 2;
+}
+
+message BuyTranResponse{ 
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//心跳请求
+message HeartBeatRequest{
+}
+
+message HeartBeatResponse{
+  int32 liveFenSiCount = 1;  //观看直播粉丝数量
+}
+
+//拍卖系统
+//出价请求
+message OfferPriceRequest{
+  int32 id = 1;
+  int64 money = 2;
+}
+
+message OfferPriceResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//拍卖请求
+message AuctionRequest{
+  int32 itemId = 1;
+  int64 money = 2;
+}
+
+message AuctionResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//获取拍卖列表请求
+message GetAuctionListRequest{
+ 
+}
+
+message GetAuctionListResponse{
+  repeated NAuctionItem auctionItems=1;
+}
+
+//消息提醒响应
+//tips业务类型
+enum TipsWorkType
+{
+	None = 0;
+	AuctionResult = 1;   //拍卖结算
+	DismissRoom = 2;   //解散房间
+	KickOutRoom = 3;  //踢出房间
+	OutRoom = 4;  //退出房间
+}
+message TipsResponse{
+  TipsType tipsType=1; 
+  string content = 2;
+  TipsWorkType tipsWorkType = 3;
+}
+
+//Room System
+//房间用户
+message RoomUser
+{
+  int32 userId = 1; // 用户id
+  string nickName = 2; // 用户昵称
+  int32 cCharacterId = 3; // 角色配置id
+  NUser user = 4;   //当前用户信息
+}
+//队伍类型
+enum TeamType{
+  My = 0;   //友方
+  Enemy = 1;  //敌方
+}
+
+//房间状态
+enum RoomStatus{
+  Normal_= 0;   //正常
+  GameIn=1;   //游戏中
+}
+
+message NRoom{
+  int32 roomId = 1;  //房间id
+  int32 userId = 2;   //用户id
+  repeated RoomUser my = 3;  //友方用户列表
+  repeated RoomUser enemy = 4;  //敌方用户列表
+  RoomStatus roomStatus = 5;  //房间状态
+  string ipPortStr = 6; //房间ip和端口
+  int32 randomSeed = 7;  //随机数种子
+  string biFen = 8; //比分
+  
+}
+
+//我的房间请求
+message MyRoomRequest{
+
+}
+message MyRoomResponse{
+   NRoom room = 1;   //房间
+}
+
+//邀请请求
+message InviteRequest{
+  int32 fromUserId = 1;  //发送用户id
+  string fromNickName = 2;  //发送用户昵称
+  int32 toUserId = 3;  //接收用户id
+  string toNickName = 4;  //接收用户昵称
+  TeamType teamType = 5;  //队伍类型
+}
+message InviteResponse{
+  Result result = 1;
+  string errormsg = 2;
+  InviteRequest inviteRequest = 3;
+}
+
+//踢出请求
+message KickOutRequest{
+  int32 userId = 1;  //用户id
+}
+message KickOutResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//开始游戏请求
+message RoomStartGameRequest{
+
+}
+message RoomStartGameResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//昵称搜索请求
+message NickNameSearchRequest{
+  string nickName = 1;
+}
+message NickNameSearchResponse{
+  repeated RoomUser roomUser = 1;
+}
+
+//加入房间请求
+message AddRoomRequest{
+  int32 roomId = 1;  //房间id  
+  int32 fromUserId = 2;  //发送用户id
+  string fromNickName = 3;  //发送用户昵称
+}
+message AddRoomResponse{
+  Result result = 1;
+  string errormsg = 2;
+  AddRoomRequest addRoomRequest = 3;
+  TeamType teamType = 4;  //队伍类型
+}
+
+//退出房间请求
+message OutRoomRequest{
+
+}
+message OutRoomResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//关注列表请求
+message FollowListRequest{
+
+}
+
+//关注列表响应
+message FollowListResponse{
+  repeated NUser follows = 1;
+}
+
+// Chat System
+enum ChatChannel
+{
+	Comp = 0;   //综合
+	Private = 1;   //私聊
+	RoomChat = 2;  //房间
+}
+
+message ChatMessage
+{
+	ChatChannel chatChannel = 1;
+	int32 fromId = 2;
+	string fromName = 3;
+	int32 fromLevel = 4;
+	int32 fromCCharacterId = 5; 
+	int32 toId = 6;
+	string toName = 7;
+	int32 toLevel = 8;
+	int32 toCCharacterId = 9; 
+	string msg = 10;
+	int64 time = 11;
+	ChatRoomType chatRoomType = 12;  //聊天房间类型
+	int32 enterLiveUserId = 13;  //进入直播用户的id
+}
+
+enum ChatRoomType
+{
+  Room_ = 0;  //房间
+  Game_ = 1;  //游戏中
+  Live_ = 2;  //观看直播
+}
+
+message ChatRequest
+{
+	ChatMessage chatMessage = 1;
+}
+message ChatResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	repeated ChatMessage compMessages = 3;
+	repeated ChatMessage privateMessages = 4;
+	repeated ChatMessage roomMessages = 5;
+}
+//用户在线、离线状态查询请求
+message UserStatusQueryRequest
+{
+	repeated int32 userIds = 1;  //用户id集合
+}
+
+message UserStatusQueryResponse
+{
+    repeated bool status = 1; // 是否在线集合
+}
+
+//开始匹配请求
+message StartMatchRequest{
+   
+}
+//开始匹配响应
+message StartMatchResponse{
+   Result result = 1;
+   string errormsg = 2;
+}
+//匹配响应
+message MatchResponse{
+   Result result = 1;
+   string errormsg = 2;
+   NRoom room = 3;   //房间
+}
+
+//游戏结束请求
+message GameOver2Request{
+  string ipPortStr = 1;
+  
+}
+
+//进入直播请求
+message AddLiveRequest{
+   int32 userId = 1;  //用户id
+}
+//进入直播响应
+message AddLiveResponse{
+   Result result = 1;
+   string errormsg = 2;
+   NRoom room = 3;   //房间
+}
+
+//上传比分请求
+message UploadBiFenRequest{
+   string biFen = 1;  //比分
+}
+
+//效验是否可以开房间请求
+message ValidateOpenRoomRequest{
+
+}
+message ValidateOpenRoomResponse{
+  Result result = 1;
+  string errormsg = 2;
+}

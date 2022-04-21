@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.game.dao.UserDao">
+  
+  <select id="queryByUserNamePassword" parameterType="com.game.entity.User" resultType="com.game.entity.User">
+   select * from user where username=#{username} and password=#{password} limit 1 
+  </select>
+
+  <select id="queryByIds" parameterType="java.util.List" resultType="com.game.entity.User">
+    select * from user where id in (
+      <foreach collection="list" item="id" index="index" separator=",">
+         ${id}
+      </foreach>
+    )
+  </select>
+  
+  <insert id="add" parameterType="com.game.entity.User" useGeneratedKeys="true" keyProperty="id">
+     insert into user(username,password,nickname,coin,characterId,bag) values 
+     (#{username},#{password},#{nickname},#{coin},#{characterId},#{bag})
+  </insert>
+  
+  <update id="update" parameterType="com.game.entity.User">
+     update user set username=#{username},password=#{password},nickname=#{nickname},coin=#{coin},
+     characterId=#{characterId},bag=#{bag} where id=#{id}
+  </update>
+  
+  <select id="queryById" parameterType="java.lang.Integer" resultType="com.game.entity.User">
+    select * from user where id = #{userId}
+  </select>
+  
+</mapper>

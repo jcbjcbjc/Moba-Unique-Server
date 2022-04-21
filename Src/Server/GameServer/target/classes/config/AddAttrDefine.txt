@@ -1,0 +1,200 @@
+{
+  "1": {
+    "ID": 1,
+    "Range": [
+      0,
+      29
+    ],
+    "Probability": 100,
+    "Type": "GEM"
+  },
+  "2": {
+    "ID": 2,
+    "Range": [
+      30,
+      34
+    ],
+    "Probability": 90,
+    "Type": "GEM"
+  },
+  "3": {
+    "ID": 3,
+    "Range": [
+      35,
+      39
+    ],
+    "Probability": 80,
+    "Type": "GEM"
+  },
+  "4": {
+    "ID": 4,
+    "Range": [
+      40,
+      44
+    ],
+    "Probability": 70,
+    "Type": "GEM"
+  },
+  "5": {
+    "ID": 5,
+    "Range": [
+      45,
+      49
+    ],
+    "Probability": 60,
+    "Type": "GEM"
+  },
+  "6": {
+    "ID": 6,
+    "Range": [
+      50,
+      54
+    ],
+    "Probability": 50,
+    "Type": "GEM"
+  },
+  "7": {
+    "ID": 7,
+    "Range": [
+      55,
+      59
+    ],
+    "Probability": 45,
+    "Type": "GEM"
+  },
+  "8": {
+    "ID": 8,
+    "Range": [
+      60,
+      64
+    ],
+    "Probability": 40,
+    "Type": "GEM"
+  },
+  "9": {
+    "ID": 9,
+    "Range": [
+      65,
+      69
+    ],
+    "Probability": 35,
+    "Type": "GEM"
+  },
+  "10": {
+    "ID": 10,
+    "Range": [
+      70,
+      79
+    ],
+    "Probability": 30,
+    "Type": "GEM"
+  },
+  "11": {
+    "ID": 11,
+    "Range": [
+      80,
+      89
+    ],
+    "Probability": 25,
+    "Type": "GEM"
+  },
+  "12": {
+    "ID": 12,
+    "Range": [
+      90,
+      94
+    ],
+    "Probability": 15,
+    "Type": "GEM"
+  },
+  "13": {
+    "ID": 13,
+    "Range": [
+      95,
+      99
+    ],
+    "Probability": 5,
+    "Type": "GEM"
+  },
+  "14": {
+    "ID": 14,
+    "Range": [
+      0,
+      29
+    ],
+    "Probability": 100,
+    "Type": "SPAR"
+  },
+  "15": {
+    "ID": 15,
+    "Range": [
+      30,
+      39
+    ],
+    "Probability": 90,
+    "Type": "SPAR"
+  },
+  "16": {
+    "ID": 16,
+    "Range": [
+      40,
+      49
+    ],
+    "Probability": 80,
+    "Type": "SPAR"
+  },
+  "17": {
+    "ID": 17,
+    "Range": [
+      50,
+      59
+    ],
+    "Probability": 70,
+    "Type": "SPAR"
+  },
+  "18": {
+    "ID": 18,
+    "Range": [
+      60,
+      69
+    ],
+    "Probability": 60,
+    "Type": "SPAR"
+  },
+  "19": {
+    "ID": 19,
+    "Range": [
+      70,
+      79
+    ],
+    "Probability": 50,
+    "Type": "SPAR"
+  },
+  "20": {
+    "ID": 20,
+    "Range": [
+      80,
+      89
+    ],
+    "Probability": 40,
+    "Type": "SPAR"
+  },
+  "21": {
+    "ID": 21,
+    "Range": [
+      90,
+      99
+    ],
+    "Probability": 30,
+    "Type": "SPAR"
+  },
+  "22": {
+    "ID": 22,
+    "Range": [
+      100,
+      110
+    ],
+    "Probability": 20,
+    "Type": "SPAR"
+  }
+}
