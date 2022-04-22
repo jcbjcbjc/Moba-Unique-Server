@@ -260,6 +260,8 @@ rpc调用可以设置成阻塞或者是非阻塞
 ![image](https://user-images.githubusercontent.com/91889375/164409337-634c730f-efbb-4e3a-83c9-1845623a8611.png)
 
 ##### c#后端框架实现以及游戏展示
+具体c# .net框架的底层怎么调用的可以看文档
+https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/calling-synchronous-methods-asynchronously
 
 ##### JAVA帧同步服务器后端框架实现及性能分析
 
