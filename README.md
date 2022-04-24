@@ -300,7 +300,15 @@ https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patter
 
 ### 7    配置
 
+js protobuf用法：
+https://blog.csdn.net/qq_40956352/article/details/106833613
 
+部署方法
+nohup java -jar   GameServer-0.0.1-SNAPSHOT.jar  >GameServer.log  2>&1 &
+nohup java -jar   BattleServer-0.0.1-SNAPSHOT.jar  >BattleServer.log  2>&1 &
+
+查看进程关闭
+ps -ef|grep java
 
 
 
