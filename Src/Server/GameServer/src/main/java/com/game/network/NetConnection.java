@@ -2,6 +2,11 @@ package com.game.network;
 
 import com.game.proto.Message.*;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.socket.DatagramPacket;
+import io.netty.buffer.Unpooled;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+
 /**
  * @author 贾超博
  *
@@ -18,6 +23,8 @@ public class NetConnection {
     // 连接管道，保存长连接信息
     public ChannelHandlerContext ctx;
 
+    private InetSocketAddress sender;
+
     // 记录当前 用户的信息
     NetSession session = new NetSession();
 
@@ -30,8 +37,9 @@ public class NetConnection {
         return session;
     }
 
-    public NetConnection(ChannelHandlerContext ctx) {
+    public NetConnection(ChannelHandlerContext ctx,InetSocketAddress sender) {
         this.ctx = ctx;
+        this.sender=sender;
     }
 
     public NetMessageResponse.Builder getResponse() {
@@ -52,9 +60,8 @@ public class NetConnection {
 
         netMessage.setResponse(message);
         // System.out.println("build: " + netMessage);
-        ctx.write(netMessage);
-        ctx.flush();
+
+        ctx.writeAndFlush(new DatagramPacket(Unpooled.wrappedBuffer(netMessage.build().toByteArray()),sender));
         netMessage = null;
     }
-
 }

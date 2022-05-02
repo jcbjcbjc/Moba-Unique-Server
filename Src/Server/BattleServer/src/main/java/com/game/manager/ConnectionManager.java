@@ -2,8 +2,7 @@ package com.game.manager;
 
 
 import com.game.models.User;
-import com.game.network.NetConnection;
-
+import com.game.network.NetConnectionWebSocket;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.Collections;
@@ -24,18 +23,18 @@ import java.util.Map;
 public class ConnectionManager {
 
     // 默认128, 可以储存 96 个链接,根据user id,获取连接
-    private static Map<Integer, NetConnection> conns = Collections.synchronizedMap(new HashMap<>(128));
+    private static Map<Integer, NetConnectionWebSocket> conns = Collections.synchronizedMap(new HashMap<>(128));
     // ChannelHandlerContext 获取用户id,再通过用户id 获取NetConnection ;
     private static Map<ChannelHandlerContext, Integer> ctxs = Collections.synchronizedMap(new HashMap<>(128));
 
     // 通过ChannelHandlerContext 查询用户是否已登录 返回NetConnection
-    public static NetConnection getConnection(ChannelHandlerContext ctx) {
+    public static NetConnectionWebSocket getConnection(ChannelHandlerContext ctx) {
         Integer userId = ctxs.get(ctx);
         if (userId == null || userId == 0) return null;
         return conns.get(userId);
     }
 
-    public static void addToConnection(int userId, NetConnection conn) {
+    public static void addToConnection(int userId, NetConnectionWebSocket conn) {
         System.out.println("用户: " + userId + " 已加入连接");
         conns.put(userId, conn);
         ctxs.put(conn.ctx, userId);
@@ -50,7 +49,7 @@ public class ConnectionManager {
     }
 
     public static void removeConnection(int userId) {
-        NetConnection netConnection = conns.get(userId);
+        NetConnectionWebSocket netConnection = conns.get(userId);
         conns.remove(userId);
         if(netConnection != null) {        	
         	ctxs.remove(netConnection.ctx);
@@ -58,7 +57,7 @@ public class ConnectionManager {
         }
     }
 
-    public static NetConnection getConnection(int userId) {
+    public static NetConnectionWebSocket getConnection(int userId) {
         return conns.get(userId);
 
     }

@@ -4,8 +4,11 @@ import com.game.manager.ConnectionManager;
 import com.game.proto.Message.*;
 import com.game.service.*;
 import com.game.spring.SpringBeanUtil;
-
+import io.netty.channel.socket.DatagramPacket;
 import io.netty.channel.ChannelHandlerContext;
+
+import java.net.InetSocketAddress;
+
 /**
  * @author 贾超博
  *
@@ -39,12 +42,12 @@ public class MessageDispatch {
         }
         return Instance;
     }
-    public void receiveData(ChannelHandlerContext ctx, NetMessage.Builder message) {
+    public void receiveData(ChannelHandlerContext ctx, NetMessage.Builder message, InetSocketAddress sender) {
 
         NetConnection conn = null;
         // 如果 是注册/登录,先创建连接；如果不是，判断是否已连接
         if (message.getRequest().hasUserRegister() || message.getRequest().hasUserLogin()) {
-            conn = createConne(ctx);
+            conn = createConne(ctx,sender);
             System.out.println("conn: " + conn);
         } else {
             conn = ConnectionManager.getConnection(ctx);
@@ -172,10 +175,10 @@ public class MessageDispatch {
 
     // 注册,登录,需要创建新的 连接
 
-    NetConnection createConne(ChannelHandlerContext context) {
+    NetConnection createConne(ChannelHandlerContext context,InetSocketAddress sender) {
         NetConnection connection = ConnectionManager.getConnection(context);
         if (connection == null) {
-            connection = new NetConnection(context);
+            connection = new NetConnection(context,sender);
         }
         return connection;
     }

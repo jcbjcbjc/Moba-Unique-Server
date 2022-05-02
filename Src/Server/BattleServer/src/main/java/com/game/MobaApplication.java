@@ -8,12 +8,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import com.game.netty.BinaryWebSocketFrameDecoder;
 import com.game.netty.BootNettyServer;
 import com.game.service.UpdateService;
 import com.game.util.Config;
 import com.game.util.TimeUtil;
-
+import com.game.netty.KCPServer;
 //@MapperScan("com.game.dao")
 // 以下注解,需要在上服务器时  注释!!!
 // 开启 ServletContextListener 监听器
@@ -30,7 +29,7 @@ public class MobaApplication implements CommandLineRunner {
 		UpdateService updateService = context.getBean(UpdateService.class);
 		updateService.update(100);
 
-		BinaryWebSocketFrameDecoder.init();
+
 
 	}
 
@@ -40,7 +39,7 @@ public class MobaApplication implements CommandLineRunner {
 		/**
 		 * 使用异步注解方式启动netty服务端服务
 		 */
-		new BootNettyServer().bind(Config.PORT);
+		new KCPServer().bind(Config.PORT);
 
 	}
 

@@ -123,12 +123,17 @@
 			<artifactId>gson</artifactId>
 			<version>2.6.2</version>
 		</dependency>
-		 
-		
+
+        <dependency>
+            <groupId>com.github.l42111996</groupId>
+            <artifactId>kcp-base</artifactId>
+            <version>1.6</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
-
         <!--放置在dao下的话要在这里配置，让springboot启动时去扫描-->
         <!-- <resources>
             <resource>

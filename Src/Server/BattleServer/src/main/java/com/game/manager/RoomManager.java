@@ -39,7 +39,7 @@ public class RoomManager {
 			for (User user: room.users) {
 				UserManager.Instance.users.remove(user.id);
 				UserManager.Instance.liveUsers.remove(user.id);
-				ConnectionManager.removeConnection(user.id);
+				ConnectionManagerKCP.removeConnection(user.id);
 			}
 		}
 	}

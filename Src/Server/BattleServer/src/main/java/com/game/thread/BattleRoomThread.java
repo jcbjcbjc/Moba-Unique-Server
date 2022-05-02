@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
+import com.game.manager.ConnectionManagerKCP;
+import com.game.network.NetConnectionKCP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +17,7 @@ import com.game.manager.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.network.NetConnection;
+import com.game.network.NetConnectionWebSocket;
 import com.game.proto.Message.FrameHandle;
 import com.game.proto.Message.FrameHandleResponse;
 import com.game.proto.Message.NetMessageResponse2;
@@ -77,7 +79,7 @@ public class BattleRoomThread extends Thread{
 				this.setFrameData();
 				//下发房间用户当前帧所有用户的操作
 				for (User user: room.users) {
-					NetConnection conn=ConnectionManager.getConnection(user.id);
+					NetConnectionKCP conn= ConnectionManagerKCP.getConnection(user.id);
 					if(conn==null) {
 						continue;
 					}
