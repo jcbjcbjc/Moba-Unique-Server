@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import com.game.netty.BootNettyServer;
+
 import com.game.service.UpdateService;
 import com.game.util.Config;
 import com.game.util.TimeUtil;

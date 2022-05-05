@@ -26,12 +26,6 @@ public class KCPServerHandler implements KcpListener {
 
     @Override
     public void handleReceive(ByteBuf buf, Ukcp kcp) {
-       /* short curCount = buf.getShort(buf.readerIndex());
-        System.out.println(Thread.currentThread().getName()+"  收到消息 "+curCount);
-        kcp.write(buf);
-        if (curCount == -1) {
-            kcp.close();
-        }*/
         final byte[] array;
         final int offset;
         final int length = buf.readableBytes();

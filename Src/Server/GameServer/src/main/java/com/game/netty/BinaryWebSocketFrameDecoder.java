@@ -1,21 +1,42 @@
 package com.game.netty;
 
+import com.game.dao.UserDao;
 import com.game.manager.ConnectionManager;
-
 import com.game.network.MessageDispatch;
-import com.game.proto.Message;
+import com.game.network.NetConnection;
+import com.game.service.UserService;
+import com.game.spring.SpringBeanUtil;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.ChannelHandler.Sharable;
+import io.netty.handler.codec.CorruptedFrameException;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import com.game.proto.Message.*;
 
+import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class WebSocketServerHandler extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
-    public static void init() {
+/**
+ * I/O数据读写处理类
+ */
+@Sharable
+public class BinaryWebSocketFrameDecoder extends SimpleChannelInboundHandler<BinaryWebSocketFrame> {
 
+    static UserService userService;
+
+    public static void init() {
+        userService = SpringBeanUtil.getBean(UserService.class);
     }
+
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         InetSocketAddress insocket = (InetSocketAddress) ctx.channel().remoteAddress();
@@ -27,8 +48,8 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<BinaryWe
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         System.out.println("handlerRemoved");
-        // 清除 NetConnection
-        ConnectionManager.removeConnection(ctx);
+//      userService = SpringBeanUtil.getBean(UserService.class);
+        userService.gameLeave(ctx);
         ctx.flush();
         ctx.close();
     }
@@ -55,19 +76,19 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<BinaryWe
             array = ByteBufUtil.getBytes(msg, msg.readerIndex(), length, false);
             offset = 0;
         }
-        Message.NetMessageRequest2 nm = Message.NetMessageRequest2.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
-//        System.out.println(nm);
-        MessageDispatch.Instance.DispatchData(ctx, nm);
+        NetMessage nm = NetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        System.out.println(nm);
+        MessageDispatch.Instance.receiveData(ctx, nm.toBuilder());
     }
 
-	/*@Override
-	public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-		// 心跳包检测读超时
-		if (evt instanceof IdleStateEvent) {
-			IdleStateEvent e = (IdleStateEvent) evt;
-			if (e.state() == IdleState.ALL_IDLE) {
-				ctx.channel().close();
-			}
-		}
-	}*/
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        // 心跳包检测读超时
+        if (evt instanceof IdleStateEvent) {
+            IdleStateEvent e = (IdleStateEvent) evt;
+            if (e.state() == IdleState.ALL_IDLE) {
+                ctx.channel().close();
+            }
+        }
+    }
 }

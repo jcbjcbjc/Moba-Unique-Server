@@ -4,8 +4,8 @@ package com.game;
 import com.game.manager.DataManager;
 import com.game.manager.PowerRankingManager;
 import com.game.manager.UserManager;
-import com.game.netty.BinaryWebSocketFrameDecoder;
-import com.game.netty.BootNettyServer;
+import com.game.netty.NettyTCPServer;
+import com.game.netty.TCPServerHandler;
 import com.game.service.UpdateService;
 import com.game.util.Config;
 import com.game.util.TimeUtil;
@@ -35,8 +35,7 @@ public class MobaApplication implements CommandLineRunner {
         UpdateService updateService = context.getBean(UpdateService.class);
         updateService.update(100);
 
-        BinaryWebSocketFrameDecoder.init();
-
+        TCPServerHandler.init();
     }
 
     @Async
@@ -48,7 +47,7 @@ public class MobaApplication implements CommandLineRunner {
         DataManager.Instance.init();
         UserManager.Instance.init();
         PowerRankingManager.Instance.init();
-        new BootNettyServer().bind(Config.PORT);
+        new NettyTCPServer().bind(Config.PORT);
 
     }
 

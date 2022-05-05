@@ -23,8 +23,6 @@ public class NetConnection {
     // 连接管道，保存长连接信息
     public ChannelHandlerContext ctx;
 
-    private InetSocketAddress sender;
-
     // 记录当前 用户的信息
     NetSession session = new NetSession();
 
@@ -37,9 +35,8 @@ public class NetConnection {
         return session;
     }
 
-    public NetConnection(ChannelHandlerContext ctx,InetSocketAddress sender) {
+    public NetConnection(ChannelHandlerContext ctx) {
         this.ctx = ctx;
-        this.sender=sender;
     }
 
     public NetMessageResponse.Builder getResponse() {
@@ -60,8 +57,8 @@ public class NetConnection {
 
         netMessage.setResponse(message);
         // System.out.println("build: " + netMessage);
-
-        ctx.writeAndFlush(new DatagramPacket(Unpooled.wrappedBuffer(netMessage.build().toByteArray()),sender));
+        ctx.write(netMessage);
+        ctx.flush();
         netMessage = null;
     }
 }

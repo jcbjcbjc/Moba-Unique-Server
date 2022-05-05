@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.game.manager.ConnectionManagerKCP;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,7 @@ import com.game.manager.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.network.NetConnection;
+import com.game.network.NetConnectionKCP;
 import com.game.proto.Message.LiveFrameResponse;
 import com.game.proto.Message.NetMessageResponse2;
 import com.game.proto.Message.RepairFrame;
@@ -65,7 +66,7 @@ public class BattleRoomLiveThread extends Thread{
 						response.setLiveFrameRes(liveFrameResponseBuilder);
 						
 						for (User user: liveUsers) {
-							NetConnection conn=ConnectionManager.getConnection(user.id);
+							NetConnectionKCP conn= ConnectionManagerKCP.getConnection(user.id);
 							if(conn==null) {
 								continue;
 							}
