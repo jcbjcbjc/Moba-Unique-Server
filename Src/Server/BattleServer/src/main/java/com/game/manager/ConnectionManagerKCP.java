@@ -4,6 +4,7 @@ import com.game.network.NetConnectionKCP;
 import com.game.network.NetConnectionWebSocket;
 import io.netty.channel.ChannelHandlerContext;
 import kcp.Ukcp;
+import org.beykery.jkcp.KcpOnUdp;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ public class ConnectionManagerKCP {
         conns.put(userId, conn);
         ctxs.put(conn, userId);
     }
-    public static void removeConnection(Ukcp kcp) {
+    public static void removeConnection(KcpOnUdp kcp) {
         Integer userId = ctxs.get(kcp);
         conns.remove(userId);
         ctxs.remove(kcp);

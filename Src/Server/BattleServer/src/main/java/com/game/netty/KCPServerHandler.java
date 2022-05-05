@@ -53,8 +53,8 @@ public class KCPServerHandler implements KcpListener {
 
     @Override
     public void handleClose(Ukcp kcp) {
-        ConnectionManagerKCP.removeConnection(kcp);
+        /*ConnectionManagerKCP.removeConnection(kcp);
         System.out.println(Snmp.snmp.toString());
-        Snmp.snmp  = new Snmp();
+        Snmp.snmp  = new Snmp();*/
     }
 }
