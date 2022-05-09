@@ -2,11 +2,14 @@ package com.game.service;
 
 import com.game.network.NetConnectionKCP;
 import com.game.network.NetConnectionWebSocket;
-
-import com.game.proto.Message.FrameHandle;
-import com.game.proto.Message.GameOverRequest;
-import com.game.proto.Message.PercentForward;
-import com.game.proto.Message.RepairFrameRequest;
+import com.game.proto.C2BNet.FrameHandle;
+import com.game.proto.C2BNet.GameOverRequest;
+import com.game.proto.C2BNet.PercentForward;
+import com.game.proto.C2BNet.RepairFrameRequest;
+//import com.game.proto.Message.FrameHandle;
+//import com.game.proto.Message.GameOverRequest;
+//import com.game.proto.Message.PercentForward;
+//import com.game.proto.Message.RepairFrameRequest;
 
 public interface BattleService {
 	

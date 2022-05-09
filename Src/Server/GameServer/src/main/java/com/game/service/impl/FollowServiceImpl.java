@@ -4,9 +4,12 @@ import org.springframework.stereotype.Service;
 
 import com.game.entity.User;
 import com.game.network.NetConnection;
-import com.game.proto.Message.FollowListRequest;
-import com.game.proto.Message.FollowListResponse;
-import com.game.proto.Message.NetMessageResponse;
+import com.game.proto.C2GNet.FollowListRequest;
+import com.game.proto.C2GNet.FollowListResponse;
+import com.game.proto.C2GNet.NetMessageResponse;
+//import com.game.proto.Message.FollowListRequest;
+//import com.game.proto.Message.FollowListResponse;
+//import com.game.proto.Message.NetMessageResponse;
 import com.game.service.FollowService;
 
 @Service

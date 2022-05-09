@@ -9,7 +9,7 @@ import java.util.Map;
 
 import com.game.entity.Follow;
 import com.game.entity.User;
-import com.game.proto.Message.NUserStatusChange;
+import com.game.proto.C2GNet.NUserStatusChange;
 /**
  * 用户在线、离线状态管理器
  * @author Administrator

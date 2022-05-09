@@ -11,14 +11,14 @@ import java.util.Set;
 
 import com.game.entity.User;
 import com.game.network.NetConnection;
-import com.game.proto.Message.NRoom;
+import com.game.proto.C2GNet.NRoom;
 import com.game.proto.Message.NUser;
 import com.game.proto.Message.NetMessageResponse;
-import com.game.proto.Message.Result;
-import com.game.proto.Message.RoomStatus;
-import com.game.proto.Message.RoomUser;
+import com.game.proto.C2GNet.Result;
+import com.game.proto.C2GNet.RoomStatus;
+import com.game.proto.C2GNet.RoomUser;
 import com.game.proto.Message.StartMatchResponse;
-import com.game.proto.Message.TeamType;
+import com.game.proto.C2GNet.TeamType;
 import com.game.proto.Message.UserStatus;
 import com.game.service.MatchService;
 import com.game.service.RoomService;
@@ -144,9 +144,9 @@ public class MatchManager {
 				RoomManager.Instance.userMap.put(user.id, user);
 				RoomUser roomUser=RoomManager.Instance.CreatorRoomUser(user);
 				if(teamType==TeamType.My) {					
-					roomBuilder.addMy(roomUser);
+					roomBuilder.addTeam1(roomUser);
 				}else {
-					roomBuilder.addEnemy(roomUser);					
+					roomBuilder.addTeam2(roomUser);
 				}
 			}
 		}
@@ -201,10 +201,10 @@ public class MatchManager {
 			 RoomManager.Instance.RemoveUserMapByRoom(roomBuilder);
 		  }
 	  //匹配响应
-	  for (RoomUser roomUser : roomBuilder.getMyList()) {		
+	  for (RoomUser roomUser : roomBuilder.getTeam1List()) {
 		  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
 	  }
-	  for (RoomUser roomUser : roomBuilder.getEnemyList()) {		
+	  for (RoomUser roomUser : roomBuilder.getTeam2List()) {
 		  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
 	  }
 	}

@@ -14,9 +14,12 @@ import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
 import com.game.network.NetConnectionKCP;
-import com.game.proto.Message.LiveFrameResponse;
-import com.game.proto.Message.NetMessageResponse2;
-import com.game.proto.Message.RepairFrame;
+import com.game.proto.C2BNet.LiveFrameResponse;
+import com.game.proto.C2BNet.C2BNetMessageResponse;
+import com.game.proto.C2BNet.RepairFrame;
+//import com.game.proto.Message.LiveFrameResponse;
+//import com.game.proto.Message.NetMessageResponse2;
+//import com.game.proto.Message.RepairFrame;
 import com.game.proto.Message.RepairFrameResponse;
 import com.game.util.Config;
 
@@ -34,7 +37,7 @@ public class BattleRoomLiveThread extends Thread{
 	public int sleepTime = Config.LiveIntervalForwardTime*1000; //休眠时间
 	
 	private LiveFrameResponse.Builder liveFrameResponseBuilder=LiveFrameResponse.newBuilder();
-	private NetMessageResponse2.Builder response=NetMessageResponse2.newBuilder();
+	private C2BNetMessageResponse.Builder response=C2BNetMessageResponse.newBuilder();
 	private List<RepairFrame> rangeFrameList=new ArrayList<>();
 	
 	public BattleRoomLiveThread(Room room) {

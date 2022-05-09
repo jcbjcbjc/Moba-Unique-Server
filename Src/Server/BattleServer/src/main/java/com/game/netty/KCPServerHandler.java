@@ -3,7 +3,8 @@ import com.backblaze.erasure.FecAdapt;
 import com.backblaze.erasure.fec.Snmp;
 
 import com.game.manager.ConnectionManagerKCP;
-import com.game.proto.Message;
+//import com.game.proto.Message;
+import com.game.proto.C2BNet;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
@@ -29,7 +30,6 @@ public class KCPServerHandler implements KcpListener {
 
     @Override
     public void handleReceive(ByteBuf buf, Ukcp kcp) {
-
         final byte[] array;
         final int offset;
         final int length = buf.readableBytes();
@@ -46,31 +46,9 @@ public class KCPServerHandler implements KcpListener {
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
         }
+//        System.out.println(nm);
         assert nm != null;
-        System.out.println(nm.getMessageType());
-//        System.out.println(nm);
-
-
-
-
-        /*final byte[] array;
-        final int offset;
-        final int length = buf.readableBytes();
-        if (buf.hasArray()) {
-            array = buf.array();
-            offset = buf.arrayOffset() + buf.readerIndex();
-        } else {
-            array = ByteBufUtil.getBytes(buf, buf.readerIndex(), length, false);
-            offset = 0;
-        }
-        Message.NetMessageRequest2 nm = null;
-        try {
-            nm = Message.NetMessageRequest2.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
-        } catch (InvalidProtocolBufferException e) {
-            e.printStackTrace();
-        }
-//        System.out.println(nm);
-        MessageDispatch.Instance.DispatchData(kcp,nm);*/
+        MessageDispatch.Instance.DispatchData(kcp,nm.getRequest());
     }
 
     @Override

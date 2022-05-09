@@ -9,8 +9,8 @@ import java.util.Set;
 //import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.util.StringUtils;
 
-import com.game.proto.Message.NRoom;
-import com.game.proto.Message.Result;
+import com.game.proto.C2GNet.NRoom;
+import com.game.proto.C2GNet.Result;
 import com.game.util.GsonUtils;
 import com.game.util.HttpUtil;
 import com.game.util.PropertyUtil;

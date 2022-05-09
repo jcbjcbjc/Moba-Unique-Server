@@ -5,7 +5,7 @@ import com.game.entity.User;
 import com.game.manager.UserManager;
 import com.game.manager.ConnectionManager;
 import com.game.network.NetConnection;
-import com.game.proto.Message.*;
+import com.game.proto.C2GNet.*;
 
 import io.netty.channel.ChannelHandlerContext;
 import org.springframework.beans.factory.annotation.Autowired;

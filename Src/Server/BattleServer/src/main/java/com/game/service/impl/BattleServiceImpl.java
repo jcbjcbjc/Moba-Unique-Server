@@ -13,14 +13,22 @@ import com.game.manager.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.proto.Message.FrameHandle;
-import com.game.proto.Message.GameOverRequest;
-import com.game.proto.Message.NetMessageResponse2;
-import com.game.proto.Message.PercentForward;
-import com.game.proto.Message.PercentForwardResponse;
-import com.game.proto.Message.RepairFrame;
-import com.game.proto.Message.RepairFrameRequest;
-import com.game.proto.Message.RepairFrameResponse;
+import com.game.proto.C2BNet.FrameHandle;
+import com.game.proto.C2BNet.GameOverRequest;
+import com.game.proto.C2BNet.C2BNetMessageResponse;
+import com.game.proto.C2BNet.PercentForward;
+import com.game.proto.C2BNet.PercentForwardResponse;
+import com.game.proto.C2BNet.RepairFrame;
+import com.game.proto.C2BNet.RepairFrameRequest;
+import com.game.proto.C2BNet.RepairFrameResponse;
+//import com.game.proto.Message.FrameHandle;
+//import com.game.proto.Message.GameOverRequest;
+//import com.game.proto.Message.NetMessageResponse2;
+//import com.game.proto.Message.PercentForward;
+//import com.game.proto.Message.PercentForwardResponse;
+//import com.game.proto.Message.RepairFrame;
+//import com.game.proto.Message.RepairFrameRequest;
+//import com.game.proto.Message.RepairFrameResponse;
 import com.game.service.BattleService;
 
 @Service
@@ -59,7 +67,7 @@ public class BattleServiceImpl implements BattleService {
 		percentForwardBuilder.setPercentForward(percentForward);
 		percentForwardBuilder.setAllUserLoadSucess(room.ValidateAllUserLoadSucess());
 		
-		NetMessageResponse2.Builder response=NetMessageResponse2.newBuilder();
+		C2BNetMessageResponse.Builder response=C2BNetMessageResponse.newBuilder();
 		response.setPercentForwardRes(percentForwardBuilder);
 		
 		for (User u : room.users) {
@@ -102,7 +110,7 @@ public class BattleServiceImpl implements BattleService {
 		
 		RepairFrameResponse.Builder repairFrameResponseBuilder=RepairFrameResponse.newBuilder();
 		repairFrameResponseBuilder.addAllRepairFrames(rangeFrameList);
-		NetMessageResponse2.Builder response=conn.getResponse();
+		C2BNetMessageResponse.Builder response=conn.getResponse();
 		response.setRepairFrameRes(repairFrameResponseBuilder);
 //		conn.send();
 	}

@@ -9,8 +9,10 @@ import java.util.concurrent.ExecutorService;
 
 import com.game.enums.UserStatus;
 import com.game.manager.RoomManager;
-import com.game.proto.Message.FrameHandle;
-import com.game.proto.Message.RepairFrame;
+import com.game.proto.C2BNet.FrameHandle;
+import com.game.proto.C2BNet.RepairFrame;
+//import com.game.proto.Message.FrameHandle;
+//import com.game.proto.Message.RepairFrame;
 import com.game.thread.BattleRoomThread;
 import com.game.util.CachedThreadPoolUtil;
 /**

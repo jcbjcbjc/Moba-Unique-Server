@@ -3,7 +3,8 @@ package com.game.netty;
 import com.game.manager.ConnectionManager;
 
 import com.game.network.MessageDispatch;
-import com.game.proto.Message;
+//import com.game.proto.Message;
+import com.game.proto.C2BNet;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandlerContext;
@@ -55,9 +56,9 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<BinaryWe
             array = ByteBufUtil.getBytes(msg, msg.readerIndex(), length, false);
             offset = 0;
         }
-        Message.NetMessageRequest2 nm = Message.NetMessageRequest2.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        C2BNet.C2BNetMessage nm = C2BNet.C2BNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
 //        System.out.println(nm);
-        MessageDispatch.Instance.DispatchData(ctx, nm);
+        MessageDispatch.Instance.DispatchData(ctx, nm.getRequest());
     }
 
 	/*@Override

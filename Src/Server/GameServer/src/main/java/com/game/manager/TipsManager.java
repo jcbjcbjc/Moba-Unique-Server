@@ -2,10 +2,14 @@ package com.game.manager;
 
 import com.game.network.NetConnection;
 import com.game.proto.Message.HeartBeatResponse;
-import com.game.proto.Message.NetMessageResponse;
-import com.game.proto.Message.TipsResponse;
-import com.game.proto.Message.TipsType;
-import com.game.proto.Message.TipsWorkType;
+import com.game.proto.C2GNet.NetMessageResponse;
+import com.game.proto.C2GNet.TipsResponse;
+import com.game.proto.C2GNet.TipsType;
+import com.game.proto.C2GNet.TipsWorkType;
+//import com.game.proto.Message.NetMessageResponse;
+//import com.game.proto.Message.TipsResponse;
+//import com.game.proto.Message.TipsType;
+//import com.game.proto.Message.TipsWorkType;
 
 public class TipsManager {
 	public static TipsManager Instance=new TipsManager();

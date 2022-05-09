@@ -19,7 +19,7 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.game.proto.Message.*;
+import com.game.proto.C2GNet.*;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class BinaryWebSocketFrameDecoder extends SimpleChannelInboundHandler<Bin
             array = ByteBufUtil.getBytes(msg, msg.readerIndex(), length, false);
             offset = 0;
         }
-        NetMessage nm = NetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        C2GNetMessage nm = C2GNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         System.out.println(nm);
         MessageDispatch.Instance.receiveData(ctx, nm.toBuilder());
     }

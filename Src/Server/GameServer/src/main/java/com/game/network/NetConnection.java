@@ -1,6 +1,7 @@
 package com.game.network;
 
-import com.game.proto.Message.*;
+//import com.game.proto.Message.*;
+import com.game.proto.C2GNet.*;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.buffer.Unpooled;
@@ -27,7 +28,7 @@ public class NetConnection {
     NetSession session = new NetSession();
 
     // 做后处理
-    private NetMessage.Builder netMessage;
+    private C2GNetMessage.Builder netMessage;
     private NetMessageResponse.Builder message;
 
 
@@ -41,7 +42,7 @@ public class NetConnection {
 
     public NetMessageResponse.Builder getResponse() {
         if (netMessage == null) {
-            netMessage = NetMessage.newBuilder();
+            netMessage = C2GNetMessage.newBuilder();
             message = NetMessageResponse.newBuilder();
         }
         return message;

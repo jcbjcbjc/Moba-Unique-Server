@@ -1,7 +1,8 @@
 package com.game.network;
 
 import com.game.manager.ConnectionManager;
-import com.game.proto.Message.*;
+//import com.game.proto.Message.*;
+import com.game.proto.C2GNet;
 import com.game.service.*;
 import com.game.spring.SpringBeanUtil;
 import io.netty.channel.socket.DatagramPacket;
@@ -42,7 +43,7 @@ public class MessageDispatch {
         }
         return Instance;
     }
-    public void receiveData(ChannelHandlerContext ctx, NetMessage.Builder message) {
+    public void receiveData(ChannelHandlerContext ctx, C2GNet.C2GNetMessage.Builder message) {
 
         NetConnection conn = null;
         // 如果 是注册/登录,先创建连接；如果不是，判断是否已连接

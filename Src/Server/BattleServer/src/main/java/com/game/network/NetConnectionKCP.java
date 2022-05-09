@@ -2,7 +2,8 @@ package com.game.network;
 import com.backblaze.erasure.FecAdapt;
 import com.backblaze.erasure.fec.Snmp;
 import com.game.models.User;
-import com.game.proto.Message;
+//import com.game.proto.Message;
+import com.game.proto.C2BNet;
 import com.google.protobuf.MessageLite;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
@@ -26,11 +27,11 @@ public class NetConnectionKCP {
         this.user=user;
     }
 
-    private Message.NetMessageResponse2.Builder message;
+    private C2BNet.C2BNetMessageResponse.Builder message;
 
-    public Message.NetMessageResponse2.Builder getResponse() {
+    public C2BNet.C2BNetMessageResponse.Builder getResponse() {
         if (message == null) {
-            message = Message.NetMessageResponse2.newBuilder();
+            message = C2BNet.C2BNetMessageResponse.newBuilder();
         }
         return message;
     }
@@ -39,7 +40,7 @@ public class NetConnectionKCP {
      * 发送帧操作
      * @param message2
      */
-    public void sendFrameHandleRes(Message.NetMessageResponse2.Builder message2) {
+    public void sendFrameHandleRes(C2BNet.C2BNetMessageResponse.Builder message2) {
         if(message != null) {   //合并包
             message.setFrameHandleRes(message2.getFrameHandleRes());
             this.send();
@@ -52,7 +53,7 @@ public class NetConnectionKCP {
      * 发送直播帧操作
      * @param message2
      */
-    public void sendLiveFrameRes(Message.NetMessageResponse2.Builder message2) {
+    public void sendLiveFrameRes(C2BNet.C2BNetMessageResponse.Builder message2) {
         if(message != null) {   //合并包
             message.setLiveFrameRes(message2.getLiveFrameRes());
             this.send();
@@ -69,7 +70,7 @@ public class NetConnectionKCP {
     }
 
 
-    public void send(Message.NetMessageResponse2.Builder message2) {
+    public void send(C2BNet.C2BNetMessageResponse.Builder message2) {
         this.kcp.write(Unpooled.wrappedBuffer(message2.build().toByteArray()));
     }
 

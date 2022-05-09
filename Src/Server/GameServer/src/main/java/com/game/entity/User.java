@@ -15,19 +15,30 @@ import com.game.manager.UserStatusManager;
 import com.game.manager.RoomManager;
 import com.game.manager.StatusManager;
 import com.game.models.Chat;
-import com.game.proto.Message.ChatResponse;
+//import com.game.proto.Message.ChatResponse;
 import com.game.proto.Message.FollowListResponse;
 import com.game.proto.Message.NCharacter;
 import com.game.proto.Message.NItem;
-import com.game.proto.Message.NRoom;
-import com.game.proto.Message.NUser;
+import com.game.proto.C2GNet.ChatResponse;
+import com.game.proto.C2GNet.NRoom;
+import com.game.proto.C2GNet.NUser;
 import com.game.proto.Message.NUserStatusChange;
-import com.game.proto.Message.NetMessageResponse;
-import com.game.proto.Message.StatusNotify;
-import com.game.proto.Message.TeamType;
-import com.game.proto.Message.UnLockCharacter;
-import com.game.proto.Message.UserStatus;
-import com.game.proto.Message.UserStatusChangeResponse;
+import com.game.proto.C2GNet.NetMessageResponse;
+import com.game.proto.C2GNet.StatusNotify;
+import com.game.proto.C2GNet.TeamType;
+import com.game.proto.C2GNet.UnLockCharacter;
+import com.game.proto.C2GNet.UserStatus;
+import com.game.proto.C2GNet.UserStatusChangeResponse;
+
+//import com.game.proto.Message.NRoom;
+//import com.game.proto.Message.NUser;
+//import com.game.proto.Message.NUserStatusChange;
+//import com.game.proto.Message.NetMessageResponse;
+//import com.game.proto.Message.StatusNotify;
+//import com.game.proto.Message.TeamType;
+//import com.game.proto.Message.UnLockCharacter;
+//import com.game.proto.Message.UserStatus;
+//import com.game.proto.Message.UserStatusChangeResponse;
 import com.game.spring.DBUtil;
 
 /**
@@ -151,7 +162,7 @@ public class User {
          NRoom room = RoomManager.Instance.GetRoom(roomId);
         if(room != null) {  
           builder.setBiFen(room.getBiFen()); //比分 
-          boolean myResult = RoomManager.Instance.ExistUserRoom(id, room.getMyList());  //效验是否存在友队
+          boolean myResult = RoomManager.Instance.ExistUserRoom(id, room.getTeam1List());  //效验是否存在友队
           builder.setTeamType(myResult ? TeamType.My : TeamType.Enemy);  //队伍类型
           builder.setRoomNum(RoomManager.Instance.GetRoomUserIdsNum(roomId));  //房间人数
         }

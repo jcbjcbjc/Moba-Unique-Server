@@ -1,9 +1,11 @@
 package com.game.service;
 
 import com.game.network.NetConnection;
-import com.game.proto.Message.NRoom;
-import com.game.proto.Message.StartMatchRequest;
+//import com.game.proto.Message.NRoom;
+//import com.game.proto.Message.StartMatchRequest;
 import com.game.proto.Message.UserRegisterRequest;
+import com.game.proto.C2GNet.NRoom;
+import com.game.proto.C2GNet.StartMatchRequest;
 import com.game.vo.ResultInfo;
 
 public interface MatchService {

@@ -1,7 +1,7 @@
 package com.game.netty;
 
 import com.game.network.MessageDispatch;
-import com.game.proto.Message;
+import com.game.proto.C2GNet;
 import com.game.service.UserService;
 import com.game.spring.SpringBeanUtil;
 import io.netty.buffer.ByteBuf;
@@ -44,7 +44,7 @@ public class TCPServerHandler extends SimpleChannelInboundHandler<Object> {
             array = ByteBufUtil.getBytes(Buf, Buf.readerIndex(), length, false);
             offset = 0;
         }
-        Message.NetMessage nm = Message.NetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        C2GNet.C2GNetMessage nm = C2GNet.C2GNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         System.out.println(nm);
         MessageDispatch.Instance.receiveData(ctx, nm.toBuilder());
     }

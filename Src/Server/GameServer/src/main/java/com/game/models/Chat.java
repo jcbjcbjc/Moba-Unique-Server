@@ -5,11 +5,16 @@ import com.game.entity.User;
 import com.game.manager.ChatManager;
 import com.game.manager.RoomManager;
 import com.game.manager.UserManager;
-import com.game.proto.Message;
-import com.game.proto.Message.ChatMessage;
-import com.game.proto.Message.ChatRoomType;
-import com.game.proto.Message.NRoom;
-import com.game.proto.Message.UserStatus;
+import com.game.proto.C2GNet;
+import com.game.proto.C2GNet.ChatMessage;
+import com.game.proto.C2GNet.ChatRoomType;
+import com.game.proto.C2GNet.NRoom;
+import com.game.proto.C2GNet.UserStatus;
+//import com.game.proto.Message;
+//import com.game.proto.Message.ChatMessage;
+//import com.game.proto.Message.ChatRoomType;
+//import com.game.proto.Message.NRoom;
+//import com.game.proto.Message.UserStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +33,9 @@ public class Chat {
         this.owner = user;
     }
 
-    public Message.ChatResponse GetChat(Message.ChatResponse resp) {
+    public C2GNet.ChatResponse GetChat(C2GNet.ChatResponse resp) {
         // 去聊天管理器 获取属于自己的聊天信息
-        Message.ChatResponse.Builder builder = resp.toBuilder();
+		C2GNet.ChatResponse.Builder builder = resp.toBuilder();
         //综合消息
         compMsg.clear();
         compIdx = ChatManager.Instance.GetCompMsg(compIdx, compMsg);
@@ -56,8 +61,8 @@ public class Chat {
 				  if(chatMessage.getChatRoomType() == ChatRoomType.Game_) {  //判断友方消息
 					NRoom room = RoomManager.Instance.GetRoom(owner.roomId);
 					if(room != null) {
-					  boolean myResult = RoomManager.Instance.ExistUserRoom(owner.id, room.getMyList());  //效验是否存在友队
-				      boolean otherResult = RoomManager.Instance.ExistUserRoom(chatMessage.getFromId(), room.getMyList());  //效验是否存在友队
+					  boolean myResult = RoomManager.Instance.ExistUserRoom(owner.id, room.getTeam1List());  //效验是否存在友队
+				      boolean otherResult = RoomManager.Instance.ExistUserRoom(chatMessage.getFromId(), room.getTeam1List());  //效验是否存在友队
 					  if(myResult == otherResult) { //和发送消息的人同一队伍
 						 resultRoomChatMsg.add(chatMessage);
 				      }

@@ -2,7 +2,7 @@ package com.game.entity;
 
 
 import com.game.proto.Message.AttrPromoteType;
-import com.game.proto.Message.NCharacter;
+import com.game.proto.C2GNet.NCharacter;
 import com.game.spring.DBUtil;
 /**
  * @author 贾超博
@@ -52,27 +52,7 @@ public class Character {
 	public NCharacter getCharacterInfo() {
 
     	return NCharacter.newBuilder()
-    				.setTid(id)
-    				.setCid(cId)
-    				.setLevel(level)
-    				.setExp(exp)
-    				.setUserId(userId)
-    				.setAttSpot(attSpot)
-    				.setAtt((int)att)
-    				.setDefSpot(defSpot)
-    				.setDef((int)def)
-    				.setHpSpot(hpSpot)
-    				.setHp((int)hp)
-    				.setCriSpot(criSpot)
-    				.setCri((int)cri)
-    				.setResuSpot(resuSpot)
-    				.setResu((int)resu)
-    				.setSpeedSpot(speedSpot)
-    				.setSpeed((int)speed)
-    				.setSpeedValue((int)speedValue)
-    				.setCdSpot(cdSpot)
-    				.setCd((int)cd)
-    				.setLevelExp(levelExp)
+
     				.build(); 
     }
     

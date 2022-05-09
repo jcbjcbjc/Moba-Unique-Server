@@ -7,15 +7,24 @@ import java.util.List;
 import java.util.Map;
 
 import com.game.entity.User;
-import com.game.proto.Message.GameOver2Request;
-import com.game.proto.Message.NRoom;
-import com.game.proto.Message.Result;
-import com.game.proto.Message.RoomStatus;
-import com.game.proto.Message.RoomUser;
-import com.game.proto.Message.TeamType;
-import com.game.proto.Message.TipsType;
-import com.game.proto.Message.TipsWorkType;
-import com.game.proto.Message.UserStatus;
+import com.game.proto.C2GNet.GameOver2Request;
+import com.game.proto.C2GNet.NRoom;
+import com.game.proto.C2GNet.Result;
+import com.game.proto.C2GNet.RoomStatus;
+import com.game.proto.C2GNet.RoomUser;
+import com.game.proto.C2GNet.TeamType;
+import com.game.proto.C2GNet.TipsType;
+import com.game.proto.C2GNet.TipsWorkType;
+import com.game.proto.C2GNet.UserStatus;
+//import com.game.proto.Message.GameOver2Request;
+//import com.game.proto.Message.NRoom;
+//import com.game.proto.Message.Result;
+//import com.game.proto.Message.RoomStatus;
+//import com.game.proto.Message.RoomUser;
+//import com.game.proto.Message.TeamType;
+//import com.game.proto.Message.TipsType;
+//import com.game.proto.Message.TipsWorkType;
+//import com.game.proto.Message.UserStatus;
 import com.game.vo.LiveUserVo;
 import com.game.vo.ResultInfo;
 
@@ -74,11 +83,11 @@ public class RoomManager {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "你当前没有开房间！" : "未找到房间！");
 		}
 
-		boolean myResult = this.ExistUserRoom(user.id, room.getMyList());
+		boolean myResult = this.ExistUserRoom(user.id, room.getTeam1List());
 		if (myResult) {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "对方已存在友方列表！" : "你已存在友方列表！");
 		}
-		boolean enemyResult = this.ExistUserRoom(user.id, room.getEnemyList());
+		boolean enemyResult = this.ExistUserRoom(user.id, room.getTeam2List());
 		if (enemyResult) {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "对方已存在敌方列表！" : "你已存在敌方列表！");
 		}
@@ -125,15 +134,15 @@ public class RoomManager {
 		RoomUser roomUser = RoomUser.newBuilder().setUserId(user.id).setNickName(user.nickname)
 				.setCCharacterId(user.character.cId).build();
 		if (teamType == TeamType.My) {
-			if (room.getMyCount() >= teamNum) {
-				return new ResultInfo(Result.Failed, "友方人数已达上限！");
+			if (room.getTeam1Count() >= teamNum) {
+				return new ResultInfo(Result.Failed, "Team1已达上限！");
 			}
-			room.addMy(roomUser);
+			room.addTeam1(roomUser);
 		} else if (teamType == TeamType.Enemy) {
-			if (room.getEnemyCount() >= teamNum) {
-				return new ResultInfo(Result.Failed, "敌方人数已达上限！");
+			if (room.getTeam2Count() >= teamNum) {
+				return new ResultInfo(Result.Failed, "Team2已达上限！");
 			}
-			room.addEnemy(roomUser);
+			room.addTeam2(roomUser);
 		}
 		rooms.put(room.getRoomId(), room.build());
 		user.setStatus(UserStatus.Room); // 更新用户状态
@@ -151,18 +160,18 @@ public class RoomManager {
 	public boolean RemoveUserRoom(int outUserId, TeamType teamType, NRoom.Builder roomBuild) {
 		List<RoomUser> roomUserList = null;
 		if (teamType == TeamType.My) {
-			roomUserList = roomBuild.getMyList();
+			roomUserList = roomBuild.getTeam1List();
 		} else {
-			roomUserList = roomBuild.getEnemyList();
+			roomUserList = roomBuild.getTeam2List();
 		}
 		if (roomUserList != null) {
 			for (int i = 0; i < roomUserList.size(); i++) {
 				RoomUser roomUser = roomUserList.get(i);
 				if (roomUser.getUserId() == outUserId) {
 					if (teamType == TeamType.My) {
-						roomBuild.removeMy(i);
+						roomBuild.removeTeam1(i);
 					} else {
-						roomBuild.removeEnemy(i);
+						roomBuild.removeTeam2(i);
 					}
 					return true;
 				}
@@ -203,7 +212,7 @@ public class RoomManager {
 	 * @param userStatus
 	 */
 	public void UpdateRoomUserStatus(NRoom room, UserStatus userStatus) {
-		List<RoomUser> myList = room.getMyList();
+		List<RoomUser> myList = room.getTeam1List();
 		if (myList != null) {
 			for (RoomUser roomUser : myList) {
 				User user = UserManager.Instance.getUser(roomUser.getUserId());
@@ -212,7 +221,7 @@ public class RoomManager {
 				}
 			}
 		}
-		List<RoomUser> enemyList = room.getEnemyList();
+		List<RoomUser> enemyList = room.getTeam2List();
 		if (enemyList != null) {
 			for (RoomUser roomUser : enemyList) {
 				User user = UserManager.Instance.getUser(roomUser.getUserId());
@@ -262,13 +271,13 @@ public class RoomManager {
 			this.UpdateRoomUserStatus(room, UserStatus.Normal);
 			// 同步消息给房间其他玩家
 			if (room.getRoomStatus() == RoomStatus.Normal_) {
-				for (RoomUser roomUser : room.getMyList()) {
+				for (RoomUser roomUser : room.getTeam1List()) {
 					if (roomUser.getUserId() != room.getUserId()) {
 						TipsManager.Instance.ShowTips(roomUser.getUserId(), TipsType.Tips, TipsWorkType.DismissRoom,
 								"房主解散房间！", true);
 					}
 				}
-				for (RoomUser roomUser : room.getEnemyList()) {
+				for (RoomUser roomUser : room.getTeam2List()) {
 					if (roomUser.getUserId() != room.getUserId()) {
 						TipsManager.Instance.ShowTips(roomUser.getUserId(), TipsType.Tips, TipsWorkType.DismissRoom,
 								"房主解散房间！", true);
@@ -309,7 +318,7 @@ public class RoomManager {
 		RoomUser roomUser = RoomUser.newBuilder().setUserId(user.id).setNickName(user.nickname)
 				.setCCharacterId(user.character.cId).build();
 
-		NRoom room = NRoom.newBuilder().setRoomId(roomId).setUserId(user.id).addMy(roomUser).build();
+		NRoom room = NRoom.newBuilder().setRoomId(roomId).setUserId(user.id).addTeam1(roomUser).build();
 		rooms.put(roomId, room);
 		return room;
 	}
@@ -343,10 +352,10 @@ public class RoomManager {
 	 */
 	public List<Integer> GetRoomUserIdList(NRoom.Builder roomBuilder) {
 		List<Integer> userIdList = new ArrayList<>();
-		for (RoomUser roomUser : roomBuilder.getMyList()) {
+		for (RoomUser roomUser : roomBuilder.getTeam1List()) {
 			userIdList.add(roomUser.getUserId());
 		}
-		for (RoomUser roomUser : roomBuilder.getEnemyList()) {
+		for (RoomUser roomUser : roomBuilder.getTeam2List()) {
 			userIdList.add(roomUser.getUserId());
 		}
 		return userIdList;
@@ -356,10 +365,10 @@ public class RoomManager {
 	 * 根据房间移除房间用户map
 	 */
 	public void RemoveUserMapByRoom(NRoom.Builder roomBuilder) {
-		for (RoomUser roomUser : roomBuilder.getMyList()) {
+		for (RoomUser roomUser : roomBuilder.getTeam1List()) {
 			userMap.remove(roomUser.getUserId());
 		}
-		for (RoomUser roomUser : roomBuilder.getEnemyList()) {
+		for (RoomUser roomUser : roomBuilder.getTeam2List()) {
 			userMap.remove(roomUser.getUserId());
 		}
 	}
@@ -373,14 +382,14 @@ public class RoomManager {
 	 */
 	public int GetRoomUserCountByStatus(NRoom room, UserStatus status) {
 		int count = 0;
-		List<RoomUser> myRoomUserList = room.getMyList();
+		List<RoomUser> myRoomUserList = room.getTeam1List();
 		for (RoomUser roomUser : myRoomUserList) {
 			User u = UserManager.Instance.getUser(roomUser.getUserId());
 			if (u.getStatus() == status) {
 				count++;
 			}
 		}
-		List<RoomUser> enemyRoomUserList = room.getEnemyList();
+		List<RoomUser> enemyRoomUserList = room.getTeam2List();
 		for (RoomUser roomUser : enemyRoomUserList) {
 			User u = UserManager.Instance.getUser(roomUser.getUserId());
 			if (u.getStatus() == status) {

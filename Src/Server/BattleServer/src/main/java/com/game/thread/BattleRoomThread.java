@@ -18,9 +18,12 @@ import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
 import com.game.network.NetConnectionWebSocket;
-import com.game.proto.Message.FrameHandle;
-import com.game.proto.Message.FrameHandleResponse;
-import com.game.proto.Message.NetMessageResponse2;
+import com.game.proto.C2BNet.FrameHandle;
+import com.game.proto.C2BNet.FrameHandleResponse;
+import com.game.proto.C2BNet.C2BNetMessageResponse;
+//import com.game.proto.Message.FrameHandle;
+//import com.game.proto.Message.FrameHandleResponse;
+//import com.game.proto.Message.NetMessageResponse2;
 import com.game.util.CachedThreadPoolUtil;
 import com.game.util.Config;
 
@@ -35,7 +38,7 @@ public class BattleRoomThread extends Thread{
 	private Room room;
 	private FrameHandleResponse.Builder frameHandleResponseBuilder=FrameHandleResponse.newBuilder();
 	private Collection<FrameHandle> frameHandleList=new ArrayList<>();
-	private NetMessageResponse2.Builder response = NetMessageResponse2.newBuilder();
+	private C2BNetMessageResponse.Builder response = C2BNetMessageResponse.newBuilder();
 	Map<Integer, FrameHandle> userFrameHandleMap = new HashMap<Integer, FrameHandle>();
 	
 	public BattleRoomThread(Room room) {

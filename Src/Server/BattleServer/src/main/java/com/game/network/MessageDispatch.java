@@ -4,8 +4,9 @@ import com.game.manager.ConnectionManager;
 import com.game.manager.ConnectionManagerKCP;
 import com.game.manager.UserManager;
 import com.game.models.User;
-import com.game.proto.Message;
-import com.game.proto.Message.*;
+//import com.game.proto.Message;
+//import com.game.proto.Message.*;
+import com.game.proto.C2BNet;
 import com.game.service.*;
 import com.game.spring.SpringBeanUtil;
 
@@ -23,11 +24,11 @@ public class MessageDispatch {
 
     public static MessageDispatch Instance=new MessageDispatch();
 
-    public void DispatchData(ChannelHandlerContext ctx, NetMessageRequest2 message) {
+    public void DispatchData(ChannelHandlerContext ctx, C2BNet.C2BNetMessageRequest message) {
 
         
     }
-	public void DispatchData(Ukcp kcp, Message.NetMessageRequest2 message) {
+	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 		int userId=message.getUserId();
 		User battleUser=userManager.getuser(userId) ;  //对战用户
 		User liveUser=userManager.getliveuser(userId) ;  //直播用户
