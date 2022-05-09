@@ -7,6 +7,7 @@ import com.game.models.User;
 //import com.game.proto.Message;
 //import com.game.proto.Message.*;
 import com.game.proto.C2BNet;
+
 import com.game.service.*;
 import com.game.spring.SpringBeanUtil;
 
@@ -69,5 +70,12 @@ public class MessageDispatch {
 			return;
 		}
 
+		if(message.hasHeartBeatRequest()){
+            User user = conn.user;
+            C2BNet.C2BNetMessageResponse.Builder response = conn.getResponse();
+            C2BNet.HeartBeatResponse.Builder heartBeatResponse = C2BNet.HeartBeatResponse.newBuilder();
+            response.setHeartBeatRes(heartBeatResponse);
+            conn.send();
+		}
 	}
 }

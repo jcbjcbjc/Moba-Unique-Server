@@ -17,7 +17,7 @@ public class KCPServer implements Server{
         channelConfig.setRcvwnd(300);
         channelConfig.setMtu(512);
         channelConfig.setAckNoDelay(true);
-        channelConfig.setTimeoutMillis(1000);
+        channelConfig.setTimeoutMillis(4000);
         channelConfig.setUseConvChannel(true);
         channelConfig.setCrc32Check(false);
 

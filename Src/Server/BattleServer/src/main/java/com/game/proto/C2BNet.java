@@ -1110,6 +1110,21 @@ public final class C2BNet {
      * <code>optional .RepairFrameRequest repairFrameReq = 5;</code>
      */
     com.game.proto.C2BNet.RepairFrameRequestOrBuilder getRepairFrameReqOrBuilder();
+
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     * @return Whether the heartBeatRequest field is set.
+     */
+    boolean hasHeartBeatRequest();
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     * @return The heartBeatRequest.
+     */
+    com.game.proto.C2BNet.HeartBeatRequest getHeartBeatRequest();
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     */
+    com.game.proto.C2BNet.HeartBeatRequestOrBuilder getHeartBeatRequestOrBuilder();
   }
   /**
    * Protobuf type {@code C2BNetMessageRequest}
@@ -1212,6 +1227,19 @@ public final class C2BNet {
                 repairFrameReq_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              com.game.proto.C2BNet.HeartBeatRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) != 0)) {
+                subBuilder = heartBeatRequest_.toBuilder();
+              }
+              heartBeatRequest_ = input.readMessage(com.game.proto.C2BNet.HeartBeatRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(heartBeatRequest_);
+                heartBeatRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
               break;
             }
             default: {
@@ -1370,6 +1398,32 @@ public final class C2BNet {
       return repairFrameReq_ == null ? com.game.proto.C2BNet.RepairFrameRequest.getDefaultInstance() : repairFrameReq_;
     }
 
+    public static final int HEARTBEATREQUEST_FIELD_NUMBER = 6;
+    private com.game.proto.C2BNet.HeartBeatRequest heartBeatRequest_;
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     * @return Whether the heartBeatRequest field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeartBeatRequest() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     * @return The heartBeatRequest.
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatRequest getHeartBeatRequest() {
+      return heartBeatRequest_ == null ? com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance() : heartBeatRequest_;
+    }
+    /**
+     * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatRequestOrBuilder getHeartBeatRequestOrBuilder() {
+      return heartBeatRequest_ == null ? com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance() : heartBeatRequest_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1399,6 +1453,9 @@ public final class C2BNet {
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(5, getRepairFrameReq());
       }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeMessage(6, getHeartBeatRequest());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1427,6 +1484,10 @@ public final class C2BNet {
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getRepairFrameReq());
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getHeartBeatRequest());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1468,6 +1529,11 @@ public final class C2BNet {
         if (!getRepairFrameReq()
             .equals(other.getRepairFrameReq())) return false;
       }
+      if (hasHeartBeatRequest() != other.hasHeartBeatRequest()) return false;
+      if (hasHeartBeatRequest()) {
+        if (!getHeartBeatRequest()
+            .equals(other.getHeartBeatRequest())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1498,6 +1564,10 @@ public final class C2BNet {
       if (hasRepairFrameReq()) {
         hash = (37 * hash) + REPAIRFRAMEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getRepairFrameReq().hashCode();
+      }
+      if (hasHeartBeatRequest()) {
+        hash = (37 * hash) + HEARTBEATREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getHeartBeatRequest().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1631,6 +1701,7 @@ public final class C2BNet {
           getPercentForwardFieldBuilder();
           getGameOverReqFieldBuilder();
           getRepairFrameReqFieldBuilder();
+          getHeartBeatRequestFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1662,6 +1733,12 @@ public final class C2BNet {
           repairFrameReqBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (heartBeatRequestBuilder_ == null) {
+          heartBeatRequest_ = null;
+        } else {
+          heartBeatRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -1726,6 +1803,14 @@ public final class C2BNet {
           }
           to_bitField0_ |= 0x00000010;
         }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          if (heartBeatRequestBuilder_ == null) {
+            result.heartBeatRequest_ = heartBeatRequest_;
+          } else {
+            result.heartBeatRequest_ = heartBeatRequestBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000020;
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1789,6 +1874,9 @@ public final class C2BNet {
         }
         if (other.hasRepairFrameReq()) {
           mergeRepairFrameReq(other.getRepairFrameReq());
+        }
+        if (other.hasHeartBeatRequest()) {
+          mergeHeartBeatRequest(other.getHeartBeatRequest());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2338,6 +2426,126 @@ public final class C2BNet {
         }
         return repairFrameReqBuilder_;
       }
+
+      private com.game.proto.C2BNet.HeartBeatRequest heartBeatRequest_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2BNet.HeartBeatRequest, com.game.proto.C2BNet.HeartBeatRequest.Builder, com.game.proto.C2BNet.HeartBeatRequestOrBuilder> heartBeatRequestBuilder_;
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       * @return Whether the heartBeatRequest field is set.
+       */
+      public boolean hasHeartBeatRequest() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       * @return The heartBeatRequest.
+       */
+      public com.game.proto.C2BNet.HeartBeatRequest getHeartBeatRequest() {
+        if (heartBeatRequestBuilder_ == null) {
+          return heartBeatRequest_ == null ? com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance() : heartBeatRequest_;
+        } else {
+          return heartBeatRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public Builder setHeartBeatRequest(com.game.proto.C2BNet.HeartBeatRequest value) {
+        if (heartBeatRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          heartBeatRequest_ = value;
+          onChanged();
+        } else {
+          heartBeatRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public Builder setHeartBeatRequest(
+          com.game.proto.C2BNet.HeartBeatRequest.Builder builderForValue) {
+        if (heartBeatRequestBuilder_ == null) {
+          heartBeatRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          heartBeatRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public Builder mergeHeartBeatRequest(com.game.proto.C2BNet.HeartBeatRequest value) {
+        if (heartBeatRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+              heartBeatRequest_ != null &&
+              heartBeatRequest_ != com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance()) {
+            heartBeatRequest_ =
+              com.game.proto.C2BNet.HeartBeatRequest.newBuilder(heartBeatRequest_).mergeFrom(value).buildPartial();
+          } else {
+            heartBeatRequest_ = value;
+          }
+          onChanged();
+        } else {
+          heartBeatRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public Builder clearHeartBeatRequest() {
+        if (heartBeatRequestBuilder_ == null) {
+          heartBeatRequest_ = null;
+          onChanged();
+        } else {
+          heartBeatRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public com.game.proto.C2BNet.HeartBeatRequest.Builder getHeartBeatRequestBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getHeartBeatRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      public com.game.proto.C2BNet.HeartBeatRequestOrBuilder getHeartBeatRequestOrBuilder() {
+        if (heartBeatRequestBuilder_ != null) {
+          return heartBeatRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return heartBeatRequest_ == null ?
+              com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance() : heartBeatRequest_;
+        }
+      }
+      /**
+       * <code>optional .HeartBeatRequest heartBeatRequest = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2BNet.HeartBeatRequest, com.game.proto.C2BNet.HeartBeatRequest.Builder, com.game.proto.C2BNet.HeartBeatRequestOrBuilder> 
+          getHeartBeatRequestFieldBuilder() {
+        if (heartBeatRequestBuilder_ == null) {
+          heartBeatRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.game.proto.C2BNet.HeartBeatRequest, com.game.proto.C2BNet.HeartBeatRequest.Builder, com.game.proto.C2BNet.HeartBeatRequestOrBuilder>(
+                  getHeartBeatRequest(),
+                  getParentForChildren(),
+                  isClean());
+          heartBeatRequest_ = null;
+        }
+        return heartBeatRequestBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2454,6 +2662,21 @@ public final class C2BNet {
      * <code>optional .LiveFrameResponse liveFrameRes = 4;</code>
      */
     com.game.proto.C2BNet.LiveFrameResponseOrBuilder getLiveFrameResOrBuilder();
+
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     * @return Whether the heartBeatRes field is set.
+     */
+    boolean hasHeartBeatRes();
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     * @return The heartBeatRes.
+     */
+    com.game.proto.C2BNet.HeartBeatResponse getHeartBeatRes();
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     */
+    com.game.proto.C2BNet.HeartBeatResponseOrBuilder getHeartBeatResOrBuilder();
   }
   /**
    * Protobuf type {@code C2BNetMessageResponse}
@@ -2551,6 +2774,19 @@ public final class C2BNet {
                 liveFrameRes_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              com.game.proto.C2BNet.HeartBeatResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) != 0)) {
+                subBuilder = heartBeatRes_.toBuilder();
+              }
+              heartBeatRes_ = input.readMessage(com.game.proto.C2BNet.HeartBeatResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(heartBeatRes_);
+                heartBeatRes_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
               break;
             }
             default: {
@@ -2690,6 +2926,32 @@ public final class C2BNet {
       return liveFrameRes_ == null ? com.game.proto.C2BNet.LiveFrameResponse.getDefaultInstance() : liveFrameRes_;
     }
 
+    public static final int HEARTBEATRES_FIELD_NUMBER = 5;
+    private com.game.proto.C2BNet.HeartBeatResponse heartBeatRes_;
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     * @return Whether the heartBeatRes field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeartBeatRes() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     * @return The heartBeatRes.
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatResponse getHeartBeatRes() {
+      return heartBeatRes_ == null ? com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance() : heartBeatRes_;
+    }
+    /**
+     * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatResponseOrBuilder getHeartBeatResOrBuilder() {
+      return heartBeatRes_ == null ? com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance() : heartBeatRes_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2716,6 +2978,9 @@ public final class C2BNet {
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(4, getLiveFrameRes());
       }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeMessage(5, getHeartBeatRes());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2740,6 +3005,10 @@ public final class C2BNet {
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getLiveFrameRes());
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getHeartBeatRes());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2776,6 +3045,11 @@ public final class C2BNet {
         if (!getLiveFrameRes()
             .equals(other.getLiveFrameRes())) return false;
       }
+      if (hasHeartBeatRes() != other.hasHeartBeatRes()) return false;
+      if (hasHeartBeatRes()) {
+        if (!getHeartBeatRes()
+            .equals(other.getHeartBeatRes())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2802,6 +3076,10 @@ public final class C2BNet {
       if (hasLiveFrameRes()) {
         hash = (37 * hash) + LIVEFRAMERES_FIELD_NUMBER;
         hash = (53 * hash) + getLiveFrameRes().hashCode();
+      }
+      if (hasHeartBeatRes()) {
+        hash = (37 * hash) + HEARTBEATRES_FIELD_NUMBER;
+        hash = (53 * hash) + getHeartBeatRes().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2935,6 +3213,7 @@ public final class C2BNet {
           getPercentForwardResFieldBuilder();
           getRepairFrameResFieldBuilder();
           getLiveFrameResFieldBuilder();
+          getHeartBeatResFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2964,6 +3243,12 @@ public final class C2BNet {
           liveFrameResBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (heartBeatResBuilder_ == null) {
+          heartBeatRes_ = null;
+        } else {
+          heartBeatResBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -3023,6 +3308,14 @@ public final class C2BNet {
             result.liveFrameRes_ = liveFrameResBuilder_.build();
           }
           to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          if (heartBeatResBuilder_ == null) {
+            result.heartBeatRes_ = heartBeatRes_;
+          } else {
+            result.heartBeatRes_ = heartBeatResBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000010;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3084,6 +3377,9 @@ public final class C2BNet {
         }
         if (other.hasLiveFrameRes()) {
           mergeLiveFrameRes(other.getLiveFrameRes());
+        }
+        if (other.hasHeartBeatRes()) {
+          mergeHeartBeatRes(other.getHeartBeatRes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3594,6 +3890,126 @@ public final class C2BNet {
         }
         return liveFrameResBuilder_;
       }
+
+      private com.game.proto.C2BNet.HeartBeatResponse heartBeatRes_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2BNet.HeartBeatResponse, com.game.proto.C2BNet.HeartBeatResponse.Builder, com.game.proto.C2BNet.HeartBeatResponseOrBuilder> heartBeatResBuilder_;
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       * @return Whether the heartBeatRes field is set.
+       */
+      public boolean hasHeartBeatRes() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       * @return The heartBeatRes.
+       */
+      public com.game.proto.C2BNet.HeartBeatResponse getHeartBeatRes() {
+        if (heartBeatResBuilder_ == null) {
+          return heartBeatRes_ == null ? com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance() : heartBeatRes_;
+        } else {
+          return heartBeatResBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public Builder setHeartBeatRes(com.game.proto.C2BNet.HeartBeatResponse value) {
+        if (heartBeatResBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          heartBeatRes_ = value;
+          onChanged();
+        } else {
+          heartBeatResBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public Builder setHeartBeatRes(
+          com.game.proto.C2BNet.HeartBeatResponse.Builder builderForValue) {
+        if (heartBeatResBuilder_ == null) {
+          heartBeatRes_ = builderForValue.build();
+          onChanged();
+        } else {
+          heartBeatResBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public Builder mergeHeartBeatRes(com.game.proto.C2BNet.HeartBeatResponse value) {
+        if (heartBeatResBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) != 0) &&
+              heartBeatRes_ != null &&
+              heartBeatRes_ != com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance()) {
+            heartBeatRes_ =
+              com.game.proto.C2BNet.HeartBeatResponse.newBuilder(heartBeatRes_).mergeFrom(value).buildPartial();
+          } else {
+            heartBeatRes_ = value;
+          }
+          onChanged();
+        } else {
+          heartBeatResBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public Builder clearHeartBeatRes() {
+        if (heartBeatResBuilder_ == null) {
+          heartBeatRes_ = null;
+          onChanged();
+        } else {
+          heartBeatResBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public com.game.proto.C2BNet.HeartBeatResponse.Builder getHeartBeatResBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getHeartBeatResFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      public com.game.proto.C2BNet.HeartBeatResponseOrBuilder getHeartBeatResOrBuilder() {
+        if (heartBeatResBuilder_ != null) {
+          return heartBeatResBuilder_.getMessageOrBuilder();
+        } else {
+          return heartBeatRes_ == null ?
+              com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance() : heartBeatRes_;
+        }
+      }
+      /**
+       * <code>optional .HeartBeatResponse heartBeatRes = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2BNet.HeartBeatResponse, com.game.proto.C2BNet.HeartBeatResponse.Builder, com.game.proto.C2BNet.HeartBeatResponseOrBuilder> 
+          getHeartBeatResFieldBuilder() {
+        if (heartBeatResBuilder_ == null) {
+          heartBeatResBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.game.proto.C2BNet.HeartBeatResponse, com.game.proto.C2BNet.HeartBeatResponse.Builder, com.game.proto.C2BNet.HeartBeatResponseOrBuilder>(
+                  getHeartBeatRes(),
+                  getParentForChildren(),
+                  isClean());
+          heartBeatRes_ = null;
+        }
+        return heartBeatResBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3642,6 +4058,842 @@ public final class C2BNet {
 
     @java.lang.Override
     public com.game.proto.C2BNet.C2BNetMessageResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HeartBeatRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HeartBeatRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code HeartBeatRequest}
+   */
+  public static final class HeartBeatRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HeartBeatRequest)
+      HeartBeatRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HeartBeatRequest.newBuilder() to construct.
+    private HeartBeatRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HeartBeatRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HeartBeatRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HeartBeatRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.C2BNet.internal_static_HeartBeatRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.C2BNet.internal_static_HeartBeatRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.C2BNet.HeartBeatRequest.class, com.game.proto.C2BNet.HeartBeatRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.game.proto.C2BNet.HeartBeatRequest)) {
+        return super.equals(obj);
+      }
+      com.game.proto.C2BNet.HeartBeatRequest other = (com.game.proto.C2BNet.HeartBeatRequest) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.game.proto.C2BNet.HeartBeatRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HeartBeatRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HeartBeatRequest)
+        com.game.proto.C2BNet.HeartBeatRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.C2BNet.HeartBeatRequest.class, com.game.proto.C2BNet.HeartBeatRequest.Builder.class);
+      }
+
+      // Construct using com.game.proto.C2BNet.HeartBeatRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatRequest getDefaultInstanceForType() {
+        return com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatRequest build() {
+        com.game.proto.C2BNet.HeartBeatRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatRequest buildPartial() {
+        com.game.proto.C2BNet.HeartBeatRequest result = new com.game.proto.C2BNet.HeartBeatRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.C2BNet.HeartBeatRequest) {
+          return mergeFrom((com.game.proto.C2BNet.HeartBeatRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.C2BNet.HeartBeatRequest other) {
+        if (other == com.game.proto.C2BNet.HeartBeatRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.C2BNet.HeartBeatRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.C2BNet.HeartBeatRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HeartBeatRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:HeartBeatRequest)
+    private static final com.game.proto.C2BNet.HeartBeatRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.game.proto.C2BNet.HeartBeatRequest();
+    }
+
+    public static com.game.proto.C2BNet.HeartBeatRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<HeartBeatRequest>
+        PARSER = new com.google.protobuf.AbstractParser<HeartBeatRequest>() {
+      @java.lang.Override
+      public HeartBeatRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HeartBeatRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HeartBeatRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HeartBeatRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HeartBeatResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:HeartBeatResponse)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code HeartBeatResponse}
+   */
+  public static final class HeartBeatResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:HeartBeatResponse)
+      HeartBeatResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HeartBeatResponse.newBuilder() to construct.
+    private HeartBeatResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HeartBeatResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HeartBeatResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HeartBeatResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.C2BNet.internal_static_HeartBeatResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.C2BNet.internal_static_HeartBeatResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.C2BNet.HeartBeatResponse.class, com.game.proto.C2BNet.HeartBeatResponse.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.game.proto.C2BNet.HeartBeatResponse)) {
+        return super.equals(obj);
+      }
+      com.game.proto.C2BNet.HeartBeatResponse other = (com.game.proto.C2BNet.HeartBeatResponse) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.HeartBeatResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.game.proto.C2BNet.HeartBeatResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code HeartBeatResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:HeartBeatResponse)
+        com.game.proto.C2BNet.HeartBeatResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.C2BNet.HeartBeatResponse.class, com.game.proto.C2BNet.HeartBeatResponse.Builder.class);
+      }
+
+      // Construct using com.game.proto.C2BNet.HeartBeatResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.C2BNet.internal_static_HeartBeatResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatResponse getDefaultInstanceForType() {
+        return com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatResponse build() {
+        com.game.proto.C2BNet.HeartBeatResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.HeartBeatResponse buildPartial() {
+        com.game.proto.C2BNet.HeartBeatResponse result = new com.game.proto.C2BNet.HeartBeatResponse(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.C2BNet.HeartBeatResponse) {
+          return mergeFrom((com.game.proto.C2BNet.HeartBeatResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.C2BNet.HeartBeatResponse other) {
+        if (other == com.game.proto.C2BNet.HeartBeatResponse.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.C2BNet.HeartBeatResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.C2BNet.HeartBeatResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:HeartBeatResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:HeartBeatResponse)
+    private static final com.game.proto.C2BNet.HeartBeatResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.game.proto.C2BNet.HeartBeatResponse();
+    }
+
+    public static com.game.proto.C2BNet.HeartBeatResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<HeartBeatResponse>
+        PARSER = new com.google.protobuf.AbstractParser<HeartBeatResponse>() {
+      @java.lang.Override
+      public HeartBeatResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HeartBeatResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HeartBeatResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HeartBeatResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.game.proto.C2BNet.HeartBeatResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11151,6 +12403,16 @@ public final class C2BNet {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_C2BNetMessageResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HeartBeatRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HeartBeatRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_HeartBeatResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_HeartBeatResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_FrameHandle_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11207,33 +12469,36 @@ public final class C2BNet {
       "\n\023C2BNetMessage.proto\"v\n\rC2BNetMessage\022\023" +
       "\n\013messageType\030\001 \001(\t\022&\n\007Request\030\002 \001(\0132\025.C" +
       "2BNetMessageRequest\022(\n\010Response\030\003 \001(\0132\026." +
-      "C2BNetMessageResponse\"\306\001\n\024C2BNetMessageR" +
+      "C2BNetMessageResponse\"\363\001\n\024C2BNetMessageR" +
       "equest\022\016\n\006userId\030\001 \001(\005\022!\n\013frameHandle\030\002 " +
       "\001(\0132\014.FrameHandle\022\'\n\016percentForward\030\003 \001(" +
       "\0132\017.PercentForward\022%\n\013gameOverReq\030\004 \001(\0132" +
       "\020.GameOverRequest\022+\n\016repairFrameReq\030\005 \001(" +
-      "\0132\023.RepairFrameRequest\"\321\001\n\025C2BNetMessage" +
-      "Response\022,\n\016frameHandleRes\030\001 \001(\0132\024.Frame" +
-      "HandleResponse\0222\n\021percentForwardRes\030\002 \001(" +
-      "\0132\027.PercentForwardResponse\022,\n\016repairFram" +
-      "eRes\030\003 \001(\0132\024.RepairFrameResponse\022(\n\014live" +
-      "FrameRes\030\004 \001(\0132\022.LiveFrameResponse\"v\n\013Fr" +
-      "ameHandle\022\016\n\006userId\030\001 \001(\005\022\013\n\003opt\030\002 \001(\005\022\021" +
-      "\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005 \001(\005\022\021\n\t" +
-      "optValue3\030\006 \001(\005\022\021\n\toptValue4\030\007 \001(\005\"H\n\023Fr" +
-      "ameHandleResponse\022\r\n\005frame\030\001 \001(\005\022\"\n\014fram" +
-      "eHandles\030\002 \003(\0132\014.FrameHandle\"1\n\016PercentF" +
-      "orward\022\016\n\006userId\030\001 \001(\005\022\017\n\007percent\030\002 \001(\005\"" +
-      "\\\n\026PercentForwardResponse\022\'\n\016percentForw" +
-      "ard\030\001 \001(\0132\017.PercentForward\022\031\n\021allUserLoa" +
-      "dSucess\030\002 \001(\010\"\021\n\017GameOverRequest\":\n\022Repa" +
-      "irFrameRequest\022\022\n\nstartFrame\030\001 \001(\005\022\020\n\010en" +
-      "dFrame\030\002 \001(\005\"9\n\023RepairFrameResponse\022\"\n\014r" +
-      "epairFrames\030\001 \003(\0132\014.RepairFrame\"@\n\013Repai" +
-      "rFrame\022\r\n\005frame\030\001 \001(\005\022\"\n\014frameHandles\030\002 " +
-      "\003(\0132\014.FrameHandle\"5\n\021LiveFrameResponse\022 " +
-      "\n\nliveFrames\030\001 \003(\0132\014.RepairFrameB\030\n\016com." +
-      "game.protoB\006C2BNet"
+      "\0132\023.RepairFrameRequest\022+\n\020heartBeatReque" +
+      "st\030\006 \001(\0132\021.HeartBeatRequest\"\373\001\n\025C2BNetMe" +
+      "ssageResponse\022,\n\016frameHandleRes\030\001 \001(\0132\024." +
+      "FrameHandleResponse\0222\n\021percentForwardRes" +
+      "\030\002 \001(\0132\027.PercentForwardResponse\022,\n\016repai" +
+      "rFrameRes\030\003 \001(\0132\024.RepairFrameResponse\022(\n" +
+      "\014liveFrameRes\030\004 \001(\0132\022.LiveFrameResponse\022" +
+      "(\n\014heartBeatRes\030\005 \001(\0132\022.HeartBeatRespons" +
+      "e\"\022\n\020HeartBeatRequest\"\023\n\021HeartBeatRespon" +
+      "se\"v\n\013FrameHandle\022\016\n\006userId\030\001 \001(\005\022\013\n\003opt" +
+      "\030\002 \001(\005\022\021\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005" +
+      " \001(\005\022\021\n\toptValue3\030\006 \001(\005\022\021\n\toptValue4\030\007 \001" +
+      "(\005\"H\n\023FrameHandleResponse\022\r\n\005frame\030\001 \001(\005" +
+      "\022\"\n\014frameHandles\030\002 \003(\0132\014.FrameHandle\"1\n\016" +
+      "PercentForward\022\016\n\006userId\030\001 \001(\005\022\017\n\007percen" +
+      "t\030\002 \001(\005\"\\\n\026PercentForwardResponse\022\'\n\016per" +
+      "centForward\030\001 \001(\0132\017.PercentForward\022\031\n\021al" +
+      "lUserLoadSucess\030\002 \001(\010\"\021\n\017GameOverRequest" +
+      "\":\n\022RepairFrameRequest\022\022\n\nstartFrame\030\001 \001" +
+      "(\005\022\020\n\010endFrame\030\002 \001(\005\"9\n\023RepairFrameRespo" +
+      "nse\022\"\n\014repairFrames\030\001 \003(\0132\014.RepairFrame\"" +
+      "@\n\013RepairFrame\022\r\n\005frame\030\001 \001(\005\022\"\n\014frameHa" +
+      "ndles\030\002 \003(\0132\014.FrameHandle\"5\n\021LiveFrameRe" +
+      "sponse\022 \n\nliveFrames\030\001 \003(\0132\014.RepairFrame" +
+      "B\030\n\016com.game.protoB\006C2BNet"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11250,63 +12515,75 @@ public final class C2BNet {
     internal_static_C2BNetMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessageRequest_descriptor,
-        new java.lang.String[] { "UserId", "FrameHandle", "PercentForward", "GameOverReq", "RepairFrameReq", });
+        new java.lang.String[] { "UserId", "FrameHandle", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", });
     internal_static_C2BNetMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_C2BNetMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessageResponse_descriptor,
-        new java.lang.String[] { "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", });
-    internal_static_FrameHandle_descriptor =
+        new java.lang.String[] { "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", });
+    internal_static_HeartBeatRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_HeartBeatRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HeartBeatRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_HeartBeatResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_HeartBeatResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_HeartBeatResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_FrameHandle_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_FrameHandle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandle_descriptor,
         new java.lang.String[] { "UserId", "Opt", "OptValue1", "OptValue2", "OptValue3", "OptValue4", });
     internal_static_FrameHandleResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_FrameHandleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandleResponse_descriptor,
         new java.lang.String[] { "Frame", "FrameHandles", });
     internal_static_PercentForward_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_PercentForward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForward_descriptor,
         new java.lang.String[] { "UserId", "Percent", });
     internal_static_PercentForwardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_PercentForwardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForwardResponse_descriptor,
         new java.lang.String[] { "PercentForward", "AllUserLoadSucess", });
     internal_static_GameOverRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_GameOverRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameOverRequest_descriptor,
         new java.lang.String[] { });
     internal_static_RepairFrameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_RepairFrameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrameRequest_descriptor,
         new java.lang.String[] { "StartFrame", "EndFrame", });
     internal_static_RepairFrameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_RepairFrameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrameResponse_descriptor,
         new java.lang.String[] { "RepairFrames", });
     internal_static_RepairFrame_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_RepairFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrame_descriptor,
         new java.lang.String[] { "Frame", "FrameHandles", });
     internal_static_LiveFrameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_LiveFrameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LiveFrameResponse_descriptor,
