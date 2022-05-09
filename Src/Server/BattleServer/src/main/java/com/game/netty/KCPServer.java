@@ -13,14 +13,14 @@ public class KCPServer implements Server{
 
         ChannelConfig channelConfig = new ChannelConfig();
         channelConfig.nodelay(true,40,2,true);
-        channelConfig.setSndwnd(512);
-        channelConfig.setRcvwnd(512);
+        channelConfig.setSndwnd(300);
+        channelConfig.setRcvwnd(300);
         channelConfig.setMtu(512);
-        channelConfig.setFecAdapt(new FecAdapt(3,1));
         channelConfig.setAckNoDelay(true);
-        channelConfig.setTimeoutMillis(10000);
+        channelConfig.setTimeoutMillis(1000);
         channelConfig.setUseConvChannel(true);
-        channelConfig.setCrc32Check(true);
+        channelConfig.setCrc32Check(false);
+
         KcpServer kcpServer = new KcpServer();
         kcpServer.init(KcpServerHandler,channelConfig,port);
 

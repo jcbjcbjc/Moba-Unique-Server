@@ -40,8 +40,8 @@ public class MobaApplication implements CommandLineRunner {
 		/**
 		 * 使用异步注解方式启动netty服务端服务
 		 */
-		new CSKCPServer().bind(Config.PORT);
-		//new KCPServer().bind(Config.PORT);
+		//new CSKCPServer().bind(Config.PORT);
+		new KCPServer().bind(Config.PORT);
 
 	}
 

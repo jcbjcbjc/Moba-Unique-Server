@@ -44,7 +44,7 @@ public class BattleController {
     	for (Integer userId : battleUserVo.userIdList) {
     		User user=new User(userId, battleUserVo.roomId);
     		userList.add(user);
-			UserManager.Instance.users.put(userId, user);    
+			UserManager.Instance.adduser(userId, user);
 		}
     	RoomManager.Instance.GameOver(battleUserVo.roomId);
     	RoomManager.Instance.rooms.put(battleUserVo.roomId, new Room(battleUserVo.roomId, userList));

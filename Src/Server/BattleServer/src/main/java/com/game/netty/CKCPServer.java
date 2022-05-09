@@ -3,6 +3,7 @@ package com.game.netty;
 import com.backblaze.erasure.fec.Snmp;
 import com.game.manager.ConnectionManagerKCP;
 import com.game.network.MessageDispatch;
+import com.game.proto.C2BNet;
 import com.game.proto.Message;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
@@ -24,19 +25,7 @@ public class CKCPServer extends KcpServer {
 
     @Override
     public void handleReceive(ByteBuf buf, KcpOnUdp kcp) {
-        if (c == 0) {
-            start = System.currentTimeMillis();
-        }
-        c++;
-        String content = buf.toString(Charset.forName("utf-8"));
-        System.out.println("msg:" + content + " kcp--> " + kcp);
-        if (c < 10000) {
-            kcp.send(buf);//echo
-        } else {
-            System.out.println("cost:" + (System.currentTimeMillis() - start));
-            this.close();
-        }
-        /*final byte[] array;
+        final byte[] array;
         final int offset;
         final int length = buf.readableBytes();
         if (buf.hasArray()) {
@@ -46,14 +35,15 @@ public class CKCPServer extends KcpServer {
             array = ByteBufUtil.getBytes(buf, buf.readerIndex(), length, false);
             offset = 0;
         }
-        Message.NetMessageRequest2 nm = null;
+        C2BNet.C2BNetMessage nm = null;
         try {
-            nm = Message.NetMessageRequest2.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+            nm = C2BNet.C2BNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
         }
+        assert nm != null;
+        System.out.println(nm.getMessageType());
 //        System.out.println(nm);
-        MessageDispatch.Instance.DispatchData(kcp,nm);*/
     }
 
     @Override
@@ -63,13 +53,10 @@ public class CKCPServer extends KcpServer {
 
     @Override
     public void handleClose(KcpOnUdp kcp) {
-        ConnectionManagerKCP.removeConnection(kcp);
-        System.out.println(Snmp.snmp.toString());
-        Snmp.snmp  = new Snmp();
+        System.out.println("kasichauschiasc");
     }
 
-    private static long start;
-    private static int c = 0;
+
 
 
 }

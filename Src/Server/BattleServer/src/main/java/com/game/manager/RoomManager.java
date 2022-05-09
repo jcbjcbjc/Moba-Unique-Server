@@ -37,8 +37,7 @@ public class RoomManager {
 		if(room != null) {
 			room.isGameOver=true;
 			for (User user: room.users) {
-				UserManager.Instance.users.remove(user.id);
-				UserManager.Instance.liveUsers.remove(user.id);
+				UserManager.Instance.removeuser(user.id);
 				ConnectionManagerKCP.removeConnection(user.id);
 			}
 		}

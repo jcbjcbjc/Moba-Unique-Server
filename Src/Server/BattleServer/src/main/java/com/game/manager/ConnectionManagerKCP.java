@@ -19,12 +19,16 @@ public class ConnectionManagerKCP {
         conns.put(userId, conn);
         ctxs.put(conn, userId);
     }
-    public static void removeConnection(KcpOnUdp kcp) {
-        Integer userId = ctxs.get(kcp);
-        conns.remove(userId);
-        ctxs.remove(kcp);
-        System.out.println("玩家id: " + userId + "断开连接");
-        kcp.close();
+    public static void removeConnection( Ukcp kcp) {
+            Integer userId = ctxs.get(kcp);
+            if(userId!=null){
+                conns.remove(userId);
+                ctxs.remove(kcp);
+                System.out.println("Player: " + userId + "is unconnected");
+                kcp.close();
+            }else{
+                System.out.println("illegal uKCP is unconnected ");
+            }
     }
 
 
@@ -33,6 +37,9 @@ public class ConnectionManagerKCP {
         conns.remove(userId);
         if(netConnection != null) {
             netConnection.kcp.close();
+        }
+        else{
+            System.out.println("uKcp binding userId"+userId+"doesn't exist");
         }
     }
 
