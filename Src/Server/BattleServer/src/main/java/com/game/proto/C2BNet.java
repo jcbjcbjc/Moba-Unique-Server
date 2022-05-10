@@ -19,21 +19,29 @@ public final class C2BNet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return Whether the messageType field is set.
+     * <code>repeated string messageType = 1;</code>
+     * @return A list containing the messageType.
      */
-    boolean hasMessageType();
+    java.util.List<java.lang.String>
+        getMessageTypeList();
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @return The count of messageType.
      */
-    java.lang.String getMessageType();
+    int getMessageTypeCount();
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The bytes for messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the element to return.
+     * @return The messageType at the given index.
+     */
+    java.lang.String getMessageType(int index);
+    /**
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the messageType at the given index.
      */
     com.google.protobuf.ByteString
-        getMessageTypeBytes();
+        getMessageTypeBytes(int index);
 
     /**
      * <code>optional .C2BNetMessageRequest Request = 2;</code>
@@ -78,7 +86,7 @@ public final class C2BNet {
       super(builder);
     }
     private C2BNetMessage() {
-      messageType_ = "";
+      messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -114,13 +122,16 @@ public final class C2BNet {
               break;
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              messageType_ = bs;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                messageType_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              messageType_.add(bs);
               break;
             }
             case 18: {
               com.game.proto.C2BNet.C2BNetMessageRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = request_.toBuilder();
               }
               request_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageRequest.PARSER, extensionRegistry);
@@ -128,12 +139,12 @@ public final class C2BNet {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             }
             case 26: {
               com.game.proto.C2BNet.C2BNetMessageResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = response_.toBuilder();
               }
               response_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageResponse.PARSER, extensionRegistry);
@@ -141,7 +152,7 @@ public final class C2BNet {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             }
             default: {
@@ -159,6 +170,9 @@ public final class C2BNet {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          messageType_ = messageType_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -178,51 +192,38 @@ public final class C2BNet {
 
     private int bitField0_;
     public static final int MESSAGETYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object messageType_;
+    private com.google.protobuf.LazyStringList messageType_;
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return Whether the messageType field is set.
+     * <code>repeated string messageType = 1;</code>
+     * @return A list containing the messageType.
      */
-    @java.lang.Override
-    public boolean hasMessageType() {
-      return ((bitField0_ & 0x00000001) != 0);
+    public com.google.protobuf.ProtocolStringList
+        getMessageTypeList() {
+      return messageType_;
     }
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @return The count of messageType.
      */
-    @java.lang.Override
-    public java.lang.String getMessageType() {
-      java.lang.Object ref = messageType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          messageType_ = s;
-        }
-        return s;
-      }
+    public int getMessageTypeCount() {
+      return messageType_.size();
     }
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The bytes for messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the element to return.
+     * @return The messageType at the given index.
      */
-    @java.lang.Override
+    public java.lang.String getMessageType(int index) {
+      return messageType_.get(index);
+    }
+    /**
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the messageType at the given index.
+     */
     public com.google.protobuf.ByteString
-        getMessageTypeBytes() {
-      java.lang.Object ref = messageType_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        messageType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getMessageTypeBytes(int index) {
+      return messageType_.getByteString(index);
     }
 
     public static final int REQUEST_FIELD_NUMBER = 2;
@@ -233,7 +234,7 @@ public final class C2BNet {
      */
     @java.lang.Override
     public boolean hasRequest() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .C2BNetMessageRequest Request = 2;</code>
@@ -259,7 +260,7 @@ public final class C2BNet {
      */
     @java.lang.Override
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .C2BNetMessageResponse Response = 3;</code>
@@ -291,13 +292,13 @@ public final class C2BNet {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_);
+      for (int i = 0; i < messageType_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_.getRaw(i));
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(2, getRequest());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(3, getResponse());
       }
       unknownFields.writeTo(output);
@@ -309,14 +310,19 @@ public final class C2BNet {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageType_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < messageType_.size(); i++) {
+          dataSize += computeStringSizeNoTag(messageType_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMessageTypeList().size();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRequest());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getResponse());
       }
@@ -335,11 +341,8 @@ public final class C2BNet {
       }
       com.game.proto.C2BNet.C2BNetMessage other = (com.game.proto.C2BNet.C2BNetMessage) obj;
 
-      if (hasMessageType() != other.hasMessageType()) return false;
-      if (hasMessageType()) {
-        if (!getMessageType()
-            .equals(other.getMessageType())) return false;
-      }
+      if (!getMessageTypeList()
+          .equals(other.getMessageTypeList())) return false;
       if (hasRequest() != other.hasRequest()) return false;
       if (hasRequest()) {
         if (!getRequest()
@@ -361,9 +364,9 @@ public final class C2BNet {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasMessageType()) {
+      if (getMessageTypeCount() > 0) {
         hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getMessageType().hashCode();
+        hash = (53 * hash) + getMessageTypeList().hashCode();
       }
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
@@ -508,7 +511,7 @@ public final class C2BNet {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        messageType_ = "";
+        messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (requestBuilder_ == null) {
           request_ = null;
@@ -550,8 +553,9 @@ public final class C2BNet {
         com.game.proto.C2BNet.C2BNetMessage result = new com.game.proto.C2BNet.C2BNetMessage(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          messageType_ = messageType_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.messageType_ = messageType_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
@@ -560,7 +564,7 @@ public final class C2BNet {
           } else {
             result.request_ = requestBuilder_.build();
           }
-          to_bitField0_ |= 0x00000002;
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           if (responseBuilder_ == null) {
@@ -568,7 +572,7 @@ public final class C2BNet {
           } else {
             result.response_ = responseBuilder_.build();
           }
-          to_bitField0_ |= 0x00000004;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -619,9 +623,14 @@ public final class C2BNet {
 
       public Builder mergeFrom(com.game.proto.C2BNet.C2BNetMessage other) {
         if (other == com.game.proto.C2BNet.C2BNetMessage.getDefaultInstance()) return this;
-        if (other.hasMessageType()) {
-          bitField0_ |= 0x00000001;
-          messageType_ = other.messageType_;
+        if (!other.messageType_.isEmpty()) {
+          if (messageType_.isEmpty()) {
+            messageType_ = other.messageType_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureMessageTypeIsMutable();
+            messageType_.addAll(other.messageType_);
+          }
           onChanged();
         }
         if (other.hasRequest()) {
@@ -660,86 +669,111 @@ public final class C2BNet {
       }
       private int bitField0_;
 
-      private java.lang.Object messageType_ = "";
-      /**
-       * <code>optional string messageType = 1;</code>
-       * @return Whether the messageType field is set.
-       */
-      public boolean hasMessageType() {
-        return ((bitField0_ & 0x00000001) != 0);
+      private com.google.protobuf.LazyStringList messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMessageTypeIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          messageType_ = new com.google.protobuf.LazyStringArrayList(messageType_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @return The messageType.
+       * <code>repeated string messageType = 1;</code>
+       * @return A list containing the messageType.
        */
-      public java.lang.String getMessageType() {
-        java.lang.Object ref = messageType_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            messageType_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ProtocolStringList
+          getMessageTypeList() {
+        return messageType_.getUnmodifiableView();
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @return The bytes for messageType.
+       * <code>repeated string messageType = 1;</code>
+       * @return The count of messageType.
+       */
+      public int getMessageTypeCount() {
+        return messageType_.size();
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index of the element to return.
+       * @return The messageType at the given index.
+       */
+      public java.lang.String getMessageType(int index) {
+        return messageType_.get(index);
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the messageType at the given index.
        */
       public com.google.protobuf.ByteString
-          getMessageTypeBytes() {
-        java.lang.Object ref = messageType_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          messageType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getMessageTypeBytes(int index) {
+        return messageType_.getByteString(index);
       }
       /**
-       * <code>optional string messageType = 1;</code>
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index to set the value at.
        * @param value The messageType to set.
        * @return This builder for chaining.
        */
       public Builder setMessageType(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMessageTypeIsMutable();
+        messageType_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param value The messageType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMessageType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
-        messageType_ = value;
+  ensureMessageTypeIsMutable();
+        messageType_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messageType = 1;</code>
+       * <code>repeated string messageType = 1;</code>
+       * @param values The messageType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllMessageType(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMessageTypeIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, messageType_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMessageType() {
+        messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        messageType_ = getDefaultInstance().getMessageType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @param value The bytes for messageType to set.
+       * <code>repeated string messageType = 1;</code>
+       * @param value The bytes of the messageType to add.
        * @return This builder for chaining.
        */
-      public Builder setMessageTypeBytes(
+      public Builder addMessageTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
-        messageType_ = value;
+  ensureMessageTypeIsMutable();
+        messageType_.add(value);
         onChanged();
         return this;
       }
@@ -4984,38 +5018,29 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>optional int32 optValue3 = 6;</code>
-     * @return Whether the optValue3 field is set.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @return A list containing the optDetail.
      */
-    boolean hasOptValue3();
+    java.util.List<java.lang.Long> getOptDetailList();
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>optional int32 optValue3 = 6;</code>
-     * @return The optValue3.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @return The count of optDetail.
      */
-    int getOptValue3();
-
+    int getOptDetailCount();
     /**
      * <pre>
-     *值4
+     *值3
      * </pre>
      *
-     * <code>optional int32 optValue4 = 7;</code>
-     * @return Whether the optValue4 field is set.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @param index The index of the element to return.
+     * @return The optDetail at the given index.
      */
-    boolean hasOptValue4();
-    /**
-     * <pre>
-     *值4
-     * </pre>
-     *
-     * <code>optional int32 optValue4 = 7;</code>
-     * @return The optValue4.
-     */
-    int getOptValue4();
+    long getOptDetail(int index);
   }
   /**
    * Protobuf type {@code FrameHandle}
@@ -5030,6 +5055,7 @@ public final class C2BNet {
       super(builder);
     }
     private FrameHandle() {
+      optDetail_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -5084,13 +5110,24 @@ public final class C2BNet {
               break;
             }
             case 48: {
-              bitField0_ |= 0x00000010;
-              optValue3_ = input.readInt32();
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                optDetail_ = newLongList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              optDetail_.addLong(input.readUInt64());
               break;
             }
-            case 56: {
-              bitField0_ |= 0x00000020;
-              optValue4_ = input.readInt32();
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
+                optDetail_ = newLongList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                optDetail_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
               break;
             }
             default: {
@@ -5108,6 +5145,9 @@ public final class C2BNet {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          optDetail_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -5234,58 +5274,43 @@ public final class C2BNet {
       return optValue2_;
     }
 
-    public static final int OPTVALUE3_FIELD_NUMBER = 6;
-    private int optValue3_;
+    public static final int OPTDETAIL_FIELD_NUMBER = 6;
+    private com.google.protobuf.Internal.LongList optDetail_;
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>optional int32 optValue3 = 6;</code>
-     * @return Whether the optValue3 field is set.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @return A list containing the optDetail.
      */
     @java.lang.Override
-    public boolean hasOptValue3() {
-      return ((bitField0_ & 0x00000010) != 0);
+    public java.util.List<java.lang.Long>
+        getOptDetailList() {
+      return optDetail_;
     }
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>optional int32 optValue3 = 6;</code>
-     * @return The optValue3.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @return The count of optDetail.
      */
-    @java.lang.Override
-    public int getOptValue3() {
-      return optValue3_;
-    }
-
-    public static final int OPTVALUE4_FIELD_NUMBER = 7;
-    private int optValue4_;
-    /**
-     * <pre>
-     *值4
-     * </pre>
-     *
-     * <code>optional int32 optValue4 = 7;</code>
-     * @return Whether the optValue4 field is set.
-     */
-    @java.lang.Override
-    public boolean hasOptValue4() {
-      return ((bitField0_ & 0x00000020) != 0);
+    public int getOptDetailCount() {
+      return optDetail_.size();
     }
     /**
      * <pre>
-     *值4
+     *值3
      * </pre>
      *
-     * <code>optional int32 optValue4 = 7;</code>
-     * @return The optValue4.
+     * <code>repeated uint64 optDetail = 6;</code>
+     * @param index The index of the element to return.
+     * @return The optDetail at the given index.
      */
-    @java.lang.Override
-    public int getOptValue4() {
-      return optValue4_;
+    public long getOptDetail(int index) {
+      return optDetail_.getLong(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5314,11 +5339,8 @@ public final class C2BNet {
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeInt32(5, optValue2_);
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt32(6, optValue3_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeInt32(7, optValue4_);
+      for (int i = 0; i < optDetail_.size(); i++) {
+        output.writeUInt64(6, optDetail_.getLong(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5345,13 +5367,14 @@ public final class C2BNet {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, optValue2_);
       }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, optValue3_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, optValue4_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < optDetail_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(optDetail_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getOptDetailList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5388,16 +5411,8 @@ public final class C2BNet {
         if (getOptValue2()
             != other.getOptValue2()) return false;
       }
-      if (hasOptValue3() != other.hasOptValue3()) return false;
-      if (hasOptValue3()) {
-        if (getOptValue3()
-            != other.getOptValue3()) return false;
-      }
-      if (hasOptValue4() != other.hasOptValue4()) return false;
-      if (hasOptValue4()) {
-        if (getOptValue4()
-            != other.getOptValue4()) return false;
-      }
+      if (!getOptDetailList()
+          .equals(other.getOptDetailList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5425,13 +5440,9 @@ public final class C2BNet {
         hash = (37 * hash) + OPTVALUE2_FIELD_NUMBER;
         hash = (53 * hash) + getOptValue2();
       }
-      if (hasOptValue3()) {
-        hash = (37 * hash) + OPTVALUE3_FIELD_NUMBER;
-        hash = (53 * hash) + getOptValue3();
-      }
-      if (hasOptValue4()) {
-        hash = (37 * hash) + OPTVALUE4_FIELD_NUMBER;
-        hash = (53 * hash) + getOptValue4();
+      if (getOptDetailCount() > 0) {
+        hash = (37 * hash) + OPTDETAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getOptDetailList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5574,10 +5585,8 @@ public final class C2BNet {
         bitField0_ = (bitField0_ & ~0x00000004);
         optValue2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        optValue3_ = 0;
+        optDetail_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        optValue4_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -5622,14 +5631,11 @@ public final class C2BNet {
           result.optValue2_ = optValue2_;
           to_bitField0_ |= 0x00000008;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.optValue3_ = optValue3_;
-          to_bitField0_ |= 0x00000010;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          optDetail_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.optValue4_ = optValue4_;
-          to_bitField0_ |= 0x00000020;
-        }
+        result.optDetail_ = optDetail_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5691,11 +5697,15 @@ public final class C2BNet {
         if (other.hasOptValue2()) {
           setOptValue2(other.getOptValue2());
         }
-        if (other.hasOptValue3()) {
-          setOptValue3(other.getOptValue3());
-        }
-        if (other.hasOptValue4()) {
-          setOptValue4(other.getOptValue4());
+        if (!other.optDetail_.isEmpty()) {
+          if (optDetail_.isEmpty()) {
+            optDetail_ = other.optDetail_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureOptDetailIsMutable();
+            optDetail_.addAll(other.optDetail_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5947,43 +5957,63 @@ public final class C2BNet {
         return this;
       }
 
-      private int optValue3_ ;
-      /**
-       * <pre>
-       *值3
-       * </pre>
-       *
-       * <code>optional int32 optValue3 = 6;</code>
-       * @return Whether the optValue3 field is set.
-       */
-      @java.lang.Override
-      public boolean hasOptValue3() {
-        return ((bitField0_ & 0x00000010) != 0);
+      private com.google.protobuf.Internal.LongList optDetail_ = emptyLongList();
+      private void ensureOptDetailIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          optDetail_ = mutableCopy(optDetail_);
+          bitField0_ |= 0x00000010;
+         }
       }
       /**
        * <pre>
        *值3
        * </pre>
        *
-       * <code>optional int32 optValue3 = 6;</code>
-       * @return The optValue3.
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @return A list containing the optDetail.
        */
-      @java.lang.Override
-      public int getOptValue3() {
-        return optValue3_;
+      public java.util.List<java.lang.Long>
+          getOptDetailList() {
+        return ((bitField0_ & 0x00000010) != 0) ?
+                 java.util.Collections.unmodifiableList(optDetail_) : optDetail_;
       }
       /**
        * <pre>
        *值3
        * </pre>
        *
-       * <code>optional int32 optValue3 = 6;</code>
-       * @param value The optValue3 to set.
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @return The count of optDetail.
+       */
+      public int getOptDetailCount() {
+        return optDetail_.size();
+      }
+      /**
+       * <pre>
+       *值3
+       * </pre>
+       *
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @param index The index of the element to return.
+       * @return The optDetail at the given index.
+       */
+      public long getOptDetail(int index) {
+        return optDetail_.getLong(index);
+      }
+      /**
+       * <pre>
+       *值3
+       * </pre>
+       *
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The optDetail to set.
        * @return This builder for chaining.
        */
-      public Builder setOptValue3(int value) {
-        bitField0_ |= 0x00000010;
-        optValue3_ = value;
+      public Builder setOptDetail(
+          int index, long value) {
+        ensureOptDetailIsMutable();
+        optDetail_.setLong(index, value);
         onChanged();
         return this;
       }
@@ -5992,67 +6022,44 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>optional int32 optValue3 = 6;</code>
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @param value The optDetail to add.
        * @return This builder for chaining.
        */
-      public Builder clearOptValue3() {
+      public Builder addOptDetail(long value) {
+        ensureOptDetailIsMutable();
+        optDetail_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *值3
+       * </pre>
+       *
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @param values The optDetail to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllOptDetail(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureOptDetailIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, optDetail_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *值3
+       * </pre>
+       *
+       * <code>repeated uint64 optDetail = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOptDetail() {
+        optDetail_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        optValue3_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int optValue4_ ;
-      /**
-       * <pre>
-       *值4
-       * </pre>
-       *
-       * <code>optional int32 optValue4 = 7;</code>
-       * @return Whether the optValue4 field is set.
-       */
-      @java.lang.Override
-      public boolean hasOptValue4() {
-        return ((bitField0_ & 0x00000020) != 0);
-      }
-      /**
-       * <pre>
-       *值4
-       * </pre>
-       *
-       * <code>optional int32 optValue4 = 7;</code>
-       * @return The optValue4.
-       */
-      @java.lang.Override
-      public int getOptValue4() {
-        return optValue4_;
-      }
-      /**
-       * <pre>
-       *值4
-       * </pre>
-       *
-       * <code>optional int32 optValue4 = 7;</code>
-       * @param value The optValue4 to set.
-       * @return This builder for chaining.
-       */
-      public Builder setOptValue4(int value) {
-        bitField0_ |= 0x00000020;
-        optValue4_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *值4
-       * </pre>
-       *
-       * <code>optional int32 optValue4 = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearOptValue4() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        optValue4_ = 0;
         onChanged();
         return this;
       }
@@ -12467,7 +12474,7 @@ public final class C2BNet {
   static {
     java.lang.String[] descriptorData = {
       "\n\023C2BNetMessage.proto\"v\n\rC2BNetMessage\022\023" +
-      "\n\013messageType\030\001 \001(\t\022&\n\007Request\030\002 \001(\0132\025.C" +
+      "\n\013messageType\030\001 \003(\t\022&\n\007Request\030\002 \001(\0132\025.C" +
       "2BNetMessageRequest\022(\n\010Response\030\003 \001(\0132\026." +
       "C2BNetMessageResponse\"\363\001\n\024C2BNetMessageR" +
       "equest\022\016\n\006userId\030\001 \001(\005\022!\n\013frameHandle\030\002 " +
@@ -12483,22 +12490,22 @@ public final class C2BNet {
       "\014liveFrameRes\030\004 \001(\0132\022.LiveFrameResponse\022" +
       "(\n\014heartBeatRes\030\005 \001(\0132\022.HeartBeatRespons" +
       "e\"\022\n\020HeartBeatRequest\"\023\n\021HeartBeatRespon" +
-      "se\"v\n\013FrameHandle\022\016\n\006userId\030\001 \001(\005\022\013\n\003opt" +
+      "se\"c\n\013FrameHandle\022\016\n\006userId\030\001 \001(\005\022\013\n\003opt" +
       "\030\002 \001(\005\022\021\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005" +
-      " \001(\005\022\021\n\toptValue3\030\006 \001(\005\022\021\n\toptValue4\030\007 \001" +
-      "(\005\"H\n\023FrameHandleResponse\022\r\n\005frame\030\001 \001(\005" +
-      "\022\"\n\014frameHandles\030\002 \003(\0132\014.FrameHandle\"1\n\016" +
-      "PercentForward\022\016\n\006userId\030\001 \001(\005\022\017\n\007percen" +
-      "t\030\002 \001(\005\"\\\n\026PercentForwardResponse\022\'\n\016per" +
-      "centForward\030\001 \001(\0132\017.PercentForward\022\031\n\021al" +
-      "lUserLoadSucess\030\002 \001(\010\"\021\n\017GameOverRequest" +
-      "\":\n\022RepairFrameRequest\022\022\n\nstartFrame\030\001 \001" +
-      "(\005\022\020\n\010endFrame\030\002 \001(\005\"9\n\023RepairFrameRespo" +
-      "nse\022\"\n\014repairFrames\030\001 \003(\0132\014.RepairFrame\"" +
-      "@\n\013RepairFrame\022\r\n\005frame\030\001 \001(\005\022\"\n\014frameHa" +
-      "ndles\030\002 \003(\0132\014.FrameHandle\"5\n\021LiveFrameRe" +
-      "sponse\022 \n\nliveFrames\030\001 \003(\0132\014.RepairFrame" +
-      "B\030\n\016com.game.protoB\006C2BNet"
+      " \001(\005\022\021\n\toptDetail\030\006 \003(\004\"H\n\023FrameHandleRe" +
+      "sponse\022\r\n\005frame\030\001 \001(\005\022\"\n\014frameHandles\030\002 " +
+      "\003(\0132\014.FrameHandle\"1\n\016PercentForward\022\016\n\006u" +
+      "serId\030\001 \001(\005\022\017\n\007percent\030\002 \001(\005\"\\\n\026PercentF" +
+      "orwardResponse\022\'\n\016percentForward\030\001 \001(\0132\017" +
+      ".PercentForward\022\031\n\021allUserLoadSucess\030\002 \001" +
+      "(\010\"\021\n\017GameOverRequest\":\n\022RepairFrameRequ" +
+      "est\022\022\n\nstartFrame\030\001 \001(\005\022\020\n\010endFrame\030\002 \001(" +
+      "\005\"9\n\023RepairFrameResponse\022\"\n\014repairFrames" +
+      "\030\001 \003(\0132\014.RepairFrame\"@\n\013RepairFrame\022\r\n\005f" +
+      "rame\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Frame" +
+      "Handle\"5\n\021LiveFrameResponse\022 \n\nliveFrame" +
+      "s\030\001 \003(\0132\014.RepairFrameB\030\n\016com.game.protoB" +
+      "\006C2BNet"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12539,7 +12546,7 @@ public final class C2BNet {
     internal_static_FrameHandle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandle_descriptor,
-        new java.lang.String[] { "UserId", "Opt", "OptValue1", "OptValue2", "OptValue3", "OptValue4", });
+        new java.lang.String[] { "UserId", "Opt", "OptValue1", "OptValue2", "OptDetail", });
     internal_static_FrameHandleResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_FrameHandleResponse_fieldAccessorTable = new

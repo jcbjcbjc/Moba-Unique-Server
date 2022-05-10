@@ -7251,21 +7251,29 @@ public final class C2GNet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return Whether the messageType field is set.
+     * <code>repeated string messageType = 1;</code>
+     * @return A list containing the messageType.
      */
-    boolean hasMessageType();
+    java.util.List<java.lang.String>
+        getMessageTypeList();
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @return The count of messageType.
      */
-    java.lang.String getMessageType();
+    int getMessageTypeCount();
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The bytes for messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the element to return.
+     * @return The messageType at the given index.
+     */
+    java.lang.String getMessageType(int index);
+    /**
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the messageType at the given index.
      */
     com.google.protobuf.ByteString
-        getMessageTypeBytes();
+        getMessageTypeBytes(int index);
 
     /**
      * <code>optional .NetMessageRequest Request = 2;</code>
@@ -7310,7 +7318,7 @@ public final class C2GNet {
       super(builder);
     }
     private C2GNetMessage() {
-      messageType_ = "";
+      messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -7346,13 +7354,16 @@ public final class C2GNet {
               break;
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              messageType_ = bs;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                messageType_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              messageType_.add(bs);
               break;
             }
             case 18: {
               com.game.proto.C2GNet.NetMessageRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
+              if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = request_.toBuilder();
               }
               request_ = input.readMessage(com.game.proto.C2GNet.NetMessageRequest.PARSER, extensionRegistry);
@@ -7360,12 +7371,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             }
             case 26: {
               com.game.proto.C2GNet.NetMessageResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = response_.toBuilder();
               }
               response_ = input.readMessage(com.game.proto.C2GNet.NetMessageResponse.PARSER, extensionRegistry);
@@ -7373,7 +7384,7 @@ public final class C2GNet {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             }
             default: {
@@ -7391,6 +7402,9 @@ public final class C2GNet {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          messageType_ = messageType_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -7410,51 +7424,38 @@ public final class C2GNet {
 
     private int bitField0_;
     public static final int MESSAGETYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object messageType_;
+    private com.google.protobuf.LazyStringList messageType_;
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return Whether the messageType field is set.
+     * <code>repeated string messageType = 1;</code>
+     * @return A list containing the messageType.
      */
-    @java.lang.Override
-    public boolean hasMessageType() {
-      return ((bitField0_ & 0x00000001) != 0);
+    public com.google.protobuf.ProtocolStringList
+        getMessageTypeList() {
+      return messageType_;
     }
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @return The count of messageType.
      */
-    @java.lang.Override
-    public java.lang.String getMessageType() {
-      java.lang.Object ref = messageType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          messageType_ = s;
-        }
-        return s;
-      }
+    public int getMessageTypeCount() {
+      return messageType_.size();
     }
     /**
-     * <code>optional string messageType = 1;</code>
-     * @return The bytes for messageType.
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the element to return.
+     * @return The messageType at the given index.
      */
-    @java.lang.Override
+    public java.lang.String getMessageType(int index) {
+      return messageType_.get(index);
+    }
+    /**
+     * <code>repeated string messageType = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the messageType at the given index.
+     */
     public com.google.protobuf.ByteString
-        getMessageTypeBytes() {
-      java.lang.Object ref = messageType_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        messageType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getMessageTypeBytes(int index) {
+      return messageType_.getByteString(index);
     }
 
     public static final int REQUEST_FIELD_NUMBER = 2;
@@ -7465,7 +7466,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasRequest() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>optional .NetMessageRequest Request = 2;</code>
@@ -7491,7 +7492,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .NetMessageResponse Response = 3;</code>
@@ -7523,13 +7524,13 @@ public final class C2GNet {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_);
+      for (int i = 0; i < messageType_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageType_.getRaw(i));
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(2, getRequest());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(3, getResponse());
       }
       unknownFields.writeTo(output);
@@ -7541,14 +7542,19 @@ public final class C2GNet {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageType_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < messageType_.size(); i++) {
+          dataSize += computeStringSizeNoTag(messageType_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMessageTypeList().size();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRequest());
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getResponse());
       }
@@ -7567,11 +7573,8 @@ public final class C2GNet {
       }
       com.game.proto.C2GNet.C2GNetMessage other = (com.game.proto.C2GNet.C2GNetMessage) obj;
 
-      if (hasMessageType() != other.hasMessageType()) return false;
-      if (hasMessageType()) {
-        if (!getMessageType()
-            .equals(other.getMessageType())) return false;
-      }
+      if (!getMessageTypeList()
+          .equals(other.getMessageTypeList())) return false;
       if (hasRequest() != other.hasRequest()) return false;
       if (hasRequest()) {
         if (!getRequest()
@@ -7593,9 +7596,9 @@ public final class C2GNet {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasMessageType()) {
+      if (getMessageTypeCount() > 0) {
         hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getMessageType().hashCode();
+        hash = (53 * hash) + getMessageTypeList().hashCode();
       }
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
@@ -7740,7 +7743,7 @@ public final class C2GNet {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        messageType_ = "";
+        messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (requestBuilder_ == null) {
           request_ = null;
@@ -7782,8 +7785,9 @@ public final class C2GNet {
         com.game.proto.C2GNet.C2GNetMessage result = new com.game.proto.C2GNet.C2GNetMessage(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          messageType_ = messageType_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.messageType_ = messageType_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
@@ -7792,7 +7796,7 @@ public final class C2GNet {
           } else {
             result.request_ = requestBuilder_.build();
           }
-          to_bitField0_ |= 0x00000002;
+          to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           if (responseBuilder_ == null) {
@@ -7800,7 +7804,7 @@ public final class C2GNet {
           } else {
             result.response_ = responseBuilder_.build();
           }
-          to_bitField0_ |= 0x00000004;
+          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -7851,9 +7855,14 @@ public final class C2GNet {
 
       public Builder mergeFrom(com.game.proto.C2GNet.C2GNetMessage other) {
         if (other == com.game.proto.C2GNet.C2GNetMessage.getDefaultInstance()) return this;
-        if (other.hasMessageType()) {
-          bitField0_ |= 0x00000001;
-          messageType_ = other.messageType_;
+        if (!other.messageType_.isEmpty()) {
+          if (messageType_.isEmpty()) {
+            messageType_ = other.messageType_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureMessageTypeIsMutable();
+            messageType_.addAll(other.messageType_);
+          }
           onChanged();
         }
         if (other.hasRequest()) {
@@ -7892,86 +7901,111 @@ public final class C2GNet {
       }
       private int bitField0_;
 
-      private java.lang.Object messageType_ = "";
-      /**
-       * <code>optional string messageType = 1;</code>
-       * @return Whether the messageType field is set.
-       */
-      public boolean hasMessageType() {
-        return ((bitField0_ & 0x00000001) != 0);
+      private com.google.protobuf.LazyStringList messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMessageTypeIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          messageType_ = new com.google.protobuf.LazyStringArrayList(messageType_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @return The messageType.
+       * <code>repeated string messageType = 1;</code>
+       * @return A list containing the messageType.
        */
-      public java.lang.String getMessageType() {
-        java.lang.Object ref = messageType_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            messageType_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ProtocolStringList
+          getMessageTypeList() {
+        return messageType_.getUnmodifiableView();
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @return The bytes for messageType.
+       * <code>repeated string messageType = 1;</code>
+       * @return The count of messageType.
+       */
+      public int getMessageTypeCount() {
+        return messageType_.size();
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index of the element to return.
+       * @return The messageType at the given index.
+       */
+      public java.lang.String getMessageType(int index) {
+        return messageType_.get(index);
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the messageType at the given index.
        */
       public com.google.protobuf.ByteString
-          getMessageTypeBytes() {
-        java.lang.Object ref = messageType_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          messageType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getMessageTypeBytes(int index) {
+        return messageType_.getByteString(index);
       }
       /**
-       * <code>optional string messageType = 1;</code>
+       * <code>repeated string messageType = 1;</code>
+       * @param index The index to set the value at.
        * @param value The messageType to set.
        * @return This builder for chaining.
        */
       public Builder setMessageType(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMessageTypeIsMutable();
+        messageType_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
+       * @param value The messageType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMessageType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
-        messageType_ = value;
+  ensureMessageTypeIsMutable();
+        messageType_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messageType = 1;</code>
+       * <code>repeated string messageType = 1;</code>
+       * @param values The messageType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllMessageType(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMessageTypeIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, messageType_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string messageType = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearMessageType() {
+        messageType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        messageType_ = getDefaultInstance().getMessageType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string messageType = 1;</code>
-       * @param value The bytes for messageType to set.
+       * <code>repeated string messageType = 1;</code>
+       * @param value The bytes of the messageType to add.
        * @return This builder for chaining.
        */
-      public Builder setMessageTypeBytes(
+      public Builder addMessageTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
-        messageType_ = value;
+  ensureMessageTypeIsMutable();
+        messageType_.add(value);
         onChanged();
         return this;
       }
@@ -63738,7 +63772,7 @@ public final class C2GNet {
       "\r\n\005value\030\004 \001(\003\"(\n\014StatusNotify\022\030\n\006status" +
       "\030\001 \003(\0132\010.NStatus\"3\n\021NUserStatusChange\022\016\n" +
       "\006userId\030\001 \001(\005\022\016\n\006status\030\002 \001(\010\"p\n\rC2GNetM" +
-      "essage\022\023\n\013messageType\030\001 \001(\t\022#\n\007Request\030\002" +
+      "essage\022\023\n\013messageType\030\001 \003(\t\022#\n\007Request\030\002" +
       " \001(\0132\022.NetMessageRequest\022%\n\010Response\030\003 \001" +
       "(\0132\023.NetMessageResponse\"\252\010\n\021NetMessageRe" +
       "quest\022*\n\014userRegister\030\001 \001(\0132\024.UserRegist" +
