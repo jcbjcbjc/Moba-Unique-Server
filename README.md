@@ -1,11 +1,11 @@
 # Moba-Unique-Server
- 帧同步服务器框架
+ 分布式帧同步服务器框架
  
  
 ###  1 主要技术栈和特点
 网络框架+协议栈：网络框架用的是高性能IO库Netty，协议栈为低延迟的可靠UDP协议KCP+FEC前向纠错技术
 
-服务器架构：服务器采用双层架构，通过大厅服务器GameServer和战斗服务器BattleServer两层来实现业务分离和负载均衡，其中可以开多个BattleServer来进行负载均衡
+服务器架构：服务器采用双层架构，通过大厅服务器GameServer和战斗服务器BattleServer两层来实现业务分离和负载均衡，其中可以开多个BattleServer来进行负载均衡，服务器内部通过HTTPS的RPC调用来在多服务器之间传递消息
 
 数据库：mysql+myBatis
 
