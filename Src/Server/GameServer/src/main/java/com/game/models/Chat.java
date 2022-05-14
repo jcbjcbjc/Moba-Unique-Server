@@ -61,9 +61,9 @@ public class Chat {
 				  if(chatMessage.getChatRoomType() == ChatRoomType.Game_) {  //判断友方消息
 					NRoom room = RoomManager.Instance.GetRoom(owner.roomId);
 					if(room != null) {
-					  boolean myResult = RoomManager.Instance.ExistUserRoom(owner.id, room.getTeam1List());  //效验是否存在友队
-				      boolean otherResult = RoomManager.Instance.ExistUserRoom(chatMessage.getFromId(), room.getTeam1List());  //效验是否存在友队
-					  if(myResult == otherResult) { //和发送消息的人同一队伍
+					  /*boolean myResult = RoomManager.Instance.ExistUserRoom(owner.id, room.getTeam1List());  //效验是否存在友队
+				      boolean otherResult = RoomManager.Instance.ExistUserRoom(chatMessage.getFromId(), room.getTeam1List());*/  //效验是否存在友队
+					  if(owner.teamId == UserManager.Instance.getUser(chatMessage.getFromId()).teamId) { //和发送消息的人同一队伍
 						 resultRoomChatMsg.add(chatMessage);
 				      }
 					}

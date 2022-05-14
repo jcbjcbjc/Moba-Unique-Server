@@ -57,6 +57,7 @@ public class MatchServiceImpl implements MatchService {
 		  if(user != null) {			  
 			user.setStatus(UserStatus.Game);
 			user.roomId=roomBuilder.getRoomId();
+
 			if(!isMatch) {   //未匹配
 				user.liveFanSiIdList.clear();
 			}
@@ -65,7 +66,8 @@ public class MatchServiceImpl implements MatchService {
 		  RoomManager.Instance.RemoveRoomUserIds(roomBuilder.getRoomId(), userId);//移除房间用户统计集合中
 		  if(user != null) {			  
 	        user.setStatus(UserStatus.Normal);
-		    user.roomId=0;			
+		    user.roomId=0;
+			user.teamId=0;
 		  }
 		}
 		if(connection == null) {

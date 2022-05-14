@@ -82,7 +82,7 @@ public class RoomServiceImpl implements RoomService {
 		ResultInfo inviteResultInfo = RoomManager.Instance.AddRoomValidate(senderUser, toUser, true);
 		//未效验通过给发送者响应
 		if(inviteResultInfo.result == Result.Failed) {
-			senderInviteResponse.setResult(inviteResultInfo.result).setErrormsg(inviteResultInfo.errormsg);
+			senderInviteResponse.setResultmsg(inviteResultInfo.result).setErrormsg(inviteResultInfo.errormsg);
 			senderResponse.setInviteRes(senderInviteResponse);
 			sender.send();
 			return;
@@ -108,18 +108,18 @@ public class RoomServiceImpl implements RoomService {
 		NetConnection fromNetConnection=ConnectionManager.getConnection(inviteRequest.getFromUserId());  //房主
 		InviteResponse.Builder fromInviteResponseBuilder=inviteResponse.toBuilder();
 		
-		if(inviteResponse.getResult()==Result.Success) {
+		if(inviteResponse.getResultmsg()==Result.Success) {
 			if(fromNetConnection==null) {
-				senderInviteResponseBuilder.setResult(Result.Failed).setErrormsg("请求者已下线！");
+				senderInviteResponseBuilder.setResultmsg(Result.Failed).setErrormsg("请求者已下线！");
 			}else { //同意邀请
 				User fromUser=fromNetConnection.getSession().user;
 				NetMessageResponse.Builder fromResponse = fromNetConnection.getResponse();
-				ResultInfo resultInfo = RoomManager.Instance.AddRoom(fromUser, senderUser, inviteRequest.getTeamType(), false);
+				ResultInfo resultInfo = RoomManager.Instance.AddRoom(fromUser, senderUser, inviteRequest.getTeamId(), false);
 			    if(resultInfo.result == Result.Success) {  //加入房间成功
-			    	senderInviteResponseBuilder.setResult(Result.Success).setErrormsg("加入房间成功！");
-					fromInviteResponseBuilder.setResult(Result.Success).setErrormsg(inviteRequest.getToNickName()+"加入房间！");
+			    	senderInviteResponseBuilder.setResultmsg(Result.Success).setErrormsg("加入房间成功！");
+					fromInviteResponseBuilder.setResultmsg(Result.Success).setErrormsg(inviteRequest.getToNickName()+"加入房间！");
 			    }else {  //加入房间未成功
-			    	senderInviteResponseBuilder.setResult(Result.Failed).setErrormsg(resultInfo.errormsg);
+			    	senderInviteResponseBuilder.setResultmsg(Result.Failed).setErrormsg(resultInfo.errormsg);
 			    }
 			   fromResponse.setInviteRes(fromInviteResponseBuilder.build());
 			   fromNetConnection.send();
@@ -127,7 +127,7 @@ public class RoomServiceImpl implements RoomService {
 		}else {  //拒绝邀请，给邀请者消息
 			if(fromNetConnection != null) {
 				NetMessageResponse.Builder fromResponse = fromNetConnection.getResponse();
-				fromInviteResponseBuilder.setResult(Result.Failed).setErrormsg(inviteRequest.getToNickName()+"拒绝邀请！");
+				fromInviteResponseBuilder.setResultmsg(Result.Failed).setErrormsg(inviteRequest.getToNickName()+"拒绝邀请！");
 				fromResponse.setInviteRes(fromInviteResponseBuilder.build());
 				fromNetConnection.send();
 			}
@@ -264,7 +264,7 @@ public class RoomServiceImpl implements RoomService {
 			}else { //同意加入(房主)
 				User fromUser=fromNetConnection.getSession().user;
 				NetMessageResponse.Builder fromResponse = fromNetConnection.getResponse();
-				ResultInfo resultInfo = RoomManager.Instance.AddRoom(senderUser, fromUser, senderAddRoomResponseBuilder.getTeamType(), true);
+				ResultInfo resultInfo = RoomManager.Instance.AddRoom(senderUser, fromUser, senderAddRoomResponseBuilder.getTeamId(), true);
 			    if(resultInfo.result == Result.Success) {  //加入房间成功
 			    	fromAddRoomResponseBuilder.setResult(Result.Success).setErrormsg("加入房间成功！");
 			    	senderAddRoomResponseBuilder.setResult(Result.Success).setErrormsg(addRoomRequest.getFromNickName()+"加入房间！");

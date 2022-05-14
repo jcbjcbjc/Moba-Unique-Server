@@ -11,6 +11,7 @@ import java.util.Set;
 
 import com.game.entity.User;
 import com.game.network.NetConnection;
+import com.game.proto.C2GNet;
 import com.game.proto.C2GNet.NRoom;
 import com.game.proto.Message.NUser;
 import com.game.proto.Message.NetMessageResponse;
@@ -18,7 +19,7 @@ import com.game.proto.C2GNet.Result;
 import com.game.proto.C2GNet.RoomStatus;
 import com.game.proto.C2GNet.RoomUser;
 import com.game.proto.Message.StartMatchResponse;
-import com.game.proto.C2GNet.TeamType;
+import com.game.proto.C2GNet.AllTeam;
 import com.game.proto.Message.UserStatus;
 import com.game.service.MatchService;
 import com.game.service.RoomService;
@@ -131,9 +132,9 @@ public class MatchManager {
 	 * @param roomBuilder
 	 * @param count
 	 * @param userIndex
-	 * @param teamType
+	 * @param teamId
 	 */
-	private void TeamAddMatchUser(NRoom.Builder roomBuilder,int count,int userIndex,TeamType teamType) {
+	private void TeamAddMatchUser(NRoom.Builder roomBuilder,int count,int userIndex,int teamId) {
 		if(count==0) {
 			return;
 		}
@@ -141,13 +142,15 @@ public class MatchManager {
 			if(userList.size() > userIndex) {
 				User user=userList.remove(userIndex);
 				user.roomId=roomBuilder.getRoomId();
+				user.teamId=teamId;
 				RoomManager.Instance.userMap.put(user.id, user);
-				RoomUser roomUser=RoomManager.Instance.CreatorRoomUser(user);
-				if(teamType==TeamType.My) {					
+				RoomUser roomUser=RoomManager.Instance.CreatorRoomUser(user,teamId);
+				roomBuilder.getAllTeam(teamId).getTeamList().add(roomUser);
+				/*if(teamType==TeamType.My) {
 					roomBuilder.addTeam1(roomUser);
 				}else {
 					roomBuilder.addTeam2(roomUser);
-				}
+				}*/
 			}
 		}
 	}
@@ -163,6 +166,10 @@ public class MatchManager {
     	}else {    		
     		NRoom.Builder roomBuilder = NRoom.newBuilder();
     		roomBuilder.setRoomId(RoomManager.Instance.GetRoomId());
+			AllTeam.Builder Team1=AllTeam.newBuilder();
+			AllTeam.Builder Team2=AllTeam.newBuilder();
+			roomBuilder.addAllTeam(Team1);
+			roomBuilder.addAllTeam(Team2);
     		//开始匹配
     		this.RoomMatch(roomBuilder);
     	}
@@ -178,9 +185,9 @@ public class MatchManager {
     	len = len > RoomManager.Instance.teamNum * 2 ? RoomManager.Instance.teamNum * 2 : len;
     	for (int j = 0; j < len ; j++) {
 		  if (j % 2 == 0) {
-			  this.TeamAddMatchUser(roomBuilder, 1, 0, TeamType.My);
+			  this.TeamAddMatchUser(roomBuilder, 1, 0, 0);
 		  } else {
-			  this.TeamAddMatchUser(roomBuilder, 1, 0, TeamType.Enemy);
+			  this.TeamAddMatchUser(roomBuilder, 1, 0, 1);
 		  }
     	}
     	
@@ -201,11 +208,11 @@ public class MatchManager {
 			 RoomManager.Instance.RemoveUserMapByRoom(roomBuilder);
 		  }
 	  //匹配响应
-	  for (RoomUser roomUser : roomBuilder.getTeam1List()) {
+	  for (RoomUser roomUser : roomBuilder.getAllTeam(0).getTeamList()) {
 		  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
 	  }
-	  for (RoomUser roomUser : roomBuilder.getTeam2List()) {
-		  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
+	  for (RoomUser roomUser : roomBuilder.getAllTeam(1).getTeamList()) {
+		  matchService.OnMatchResponse(roomUser.getUserId(),resultInfo, roomBuilder, false);
 	  }
 	}
     

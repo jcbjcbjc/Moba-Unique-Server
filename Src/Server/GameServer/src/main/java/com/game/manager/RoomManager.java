@@ -6,13 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.game.data.BattleConfig;
 import com.game.entity.User;
+import com.game.proto.C2GNet;
 import com.game.proto.C2GNet.GameOver2Request;
 import com.game.proto.C2GNet.NRoom;
 import com.game.proto.C2GNet.Result;
 import com.game.proto.C2GNet.RoomStatus;
 import com.game.proto.C2GNet.RoomUser;
-import com.game.proto.C2GNet.TeamType;
+
 import com.game.proto.C2GNet.TipsType;
 import com.game.proto.C2GNet.TipsWorkType;
 import com.game.proto.C2GNet.UserStatus;
@@ -45,11 +47,11 @@ public class RoomManager {
 	// 对战房间用户集合便于统计人数 key:房间id value:用户id集合
 	public Map<Integer, List<Integer>> roomUserIds = Collections.synchronizedMap(new HashMap<>());
 
-	public int teamNum = 3; // 队伍人数
+	public int teamNum = BattleConfig.TeamNum; // 队伍人数
 	public int minTeamNum = 1; // 每队最少人数
 
 	private int roomIdx = 1000;
-	public int overNum = 1;// 2; //游戏结束人数判断
+	public int overNum = BattleConfig.overNum;// 2; //游戏结束人数判断
 
 	public NRoom GetRoom(int roomId) {
 		return rooms.get(roomId);
@@ -83,11 +85,11 @@ public class RoomManager {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "你当前没有开房间！" : "未找到房间！");
 		}
 
-		boolean myResult = this.ExistUserRoom(user.id, room.getTeam1List());
+		boolean myResult = this.ExistUserRoom(user.id, room.getAllTeam(0).getTeamList());
 		if (myResult) {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "对方已存在友方列表！" : "你已存在友方列表！");
 		}
-		boolean enemyResult = this.ExistUserRoom(user.id, room.getTeam2List());
+		boolean enemyResult = this.ExistUserRoom(user.id, room.getAllTeam(1).getTeamList());
 		if (enemyResult) {
 			return new ResultInfo(Result.Failed, isRoomOwner ? "对方已存在敌方列表！" : "你已存在敌方列表！");
 		}
@@ -125,7 +127,7 @@ public class RoomManager {
 	 * 邀请用户响应
 	 */
 	@SuppressWarnings("rawtypes")
-	public ResultInfo AddRoom(User roomOwnerUser, User user, TeamType teamType, boolean isRoomOwner) {
+	public ResultInfo AddRoom(User roomOwnerUser, User user, int teamId, boolean isRoomOwner) {
 		ResultInfo resultInfo = this.AddRoomValidate(roomOwnerUser, user, isRoomOwner);
 		if (resultInfo.result == Result.Failed) {
 			return resultInfo;
@@ -133,20 +135,25 @@ public class RoomManager {
 		NRoom.Builder room = GetRoom(roomOwnerUser.roomId).toBuilder();
 		RoomUser roomUser = RoomUser.newBuilder().setUserId(user.id).setNickName(user.nickname)
 				.setCCharacterId(user.character.cId).build();
-		if (teamType == TeamType.My) {
-			if (room.getTeam1Count() >= teamNum) {
+		if (room.getAllTeam(teamId).getTeamCount() >= teamNum) {
+			return new ResultInfo(Result.Failed, "Team已达上限！");
+		}
+		room.getAllTeam(teamId).getTeamList().add(roomUser);
+		/*if (teamId == 1) {
+			if (room.getAllTeam(1).getTeamCount() >= teamNum) {
 				return new ResultInfo(Result.Failed, "Team1已达上限！");
 			}
-			room.addTeam1(roomUser);
+			room.getAllTeam(1).getTeamList().add(roomUser);
 		} else if (teamType == TeamType.Enemy) {
 			if (room.getTeam2Count() >= teamNum) {
 				return new ResultInfo(Result.Failed, "Team2已达上限！");
 			}
 			room.addTeam2(roomUser);
-		}
+		}*/
 		rooms.put(room.getRoomId(), room.build());
 		user.setStatus(UserStatus.Room); // 更新用户状态
 		user.roomId = room.getRoomId();
+		user.teamId=teamId;
 		return resultInfo;
 	}
 
@@ -154,26 +161,22 @@ public class RoomManager {
 	 * 友方、敌方队伍中移除用户
 	 * 
 	 * @param outUserId
-	 * @param roomUserList
+	 * @param roomBuild
 	 * @return
 	 */
-	public boolean RemoveUserRoom(int outUserId, TeamType teamType, NRoom.Builder roomBuild) {
-		List<RoomUser> roomUserList = null;
-		if (teamType == TeamType.My) {
-			roomUserList = roomBuild.getTeam1List();
-		} else {
-			roomUserList = roomBuild.getTeam2List();
-		}
-		if (roomUserList != null) {
-			for (int i = 0; i < roomUserList.size(); i++) {
-				RoomUser roomUser = roomUserList.get(i);
-				if (roomUser.getUserId() == outUserId) {
-					if (teamType == TeamType.My) {
-						roomBuild.removeTeam1(i);
-					} else {
-						roomBuild.removeTeam2(i);
+	public boolean RemoveUserRoom(int outUserId, NRoom.Builder roomBuild) {
+		List<C2GNet.AllTeam> AllTeamList = roomBuild.getAllTeamList();
+
+		for(C2GNet.AllTeam allTeam : AllTeamList){
+			List<RoomUser> roomUserList=allTeam.getTeamList();
+			if (roomUserList != null) {
+				for (int i = 0; i < roomUserList.size(); i++) {
+					RoomUser roomUser = roomUserList.get(i);
+					if (roomUser.getUserId() == outUserId) {
+						roomUserList.remove(i);
+						/*roomBuild.getAllTeam(teamId).getTeamList().remove(i);*/
+						return true;
 					}
-					return true;
 				}
 			}
 		}
@@ -194,9 +197,10 @@ public class RoomManager {
 			return new ResultInfo(Result.Failed, "你不是房主！");
 		}
 		NRoom.Builder roomBuild = room.toBuilder();
-		boolean myResult = this.RemoveUserRoom(outUser.id, TeamType.My, roomBuild);
-		boolean enemyResult = this.RemoveUserRoom(outUser.id, TeamType.Enemy, roomBuild);
-		if (!myResult && !enemyResult) {
+
+		boolean theResult = this.RemoveUserRoom(outUser.id, roomBuild);
+
+		if (!theResult) {
 			return new ResultInfo(Result.Failed, "用户已不存在房间中！");
 		}
 		rooms.put(roomBuild.getRoomId(), roomBuild.build());
@@ -212,18 +216,9 @@ public class RoomManager {
 	 * @param userStatus
 	 */
 	public void UpdateRoomUserStatus(NRoom room, UserStatus userStatus) {
-		List<RoomUser> myList = room.getTeam1List();
-		if (myList != null) {
-			for (RoomUser roomUser : myList) {
-				User user = UserManager.Instance.getUser(roomUser.getUserId());
-				if (user != null) {
-					user.setStatus(userStatus);
-				}
-			}
-		}
-		List<RoomUser> enemyList = room.getTeam2List();
-		if (enemyList != null) {
-			for (RoomUser roomUser : enemyList) {
+		for( C2GNet.AllTeam allTeam : room.getAllTeamList()  ){
+			List<RoomUser> roomUserList=allTeam.getTeamList();
+			for (RoomUser roomUser : roomUserList) {
 				User user = UserManager.Instance.getUser(roomUser.getUserId());
 				if (user != null) {
 					user.setStatus(userStatus);
@@ -271,16 +266,13 @@ public class RoomManager {
 			this.UpdateRoomUserStatus(room, UserStatus.Normal);
 			// 同步消息给房间其他玩家
 			if (room.getRoomStatus() == RoomStatus.Normal_) {
-				for (RoomUser roomUser : room.getTeam1List()) {
-					if (roomUser.getUserId() != room.getUserId()) {
-						TipsManager.Instance.ShowTips(roomUser.getUserId(), TipsType.Tips, TipsWorkType.DismissRoom,
-								"房主解散房间！", true);
-					}
-				}
-				for (RoomUser roomUser : room.getTeam2List()) {
-					if (roomUser.getUserId() != room.getUserId()) {
-						TipsManager.Instance.ShowTips(roomUser.getUserId(), TipsType.Tips, TipsWorkType.DismissRoom,
-								"房主解散房间！", true);
+				for( C2GNet.AllTeam allTeam : room.getAllTeamList()  ){
+					List<RoomUser> roomUserList=allTeam.getTeamList();
+					for (RoomUser roomUser : roomUserList) {
+						if (roomUser.getUserId() != room.getUserId()) {
+							TipsManager.Instance.ShowTips(roomUser.getUserId(), TipsType.Tips, TipsWorkType.DismissRoom,
+									"房主解散房间！", true);
+						}
 					}
 				}
 			}
@@ -291,9 +283,9 @@ public class RoomManager {
 			RoomManager.Instance.RemoveRoomUserIds(room.getRoomId(), user.id); // 从房间用户统计中移除用户
 
 			NRoom.Builder roomBuild = room.toBuilder();
-			boolean myResult = this.RemoveUserRoom(user.id, TeamType.My, roomBuild);
-			boolean enemyResult = this.RemoveUserRoom(user.id, TeamType.Enemy, roomBuild);
-			if (!myResult && !enemyResult) {
+			boolean theResult = this.RemoveUserRoom(user.id,  roomBuild);
+
+			if (!theResult) {
 				return new ResultInfo(Result.Failed, "用户已不存在房间中！");
 			}
 			rooms.put(roomBuild.getRoomId(), roomBuild.build());
@@ -313,12 +305,14 @@ public class RoomManager {
 	public NRoom OpenRoom(User user) {
 		int roomId = this.GetRoomId();
 		user.roomId = roomId;
+		user.teamId=0;
 		user.setStatus(UserStatus.Room);
 
 		RoomUser roomUser = RoomUser.newBuilder().setUserId(user.id).setNickName(user.nickname)
 				.setCCharacterId(user.character.cId).build();
-
-		NRoom room = NRoom.newBuilder().setRoomId(roomId).setUserId(user.id).addTeam1(roomUser).build();
+		C2GNet.AllTeam.Builder Team1=C2GNet.AllTeam.newBuilder();
+		Team1.addTeam(roomUser);
+		NRoom room = NRoom.newBuilder().setRoomId(roomId).setUserId(user.id).addAllTeam(Team1).build();
 		rooms.put(roomId, room);
 		return room;
 	}
@@ -336,27 +330,28 @@ public class RoomManager {
 	 * 创建房间用户
 	 * 
 	 * @param user 用户
+	 * @param teamId
 	 * @return RoomUser
 	 */
-	public RoomUser CreatorRoomUser(User user) {
+	public RoomUser CreatorRoomUser(User user,int teamId) {
 		RoomUser roomUser = RoomUser.newBuilder().setUserId(user.id).setNickName(user.nickname)
-				.setCCharacterId(user.character.cId).setUser(user.info()).build();
+				.setCCharacterId(user.character.cId).setUser(user.info()).setTeamId(teamId).setRoomNum(GetRoomUserIdsNum(user.roomId)) .build();
 		return roomUser;
 	}
 
 	/**
 	 * 获取房间所有用户id
 	 * 
-	 * @param room
+	 * @param roomBuilder
 	 * @return
 	 */
 	public List<Integer> GetRoomUserIdList(NRoom.Builder roomBuilder) {
 		List<Integer> userIdList = new ArrayList<>();
-		for (RoomUser roomUser : roomBuilder.getTeam1List()) {
-			userIdList.add(roomUser.getUserId());
-		}
-		for (RoomUser roomUser : roomBuilder.getTeam2List()) {
-			userIdList.add(roomUser.getUserId());
+		for( C2GNet.AllTeam allTeam : roomBuilder.getAllTeamList()  ){
+			List<RoomUser> roomUserList=allTeam.getTeamList();
+			for (RoomUser roomUser : roomUserList) {
+				userIdList.add(roomUser.getUserId());
+			}
 		}
 		return userIdList;
 	}
@@ -365,12 +360,13 @@ public class RoomManager {
 	 * 根据房间移除房间用户map
 	 */
 	public void RemoveUserMapByRoom(NRoom.Builder roomBuilder) {
-		for (RoomUser roomUser : roomBuilder.getTeam1List()) {
-			userMap.remove(roomUser.getUserId());
+		for( C2GNet.AllTeam allTeam : roomBuilder.getAllTeamList()  ){
+			List<RoomUser> roomUserList=allTeam.getTeamList();
+			for (RoomUser roomUser : roomUserList) {
+				userMap.remove(roomUser.getUserId());
+			}
 		}
-		for (RoomUser roomUser : roomBuilder.getTeam2List()) {
-			userMap.remove(roomUser.getUserId());
-		}
+
 	}
 
 	/**
@@ -382,20 +378,16 @@ public class RoomManager {
 	 */
 	public int GetRoomUserCountByStatus(NRoom room, UserStatus status) {
 		int count = 0;
-		List<RoomUser> myRoomUserList = room.getTeam1List();
-		for (RoomUser roomUser : myRoomUserList) {
-			User u = UserManager.Instance.getUser(roomUser.getUserId());
-			if (u.getStatus() == status) {
-				count++;
+		for( C2GNet.AllTeam allTeam : room.getAllTeamList()  ){
+			List<RoomUser> roomUserList=allTeam.getTeamList();
+			for (RoomUser roomUser : roomUserList) {
+				User u = UserManager.Instance.getUser(roomUser.getUserId());
+				if (u.getStatus() == status) {
+					count++;
+				}
 			}
 		}
-		List<RoomUser> enemyRoomUserList = room.getTeam2List();
-		for (RoomUser roomUser : enemyRoomUserList) {
-			User u = UserManager.Instance.getUser(roomUser.getUserId());
-			if (u.getStatus() == status) {
-				count++;
-			}
-		}
+
 		return count;
 	}
 

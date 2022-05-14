@@ -25,7 +25,7 @@ import com.game.proto.C2GNet.NUser;
 import com.game.proto.Message.NUserStatusChange;
 import com.game.proto.C2GNet.NetMessageResponse;
 import com.game.proto.C2GNet.StatusNotify;
-import com.game.proto.C2GNet.TeamType;
+
 import com.game.proto.C2GNet.UnLockCharacter;
 import com.game.proto.C2GNet.UserStatus;
 import com.game.proto.C2GNet.UserStatusChangeResponse;
@@ -65,6 +65,7 @@ public class User {
     public Character character; //模型属性
     public int fenSiCount;  //粉丝数量
     public int roomId; //房间id
+    public int teamId;
     private UserStatus status=UserStatus.Normal;  //用户状态
     public long matchTime;  //匹配时间
     public List<Integer> liveFanSiIdList=new ArrayList<>();   //观战id集合
@@ -162,9 +163,9 @@ public class User {
          NRoom room = RoomManager.Instance.GetRoom(roomId);
         if(room != null) {  
           builder.setBiFen(room.getBiFen()); //比分 
-          boolean myResult = RoomManager.Instance.ExistUserRoom(id, room.getTeam1List());  //效验是否存在友队
+          /*boolean myResult = RoomManager.Instance.ExistUserRoom(id, room.getTeam1List());  //效验是否存在友队
           builder.setTeamType(myResult ? TeamType.My : TeamType.Enemy);  //队伍类型
-          builder.setRoomNum(RoomManager.Instance.GetRoomUserIdsNum(roomId));  //房间人数
+          builder.setRoomNum(RoomManager.Instance.GetRoomUserIdsNum(roomId));  //房间人数*/
         }
        }
         if(characters != null && charaId != null) {
@@ -286,6 +287,7 @@ public class User {
 		this.status=userStatus;
 		if(userStatus == UserStatus.Normal) {
 			this.roomId=0;
+            this.teamId=0;
 			this.chat.roomChatIdx=0;
 		}
 	}

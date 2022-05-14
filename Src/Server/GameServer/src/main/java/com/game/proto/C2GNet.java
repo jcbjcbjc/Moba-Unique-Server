@@ -753,118 +753,6 @@ public final class C2GNet {
   }
 
   /**
-   * Protobuf enum {@code TeamType}
-   */
-  public enum TeamType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     *友方
-     * </pre>
-     *
-     * <code>My = 0;</code>
-     */
-    My(0),
-    /**
-     * <pre>
-     *敌方
-     * </pre>
-     *
-     * <code>Enemy = 1;</code>
-     */
-    Enemy(1),
-    ;
-
-    /**
-     * <pre>
-     *友方
-     * </pre>
-     *
-     * <code>My = 0;</code>
-     */
-    public static final int My_VALUE = 0;
-    /**
-     * <pre>
-     *敌方
-     * </pre>
-     *
-     * <code>Enemy = 1;</code>
-     */
-    public static final int Enemy_VALUE = 1;
-
-
-    public final int getNumber() {
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static TeamType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static TeamType forNumber(int value) {
-      switch (value) {
-        case 0: return My;
-        case 1: return Enemy;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<TeamType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        TeamType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<TeamType>() {
-            public TeamType findValueByNumber(int number) {
-              return TeamType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(6);
-    }
-
-    private static final TeamType[] VALUES = values();
-
-    public static TeamType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private TeamType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:TeamType)
-  }
-
-  /**
    * Protobuf enum {@code RoomStatus}
    */
   public enum RoomStatus
@@ -953,7 +841,7 @@ public final class C2GNet {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(7);
+      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(6);
     }
 
     private static final RoomStatus[] VALUES = values();
@@ -1086,7 +974,7 @@ public final class C2GNet {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(8);
+      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(7);
     }
 
     private static final ChatChannel[] VALUES = values();
@@ -1215,7 +1103,7 @@ public final class C2GNet {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(9);
+      return com.game.proto.C2GNet.getDescriptor().getEnumTypes().get(8);
     }
 
     private static final ChatRoomType[] VALUES = values();
@@ -1452,44 +1340,6 @@ public final class C2GNet {
      */
     com.google.protobuf.ByteString
         getBiFenBytes();
-
-    /**
-     * <pre>
-     *队伍类型
-     * </pre>
-     *
-     * <code>optional .TeamType teamType = 12;</code>
-     * @return Whether the teamType field is set.
-     */
-    boolean hasTeamType();
-    /**
-     * <pre>
-     *队伍类型
-     * </pre>
-     *
-     * <code>optional .TeamType teamType = 12;</code>
-     * @return The teamType.
-     */
-    com.game.proto.C2GNet.TeamType getTeamType();
-
-    /**
-     * <pre>
-     *房间人数
-     * </pre>
-     *
-     * <code>optional int32 roomNum = 13;</code>
-     * @return Whether the roomNum field is set.
-     */
-    boolean hasRoomNum();
-    /**
-     * <pre>
-     *房间人数
-     * </pre>
-     *
-     * <code>optional int32 roomNum = 13;</code>
-     * @return The roomNum.
-     */
-    int getRoomNum();
   }
   /**
    * Protobuf type {@code NUser}
@@ -1508,7 +1358,6 @@ public final class C2GNet {
       unLockCharacters_ = java.util.Collections.emptyList();
       userStatus_ = 0;
       biFen_ = "";
-      teamType_ = 0;
     }
 
     @java.lang.Override
@@ -1611,23 +1460,6 @@ public final class C2GNet {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000100;
               biFen_ = bs;
-              break;
-            }
-            case 96: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.game.proto.C2GNet.TeamType value = com.game.proto.C2GNet.TeamType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(12, rawValue);
-              } else {
-                bitField0_ |= 0x00000200;
-                teamType_ = rawValue;
-              }
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00000400;
-              roomNum_ = input.readInt32();
               break;
             }
             default: {
@@ -2014,60 +1846,6 @@ public final class C2GNet {
       }
     }
 
-    public static final int TEAMTYPE_FIELD_NUMBER = 12;
-    private int teamType_;
-    /**
-     * <pre>
-     *队伍类型
-     * </pre>
-     *
-     * <code>optional .TeamType teamType = 12;</code>
-     * @return Whether the teamType field is set.
-     */
-    @java.lang.Override public boolean hasTeamType() {
-      return ((bitField0_ & 0x00000200) != 0);
-    }
-    /**
-     * <pre>
-     *队伍类型
-     * </pre>
-     *
-     * <code>optional .TeamType teamType = 12;</code>
-     * @return The teamType.
-     */
-    @java.lang.Override public com.game.proto.C2GNet.TeamType getTeamType() {
-      @SuppressWarnings("deprecation")
-      com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-      return result == null ? com.game.proto.C2GNet.TeamType.My : result;
-    }
-
-    public static final int ROOMNUM_FIELD_NUMBER = 13;
-    private int roomNum_;
-    /**
-     * <pre>
-     *房间人数
-     * </pre>
-     *
-     * <code>optional int32 roomNum = 13;</code>
-     * @return Whether the roomNum field is set.
-     */
-    @java.lang.Override
-    public boolean hasRoomNum() {
-      return ((bitField0_ & 0x00000400) != 0);
-    }
-    /**
-     * <pre>
-     *房间人数
-     * </pre>
-     *
-     * <code>optional int32 roomNum = 13;</code>
-     * @return The roomNum.
-     */
-    @java.lang.Override
-    public int getRoomNum() {
-      return roomNum_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2111,12 +1889,6 @@ public final class C2GNet {
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, biFen_);
-      }
-      if (((bitField0_ & 0x00000200) != 0)) {
-        output.writeEnum(12, teamType_);
-      }
-      if (((bitField0_ & 0x00000400) != 0)) {
-        output.writeInt32(13, roomNum_);
       }
       unknownFields.writeTo(output);
     }
@@ -2164,14 +1936,6 @@ public final class C2GNet {
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, biFen_);
-      }
-      if (((bitField0_ & 0x00000200) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(12, teamType_);
-      }
-      if (((bitField0_ & 0x00000400) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, roomNum_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2234,15 +1998,6 @@ public final class C2GNet {
         if (!getBiFen()
             .equals(other.getBiFen())) return false;
       }
-      if (hasTeamType() != other.hasTeamType()) return false;
-      if (hasTeamType()) {
-        if (teamType_ != other.teamType_) return false;
-      }
-      if (hasRoomNum() != other.hasRoomNum()) return false;
-      if (hasRoomNum()) {
-        if (getRoomNum()
-            != other.getRoomNum()) return false;
-      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2296,14 +2051,6 @@ public final class C2GNet {
       if (hasBiFen()) {
         hash = (37 * hash) + BIFEN_FIELD_NUMBER;
         hash = (53 * hash) + getBiFen().hashCode();
-      }
-      if (hasTeamType()) {
-        hash = (37 * hash) + TEAMTYPE_FIELD_NUMBER;
-        hash = (53 * hash) + teamType_;
-      }
-      if (hasRoomNum()) {
-        hash = (37 * hash) + ROOMNUM_FIELD_NUMBER;
-        hash = (53 * hash) + getRoomNum();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2468,10 +2215,6 @@ public final class C2GNet {
         bitField0_ = (bitField0_ & ~0x00000100);
         biFen_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        teamType_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000400);
-        roomNum_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -2549,14 +2292,6 @@ public final class C2GNet {
           to_bitField0_ |= 0x00000100;
         }
         result.biFen_ = biFen_;
-        if (((from_bitField0_ & 0x00000400) != 0)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.teamType_ = teamType_;
-        if (((from_bitField0_ & 0x00000800) != 0)) {
-          result.roomNum_ = roomNum_;
-          to_bitField0_ |= 0x00000400;
-        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2662,12 +2397,6 @@ public final class C2GNet {
           bitField0_ |= 0x00000200;
           biFen_ = other.biFen_;
           onChanged();
-        }
-        if (other.hasTeamType()) {
-          setTeamType(other.getTeamType());
-        }
-        if (other.hasRoomNum()) {
-          setRoomNum(other.getRoomNum());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3649,120 +3378,6 @@ public final class C2GNet {
   }
   bitField0_ |= 0x00000200;
         biFen_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int teamType_ = 0;
-      /**
-       * <pre>
-       *队伍类型
-       * </pre>
-       *
-       * <code>optional .TeamType teamType = 12;</code>
-       * @return Whether the teamType field is set.
-       */
-      @java.lang.Override public boolean hasTeamType() {
-        return ((bitField0_ & 0x00000400) != 0);
-      }
-      /**
-       * <pre>
-       *队伍类型
-       * </pre>
-       *
-       * <code>optional .TeamType teamType = 12;</code>
-       * @return The teamType.
-       */
-      @java.lang.Override
-      public com.game.proto.C2GNet.TeamType getTeamType() {
-        @SuppressWarnings("deprecation")
-        com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-        return result == null ? com.game.proto.C2GNet.TeamType.My : result;
-      }
-      /**
-       * <pre>
-       *队伍类型
-       * </pre>
-       *
-       * <code>optional .TeamType teamType = 12;</code>
-       * @param value The teamType to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTeamType(com.game.proto.C2GNet.TeamType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000400;
-        teamType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *队伍类型
-       * </pre>
-       *
-       * <code>optional .TeamType teamType = 12;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTeamType() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        teamType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int roomNum_ ;
-      /**
-       * <pre>
-       *房间人数
-       * </pre>
-       *
-       * <code>optional int32 roomNum = 13;</code>
-       * @return Whether the roomNum field is set.
-       */
-      @java.lang.Override
-      public boolean hasRoomNum() {
-        return ((bitField0_ & 0x00000800) != 0);
-      }
-      /**
-       * <pre>
-       *房间人数
-       * </pre>
-       *
-       * <code>optional int32 roomNum = 13;</code>
-       * @return The roomNum.
-       */
-      @java.lang.Override
-      public int getRoomNum() {
-        return roomNum_;
-      }
-      /**
-       * <pre>
-       *房间人数
-       * </pre>
-       *
-       * <code>optional int32 roomNum = 13;</code>
-       * @param value The roomNum to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomNum(int value) {
-        bitField0_ |= 0x00000800;
-        roomNum_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *房间人数
-       * </pre>
-       *
-       * <code>optional int32 roomNum = 13;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomNum() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        roomNum_ = 0;
         onChanged();
         return this;
       }
@@ -33348,6 +32963,36 @@ public final class C2GNet {
      * <code>optional .NUser user = 4;</code>
      */
     com.game.proto.C2GNet.NUserOrBuilder getUserOrBuilder();
+
+    /**
+     * <code>optional int32 teamId = 5;</code>
+     * @return Whether the teamId field is set.
+     */
+    boolean hasTeamId();
+    /**
+     * <code>optional int32 teamId = 5;</code>
+     * @return The teamId.
+     */
+    int getTeamId();
+
+    /**
+     * <pre>
+     *房间人数
+     * </pre>
+     *
+     * <code>optional int32 roomNum = 6;</code>
+     * @return Whether the roomNum field is set.
+     */
+    boolean hasRoomNum();
+    /**
+     * <pre>
+     *房间人数
+     * </pre>
+     *
+     * <code>optional int32 roomNum = 6;</code>
+     * @return The roomNum.
+     */
+    int getRoomNum();
   }
   /**
    * Protobuf type {@code RoomUser}
@@ -33423,6 +33068,16 @@ public final class C2GNet {
                 user_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000008;
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              teamId_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              roomNum_ = input.readInt32();
               break;
             }
             default: {
@@ -33610,6 +33265,52 @@ public final class C2GNet {
       return user_ == null ? com.game.proto.C2GNet.NUser.getDefaultInstance() : user_;
     }
 
+    public static final int TEAMID_FIELD_NUMBER = 5;
+    private int teamId_;
+    /**
+     * <code>optional int32 teamId = 5;</code>
+     * @return Whether the teamId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTeamId() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional int32 teamId = 5;</code>
+     * @return The teamId.
+     */
+    @java.lang.Override
+    public int getTeamId() {
+      return teamId_;
+    }
+
+    public static final int ROOMNUM_FIELD_NUMBER = 6;
+    private int roomNum_;
+    /**
+     * <pre>
+     *房间人数
+     * </pre>
+     *
+     * <code>optional int32 roomNum = 6;</code>
+     * @return Whether the roomNum field is set.
+     */
+    @java.lang.Override
+    public boolean hasRoomNum() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     *房间人数
+     * </pre>
+     *
+     * <code>optional int32 roomNum = 6;</code>
+     * @return The roomNum.
+     */
+    @java.lang.Override
+    public int getRoomNum() {
+      return roomNum_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -33636,6 +33337,12 @@ public final class C2GNet {
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(4, getUser());
       }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeInt32(5, teamId_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeInt32(6, roomNum_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -33659,6 +33366,14 @@ public final class C2GNet {
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getUser());
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, teamId_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, roomNum_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -33695,6 +33410,16 @@ public final class C2GNet {
         if (!getUser()
             .equals(other.getUser())) return false;
       }
+      if (hasTeamId() != other.hasTeamId()) return false;
+      if (hasTeamId()) {
+        if (getTeamId()
+            != other.getTeamId()) return false;
+      }
+      if (hasRoomNum() != other.hasRoomNum()) return false;
+      if (hasRoomNum()) {
+        if (getRoomNum()
+            != other.getRoomNum()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -33721,6 +33446,14 @@ public final class C2GNet {
       if (hasUser()) {
         hash = (37 * hash) + USER_FIELD_NUMBER;
         hash = (53 * hash) + getUser().hashCode();
+      }
+      if (hasTeamId()) {
+        hash = (37 * hash) + TEAMID_FIELD_NUMBER;
+        hash = (53 * hash) + getTeamId();
+      }
+      if (hasRoomNum()) {
+        hash = (37 * hash) + ROOMNUM_FIELD_NUMBER;
+        hash = (53 * hash) + getRoomNum();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -33868,6 +33601,10 @@ public final class C2GNet {
           userBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        teamId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        roomNum_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -33915,6 +33652,14 @@ public final class C2GNet {
             result.user_ = userBuilder_.build();
           }
           to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.teamId_ = teamId_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.roomNum_ = roomNum_;
+          to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -33978,6 +33723,12 @@ public final class C2GNet {
         }
         if (other.hasUser()) {
           mergeUser(other.getUser());
+        }
+        if (other.hasTeamId()) {
+          setTeamId(other.getTeamId());
+        }
+        if (other.hasRoomNum()) {
+          setRoomNum(other.getRoomNum());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -34382,6 +34133,100 @@ public final class C2GNet {
         }
         return userBuilder_;
       }
+
+      private int teamId_ ;
+      /**
+       * <code>optional int32 teamId = 5;</code>
+       * @return Whether the teamId field is set.
+       */
+      @java.lang.Override
+      public boolean hasTeamId() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional int32 teamId = 5;</code>
+       * @return The teamId.
+       */
+      @java.lang.Override
+      public int getTeamId() {
+        return teamId_;
+      }
+      /**
+       * <code>optional int32 teamId = 5;</code>
+       * @param value The teamId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTeamId(int value) {
+        bitField0_ |= 0x00000010;
+        teamId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 teamId = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTeamId() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        teamId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int roomNum_ ;
+      /**
+       * <pre>
+       *房间人数
+       * </pre>
+       *
+       * <code>optional int32 roomNum = 6;</code>
+       * @return Whether the roomNum field is set.
+       */
+      @java.lang.Override
+      public boolean hasRoomNum() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       *房间人数
+       * </pre>
+       *
+       * <code>optional int32 roomNum = 6;</code>
+       * @return The roomNum.
+       */
+      @java.lang.Override
+      public int getRoomNum() {
+        return roomNum_;
+      }
+      /**
+       * <pre>
+       *房间人数
+       * </pre>
+       *
+       * <code>optional int32 roomNum = 6;</code>
+       * @param value The roomNum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRoomNum(int value) {
+        bitField0_ |= 0x00000020;
+        roomNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间人数
+       * </pre>
+       *
+       * <code>optional int32 roomNum = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRoomNum() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        roomNum_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -34435,8 +34280,8 @@ public final class C2GNet {
 
   }
 
-  public interface RoomTeamOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RoomTeam)
+  public interface AllTeamOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AllTeam)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -34464,18 +34309,18 @@ public final class C2GNet {
         int index);
   }
   /**
-   * Protobuf type {@code RoomTeam}
+   * Protobuf type {@code AllTeam}
    */
-  public static final class RoomTeam extends
+  public static final class AllTeam extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:RoomTeam)
-      RoomTeamOrBuilder {
+      // @@protoc_insertion_point(message_implements:AllTeam)
+      AllTeamOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RoomTeam.newBuilder() to construct.
-    private RoomTeam(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AllTeam.newBuilder() to construct.
+    private AllTeam(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RoomTeam() {
+    private AllTeam() {
       team_ = java.util.Collections.emptyList();
     }
 
@@ -34483,7 +34328,7 @@ public final class C2GNet {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new RoomTeam();
+      return new AllTeam();
     }
 
     @java.lang.Override
@@ -34491,7 +34336,7 @@ public final class C2GNet {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RoomTeam(
+    private AllTeam(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -34543,15 +34388,15 @@ public final class C2GNet {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.game.proto.C2GNet.internal_static_RoomTeam_descriptor;
+      return com.game.proto.C2GNet.internal_static_AllTeam_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.game.proto.C2GNet.internal_static_RoomTeam_fieldAccessorTable
+      return com.game.proto.C2GNet.internal_static_AllTeam_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.game.proto.C2GNet.RoomTeam.class, com.game.proto.C2GNet.RoomTeam.Builder.class);
+              com.game.proto.C2GNet.AllTeam.class, com.game.proto.C2GNet.AllTeam.Builder.class);
     }
 
     public static final int TEAM_FIELD_NUMBER = 1;
@@ -34634,10 +34479,10 @@ public final class C2GNet {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.game.proto.C2GNet.RoomTeam)) {
+      if (!(obj instanceof com.game.proto.C2GNet.AllTeam)) {
         return super.equals(obj);
       }
-      com.game.proto.C2GNet.RoomTeam other = (com.game.proto.C2GNet.RoomTeam) obj;
+      com.game.proto.C2GNet.AllTeam other = (com.game.proto.C2GNet.AllTeam) obj;
 
       if (!getTeamList()
           .equals(other.getTeamList())) return false;
@@ -34661,69 +34506,69 @@ public final class C2GNet {
       return hash;
     }
 
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(byte[] data)
+    public static com.game.proto.C2GNet.AllTeam parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(java.io.InputStream input)
+    public static com.game.proto.C2GNet.AllTeam parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.proto.C2GNet.AllTeam parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseDelimitedFrom(
+    public static com.game.proto.C2GNet.AllTeam parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.RoomTeam parseFrom(
+    public static com.game.proto.C2GNet.AllTeam parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -34736,7 +34581,7 @@ public final class C2GNet {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.game.proto.C2GNet.RoomTeam prototype) {
+    public static Builder newBuilder(com.game.proto.C2GNet.AllTeam prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -34752,26 +34597,26 @@ public final class C2GNet {
       return builder;
     }
     /**
-     * Protobuf type {@code RoomTeam}
+     * Protobuf type {@code AllTeam}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:RoomTeam)
-        com.game.proto.C2GNet.RoomTeamOrBuilder {
+        // @@protoc_insertion_point(builder_implements:AllTeam)
+        com.game.proto.C2GNet.AllTeamOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.proto.C2GNet.internal_static_RoomTeam_descriptor;
+        return com.game.proto.C2GNet.internal_static_AllTeam_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.proto.C2GNet.internal_static_RoomTeam_fieldAccessorTable
+        return com.game.proto.C2GNet.internal_static_AllTeam_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.proto.C2GNet.RoomTeam.class, com.game.proto.C2GNet.RoomTeam.Builder.class);
+                com.game.proto.C2GNet.AllTeam.class, com.game.proto.C2GNet.AllTeam.Builder.class);
       }
 
-      // Construct using com.game.proto.C2GNet.RoomTeam.newBuilder()
+      // Construct using com.game.proto.C2GNet.AllTeam.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -34802,17 +34647,17 @@ public final class C2GNet {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.proto.C2GNet.internal_static_RoomTeam_descriptor;
+        return com.game.proto.C2GNet.internal_static_AllTeam_descriptor;
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.RoomTeam getDefaultInstanceForType() {
-        return com.game.proto.C2GNet.RoomTeam.getDefaultInstance();
+      public com.game.proto.C2GNet.AllTeam getDefaultInstanceForType() {
+        return com.game.proto.C2GNet.AllTeam.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.RoomTeam build() {
-        com.game.proto.C2GNet.RoomTeam result = buildPartial();
+      public com.game.proto.C2GNet.AllTeam build() {
+        com.game.proto.C2GNet.AllTeam result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -34820,8 +34665,8 @@ public final class C2GNet {
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.RoomTeam buildPartial() {
-        com.game.proto.C2GNet.RoomTeam result = new com.game.proto.C2GNet.RoomTeam(this);
+      public com.game.proto.C2GNet.AllTeam buildPartial() {
+        com.game.proto.C2GNet.AllTeam result = new com.game.proto.C2GNet.AllTeam(this);
         int from_bitField0_ = bitField0_;
         if (teamBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -34870,16 +34715,16 @@ public final class C2GNet {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.proto.C2GNet.RoomTeam) {
-          return mergeFrom((com.game.proto.C2GNet.RoomTeam)other);
+        if (other instanceof com.game.proto.C2GNet.AllTeam) {
+          return mergeFrom((com.game.proto.C2GNet.AllTeam)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.proto.C2GNet.RoomTeam other) {
-        if (other == com.game.proto.C2GNet.RoomTeam.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.proto.C2GNet.AllTeam other) {
+        if (other == com.game.proto.C2GNet.AllTeam.getDefaultInstance()) return this;
         if (teamBuilder_ == null) {
           if (!other.team_.isEmpty()) {
             if (team_.isEmpty()) {
@@ -34921,11 +34766,11 @@ public final class C2GNet {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.proto.C2GNet.RoomTeam parsedMessage = null;
+        com.game.proto.C2GNet.AllTeam parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.proto.C2GNet.RoomTeam) e.getUnfinishedMessage();
+          parsedMessage = (com.game.proto.C2GNet.AllTeam) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -35188,41 +35033,41 @@ public final class C2GNet {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:RoomTeam)
+      // @@protoc_insertion_point(builder_scope:AllTeam)
     }
 
-    // @@protoc_insertion_point(class_scope:RoomTeam)
-    private static final com.game.proto.C2GNet.RoomTeam DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:AllTeam)
+    private static final com.game.proto.C2GNet.AllTeam DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.game.proto.C2GNet.RoomTeam();
+      DEFAULT_INSTANCE = new com.game.proto.C2GNet.AllTeam();
     }
 
-    public static com.game.proto.C2GNet.RoomTeam getDefaultInstance() {
+    public static com.game.proto.C2GNet.AllTeam getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RoomTeam>
-        PARSER = new com.google.protobuf.AbstractParser<RoomTeam>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AllTeam>
+        PARSER = new com.google.protobuf.AbstractParser<AllTeam>() {
       @java.lang.Override
-      public RoomTeam parsePartialFrom(
+      public AllTeam parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RoomTeam(input, extensionRegistry);
+        return new AllTeam(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RoomTeam> parser() {
+    public static com.google.protobuf.Parser<AllTeam> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RoomTeam> getParserForType() {
+    public com.google.protobuf.Parser<AllTeam> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.game.proto.C2GNet.RoomTeam getDefaultInstanceForType() {
+    public com.game.proto.C2GNet.AllTeam getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -35282,115 +35127,27 @@ public final class C2GNet {
     int getGamePattern();
 
     /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
-    java.util.List<com.game.proto.C2GNet.RoomUser> 
-        getTeam1List();
+    java.util.List<com.game.proto.C2GNet.AllTeam> 
+        getAllTeamList();
     /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
-    com.game.proto.C2GNet.RoomUser getTeam1(int index);
+    com.game.proto.C2GNet.AllTeam getAllTeam(int index);
     /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
-    int getTeam1Count();
+    int getAllTeamCount();
     /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
-    java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam1OrBuilderList();
+    java.util.List<? extends com.game.proto.C2GNet.AllTeamOrBuilder> 
+        getAllTeamOrBuilderList();
     /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
-    com.game.proto.C2GNet.RoomUserOrBuilder getTeam1OrBuilder(
-        int index);
-
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    java.util.List<com.game.proto.C2GNet.RoomUser> 
-        getTeam2List();
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    com.game.proto.C2GNet.RoomUser getTeam2(int index);
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    int getTeam2Count();
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam2OrBuilderList();
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    com.game.proto.C2GNet.RoomUserOrBuilder getTeam2OrBuilder(
-        int index);
-
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    java.util.List<com.game.proto.C2GNet.RoomUser> 
-        getTeam3List();
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    com.game.proto.C2GNet.RoomUser getTeam3(int index);
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    int getTeam3Count();
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam3OrBuilderList();
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    com.game.proto.C2GNet.RoomUserOrBuilder getTeam3OrBuilder(
+    com.game.proto.C2GNet.AllTeamOrBuilder getAllTeamOrBuilder(
         int index);
 
     /**
@@ -35398,7 +35155,7 @@ public final class C2GNet {
      *房间状态
      * </pre>
      *
-     * <code>optional .RoomStatus roomStatus = 7;</code>
+     * <code>optional .RoomStatus roomStatus = 5;</code>
      * @return Whether the roomStatus field is set.
      */
     boolean hasRoomStatus();
@@ -35407,7 +35164,7 @@ public final class C2GNet {
      *房间状态
      * </pre>
      *
-     * <code>optional .RoomStatus roomStatus = 7;</code>
+     * <code>optional .RoomStatus roomStatus = 5;</code>
      * @return The roomStatus.
      */
     com.game.proto.C2GNet.RoomStatus getRoomStatus();
@@ -35417,7 +35174,7 @@ public final class C2GNet {
      *房间ip和端口
      * </pre>
      *
-     * <code>optional string ipPortStr = 8;</code>
+     * <code>optional string ipPortStr = 6;</code>
      * @return Whether the ipPortStr field is set.
      */
     boolean hasIpPortStr();
@@ -35426,7 +35183,7 @@ public final class C2GNet {
      *房间ip和端口
      * </pre>
      *
-     * <code>optional string ipPortStr = 8;</code>
+     * <code>optional string ipPortStr = 6;</code>
      * @return The ipPortStr.
      */
     java.lang.String getIpPortStr();
@@ -35435,7 +35192,7 @@ public final class C2GNet {
      *房间ip和端口
      * </pre>
      *
-     * <code>optional string ipPortStr = 8;</code>
+     * <code>optional string ipPortStr = 6;</code>
      * @return The bytes for ipPortStr.
      */
     com.google.protobuf.ByteString
@@ -35446,7 +35203,7 @@ public final class C2GNet {
      *随机数种子
      * </pre>
      *
-     * <code>optional int32 randomSeed = 9;</code>
+     * <code>optional int32 randomSeed = 7;</code>
      * @return Whether the randomSeed field is set.
      */
     boolean hasRandomSeed();
@@ -35455,7 +35212,7 @@ public final class C2GNet {
      *随机数种子
      * </pre>
      *
-     * <code>optional int32 randomSeed = 9;</code>
+     * <code>optional int32 randomSeed = 7;</code>
      * @return The randomSeed.
      */
     int getRandomSeed();
@@ -35465,7 +35222,7 @@ public final class C2GNet {
      *比分  
      * </pre>
      *
-     * <code>optional string biFen = 10;</code>
+     * <code>optional string biFen = 8;</code>
      * @return Whether the biFen field is set.
      */
     boolean hasBiFen();
@@ -35474,7 +35231,7 @@ public final class C2GNet {
      *比分  
      * </pre>
      *
-     * <code>optional string biFen = 10;</code>
+     * <code>optional string biFen = 8;</code>
      * @return The biFen.
      */
     java.lang.String getBiFen();
@@ -35483,7 +35240,7 @@ public final class C2GNet {
      *比分  
      * </pre>
      *
-     * <code>optional string biFen = 10;</code>
+     * <code>optional string biFen = 8;</code>
      * @return The bytes for biFen.
      */
     com.google.protobuf.ByteString
@@ -35502,9 +35259,7 @@ public final class C2GNet {
       super(builder);
     }
     private NRoom() {
-      team1_ = java.util.Collections.emptyList();
-      team2_ = java.util.Collections.emptyList();
-      team3_ = java.util.Collections.emptyList();
+      allTeam_ = java.util.Collections.emptyList();
       roomStatus_ = 0;
       ipPortStr_ = "";
       biFen_ = "";
@@ -35558,55 +35313,37 @@ public final class C2GNet {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                team1_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>();
+                allTeam_ = new java.util.ArrayList<com.game.proto.C2GNet.AllTeam>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              team1_.add(
-                  input.readMessage(com.game.proto.C2GNet.RoomUser.PARSER, extensionRegistry));
+              allTeam_.add(
+                  input.readMessage(com.game.proto.C2GNet.AllTeam.PARSER, extensionRegistry));
               break;
             }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                team2_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              team2_.add(
-                  input.readMessage(com.game.proto.C2GNet.RoomUser.PARSER, extensionRegistry));
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                team3_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              team3_.add(
-                  input.readMessage(com.game.proto.C2GNet.RoomUser.PARSER, extensionRegistry));
-              break;
-            }
-            case 56: {
+            case 40: {
               int rawValue = input.readEnum();
                 @SuppressWarnings("deprecation")
               com.game.proto.C2GNet.RoomStatus value = com.game.proto.C2GNet.RoomStatus.valueOf(rawValue);
               if (value == null) {
-                unknownFields.mergeVarintField(7, rawValue);
+                unknownFields.mergeVarintField(5, rawValue);
               } else {
                 bitField0_ |= 0x00000008;
                 roomStatus_ = rawValue;
               }
               break;
             }
-            case 66: {
+            case 50: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
               ipPortStr_ = bs;
               break;
             }
-            case 72: {
+            case 56: {
               bitField0_ |= 0x00000020;
               randomSeed_ = input.readInt32();
               break;
             }
-            case 82: {
+            case 66: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
               biFen_ = bs;
@@ -35628,13 +35365,7 @@ public final class C2GNet {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          team1_ = java.util.Collections.unmodifiableList(team1_);
-        }
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
-          team2_ = java.util.Collections.unmodifiableList(team2_);
-        }
-        if (((mutable_bitField0_ & 0x00000020) != 0)) {
-          team3_ = java.util.Collections.unmodifiableList(team3_);
+          allTeam_ = java.util.Collections.unmodifiableList(allTeam_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -35727,2786 +35458,42 @@ public final class C2GNet {
       return gamePattern_;
     }
 
-    public static final int TEAM1_FIELD_NUMBER = 4;
-    private java.util.List<com.game.proto.C2GNet.RoomUser> team1_;
-    /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
-     */
-    @java.lang.Override
-    public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam1List() {
-      return team1_;
-    }
-    /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam1OrBuilderList() {
-      return team1_;
-    }
-    /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
-     */
-    @java.lang.Override
-    public int getTeam1Count() {
-      return team1_.size();
-    }
-    /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUser getTeam1(int index) {
-      return team1_.get(index);
-    }
-    /**
-     * <pre>
-     *友方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team1 = 4;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUserOrBuilder getTeam1OrBuilder(
-        int index) {
-      return team1_.get(index);
-    }
-
-    public static final int TEAM2_FIELD_NUMBER = 5;
-    private java.util.List<com.game.proto.C2GNet.RoomUser> team2_;
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam2List() {
-      return team2_;
-    }
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam2OrBuilderList() {
-      return team2_;
-    }
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    @java.lang.Override
-    public int getTeam2Count() {
-      return team2_.size();
-    }
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUser getTeam2(int index) {
-      return team2_.get(index);
-    }
-    /**
-     * <pre>
-     *敌方用户列表
-     * </pre>
-     *
-     * <code>repeated .RoomUser Team2 = 5;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUserOrBuilder getTeam2OrBuilder(
-        int index) {
-      return team2_.get(index);
-    }
-
-    public static final int TEAM3_FIELD_NUMBER = 6;
-    private java.util.List<com.game.proto.C2GNet.RoomUser> team3_;
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    @java.lang.Override
-    public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam3List() {
-      return team3_;
-    }
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-        getTeam3OrBuilderList() {
-      return team3_;
-    }
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    @java.lang.Override
-    public int getTeam3Count() {
-      return team3_.size();
-    }
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUser getTeam3(int index) {
-      return team3_.get(index);
-    }
-    /**
-     * <code>repeated .RoomUser Team3 = 6;</code>
-     */
-    @java.lang.Override
-    public com.game.proto.C2GNet.RoomUserOrBuilder getTeam3OrBuilder(
-        int index) {
-      return team3_.get(index);
-    }
-
-    public static final int ROOMSTATUS_FIELD_NUMBER = 7;
-    private int roomStatus_;
-    /**
-     * <pre>
-     *房间状态
-     * </pre>
-     *
-     * <code>optional .RoomStatus roomStatus = 7;</code>
-     * @return Whether the roomStatus field is set.
-     */
-    @java.lang.Override public boolean hasRoomStatus() {
-      return ((bitField0_ & 0x00000008) != 0);
-    }
-    /**
-     * <pre>
-     *房间状态
-     * </pre>
-     *
-     * <code>optional .RoomStatus roomStatus = 7;</code>
-     * @return The roomStatus.
-     */
-    @java.lang.Override public com.game.proto.C2GNet.RoomStatus getRoomStatus() {
-      @SuppressWarnings("deprecation")
-      com.game.proto.C2GNet.RoomStatus result = com.game.proto.C2GNet.RoomStatus.valueOf(roomStatus_);
-      return result == null ? com.game.proto.C2GNet.RoomStatus.Normal_ : result;
-    }
-
-    public static final int IPPORTSTR_FIELD_NUMBER = 8;
-    private volatile java.lang.Object ipPortStr_;
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 8;</code>
-     * @return Whether the ipPortStr field is set.
-     */
-    @java.lang.Override
-    public boolean hasIpPortStr() {
-      return ((bitField0_ & 0x00000010) != 0);
-    }
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 8;</code>
-     * @return The ipPortStr.
-     */
-    @java.lang.Override
-    public java.lang.String getIpPortStr() {
-      java.lang.Object ref = ipPortStr_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          ipPortStr_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 8;</code>
-     * @return The bytes for ipPortStr.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIpPortStrBytes() {
-      java.lang.Object ref = ipPortStr_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        ipPortStr_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int RANDOMSEED_FIELD_NUMBER = 9;
-    private int randomSeed_;
-    /**
-     * <pre>
-     *随机数种子
-     * </pre>
-     *
-     * <code>optional int32 randomSeed = 9;</code>
-     * @return Whether the randomSeed field is set.
-     */
-    @java.lang.Override
-    public boolean hasRandomSeed() {
-      return ((bitField0_ & 0x00000020) != 0);
-    }
-    /**
-     * <pre>
-     *随机数种子
-     * </pre>
-     *
-     * <code>optional int32 randomSeed = 9;</code>
-     * @return The randomSeed.
-     */
-    @java.lang.Override
-    public int getRandomSeed() {
-      return randomSeed_;
-    }
-
-    public static final int BIFEN_FIELD_NUMBER = 10;
-    private volatile java.lang.Object biFen_;
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 10;</code>
-     * @return Whether the biFen field is set.
-     */
-    @java.lang.Override
-    public boolean hasBiFen() {
-      return ((bitField0_ & 0x00000040) != 0);
-    }
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 10;</code>
-     * @return The biFen.
-     */
-    @java.lang.Override
-    public java.lang.String getBiFen() {
-      java.lang.Object ref = biFen_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          biFen_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 10;</code>
-     * @return The bytes for biFen.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBiFenBytes() {
-      java.lang.Object ref = biFen_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        biFen_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, roomId_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, userId_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt32(3, gamePattern_);
-      }
-      for (int i = 0; i < team1_.size(); i++) {
-        output.writeMessage(4, team1_.get(i));
-      }
-      for (int i = 0; i < team2_.size(); i++) {
-        output.writeMessage(5, team2_.get(i));
-      }
-      for (int i = 0; i < team3_.size(); i++) {
-        output.writeMessage(6, team3_.get(i));
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeEnum(7, roomStatus_);
-      }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, ipPortStr_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeInt32(9, randomSeed_);
-      }
-      if (((bitField0_ & 0x00000040) != 0)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, biFen_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, roomId_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, userId_);
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, gamePattern_);
-      }
-      for (int i = 0; i < team1_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, team1_.get(i));
-      }
-      for (int i = 0; i < team2_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, team2_.get(i));
-      }
-      for (int i = 0; i < team3_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, team3_.get(i));
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(7, roomStatus_);
-      }
-      if (((bitField0_ & 0x00000010) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, ipPortStr_);
-      }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, randomSeed_);
-      }
-      if (((bitField0_ & 0x00000040) != 0)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, biFen_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.game.proto.C2GNet.NRoom)) {
-        return super.equals(obj);
-      }
-      com.game.proto.C2GNet.NRoom other = (com.game.proto.C2GNet.NRoom) obj;
-
-      if (hasRoomId() != other.hasRoomId()) return false;
-      if (hasRoomId()) {
-        if (getRoomId()
-            != other.getRoomId()) return false;
-      }
-      if (hasUserId() != other.hasUserId()) return false;
-      if (hasUserId()) {
-        if (getUserId()
-            != other.getUserId()) return false;
-      }
-      if (hasGamePattern() != other.hasGamePattern()) return false;
-      if (hasGamePattern()) {
-        if (getGamePattern()
-            != other.getGamePattern()) return false;
-      }
-      if (!getTeam1List()
-          .equals(other.getTeam1List())) return false;
-      if (!getTeam2List()
-          .equals(other.getTeam2List())) return false;
-      if (!getTeam3List()
-          .equals(other.getTeam3List())) return false;
-      if (hasRoomStatus() != other.hasRoomStatus()) return false;
-      if (hasRoomStatus()) {
-        if (roomStatus_ != other.roomStatus_) return false;
-      }
-      if (hasIpPortStr() != other.hasIpPortStr()) return false;
-      if (hasIpPortStr()) {
-        if (!getIpPortStr()
-            .equals(other.getIpPortStr())) return false;
-      }
-      if (hasRandomSeed() != other.hasRandomSeed()) return false;
-      if (hasRandomSeed()) {
-        if (getRandomSeed()
-            != other.getRandomSeed()) return false;
-      }
-      if (hasBiFen() != other.hasBiFen()) return false;
-      if (hasBiFen()) {
-        if (!getBiFen()
-            .equals(other.getBiFen())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasRoomId()) {
-        hash = (37 * hash) + ROOMID_FIELD_NUMBER;
-        hash = (53 * hash) + getRoomId();
-      }
-      if (hasUserId()) {
-        hash = (37 * hash) + USERID_FIELD_NUMBER;
-        hash = (53 * hash) + getUserId();
-      }
-      if (hasGamePattern()) {
-        hash = (37 * hash) + GAMEPATTERN_FIELD_NUMBER;
-        hash = (53 * hash) + getGamePattern();
-      }
-      if (getTeam1Count() > 0) {
-        hash = (37 * hash) + TEAM1_FIELD_NUMBER;
-        hash = (53 * hash) + getTeam1List().hashCode();
-      }
-      if (getTeam2Count() > 0) {
-        hash = (37 * hash) + TEAM2_FIELD_NUMBER;
-        hash = (53 * hash) + getTeam2List().hashCode();
-      }
-      if (getTeam3Count() > 0) {
-        hash = (37 * hash) + TEAM3_FIELD_NUMBER;
-        hash = (53 * hash) + getTeam3List().hashCode();
-      }
-      if (hasRoomStatus()) {
-        hash = (37 * hash) + ROOMSTATUS_FIELD_NUMBER;
-        hash = (53 * hash) + roomStatus_;
-      }
-      if (hasIpPortStr()) {
-        hash = (37 * hash) + IPPORTSTR_FIELD_NUMBER;
-        hash = (53 * hash) + getIpPortStr().hashCode();
-      }
-      if (hasRandomSeed()) {
-        hash = (37 * hash) + RANDOMSEED_FIELD_NUMBER;
-        hash = (53 * hash) + getRandomSeed();
-      }
-      if (hasBiFen()) {
-        hash = (37 * hash) + BIFEN_FIELD_NUMBER;
-        hash = (53 * hash) + getBiFen().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.game.proto.C2GNet.NRoom parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.game.proto.C2GNet.NRoom parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.game.proto.C2GNet.NRoom parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.game.proto.C2GNet.NRoom prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code NRoom}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:NRoom)
-        com.game.proto.C2GNet.NRoomOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.game.proto.C2GNet.internal_static_NRoom_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.game.proto.C2GNet.internal_static_NRoom_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.game.proto.C2GNet.NRoom.class, com.game.proto.C2GNet.NRoom.Builder.class);
-      }
-
-      // Construct using com.game.proto.C2GNet.NRoom.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getTeam1FieldBuilder();
-          getTeam2FieldBuilder();
-          getTeam3FieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        roomId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        gamePattern_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (team1Builder_ == null) {
-          team1_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          team1Builder_.clear();
-        }
-        if (team2Builder_ == null) {
-          team2_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
-        } else {
-          team2Builder_.clear();
-        }
-        if (team3Builder_ == null) {
-          team3_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
-        } else {
-          team3Builder_.clear();
-        }
-        roomStatus_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
-        ipPortStr_ = "";
-        bitField0_ = (bitField0_ & ~0x00000080);
-        randomSeed_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        biFen_ = "";
-        bitField0_ = (bitField0_ & ~0x00000200);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.game.proto.C2GNet.internal_static_NRoom_descriptor;
-      }
-
-      @java.lang.Override
-      public com.game.proto.C2GNet.NRoom getDefaultInstanceForType() {
-        return com.game.proto.C2GNet.NRoom.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.game.proto.C2GNet.NRoom build() {
-        com.game.proto.C2GNet.NRoom result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.game.proto.C2GNet.NRoom buildPartial() {
-        com.game.proto.C2GNet.NRoom result = new com.game.proto.C2GNet.NRoom(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.roomId_ = roomId_;
-          to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.userId_ = userId_;
-          to_bitField0_ |= 0x00000002;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.gamePattern_ = gamePattern_;
-          to_bitField0_ |= 0x00000004;
-        }
-        if (team1Builder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
-            team1_ = java.util.Collections.unmodifiableList(team1_);
-            bitField0_ = (bitField0_ & ~0x00000008);
-          }
-          result.team1_ = team1_;
-        } else {
-          result.team1_ = team1Builder_.build();
-        }
-        if (team2Builder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0)) {
-            team2_ = java.util.Collections.unmodifiableList(team2_);
-            bitField0_ = (bitField0_ & ~0x00000010);
-          }
-          result.team2_ = team2_;
-        } else {
-          result.team2_ = team2Builder_.build();
-        }
-        if (team3Builder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0)) {
-            team3_ = java.util.Collections.unmodifiableList(team3_);
-            bitField0_ = (bitField0_ & ~0x00000020);
-          }
-          result.team3_ = team3_;
-        } else {
-          result.team3_ = team3Builder_.build();
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.roomStatus_ = roomStatus_;
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.ipPortStr_ = ipPortStr_;
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.randomSeed_ = randomSeed_;
-          to_bitField0_ |= 0x00000020;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.biFen_ = biFen_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.proto.C2GNet.NRoom) {
-          return mergeFrom((com.game.proto.C2GNet.NRoom)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.game.proto.C2GNet.NRoom other) {
-        if (other == com.game.proto.C2GNet.NRoom.getDefaultInstance()) return this;
-        if (other.hasRoomId()) {
-          setRoomId(other.getRoomId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
-        }
-        if (other.hasGamePattern()) {
-          setGamePattern(other.getGamePattern());
-        }
-        if (team1Builder_ == null) {
-          if (!other.team1_.isEmpty()) {
-            if (team1_.isEmpty()) {
-              team1_ = other.team1_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-            } else {
-              ensureTeam1IsMutable();
-              team1_.addAll(other.team1_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.team1_.isEmpty()) {
-            if (team1Builder_.isEmpty()) {
-              team1Builder_.dispose();
-              team1Builder_ = null;
-              team1_ = other.team1_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-              team1Builder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTeam1FieldBuilder() : null;
-            } else {
-              team1Builder_.addAllMessages(other.team1_);
-            }
-          }
-        }
-        if (team2Builder_ == null) {
-          if (!other.team2_.isEmpty()) {
-            if (team2_.isEmpty()) {
-              team2_ = other.team2_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-            } else {
-              ensureTeam2IsMutable();
-              team2_.addAll(other.team2_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.team2_.isEmpty()) {
-            if (team2Builder_.isEmpty()) {
-              team2Builder_.dispose();
-              team2Builder_ = null;
-              team2_ = other.team2_;
-              bitField0_ = (bitField0_ & ~0x00000010);
-              team2Builder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTeam2FieldBuilder() : null;
-            } else {
-              team2Builder_.addAllMessages(other.team2_);
-            }
-          }
-        }
-        if (team3Builder_ == null) {
-          if (!other.team3_.isEmpty()) {
-            if (team3_.isEmpty()) {
-              team3_ = other.team3_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-            } else {
-              ensureTeam3IsMutable();
-              team3_.addAll(other.team3_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.team3_.isEmpty()) {
-            if (team3Builder_.isEmpty()) {
-              team3Builder_.dispose();
-              team3Builder_ = null;
-              team3_ = other.team3_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-              team3Builder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTeam3FieldBuilder() : null;
-            } else {
-              team3Builder_.addAllMessages(other.team3_);
-            }
-          }
-        }
-        if (other.hasRoomStatus()) {
-          setRoomStatus(other.getRoomStatus());
-        }
-        if (other.hasIpPortStr()) {
-          bitField0_ |= 0x00000080;
-          ipPortStr_ = other.ipPortStr_;
-          onChanged();
-        }
-        if (other.hasRandomSeed()) {
-          setRandomSeed(other.getRandomSeed());
-        }
-        if (other.hasBiFen()) {
-          bitField0_ |= 0x00000200;
-          biFen_ = other.biFen_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.game.proto.C2GNet.NRoom parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.proto.C2GNet.NRoom) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int roomId_ ;
-      /**
-       * <pre>
-       *房间id
-       * </pre>
-       *
-       * <code>optional int32 roomId = 1;</code>
-       * @return Whether the roomId field is set.
-       */
-      @java.lang.Override
-      public boolean hasRoomId() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <pre>
-       *房间id
-       * </pre>
-       *
-       * <code>optional int32 roomId = 1;</code>
-       * @return The roomId.
-       */
-      @java.lang.Override
-      public int getRoomId() {
-        return roomId_;
-      }
-      /**
-       * <pre>
-       *房间id
-       * </pre>
-       *
-       * <code>optional int32 roomId = 1;</code>
-       * @param value The roomId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomId(int value) {
-        bitField0_ |= 0x00000001;
-        roomId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *房间id
-       * </pre>
-       *
-       * <code>optional int32 roomId = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        roomId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int userId_ ;
-      /**
-       * <pre>
-       *用户id
-       * </pre>
-       *
-       * <code>optional int32 userId = 2;</code>
-       * @return Whether the userId field is set.
-       */
-      @java.lang.Override
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <pre>
-       *用户id
-       * </pre>
-       *
-       * <code>optional int32 userId = 2;</code>
-       * @return The userId.
-       */
-      @java.lang.Override
-      public int getUserId() {
-        return userId_;
-      }
-      /**
-       * <pre>
-       *用户id
-       * </pre>
-       *
-       * <code>optional int32 userId = 2;</code>
-       * @param value The userId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserId(int value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *用户id
-       * </pre>
-       *
-       * <code>optional int32 userId = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int gamePattern_ ;
-      /**
-       * <code>optional int32 GamePattern = 3;</code>
-       * @return Whether the gamePattern field is set.
-       */
-      @java.lang.Override
-      public boolean hasGamePattern() {
-        return ((bitField0_ & 0x00000004) != 0);
-      }
-      /**
-       * <code>optional int32 GamePattern = 3;</code>
-       * @return The gamePattern.
-       */
-      @java.lang.Override
-      public int getGamePattern() {
-        return gamePattern_;
-      }
-      /**
-       * <code>optional int32 GamePattern = 3;</code>
-       * @param value The gamePattern to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGamePattern(int value) {
-        bitField0_ |= 0x00000004;
-        gamePattern_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 GamePattern = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearGamePattern() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        gamePattern_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<com.game.proto.C2GNet.RoomUser> team1_ =
-        java.util.Collections.emptyList();
-      private void ensureTeam1IsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
-          team1_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>(team1_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> team1Builder_;
-
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam1List() {
-        if (team1Builder_ == null) {
-          return java.util.Collections.unmodifiableList(team1_);
-        } else {
-          return team1Builder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public int getTeam1Count() {
-        if (team1Builder_ == null) {
-          return team1_.size();
-        } else {
-          return team1Builder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser getTeam1(int index) {
-        if (team1Builder_ == null) {
-          return team1_.get(index);
-        } else {
-          return team1Builder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder setTeam1(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team1Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam1IsMutable();
-          team1_.set(index, value);
-          onChanged();
-        } else {
-          team1Builder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder setTeam1(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team1Builder_ == null) {
-          ensureTeam1IsMutable();
-          team1_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          team1Builder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder addTeam1(com.game.proto.C2GNet.RoomUser value) {
-        if (team1Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam1IsMutable();
-          team1_.add(value);
-          onChanged();
-        } else {
-          team1Builder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder addTeam1(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team1Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam1IsMutable();
-          team1_.add(index, value);
-          onChanged();
-        } else {
-          team1Builder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder addTeam1(
-          com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team1Builder_ == null) {
-          ensureTeam1IsMutable();
-          team1_.add(builderForValue.build());
-          onChanged();
-        } else {
-          team1Builder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder addTeam1(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team1Builder_ == null) {
-          ensureTeam1IsMutable();
-          team1_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          team1Builder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder addAllTeam1(
-          java.lang.Iterable<? extends com.game.proto.C2GNet.RoomUser> values) {
-        if (team1Builder_ == null) {
-          ensureTeam1IsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, team1_);
-          onChanged();
-        } else {
-          team1Builder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder clearTeam1() {
-        if (team1Builder_ == null) {
-          team1_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-          onChanged();
-        } else {
-          team1Builder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public Builder removeTeam1(int index) {
-        if (team1Builder_ == null) {
-          ensureTeam1IsMutable();
-          team1_.remove(index);
-          onChanged();
-        } else {
-          team1Builder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder getTeam1Builder(
-          int index) {
-        return getTeam1FieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public com.game.proto.C2GNet.RoomUserOrBuilder getTeam1OrBuilder(
-          int index) {
-        if (team1Builder_ == null) {
-          return team1_.get(index);  } else {
-          return team1Builder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-           getTeam1OrBuilderList() {
-        if (team1Builder_ != null) {
-          return team1Builder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(team1_);
-        }
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam1Builder() {
-        return getTeam1FieldBuilder().addBuilder(
-            com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam1Builder(
-          int index) {
-        return getTeam1FieldBuilder().addBuilder(
-            index, com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *友方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team1 = 4;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser.Builder> 
-           getTeam1BuilderList() {
-        return getTeam1FieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> 
-          getTeam1FieldBuilder() {
-        if (team1Builder_ == null) {
-          team1Builder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder>(
-                  team1_,
-                  ((bitField0_ & 0x00000008) != 0),
-                  getParentForChildren(),
-                  isClean());
-          team1_ = null;
-        }
-        return team1Builder_;
-      }
-
-      private java.util.List<com.game.proto.C2GNet.RoomUser> team2_ =
-        java.util.Collections.emptyList();
-      private void ensureTeam2IsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
-          team2_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>(team2_);
-          bitField0_ |= 0x00000010;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> team2Builder_;
-
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam2List() {
-        if (team2Builder_ == null) {
-          return java.util.Collections.unmodifiableList(team2_);
-        } else {
-          return team2Builder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public int getTeam2Count() {
-        if (team2Builder_ == null) {
-          return team2_.size();
-        } else {
-          return team2Builder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser getTeam2(int index) {
-        if (team2Builder_ == null) {
-          return team2_.get(index);
-        } else {
-          return team2Builder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder setTeam2(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team2Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam2IsMutable();
-          team2_.set(index, value);
-          onChanged();
-        } else {
-          team2Builder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder setTeam2(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team2Builder_ == null) {
-          ensureTeam2IsMutable();
-          team2_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          team2Builder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder addTeam2(com.game.proto.C2GNet.RoomUser value) {
-        if (team2Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam2IsMutable();
-          team2_.add(value);
-          onChanged();
-        } else {
-          team2Builder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder addTeam2(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team2Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam2IsMutable();
-          team2_.add(index, value);
-          onChanged();
-        } else {
-          team2Builder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder addTeam2(
-          com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team2Builder_ == null) {
-          ensureTeam2IsMutable();
-          team2_.add(builderForValue.build());
-          onChanged();
-        } else {
-          team2Builder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder addTeam2(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team2Builder_ == null) {
-          ensureTeam2IsMutable();
-          team2_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          team2Builder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder addAllTeam2(
-          java.lang.Iterable<? extends com.game.proto.C2GNet.RoomUser> values) {
-        if (team2Builder_ == null) {
-          ensureTeam2IsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, team2_);
-          onChanged();
-        } else {
-          team2Builder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder clearTeam2() {
-        if (team2Builder_ == null) {
-          team2_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
-          onChanged();
-        } else {
-          team2Builder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public Builder removeTeam2(int index) {
-        if (team2Builder_ == null) {
-          ensureTeam2IsMutable();
-          team2_.remove(index);
-          onChanged();
-        } else {
-          team2Builder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder getTeam2Builder(
-          int index) {
-        return getTeam2FieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public com.game.proto.C2GNet.RoomUserOrBuilder getTeam2OrBuilder(
-          int index) {
-        if (team2Builder_ == null) {
-          return team2_.get(index);  } else {
-          return team2Builder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-           getTeam2OrBuilderList() {
-        if (team2Builder_ != null) {
-          return team2Builder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(team2_);
-        }
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam2Builder() {
-        return getTeam2FieldBuilder().addBuilder(
-            com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam2Builder(
-          int index) {
-        return getTeam2FieldBuilder().addBuilder(
-            index, com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *敌方用户列表
-       * </pre>
-       *
-       * <code>repeated .RoomUser Team2 = 5;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser.Builder> 
-           getTeam2BuilderList() {
-        return getTeam2FieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> 
-          getTeam2FieldBuilder() {
-        if (team2Builder_ == null) {
-          team2Builder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder>(
-                  team2_,
-                  ((bitField0_ & 0x00000010) != 0),
-                  getParentForChildren(),
-                  isClean());
-          team2_ = null;
-        }
-        return team2Builder_;
-      }
-
-      private java.util.List<com.game.proto.C2GNet.RoomUser> team3_ =
-        java.util.Collections.emptyList();
-      private void ensureTeam3IsMutable() {
-        if (!((bitField0_ & 0x00000020) != 0)) {
-          team3_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomUser>(team3_);
-          bitField0_ |= 0x00000020;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> team3Builder_;
-
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser> getTeam3List() {
-        if (team3Builder_ == null) {
-          return java.util.Collections.unmodifiableList(team3_);
-        } else {
-          return team3Builder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public int getTeam3Count() {
-        if (team3Builder_ == null) {
-          return team3_.size();
-        } else {
-          return team3Builder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser getTeam3(int index) {
-        if (team3Builder_ == null) {
-          return team3_.get(index);
-        } else {
-          return team3Builder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder setTeam3(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team3Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam3IsMutable();
-          team3_.set(index, value);
-          onChanged();
-        } else {
-          team3Builder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder setTeam3(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team3Builder_ == null) {
-          ensureTeam3IsMutable();
-          team3_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          team3Builder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder addTeam3(com.game.proto.C2GNet.RoomUser value) {
-        if (team3Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam3IsMutable();
-          team3_.add(value);
-          onChanged();
-        } else {
-          team3Builder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder addTeam3(
-          int index, com.game.proto.C2GNet.RoomUser value) {
-        if (team3Builder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTeam3IsMutable();
-          team3_.add(index, value);
-          onChanged();
-        } else {
-          team3Builder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder addTeam3(
-          com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team3Builder_ == null) {
-          ensureTeam3IsMutable();
-          team3_.add(builderForValue.build());
-          onChanged();
-        } else {
-          team3Builder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder addTeam3(
-          int index, com.game.proto.C2GNet.RoomUser.Builder builderForValue) {
-        if (team3Builder_ == null) {
-          ensureTeam3IsMutable();
-          team3_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          team3Builder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder addAllTeam3(
-          java.lang.Iterable<? extends com.game.proto.C2GNet.RoomUser> values) {
-        if (team3Builder_ == null) {
-          ensureTeam3IsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, team3_);
-          onChanged();
-        } else {
-          team3Builder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder clearTeam3() {
-        if (team3Builder_ == null) {
-          team3_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
-          onChanged();
-        } else {
-          team3Builder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public Builder removeTeam3(int index) {
-        if (team3Builder_ == null) {
-          ensureTeam3IsMutable();
-          team3_.remove(index);
-          onChanged();
-        } else {
-          team3Builder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder getTeam3Builder(
-          int index) {
-        return getTeam3FieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public com.game.proto.C2GNet.RoomUserOrBuilder getTeam3OrBuilder(
-          int index) {
-        if (team3Builder_ == null) {
-          return team3_.get(index);  } else {
-          return team3Builder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public java.util.List<? extends com.game.proto.C2GNet.RoomUserOrBuilder> 
-           getTeam3OrBuilderList() {
-        if (team3Builder_ != null) {
-          return team3Builder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(team3_);
-        }
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam3Builder() {
-        return getTeam3FieldBuilder().addBuilder(
-            com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public com.game.proto.C2GNet.RoomUser.Builder addTeam3Builder(
-          int index) {
-        return getTeam3FieldBuilder().addBuilder(
-            index, com.game.proto.C2GNet.RoomUser.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .RoomUser Team3 = 6;</code>
-       */
-      public java.util.List<com.game.proto.C2GNet.RoomUser.Builder> 
-           getTeam3BuilderList() {
-        return getTeam3FieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder> 
-          getTeam3FieldBuilder() {
-        if (team3Builder_ == null) {
-          team3Builder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.game.proto.C2GNet.RoomUser, com.game.proto.C2GNet.RoomUser.Builder, com.game.proto.C2GNet.RoomUserOrBuilder>(
-                  team3_,
-                  ((bitField0_ & 0x00000020) != 0),
-                  getParentForChildren(),
-                  isClean());
-          team3_ = null;
-        }
-        return team3Builder_;
-      }
-
-      private int roomStatus_ = 0;
-      /**
-       * <pre>
-       *房间状态
-       * </pre>
-       *
-       * <code>optional .RoomStatus roomStatus = 7;</code>
-       * @return Whether the roomStatus field is set.
-       */
-      @java.lang.Override public boolean hasRoomStatus() {
-        return ((bitField0_ & 0x00000040) != 0);
-      }
-      /**
-       * <pre>
-       *房间状态
-       * </pre>
-       *
-       * <code>optional .RoomStatus roomStatus = 7;</code>
-       * @return The roomStatus.
-       */
-      @java.lang.Override
-      public com.game.proto.C2GNet.RoomStatus getRoomStatus() {
-        @SuppressWarnings("deprecation")
-        com.game.proto.C2GNet.RoomStatus result = com.game.proto.C2GNet.RoomStatus.valueOf(roomStatus_);
-        return result == null ? com.game.proto.C2GNet.RoomStatus.Normal_ : result;
-      }
-      /**
-       * <pre>
-       *房间状态
-       * </pre>
-       *
-       * <code>optional .RoomStatus roomStatus = 7;</code>
-       * @param value The roomStatus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRoomStatus(com.game.proto.C2GNet.RoomStatus value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000040;
-        roomStatus_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *房间状态
-       * </pre>
-       *
-       * <code>optional .RoomStatus roomStatus = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRoomStatus() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        roomStatus_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object ipPortStr_ = "";
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @return Whether the ipPortStr field is set.
-       */
-      public boolean hasIpPortStr() {
-        return ((bitField0_ & 0x00000080) != 0);
-      }
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @return The ipPortStr.
-       */
-      public java.lang.String getIpPortStr() {
-        java.lang.Object ref = ipPortStr_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            ipPortStr_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @return The bytes for ipPortStr.
-       */
-      public com.google.protobuf.ByteString
-          getIpPortStrBytes() {
-        java.lang.Object ref = ipPortStr_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          ipPortStr_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @param value The ipPortStr to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIpPortStr(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
-        ipPortStr_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIpPortStr() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        ipPortStr_ = getDefaultInstance().getIpPortStr();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *房间ip和端口
-       * </pre>
-       *
-       * <code>optional string ipPortStr = 8;</code>
-       * @param value The bytes for ipPortStr to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIpPortStrBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
-        ipPortStr_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int randomSeed_ ;
-      /**
-       * <pre>
-       *随机数种子
-       * </pre>
-       *
-       * <code>optional int32 randomSeed = 9;</code>
-       * @return Whether the randomSeed field is set.
-       */
-      @java.lang.Override
-      public boolean hasRandomSeed() {
-        return ((bitField0_ & 0x00000100) != 0);
-      }
-      /**
-       * <pre>
-       *随机数种子
-       * </pre>
-       *
-       * <code>optional int32 randomSeed = 9;</code>
-       * @return The randomSeed.
-       */
-      @java.lang.Override
-      public int getRandomSeed() {
-        return randomSeed_;
-      }
-      /**
-       * <pre>
-       *随机数种子
-       * </pre>
-       *
-       * <code>optional int32 randomSeed = 9;</code>
-       * @param value The randomSeed to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRandomSeed(int value) {
-        bitField0_ |= 0x00000100;
-        randomSeed_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *随机数种子
-       * </pre>
-       *
-       * <code>optional int32 randomSeed = 9;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRandomSeed() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        randomSeed_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object biFen_ = "";
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @return Whether the biFen field is set.
-       */
-      public boolean hasBiFen() {
-        return ((bitField0_ & 0x00000200) != 0);
-      }
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @return The biFen.
-       */
-      public java.lang.String getBiFen() {
-        java.lang.Object ref = biFen_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            biFen_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @return The bytes for biFen.
-       */
-      public com.google.protobuf.ByteString
-          getBiFenBytes() {
-        java.lang.Object ref = biFen_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          biFen_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @param value The biFen to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBiFen(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        biFen_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBiFen() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        biFen_ = getDefaultInstance().getBiFen();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *比分  
-       * </pre>
-       *
-       * <code>optional string biFen = 10;</code>
-       * @param value The bytes for biFen to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBiFenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        biFen_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:NRoom)
-    }
-
-    // @@protoc_insertion_point(class_scope:NRoom)
-    private static final com.game.proto.C2GNet.NRoom DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.game.proto.C2GNet.NRoom();
-    }
-
-    public static com.game.proto.C2GNet.NRoom getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<NRoom>
-        PARSER = new com.google.protobuf.AbstractParser<NRoom>() {
-      @java.lang.Override
-      public NRoom parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NRoom(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<NRoom> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<NRoom> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.game.proto.C2GNet.NRoom getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface NetRoomOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:NetRoom)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *房间id
-     * </pre>
-     *
-     * <code>optional int32 roomId = 1;</code>
-     * @return Whether the roomId field is set.
-     */
-    boolean hasRoomId();
-    /**
-     * <pre>
-     *房间id
-     * </pre>
-     *
-     * <code>optional int32 roomId = 1;</code>
-     * @return The roomId.
-     */
-    int getRoomId();
-
-    /**
-     * <pre>
-     *用户id
-     * </pre>
-     *
-     * <code>optional int32 userId = 2;</code>
-     * @return Whether the userId field is set.
-     */
-    boolean hasUserId();
-    /**
-     * <pre>
-     *用户id
-     * </pre>
-     *
-     * <code>optional int32 userId = 2;</code>
-     * @return The userId.
-     */
-    int getUserId();
-
-    /**
-     * <code>optional int32 GamePattern = 3;</code>
-     * @return Whether the gamePattern field is set.
-     */
-    boolean hasGamePattern();
-    /**
-     * <code>optional int32 GamePattern = 3;</code>
-     * @return The gamePattern.
-     */
-    int getGamePattern();
-
-    /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
-     */
-    java.util.List<com.game.proto.C2GNet.RoomTeam> 
-        getAllTeamList();
-    /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
-     */
-    com.game.proto.C2GNet.RoomTeam getAllTeam(int index);
-    /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
-     */
-    int getAllTeamCount();
-    /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
-     */
-    java.util.List<? extends com.game.proto.C2GNet.RoomTeamOrBuilder> 
-        getAllTeamOrBuilderList();
-    /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
-     */
-    com.game.proto.C2GNet.RoomTeamOrBuilder getAllTeamOrBuilder(
-        int index);
-
-    /**
-     * <pre>
-     *房间状态
-     * </pre>
-     *
-     * <code>optional .RoomStatus roomStatus = 5;</code>
-     * @return Whether the roomStatus field is set.
-     */
-    boolean hasRoomStatus();
-    /**
-     * <pre>
-     *房间状态
-     * </pre>
-     *
-     * <code>optional .RoomStatus roomStatus = 5;</code>
-     * @return The roomStatus.
-     */
-    com.game.proto.C2GNet.RoomStatus getRoomStatus();
-
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 6;</code>
-     * @return Whether the ipPortStr field is set.
-     */
-    boolean hasIpPortStr();
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 6;</code>
-     * @return The ipPortStr.
-     */
-    java.lang.String getIpPortStr();
-    /**
-     * <pre>
-     *房间ip和端口
-     * </pre>
-     *
-     * <code>optional string ipPortStr = 6;</code>
-     * @return The bytes for ipPortStr.
-     */
-    com.google.protobuf.ByteString
-        getIpPortStrBytes();
-
-    /**
-     * <pre>
-     *随机数种子
-     * </pre>
-     *
-     * <code>optional int32 randomSeed = 7;</code>
-     * @return Whether the randomSeed field is set.
-     */
-    boolean hasRandomSeed();
-    /**
-     * <pre>
-     *随机数种子
-     * </pre>
-     *
-     * <code>optional int32 randomSeed = 7;</code>
-     * @return The randomSeed.
-     */
-    int getRandomSeed();
-
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 8;</code>
-     * @return Whether the biFen field is set.
-     */
-    boolean hasBiFen();
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 8;</code>
-     * @return The biFen.
-     */
-    java.lang.String getBiFen();
-    /**
-     * <pre>
-     *比分  
-     * </pre>
-     *
-     * <code>optional string biFen = 8;</code>
-     * @return The bytes for biFen.
-     */
-    com.google.protobuf.ByteString
-        getBiFenBytes();
-  }
-  /**
-   * Protobuf type {@code NetRoom}
-   */
-  public static final class NetRoom extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:NetRoom)
-      NetRoomOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use NetRoom.newBuilder() to construct.
-    private NetRoom(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private NetRoom() {
-      allTeam_ = java.util.Collections.emptyList();
-      roomStatus_ = 0;
-      ipPortStr_ = "";
-      biFen_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new NetRoom();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private NetRoom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              roomId_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              gamePattern_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                allTeam_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomTeam>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              allTeam_.add(
-                  input.readMessage(com.game.proto.C2GNet.RoomTeam.PARSER, extensionRegistry));
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.game.proto.C2GNet.RoomStatus value = com.game.proto.C2GNet.RoomStatus.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(5, rawValue);
-              } else {
-                bitField0_ |= 0x00000008;
-                roomStatus_ = rawValue;
-              }
-              break;
-            }
-            case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000010;
-              ipPortStr_ = bs;
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000020;
-              randomSeed_ = input.readInt32();
-              break;
-            }
-            case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000040;
-              biFen_ = bs;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          allTeam_ = java.util.Collections.unmodifiableList(allTeam_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.game.proto.C2GNet.internal_static_NetRoom_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.game.proto.C2GNet.internal_static_NetRoom_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.game.proto.C2GNet.NetRoom.class, com.game.proto.C2GNet.NetRoom.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int ROOMID_FIELD_NUMBER = 1;
-    private int roomId_;
-    /**
-     * <pre>
-     *房间id
-     * </pre>
-     *
-     * <code>optional int32 roomId = 1;</code>
-     * @return Whether the roomId field is set.
-     */
-    @java.lang.Override
-    public boolean hasRoomId() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     *房间id
-     * </pre>
-     *
-     * <code>optional int32 roomId = 1;</code>
-     * @return The roomId.
-     */
-    @java.lang.Override
-    public int getRoomId() {
-      return roomId_;
-    }
-
-    public static final int USERID_FIELD_NUMBER = 2;
-    private int userId_;
-    /**
-     * <pre>
-     *用户id
-     * </pre>
-     *
-     * <code>optional int32 userId = 2;</code>
-     * @return Whether the userId field is set.
-     */
-    @java.lang.Override
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <pre>
-     *用户id
-     * </pre>
-     *
-     * <code>optional int32 userId = 2;</code>
-     * @return The userId.
-     */
-    @java.lang.Override
-    public int getUserId() {
-      return userId_;
-    }
-
-    public static final int GAMEPATTERN_FIELD_NUMBER = 3;
-    private int gamePattern_;
-    /**
-     * <code>optional int32 GamePattern = 3;</code>
-     * @return Whether the gamePattern field is set.
-     */
-    @java.lang.Override
-    public boolean hasGamePattern() {
-      return ((bitField0_ & 0x00000004) != 0);
-    }
-    /**
-     * <code>optional int32 GamePattern = 3;</code>
-     * @return The gamePattern.
-     */
-    @java.lang.Override
-    public int getGamePattern() {
-      return gamePattern_;
-    }
-
     public static final int ALLTEAM_FIELD_NUMBER = 4;
-    private java.util.List<com.game.proto.C2GNet.RoomTeam> allTeam_;
+    private java.util.List<com.game.proto.C2GNet.AllTeam> allTeam_;
     /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
     @java.lang.Override
-    public java.util.List<com.game.proto.C2GNet.RoomTeam> getAllTeamList() {
+    public java.util.List<com.game.proto.C2GNet.AllTeam> getAllTeamList() {
       return allTeam_;
     }
     /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.game.proto.C2GNet.RoomTeamOrBuilder> 
+    public java.util.List<? extends com.game.proto.C2GNet.AllTeamOrBuilder> 
         getAllTeamOrBuilderList() {
       return allTeam_;
     }
     /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
     @java.lang.Override
     public int getAllTeamCount() {
       return allTeam_.size();
     }
     /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
     @java.lang.Override
-    public com.game.proto.C2GNet.RoomTeam getAllTeam(int index) {
+    public com.game.proto.C2GNet.AllTeam getAllTeam(int index) {
       return allTeam_.get(index);
     }
     /**
-     * <code>repeated .RoomTeam AllTeam = 4;</code>
+     * <code>repeated .AllTeam allTeam = 4;</code>
      */
     @java.lang.Override
-    public com.game.proto.C2GNet.RoomTeamOrBuilder getAllTeamOrBuilder(
+    public com.game.proto.C2GNet.AllTeamOrBuilder getAllTeamOrBuilder(
         int index) {
       return allTeam_.get(index);
     }
@@ -38772,10 +35759,10 @@ public final class C2GNet {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.game.proto.C2GNet.NetRoom)) {
+      if (!(obj instanceof com.game.proto.C2GNet.NRoom)) {
         return super.equals(obj);
       }
-      com.game.proto.C2GNet.NetRoom other = (com.game.proto.C2GNet.NetRoom) obj;
+      com.game.proto.C2GNet.NRoom other = (com.game.proto.C2GNet.NRoom) obj;
 
       if (hasRoomId() != other.hasRoomId()) return false;
       if (hasRoomId()) {
@@ -38861,69 +35848,69 @@ public final class C2GNet {
       return hash;
     }
 
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(byte[] data)
+    public static com.game.proto.C2GNet.NRoom parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(java.io.InputStream input)
+    public static com.game.proto.C2GNet.NRoom parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.NetRoom parseDelimitedFrom(java.io.InputStream input)
+    public static com.game.proto.C2GNet.NRoom parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.NetRoom parseDelimitedFrom(
+    public static com.game.proto.C2GNet.NRoom parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.game.proto.C2GNet.NetRoom parseFrom(
+    public static com.game.proto.C2GNet.NRoom parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -38936,7 +35923,7 @@ public final class C2GNet {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.game.proto.C2GNet.NetRoom prototype) {
+    public static Builder newBuilder(com.game.proto.C2GNet.NRoom prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -38952,26 +35939,26 @@ public final class C2GNet {
       return builder;
     }
     /**
-     * Protobuf type {@code NetRoom}
+     * Protobuf type {@code NRoom}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:NetRoom)
-        com.game.proto.C2GNet.NetRoomOrBuilder {
+        // @@protoc_insertion_point(builder_implements:NRoom)
+        com.game.proto.C2GNet.NRoomOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.game.proto.C2GNet.internal_static_NetRoom_descriptor;
+        return com.game.proto.C2GNet.internal_static_NRoom_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.game.proto.C2GNet.internal_static_NetRoom_fieldAccessorTable
+        return com.game.proto.C2GNet.internal_static_NRoom_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.game.proto.C2GNet.NetRoom.class, com.game.proto.C2GNet.NetRoom.Builder.class);
+                com.game.proto.C2GNet.NRoom.class, com.game.proto.C2GNet.NRoom.Builder.class);
       }
 
-      // Construct using com.game.proto.C2GNet.NetRoom.newBuilder()
+      // Construct using com.game.proto.C2GNet.NRoom.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -39016,17 +36003,17 @@ public final class C2GNet {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.game.proto.C2GNet.internal_static_NetRoom_descriptor;
+        return com.game.proto.C2GNet.internal_static_NRoom_descriptor;
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.NetRoom getDefaultInstanceForType() {
-        return com.game.proto.C2GNet.NetRoom.getDefaultInstance();
+      public com.game.proto.C2GNet.NRoom getDefaultInstanceForType() {
+        return com.game.proto.C2GNet.NRoom.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.NetRoom build() {
-        com.game.proto.C2GNet.NetRoom result = buildPartial();
+      public com.game.proto.C2GNet.NRoom build() {
+        com.game.proto.C2GNet.NRoom result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -39034,8 +36021,8 @@ public final class C2GNet {
       }
 
       @java.lang.Override
-      public com.game.proto.C2GNet.NetRoom buildPartial() {
-        com.game.proto.C2GNet.NetRoom result = new com.game.proto.C2GNet.NetRoom(this);
+      public com.game.proto.C2GNet.NRoom buildPartial() {
+        com.game.proto.C2GNet.NRoom result = new com.game.proto.C2GNet.NRoom(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -39114,16 +36101,16 @@ public final class C2GNet {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.game.proto.C2GNet.NetRoom) {
-          return mergeFrom((com.game.proto.C2GNet.NetRoom)other);
+        if (other instanceof com.game.proto.C2GNet.NRoom) {
+          return mergeFrom((com.game.proto.C2GNet.NRoom)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.game.proto.C2GNet.NetRoom other) {
-        if (other == com.game.proto.C2GNet.NetRoom.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.game.proto.C2GNet.NRoom other) {
+        if (other == com.game.proto.C2GNet.NRoom.getDefaultInstance()) return this;
         if (other.hasRoomId()) {
           setRoomId(other.getRoomId());
         }
@@ -39190,11 +36177,11 @@ public final class C2GNet {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.game.proto.C2GNet.NetRoom parsedMessage = null;
+        com.game.proto.C2GNet.NRoom parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.game.proto.C2GNet.NetRoom) e.getUnfinishedMessage();
+          parsedMessage = (com.game.proto.C2GNet.NRoom) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -39354,22 +36341,22 @@ public final class C2GNet {
         return this;
       }
 
-      private java.util.List<com.game.proto.C2GNet.RoomTeam> allTeam_ =
+      private java.util.List<com.game.proto.C2GNet.AllTeam> allTeam_ =
         java.util.Collections.emptyList();
       private void ensureAllTeamIsMutable() {
         if (!((bitField0_ & 0x00000008) != 0)) {
-          allTeam_ = new java.util.ArrayList<com.game.proto.C2GNet.RoomTeam>(allTeam_);
+          allTeam_ = new java.util.ArrayList<com.game.proto.C2GNet.AllTeam>(allTeam_);
           bitField0_ |= 0x00000008;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomTeam, com.game.proto.C2GNet.RoomTeam.Builder, com.game.proto.C2GNet.RoomTeamOrBuilder> allTeamBuilder_;
+          com.game.proto.C2GNet.AllTeam, com.game.proto.C2GNet.AllTeam.Builder, com.game.proto.C2GNet.AllTeamOrBuilder> allTeamBuilder_;
 
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public java.util.List<com.game.proto.C2GNet.RoomTeam> getAllTeamList() {
+      public java.util.List<com.game.proto.C2GNet.AllTeam> getAllTeamList() {
         if (allTeamBuilder_ == null) {
           return java.util.Collections.unmodifiableList(allTeam_);
         } else {
@@ -39377,7 +36364,7 @@ public final class C2GNet {
         }
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public int getAllTeamCount() {
         if (allTeamBuilder_ == null) {
@@ -39387,9 +36374,9 @@ public final class C2GNet {
         }
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public com.game.proto.C2GNet.RoomTeam getAllTeam(int index) {
+      public com.game.proto.C2GNet.AllTeam getAllTeam(int index) {
         if (allTeamBuilder_ == null) {
           return allTeam_.get(index);
         } else {
@@ -39397,10 +36384,10 @@ public final class C2GNet {
         }
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder setAllTeam(
-          int index, com.game.proto.C2GNet.RoomTeam value) {
+          int index, com.game.proto.C2GNet.AllTeam value) {
         if (allTeamBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -39414,10 +36401,10 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder setAllTeam(
-          int index, com.game.proto.C2GNet.RoomTeam.Builder builderForValue) {
+          int index, com.game.proto.C2GNet.AllTeam.Builder builderForValue) {
         if (allTeamBuilder_ == null) {
           ensureAllTeamIsMutable();
           allTeam_.set(index, builderForValue.build());
@@ -39428,9 +36415,9 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public Builder addAllTeam(com.game.proto.C2GNet.RoomTeam value) {
+      public Builder addAllTeam(com.game.proto.C2GNet.AllTeam value) {
         if (allTeamBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -39444,10 +36431,10 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder addAllTeam(
-          int index, com.game.proto.C2GNet.RoomTeam value) {
+          int index, com.game.proto.C2GNet.AllTeam value) {
         if (allTeamBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -39461,10 +36448,10 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder addAllTeam(
-          com.game.proto.C2GNet.RoomTeam.Builder builderForValue) {
+          com.game.proto.C2GNet.AllTeam.Builder builderForValue) {
         if (allTeamBuilder_ == null) {
           ensureAllTeamIsMutable();
           allTeam_.add(builderForValue.build());
@@ -39475,10 +36462,10 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder addAllTeam(
-          int index, com.game.proto.C2GNet.RoomTeam.Builder builderForValue) {
+          int index, com.game.proto.C2GNet.AllTeam.Builder builderForValue) {
         if (allTeamBuilder_ == null) {
           ensureAllTeamIsMutable();
           allTeam_.add(index, builderForValue.build());
@@ -39489,10 +36476,10 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder addAllAllTeam(
-          java.lang.Iterable<? extends com.game.proto.C2GNet.RoomTeam> values) {
+          java.lang.Iterable<? extends com.game.proto.C2GNet.AllTeam> values) {
         if (allTeamBuilder_ == null) {
           ensureAllTeamIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -39504,7 +36491,7 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder clearAllTeam() {
         if (allTeamBuilder_ == null) {
@@ -39517,7 +36504,7 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
       public Builder removeAllTeam(int index) {
         if (allTeamBuilder_ == null) {
@@ -39530,16 +36517,16 @@ public final class C2GNet {
         return this;
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public com.game.proto.C2GNet.RoomTeam.Builder getAllTeamBuilder(
+      public com.game.proto.C2GNet.AllTeam.Builder getAllTeamBuilder(
           int index) {
         return getAllTeamFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public com.game.proto.C2GNet.RoomTeamOrBuilder getAllTeamOrBuilder(
+      public com.game.proto.C2GNet.AllTeamOrBuilder getAllTeamOrBuilder(
           int index) {
         if (allTeamBuilder_ == null) {
           return allTeam_.get(index);  } else {
@@ -39547,9 +36534,9 @@ public final class C2GNet {
         }
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public java.util.List<? extends com.game.proto.C2GNet.RoomTeamOrBuilder> 
+      public java.util.List<? extends com.game.proto.C2GNet.AllTeamOrBuilder> 
            getAllTeamOrBuilderList() {
         if (allTeamBuilder_ != null) {
           return allTeamBuilder_.getMessageOrBuilderList();
@@ -39558,33 +36545,33 @@ public final class C2GNet {
         }
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public com.game.proto.C2GNet.RoomTeam.Builder addAllTeamBuilder() {
+      public com.game.proto.C2GNet.AllTeam.Builder addAllTeamBuilder() {
         return getAllTeamFieldBuilder().addBuilder(
-            com.game.proto.C2GNet.RoomTeam.getDefaultInstance());
+            com.game.proto.C2GNet.AllTeam.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public com.game.proto.C2GNet.RoomTeam.Builder addAllTeamBuilder(
+      public com.game.proto.C2GNet.AllTeam.Builder addAllTeamBuilder(
           int index) {
         return getAllTeamFieldBuilder().addBuilder(
-            index, com.game.proto.C2GNet.RoomTeam.getDefaultInstance());
+            index, com.game.proto.C2GNet.AllTeam.getDefaultInstance());
       }
       /**
-       * <code>repeated .RoomTeam AllTeam = 4;</code>
+       * <code>repeated .AllTeam allTeam = 4;</code>
        */
-      public java.util.List<com.game.proto.C2GNet.RoomTeam.Builder> 
+      public java.util.List<com.game.proto.C2GNet.AllTeam.Builder> 
            getAllTeamBuilderList() {
         return getAllTeamFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.game.proto.C2GNet.RoomTeam, com.game.proto.C2GNet.RoomTeam.Builder, com.game.proto.C2GNet.RoomTeamOrBuilder> 
+          com.game.proto.C2GNet.AllTeam, com.game.proto.C2GNet.AllTeam.Builder, com.game.proto.C2GNet.AllTeamOrBuilder> 
           getAllTeamFieldBuilder() {
         if (allTeamBuilder_ == null) {
           allTeamBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.game.proto.C2GNet.RoomTeam, com.game.proto.C2GNet.RoomTeam.Builder, com.game.proto.C2GNet.RoomTeamOrBuilder>(
+              com.game.proto.C2GNet.AllTeam, com.game.proto.C2GNet.AllTeam.Builder, com.game.proto.C2GNet.AllTeamOrBuilder>(
                   allTeam_,
                   ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
@@ -39936,41 +36923,41 @@ public final class C2GNet {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:NetRoom)
+      // @@protoc_insertion_point(builder_scope:NRoom)
     }
 
-    // @@protoc_insertion_point(class_scope:NetRoom)
-    private static final com.game.proto.C2GNet.NetRoom DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:NRoom)
+    private static final com.game.proto.C2GNet.NRoom DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.game.proto.C2GNet.NetRoom();
+      DEFAULT_INSTANCE = new com.game.proto.C2GNet.NRoom();
     }
 
-    public static com.game.proto.C2GNet.NetRoom getDefaultInstance() {
+    public static com.game.proto.C2GNet.NRoom getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<NetRoom>
-        PARSER = new com.google.protobuf.AbstractParser<NetRoom>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<NRoom>
+        PARSER = new com.google.protobuf.AbstractParser<NRoom>() {
       @java.lang.Override
-      public NetRoom parsePartialFrom(
+      public NRoom parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NetRoom(input, extensionRegistry);
+        return new NRoom(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<NetRoom> parser() {
+    public static com.google.protobuf.Parser<NRoom> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<NetRoom> getParserForType() {
+    public com.google.protobuf.Parser<NRoom> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.game.proto.C2GNet.NetRoom getDefaultInstanceForType() {
+    public com.game.proto.C2GNet.NRoom getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -41199,19 +38186,19 @@ public final class C2GNet {
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 5;</code>
-     * @return Whether the teamType field is set.
+     * <code>optional int32 teamId = 5;</code>
+     * @return Whether the teamId field is set.
      */
-    boolean hasTeamType();
+    boolean hasTeamId();
     /**
      * <pre>
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 5;</code>
-     * @return The teamType.
+     * <code>optional int32 teamId = 5;</code>
+     * @return The teamId.
      */
-    com.game.proto.C2GNet.TeamType getTeamType();
+    int getTeamId();
   }
   /**
    * <pre>
@@ -41232,7 +38219,6 @@ public final class C2GNet {
     private InviteRequest() {
       fromNickName_ = "";
       toNickName_ = "";
-      teamType_ = 0;
     }
 
     @java.lang.Override
@@ -41289,15 +38275,8 @@ public final class C2GNet {
               break;
             }
             case 40: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.game.proto.C2GNet.TeamType value = com.game.proto.C2GNet.TeamType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(5, rawValue);
-              } else {
-                bitField0_ |= 0x00000010;
-                teamType_ = rawValue;
-              }
+              bitField0_ |= 0x00000010;
+              teamId_ = input.readInt32();
               break;
             }
             default: {
@@ -41507,17 +38486,18 @@ public final class C2GNet {
       }
     }
 
-    public static final int TEAMTYPE_FIELD_NUMBER = 5;
-    private int teamType_;
+    public static final int TEAMID_FIELD_NUMBER = 5;
+    private int teamId_;
     /**
      * <pre>
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 5;</code>
-     * @return Whether the teamType field is set.
+     * <code>optional int32 teamId = 5;</code>
+     * @return Whether the teamId field is set.
      */
-    @java.lang.Override public boolean hasTeamType() {
+    @java.lang.Override
+    public boolean hasTeamId() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
@@ -41525,13 +38505,12 @@ public final class C2GNet {
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 5;</code>
-     * @return The teamType.
+     * <code>optional int32 teamId = 5;</code>
+     * @return The teamId.
      */
-    @java.lang.Override public com.game.proto.C2GNet.TeamType getTeamType() {
-      @SuppressWarnings("deprecation")
-      com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-      return result == null ? com.game.proto.C2GNet.TeamType.My : result;
+    @java.lang.Override
+    public int getTeamId() {
+      return teamId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -41561,7 +38540,7 @@ public final class C2GNet {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, toNickName_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeEnum(5, teamType_);
+        output.writeInt32(5, teamId_);
       }
       unknownFields.writeTo(output);
     }
@@ -41588,7 +38567,7 @@ public final class C2GNet {
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(5, teamType_);
+          .computeInt32Size(5, teamId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -41625,9 +38604,10 @@ public final class C2GNet {
         if (!getToNickName()
             .equals(other.getToNickName())) return false;
       }
-      if (hasTeamType() != other.hasTeamType()) return false;
-      if (hasTeamType()) {
-        if (teamType_ != other.teamType_) return false;
+      if (hasTeamId() != other.hasTeamId()) return false;
+      if (hasTeamId()) {
+        if (getTeamId()
+            != other.getTeamId()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -41656,9 +38636,9 @@ public final class C2GNet {
         hash = (37 * hash) + TONICKNAME_FIELD_NUMBER;
         hash = (53 * hash) + getToNickName().hashCode();
       }
-      if (hasTeamType()) {
-        hash = (37 * hash) + TEAMTYPE_FIELD_NUMBER;
-        hash = (53 * hash) + teamType_;
+      if (hasTeamId()) {
+        hash = (37 * hash) + TEAMID_FIELD_NUMBER;
+        hash = (53 * hash) + getTeamId();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -41805,7 +38785,7 @@ public final class C2GNet {
         bitField0_ = (bitField0_ & ~0x00000004);
         toNickName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        teamType_ = 0;
+        teamId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -41852,9 +38832,9 @@ public final class C2GNet {
         }
         result.toNickName_ = toNickName_;
         if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.teamId_ = teamId_;
           to_bitField0_ |= 0x00000010;
         }
-        result.teamType_ = teamType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -41920,8 +38900,8 @@ public final class C2GNet {
           toNickName_ = other.toNickName_;
           onChanged();
         }
-        if (other.hasTeamType()) {
-          setTeamType(other.getTeamType());
+        if (other.hasTeamId()) {
+          setTeamId(other.getTeamId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -42279,16 +39259,17 @@ public final class C2GNet {
         return this;
       }
 
-      private int teamType_ = 0;
+      private int teamId_ ;
       /**
        * <pre>
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 5;</code>
-       * @return Whether the teamType field is set.
+       * <code>optional int32 teamId = 5;</code>
+       * @return Whether the teamId field is set.
        */
-      @java.lang.Override public boolean hasTeamType() {
+      @java.lang.Override
+      public boolean hasTeamId() {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
@@ -42296,30 +39277,25 @@ public final class C2GNet {
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 5;</code>
-       * @return The teamType.
+       * <code>optional int32 teamId = 5;</code>
+       * @return The teamId.
        */
       @java.lang.Override
-      public com.game.proto.C2GNet.TeamType getTeamType() {
-        @SuppressWarnings("deprecation")
-        com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-        return result == null ? com.game.proto.C2GNet.TeamType.My : result;
+      public int getTeamId() {
+        return teamId_;
       }
       /**
        * <pre>
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 5;</code>
-       * @param value The teamType to set.
+       * <code>optional int32 teamId = 5;</code>
+       * @param value The teamId to set.
        * @return This builder for chaining.
        */
-      public Builder setTeamType(com.game.proto.C2GNet.TeamType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder setTeamId(int value) {
         bitField0_ |= 0x00000010;
-        teamType_ = value.getNumber();
+        teamId_ = value;
         onChanged();
         return this;
       }
@@ -42328,12 +39304,12 @@ public final class C2GNet {
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 5;</code>
+       * <code>optional int32 teamId = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTeamType() {
+      public Builder clearTeamId() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        teamType_ = 0;
+        teamId_ = 0;
         onChanged();
         return this;
       }
@@ -42395,15 +39371,15 @@ public final class C2GNet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .Result result = 1;</code>
-     * @return Whether the result field is set.
+     * <code>optional .Result resultmsg = 1;</code>
+     * @return Whether the resultmsg field is set.
      */
-    boolean hasResult();
+    boolean hasResultmsg();
     /**
-     * <code>optional .Result result = 1;</code>
-     * @return The result.
+     * <code>optional .Result resultmsg = 1;</code>
+     * @return The resultmsg.
      */
-    com.game.proto.C2GNet.Result getResult();
+    com.game.proto.C2GNet.Result getResultmsg();
 
     /**
      * <code>optional string errormsg = 2;</code>
@@ -42450,7 +39426,7 @@ public final class C2GNet {
       super(builder);
     }
     private InviteResponse() {
-      result_ = 0;
+      resultmsg_ = 0;
       errormsg_ = "";
     }
 
@@ -42493,7 +39469,7 @@ public final class C2GNet {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                result_ = rawValue;
+                resultmsg_ = rawValue;
               }
               break;
             }
@@ -42549,22 +39525,22 @@ public final class C2GNet {
     }
 
     private int bitField0_;
-    public static final int RESULT_FIELD_NUMBER = 1;
-    private int result_;
+    public static final int RESULTMSG_FIELD_NUMBER = 1;
+    private int resultmsg_;
     /**
-     * <code>optional .Result result = 1;</code>
-     * @return Whether the result field is set.
+     * <code>optional .Result resultmsg = 1;</code>
+     * @return Whether the resultmsg field is set.
      */
-    @java.lang.Override public boolean hasResult() {
+    @java.lang.Override public boolean hasResultmsg() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional .Result result = 1;</code>
-     * @return The result.
+     * <code>optional .Result resultmsg = 1;</code>
+     * @return The resultmsg.
      */
-    @java.lang.Override public com.game.proto.C2GNet.Result getResult() {
+    @java.lang.Override public com.game.proto.C2GNet.Result getResultmsg() {
       @SuppressWarnings("deprecation")
-      com.game.proto.C2GNet.Result result = com.game.proto.C2GNet.Result.valueOf(result_);
+      com.game.proto.C2GNet.Result result = com.game.proto.C2GNet.Result.valueOf(resultmsg_);
       return result == null ? com.game.proto.C2GNet.Result.Success : result;
     }
 
@@ -42657,7 +39633,7 @@ public final class C2GNet {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeEnum(1, result_);
+        output.writeEnum(1, resultmsg_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errormsg_);
@@ -42676,7 +39652,7 @@ public final class C2GNet {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, result_);
+          .computeEnumSize(1, resultmsg_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errormsg_);
@@ -42700,9 +39676,9 @@ public final class C2GNet {
       }
       com.game.proto.C2GNet.InviteResponse other = (com.game.proto.C2GNet.InviteResponse) obj;
 
-      if (hasResult() != other.hasResult()) return false;
-      if (hasResult()) {
-        if (result_ != other.result_) return false;
+      if (hasResultmsg() != other.hasResultmsg()) return false;
+      if (hasResultmsg()) {
+        if (resultmsg_ != other.resultmsg_) return false;
       }
       if (hasErrormsg() != other.hasErrormsg()) return false;
       if (hasErrormsg()) {
@@ -42725,9 +39701,9 @@ public final class C2GNet {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasResult()) {
-        hash = (37 * hash) + RESULT_FIELD_NUMBER;
-        hash = (53 * hash) + result_;
+      if (hasResultmsg()) {
+        hash = (37 * hash) + RESULTMSG_FIELD_NUMBER;
+        hash = (53 * hash) + resultmsg_;
       }
       if (hasErrormsg()) {
         hash = (37 * hash) + ERRORMSG_FIELD_NUMBER;
@@ -42871,7 +39847,7 @@ public final class C2GNet {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        result_ = 0;
+        resultmsg_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         errormsg_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -42912,7 +39888,7 @@ public final class C2GNet {
         if (((from_bitField0_ & 0x00000001) != 0)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.result_ = result_;
+        result.resultmsg_ = resultmsg_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -42974,8 +39950,8 @@ public final class C2GNet {
 
       public Builder mergeFrom(com.game.proto.C2GNet.InviteResponse other) {
         if (other == com.game.proto.C2GNet.InviteResponse.getDefaultInstance()) return this;
-        if (other.hasResult()) {
-          setResult(other.getResult());
+        if (other.hasResultmsg()) {
+          setResultmsg(other.getResultmsg());
         }
         if (other.hasErrormsg()) {
           bitField0_ |= 0x00000002;
@@ -43015,45 +39991,45 @@ public final class C2GNet {
       }
       private int bitField0_;
 
-      private int result_ = 0;
+      private int resultmsg_ = 0;
       /**
-       * <code>optional .Result result = 1;</code>
-       * @return Whether the result field is set.
+       * <code>optional .Result resultmsg = 1;</code>
+       * @return Whether the resultmsg field is set.
        */
-      @java.lang.Override public boolean hasResult() {
+      @java.lang.Override public boolean hasResultmsg() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional .Result result = 1;</code>
-       * @return The result.
+       * <code>optional .Result resultmsg = 1;</code>
+       * @return The resultmsg.
        */
       @java.lang.Override
-      public com.game.proto.C2GNet.Result getResult() {
+      public com.game.proto.C2GNet.Result getResultmsg() {
         @SuppressWarnings("deprecation")
-        com.game.proto.C2GNet.Result result = com.game.proto.C2GNet.Result.valueOf(result_);
+        com.game.proto.C2GNet.Result result = com.game.proto.C2GNet.Result.valueOf(resultmsg_);
         return result == null ? com.game.proto.C2GNet.Result.Success : result;
       }
       /**
-       * <code>optional .Result result = 1;</code>
-       * @param value The result to set.
+       * <code>optional .Result resultmsg = 1;</code>
+       * @param value The resultmsg to set.
        * @return This builder for chaining.
        */
-      public Builder setResult(com.game.proto.C2GNet.Result value) {
+      public Builder setResultmsg(com.game.proto.C2GNet.Result value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        result_ = value.getNumber();
+        resultmsg_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional .Result result = 1;</code>
+       * <code>optional .Result resultmsg = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearResult() {
+      public Builder clearResultmsg() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        result_ = 0;
+        resultmsg_ = 0;
         onChanged();
         return this;
       }
@@ -48118,19 +45094,19 @@ public final class C2GNet {
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 4;</code>
-     * @return Whether the teamType field is set.
+     * <code>optional int32 teamId = 4;</code>
+     * @return Whether the teamId field is set.
      */
-    boolean hasTeamType();
+    boolean hasTeamId();
     /**
      * <pre>
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 4;</code>
-     * @return The teamType.
+     * <code>optional int32 teamId = 4;</code>
+     * @return The teamId.
      */
-    com.game.proto.C2GNet.TeamType getTeamType();
+    int getTeamId();
   }
   /**
    * Protobuf type {@code AddRoomResponse}
@@ -48147,7 +45123,6 @@ public final class C2GNet {
     private AddRoomResponse() {
       result_ = 0;
       errormsg_ = "";
-      teamType_ = 0;
     }
 
     @java.lang.Override
@@ -48213,15 +45188,8 @@ public final class C2GNet {
               break;
             }
             case 32: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.game.proto.C2GNet.TeamType value = com.game.proto.C2GNet.TeamType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                bitField0_ |= 0x00000008;
-                teamType_ = rawValue;
-              }
+              bitField0_ |= 0x00000008;
+              teamId_ = input.readInt32();
               break;
             }
             default: {
@@ -48350,17 +45318,18 @@ public final class C2GNet {
       return addRoomRequest_ == null ? com.game.proto.C2GNet.AddRoomRequest.getDefaultInstance() : addRoomRequest_;
     }
 
-    public static final int TEAMTYPE_FIELD_NUMBER = 4;
-    private int teamType_;
+    public static final int TEAMID_FIELD_NUMBER = 4;
+    private int teamId_;
     /**
      * <pre>
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 4;</code>
-     * @return Whether the teamType field is set.
+     * <code>optional int32 teamId = 4;</code>
+     * @return Whether the teamId field is set.
      */
-    @java.lang.Override public boolean hasTeamType() {
+    @java.lang.Override
+    public boolean hasTeamId() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
@@ -48368,13 +45337,12 @@ public final class C2GNet {
      *队伍类型
      * </pre>
      *
-     * <code>optional .TeamType teamType = 4;</code>
-     * @return The teamType.
+     * <code>optional int32 teamId = 4;</code>
+     * @return The teamId.
      */
-    @java.lang.Override public com.game.proto.C2GNet.TeamType getTeamType() {
-      @SuppressWarnings("deprecation")
-      com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-      return result == null ? com.game.proto.C2GNet.TeamType.My : result;
+    @java.lang.Override
+    public int getTeamId() {
+      return teamId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -48401,7 +45369,7 @@ public final class C2GNet {
         output.writeMessage(3, getAddRoomRequest());
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeEnum(4, teamType_);
+        output.writeInt32(4, teamId_);
       }
       unknownFields.writeTo(output);
     }
@@ -48425,7 +45393,7 @@ public final class C2GNet {
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, teamType_);
+          .computeInt32Size(4, teamId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -48456,9 +45424,10 @@ public final class C2GNet {
         if (!getAddRoomRequest()
             .equals(other.getAddRoomRequest())) return false;
       }
-      if (hasTeamType() != other.hasTeamType()) return false;
-      if (hasTeamType()) {
-        if (teamType_ != other.teamType_) return false;
+      if (hasTeamId() != other.hasTeamId()) return false;
+      if (hasTeamId()) {
+        if (getTeamId()
+            != other.getTeamId()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -48483,9 +45452,9 @@ public final class C2GNet {
         hash = (37 * hash) + ADDROOMREQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getAddRoomRequest().hashCode();
       }
-      if (hasTeamType()) {
-        hash = (37 * hash) + TEAMTYPE_FIELD_NUMBER;
-        hash = (53 * hash) + teamType_;
+      if (hasTeamId()) {
+        hash = (37 * hash) + TEAMID_FIELD_NUMBER;
+        hash = (53 * hash) + getTeamId();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -48631,7 +45600,7 @@ public final class C2GNet {
           addRoomRequestBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
-        teamType_ = 0;
+        teamId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -48678,9 +45647,9 @@ public final class C2GNet {
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.teamId_ = teamId_;
           to_bitField0_ |= 0x00000008;
         }
-        result.teamType_ = teamType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -48741,8 +45710,8 @@ public final class C2GNet {
         if (other.hasAddRoomRequest()) {
           mergeAddRoomRequest(other.getAddRoomRequest());
         }
-        if (other.hasTeamType()) {
-          setTeamType(other.getTeamType());
+        if (other.hasTeamId()) {
+          setTeamId(other.getTeamId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -49021,16 +45990,17 @@ public final class C2GNet {
         return addRoomRequestBuilder_;
       }
 
-      private int teamType_ = 0;
+      private int teamId_ ;
       /**
        * <pre>
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 4;</code>
-       * @return Whether the teamType field is set.
+       * <code>optional int32 teamId = 4;</code>
+       * @return Whether the teamId field is set.
        */
-      @java.lang.Override public boolean hasTeamType() {
+      @java.lang.Override
+      public boolean hasTeamId() {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
@@ -49038,30 +46008,25 @@ public final class C2GNet {
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 4;</code>
-       * @return The teamType.
+       * <code>optional int32 teamId = 4;</code>
+       * @return The teamId.
        */
       @java.lang.Override
-      public com.game.proto.C2GNet.TeamType getTeamType() {
-        @SuppressWarnings("deprecation")
-        com.game.proto.C2GNet.TeamType result = com.game.proto.C2GNet.TeamType.valueOf(teamType_);
-        return result == null ? com.game.proto.C2GNet.TeamType.My : result;
+      public int getTeamId() {
+        return teamId_;
       }
       /**
        * <pre>
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 4;</code>
-       * @param value The teamType to set.
+       * <code>optional int32 teamId = 4;</code>
+       * @param value The teamId to set.
        * @return This builder for chaining.
        */
-      public Builder setTeamType(com.game.proto.C2GNet.TeamType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder setTeamId(int value) {
         bitField0_ |= 0x00000008;
-        teamType_ = value.getNumber();
+        teamId_ = value;
         onChanged();
         return this;
       }
@@ -49070,12 +46035,12 @@ public final class C2GNet {
        *队伍类型
        * </pre>
        *
-       * <code>optional .TeamType teamType = 4;</code>
+       * <code>optional int32 teamId = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearTeamType() {
+      public Builder clearTeamId() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        teamType_ = 0;
+        teamId_ = 0;
         onChanged();
         return this;
       }
@@ -63585,20 +60550,15 @@ public final class C2GNet {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_RoomUser_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RoomTeam_descriptor;
+    internal_static_AllTeam_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RoomTeam_fieldAccessorTable;
+      internal_static_AllTeam_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_NRoom_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_NRoom_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_NetRoom_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_NetRoom_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MyRoomRequest_descriptor;
   private static final 
@@ -63758,185 +60718,177 @@ public final class C2GNet {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023C2GNetMessage.proto\"\223\002\n\005NUser\022\n\n\002id\030\001 " +
+      "\n\023C2GNetMessage.proto\"\345\001\n\005NUser\022\n\n\002id\030\001 " +
       "\001(\005\022\020\n\010nickname\030\002 \001(\t\022\014\n\004coin\030\003 \001(\003\022\036\n\tc" +
       "haracter\030\004 \001(\0132\013.NCharacter\022*\n\020unLockCha" +
       "racters\030\005 \003(\0132\020.UnLockCharacter\022\020\n\010isFol" +
       "low\030\006 \001(\010\022\016\n\006status\030\010 \001(\010\022\022\n\nfenSiCount\030" +
       "\t \001(\005\022\037\n\nuserStatus\030\n \001(\0162\013.UserStatus\022\r" +
-      "\n\005biFen\030\013 \001(\t\022\033\n\010teamType\030\014 \001(\0162\t.TeamTy" +
-      "pe\022\017\n\007roomNum\030\r \001(\005\"+\n\017UnLockCharacter\022\013" +
-      "\n\003tid\030\001 \001(\005\022\013\n\003cid\030\002 \001(\005\"\014\n\nNCharacter\"^" +
-      "\n\007NStatus\022\031\n\004type\030\001 \001(\0162\013.StatusType\022\035\n\006" +
-      "action\030\002 \001(\0162\r.StatusAction\022\n\n\002id\030\003 \001(\005\022" +
-      "\r\n\005value\030\004 \001(\003\"(\n\014StatusNotify\022\030\n\006status" +
-      "\030\001 \003(\0132\010.NStatus\"3\n\021NUserStatusChange\022\016\n" +
-      "\006userId\030\001 \001(\005\022\016\n\006status\030\002 \001(\010\"p\n\rC2GNetM" +
-      "essage\022\023\n\013messageType\030\001 \003(\t\022#\n\007Request\030\002" +
-      " \001(\0132\022.NetMessageRequest\022%\n\010Response\030\003 \001" +
-      "(\0132\023.NetMessageResponse\"\252\010\n\021NetMessageRe" +
-      "quest\022*\n\014userRegister\030\001 \001(\0132\024.UserRegist" +
-      "erRequest\022$\n\tuserLogin\030\002 \001(\0132\021.UserLogin" +
-      "Request\0220\n\017characterDetail\030\003 \001(\0132\027.Chara" +
-      "cterDetailRequest\022.\n\016updateNickName\030\004 \001(" +
-      "\0132\026.UpdateNickNameRequest\022!\n\tfollowReq\030\010" +
-      " \001(\0132\016.FollowRequest\022!\n\tunLockReq\030\t \001(\0132" +
-      "\016.UnLockRequest\0223\n\022switchCharacterReq\030\n " +
-      "\001(\0132\027.SwitchCharacterRequest\022\'\n\014heartBea" +
-      "tReq\030\016 \001(\0132\021.HeartBeatRequest\022!\n\tmyRoomR" +
-      "eq\030\022 \001(\0132\016.MyRoomRequest\022!\n\tinviteReq\030\023 " +
-      "\001(\0132\016.InviteRequest\022\"\n\tinviteRes\030\024 \001(\0132\017" +
-      ".InviteResponse\022#\n\nkickOutReq\030\025 \001(\0132\017.Ki" +
-      "ckOutRequest\022/\n\020roomStartGameReq\030\026 \001(\0132\025" +
-      ".RoomStartGameRequest\0221\n\021nickNameSearchR" +
-      "eq\030\027 \001(\0132\026.NickNameSearchRequest\022#\n\naddR" +
-      "oomReq\030\030 \001(\0132\017.AddRoomRequest\022$\n\naddRoom" +
-      "Res\030\031 \001(\0132\020.AddRoomResponse\022#\n\noutRoomRe" +
-      "q\030\032 \001(\0132\017.OutRoomRequest\022\035\n\007chatReq\030\033 \001(" +
-      "\0132\014.ChatRequest\0223\n\022userStatusQueryReq\030\034 " +
-      "\001(\0132\027.UserStatusQueryRequest\022)\n\rstartMat" +
-      "chReq\030\035 \001(\0132\022.StartMatchRequest\022\'\n\014gameO" +
-      "ver2Req\030\036 \001(\0132\021.GameOver2Request\022#\n\naddL" +
-      "iveReq\030\037 \001(\0132\017.AddLiveRequest\022+\n\016uploadB" +
-      "iFenReq\030  \001(\0132\023.UploadBiFenRequest\022)\n\rfo" +
-      "llowListReq\030! \001(\0132\022.FollowListRequest\0225\n" +
-      "\023validateOpenRoomReq\030\" \001(\0132\030.ValidateOpe" +
-      "nRoomRequest\"\207\t\n\022NetMessageResponse\022+\n\014u" +
-      "serRegister\030\001 \001(\0132\025.UserRegisterResponse" +
-      "\022%\n\tuserLogin\030\002 \001(\0132\022.UserLoginResponse\022" +
-      "1\n\017characterDetail\030\003 \001(\0132\030.CharacterDeta" +
-      "ilResponse\022/\n\016updateNickName\030\004 \001(\0132\027.Upd" +
-      "ateNickNameResponse\022\"\n\tfollowRes\030\010 \001(\0132\017" +
-      ".FollowResponse\022\"\n\tunLockRes\030\n \001(\0132\017.UnL" +
-      "ockResponse\0224\n\022switchCharacterRes\030\013 \001(\0132" +
-      "\030.SwitchCharacterResponse\0226\n\023userStatusC" +
-      "hangeRes\030\r \001(\0132\031.UserStatusChangeRespons" +
-      "e\022(\n\014heartBeatRes\030\020 \001(\0132\022.HeartBeatRespo" +
-      "nse\022\036\n\007tipsRes\030\024 \001(\0132\r.TipsResponse\022\"\n\tm" +
-      "yRoomRes\030\025 \001(\0132\017.MyRoomResponse\022!\n\tinvit" +
-      "eReq\030\026 \001(\0132\016.InviteRequest\022\"\n\tinviteRes\030" +
-      "\027 \001(\0132\017.InviteResponse\022$\n\nkickOutRes\030\030 \001" +
-      "(\0132\020.KickOutResponse\0220\n\020roomStartGameRes" +
-      "\030\031 \001(\0132\026.RoomStartGameResponse\0222\n\021nickNa" +
-      "meSearchRes\030\032 \001(\0132\027.NickNameSearchRespon" +
-      "se\022*\n\rfollowListRes\030\033 \001(\0132\023.FollowListRe" +
-      "sponse\022#\n\naddRoomReq\030\034 \001(\0132\017.AddRoomRequ" +
-      "est\022$\n\naddRoomRes\030\035 \001(\0132\020.AddRoomRespons" +
-      "e\022$\n\noutRoomRes\030\036 \001(\0132\020.OutRoomResponse\022" +
-      "\036\n\007chatRes\030\037 \001(\0132\r.ChatResponse\0224\n\022userS" +
-      "tatusQueryRes\030  \001(\0132\030.UserStatusQueryRes" +
-      "ponse\022*\n\rstartMatchRes\030! \001(\0132\023.StartMatc" +
-      "hResponse\022 \n\010matchRes\030\" \001(\0132\016.MatchRespo" +
-      "nse\022$\n\naddLiveRes\030# \001(\0132\020.AddLiveRespons" +
-      "e\0226\n\023validateOpenRoomRes\030$ \001(\0132\031.Validat" +
-      "eOpenRoomResponse\022#\n\014statusNotify\030d \001(\0132" +
-      "\r.StatusNotify\"6\n\020UserLoginRequest\022\020\n\010us" +
-      "erName\030\001 \001(\t\022\020\n\010passward\030\002 \001(\t\"T\n\021UserLo" +
-      "ginResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010" +
-      "errormsg\030\002 \001(\t\022\024\n\004user\030\003 \001(\0132\006.NUser\"9\n\023" +
-      "UserRegisterRequest\022\020\n\010userName\030\001 \001(\t\022\020\n" +
-      "\010password\030\002 \001(\t\"A\n\024UserRegisterResponse\022" +
-      "\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001" +
-      "(\t\">\n\026CharacterDetailRequest\022\016\n\006userId\030\001" +
-      " \001(\005\022\024\n\014tCharacterId\030\002 \001(\005\"Z\n\027CharacterD" +
-      "etailResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020" +
-      "\n\010errormsg\030\002 \001(\t\022\024\n\004user\030\003 \001(\0132\006.NUser\")" +
-      "\n\025UpdateNickNameRequest\022\020\n\010nickname\030\001 \001(" +
-      "\t\"C\n\026UpdateNickNameResponse\022\027\n\006result\030\001 " +
-      "\001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\"1\n\rFollow" +
-      "Request\022\016\n\006userId\030\001 \001(\005\022\020\n\010isFollow\030\002 \001(" +
-      "\010\";\n\016FollowResponse\022\027\n\006result\030\001 \001(\0162\007.Re" +
-      "sult\022\020\n\010errormsg\030\002 \001(\t\"%\n\rUnLockRequest\022" +
-      "\024\n\014cCharacterId\030\001 \001(\005\"f\n\016UnLockResponse\022" +
-      "\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001" +
-      "(\t\022)\n\017unLockCharacter\030\003 \001(\0132\020.UnLockChar" +
-      "acter\".\n\026SwitchCharacterRequest\022\024\n\014tChar" +
-      "acterId\030\001 \001(\005\"d\n\027SwitchCharacterResponse" +
+      "\n\005biFen\030\013 \001(\t\"+\n\017UnLockCharacter\022\013\n\003tid\030" +
+      "\001 \001(\005\022\013\n\003cid\030\002 \001(\005\"\014\n\nNCharacter\"^\n\007NSta" +
+      "tus\022\031\n\004type\030\001 \001(\0162\013.StatusType\022\035\n\006action" +
+      "\030\002 \001(\0162\r.StatusAction\022\n\n\002id\030\003 \001(\005\022\r\n\005val" +
+      "ue\030\004 \001(\003\"(\n\014StatusNotify\022\030\n\006status\030\001 \003(\013" +
+      "2\010.NStatus\"3\n\021NUserStatusChange\022\016\n\006userI" +
+      "d\030\001 \001(\005\022\016\n\006status\030\002 \001(\010\"p\n\rC2GNetMessage" +
+      "\022\023\n\013messageType\030\001 \003(\t\022#\n\007Request\030\002 \001(\0132\022" +
+      ".NetMessageRequest\022%\n\010Response\030\003 \001(\0132\023.N" +
+      "etMessageResponse\"\252\010\n\021NetMessageRequest\022" +
+      "*\n\014userRegister\030\001 \001(\0132\024.UserRegisterRequ" +
+      "est\022$\n\tuserLogin\030\002 \001(\0132\021.UserLoginReques" +
+      "t\0220\n\017characterDetail\030\003 \001(\0132\027.CharacterDe" +
+      "tailRequest\022.\n\016updateNickName\030\004 \001(\0132\026.Up" +
+      "dateNickNameRequest\022!\n\tfollowReq\030\010 \001(\0132\016" +
+      ".FollowRequest\022!\n\tunLockReq\030\t \001(\0132\016.UnLo" +
+      "ckRequest\0223\n\022switchCharacterReq\030\n \001(\0132\027." +
+      "SwitchCharacterRequest\022\'\n\014heartBeatReq\030\016" +
+      " \001(\0132\021.HeartBeatRequest\022!\n\tmyRoomReq\030\022 \001" +
+      "(\0132\016.MyRoomRequest\022!\n\tinviteReq\030\023 \001(\0132\016." +
+      "InviteRequest\022\"\n\tinviteRes\030\024 \001(\0132\017.Invit" +
+      "eResponse\022#\n\nkickOutReq\030\025 \001(\0132\017.KickOutR" +
+      "equest\022/\n\020roomStartGameReq\030\026 \001(\0132\025.RoomS" +
+      "tartGameRequest\0221\n\021nickNameSearchReq\030\027 \001" +
+      "(\0132\026.NickNameSearchRequest\022#\n\naddRoomReq" +
+      "\030\030 \001(\0132\017.AddRoomRequest\022$\n\naddRoomRes\030\031 " +
+      "\001(\0132\020.AddRoomResponse\022#\n\noutRoomReq\030\032 \001(" +
+      "\0132\017.OutRoomRequest\022\035\n\007chatReq\030\033 \001(\0132\014.Ch" +
+      "atRequest\0223\n\022userStatusQueryReq\030\034 \001(\0132\027." +
+      "UserStatusQueryRequest\022)\n\rstartMatchReq\030" +
+      "\035 \001(\0132\022.StartMatchRequest\022\'\n\014gameOver2Re" +
+      "q\030\036 \001(\0132\021.GameOver2Request\022#\n\naddLiveReq" +
+      "\030\037 \001(\0132\017.AddLiveRequest\022+\n\016uploadBiFenRe" +
+      "q\030  \001(\0132\023.UploadBiFenRequest\022)\n\rfollowLi" +
+      "stReq\030! \001(\0132\022.FollowListRequest\0225\n\023valid" +
+      "ateOpenRoomReq\030\" \001(\0132\030.ValidateOpenRoomR" +
+      "equest\"\207\t\n\022NetMessageResponse\022+\n\014userReg" +
+      "ister\030\001 \001(\0132\025.UserRegisterResponse\022%\n\tus" +
+      "erLogin\030\002 \001(\0132\022.UserLoginResponse\0221\n\017cha" +
+      "racterDetail\030\003 \001(\0132\030.CharacterDetailResp" +
+      "onse\022/\n\016updateNickName\030\004 \001(\0132\027.UpdateNic" +
+      "kNameResponse\022\"\n\tfollowRes\030\010 \001(\0132\017.Follo" +
+      "wResponse\022\"\n\tunLockRes\030\n \001(\0132\017.UnLockRes" +
+      "ponse\0224\n\022switchCharacterRes\030\013 \001(\0132\030.Swit" +
+      "chCharacterResponse\0226\n\023userStatusChangeR" +
+      "es\030\r \001(\0132\031.UserStatusChangeResponse\022(\n\014h" +
+      "eartBeatRes\030\020 \001(\0132\022.HeartBeatResponse\022\036\n" +
+      "\007tipsRes\030\024 \001(\0132\r.TipsResponse\022\"\n\tmyRoomR" +
+      "es\030\025 \001(\0132\017.MyRoomResponse\022!\n\tinviteReq\030\026" +
+      " \001(\0132\016.InviteRequest\022\"\n\tinviteRes\030\027 \001(\0132" +
+      "\017.InviteResponse\022$\n\nkickOutRes\030\030 \001(\0132\020.K" +
+      "ickOutResponse\0220\n\020roomStartGameRes\030\031 \001(\013" +
+      "2\026.RoomStartGameResponse\0222\n\021nickNameSear" +
+      "chRes\030\032 \001(\0132\027.NickNameSearchResponse\022*\n\r" +
+      "followListRes\030\033 \001(\0132\023.FollowListResponse" +
+      "\022#\n\naddRoomReq\030\034 \001(\0132\017.AddRoomRequest\022$\n" +
+      "\naddRoomRes\030\035 \001(\0132\020.AddRoomResponse\022$\n\no" +
+      "utRoomRes\030\036 \001(\0132\020.OutRoomResponse\022\036\n\007cha" +
+      "tRes\030\037 \001(\0132\r.ChatResponse\0224\n\022userStatusQ" +
+      "ueryRes\030  \001(\0132\030.UserStatusQueryResponse\022" +
+      "*\n\rstartMatchRes\030! \001(\0132\023.StartMatchRespo" +
+      "nse\022 \n\010matchRes\030\" \001(\0132\016.MatchResponse\022$\n" +
+      "\naddLiveRes\030# \001(\0132\020.AddLiveResponse\0226\n\023v" +
+      "alidateOpenRoomRes\030$ \001(\0132\031.ValidateOpenR" +
+      "oomResponse\022#\n\014statusNotify\030d \001(\0132\r.Stat" +
+      "usNotify\"6\n\020UserLoginRequest\022\020\n\010userName" +
+      "\030\001 \001(\t\022\020\n\010passward\030\002 \001(\t\"T\n\021UserLoginRes" +
+      "ponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010errorm" +
+      "sg\030\002 \001(\t\022\024\n\004user\030\003 \001(\0132\006.NUser\"9\n\023UserRe" +
+      "gisterRequest\022\020\n\010userName\030\001 \001(\t\022\020\n\010passw" +
+      "ord\030\002 \001(\t\"A\n\024UserRegisterResponse\022\027\n\006res" +
+      "ult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\">\n\026" +
+      "CharacterDetailRequest\022\016\n\006userId\030\001 \001(\005\022\024" +
+      "\n\014tCharacterId\030\002 \001(\005\"Z\n\027CharacterDetailR" +
+      "esponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010erro" +
+      "rmsg\030\002 \001(\t\022\024\n\004user\030\003 \001(\0132\006.NUser\")\n\025Upda" +
+      "teNickNameRequest\022\020\n\010nickname\030\001 \001(\t\"C\n\026U" +
+      "pdateNickNameResponse\022\027\n\006result\030\001 \001(\0162\007." +
+      "Result\022\020\n\010errormsg\030\002 \001(\t\"1\n\rFollowReques" +
+      "t\022\016\n\006userId\030\001 \001(\005\022\020\n\010isFollow\030\002 \001(\010\";\n\016F" +
+      "ollowResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020" +
+      "\n\010errormsg\030\002 \001(\t\"%\n\rUnLockRequest\022\024\n\014cCh" +
+      "aracterId\030\001 \001(\005\"f\n\016UnLockResponse\022\027\n\006res" +
+      "ult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022)\n\017" +
+      "unLockCharacter\030\003 \001(\0132\020.UnLockCharacter\"" +
+      ".\n\026SwitchCharacterRequest\022\024\n\014tCharacterI" +
+      "d\030\001 \001(\005\"d\n\027SwitchCharacterResponse\022\027\n\006re" +
+      "sult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022\036\n" +
+      "\tcharacter\030\003 \001(\0132\013.NCharacter\"I\n\030UserSta" +
+      "tusChangeResponse\022-\n\021userStatusChanges\030\001" +
+      " \003(\0132\022.NUserStatusChange\"\022\n\020HeartBeatReq" +
+      "uest\"+\n\021HeartBeatResponse\022\026\n\016liveFenSiCo" +
+      "unt\030\001 \001(\005\"a\n\014TipsResponse\022\033\n\010tipsType\030\001 " +
+      "\001(\0162\t.TipsType\022\017\n\007content\030\002 \001(\t\022#\n\014tipsW" +
+      "orkType\030\003 \001(\0162\r.TipsWorkType\"y\n\010RoomUser" +
+      "\022\016\n\006userId\030\001 \001(\005\022\020\n\010nickName\030\002 \001(\t\022\024\n\014cC" +
+      "haracterId\030\003 \001(\005\022\024\n\004user\030\004 \001(\0132\006.NUser\022\016" +
+      "\n\006teamId\030\005 \001(\005\022\017\n\007roomNum\030\006 \001(\005\"\"\n\007AllTe" +
+      "am\022\027\n\004Team\030\001 \003(\0132\t.RoomUser\"\256\001\n\005NRoom\022\016\n" +
+      "\006roomId\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\022\023\n\013GamePat" +
+      "tern\030\003 \001(\005\022\031\n\007allTeam\030\004 \003(\0132\010.AllTeam\022\037\n" +
+      "\nroomStatus\030\005 \001(\0162\013.RoomStatus\022\021\n\tipPort" +
+      "Str\030\006 \001(\t\022\022\n\nrandomSeed\030\007 \001(\005\022\r\n\005biFen\030\010" +
+      " \001(\t\"\017\n\rMyRoomRequest\"&\n\016MyRoomResponse\022" +
+      "\024\n\004room\030\001 \001(\0132\006.NRoom\"o\n\rInviteRequest\022\022" +
+      "\n\nfromUserId\030\001 \001(\005\022\024\n\014fromNickName\030\002 \001(\t" +
+      "\022\020\n\010toUserId\030\003 \001(\005\022\022\n\ntoNickName\030\004 \001(\t\022\016" +
+      "\n\006teamId\030\005 \001(\005\"e\n\016InviteResponse\022\032\n\tresu" +
+      "ltmsg\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022%" +
+      "\n\rinviteRequest\030\003 \001(\0132\016.InviteRequest\" \n" +
+      "\016KickOutRequest\022\016\n\006userId\030\001 \001(\005\"<\n\017KickO" +
+      "utResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010e" +
+      "rrormsg\030\002 \001(\t\"\026\n\024RoomStartGameRequest\"B\n" +
+      "\025RoomStartGameResponse\022\027\n\006result\030\001 \001(\0162\007" +
+      ".Result\022\020\n\010errormsg\030\002 \001(\t\")\n\025NickNameSea" +
+      "rchRequest\022\020\n\010nickName\030\001 \001(\t\"5\n\026NickName" +
+      "SearchResponse\022\033\n\010roomUser\030\001 \003(\0132\t.RoomU" +
+      "ser\"J\n\016AddRoomRequest\022\016\n\006roomId\030\001 \001(\005\022\022\n" +
+      "\nfromUserId\030\002 \001(\005\022\024\n\014fromNickName\030\003 \001(\t\"" +
+      "u\n\017AddRoomResponse\022\027\n\006result\030\001 \001(\0162\007.Res" +
+      "ult\022\020\n\010errormsg\030\002 \001(\t\022\'\n\016addRoomRequest\030" +
+      "\003 \001(\0132\017.AddRoomRequest\022\016\n\006teamId\030\004 \001(\005\"\020" +
+      "\n\016OutRoomRequest\"<\n\017OutRoomResponse\022\027\n\006r" +
+      "esult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\"\023" +
+      "\n\021FollowListRequest\"-\n\022FollowListRespons" +
+      "e\022\027\n\007follows\030\001 \003(\0132\006.NUser\"\237\002\n\013ChatMessa" +
+      "ge\022!\n\013chatChannel\030\001 \001(\0162\014.ChatChannel\022\016\n" +
+      "\006fromId\030\002 \001(\005\022\020\n\010fromName\030\003 \001(\t\022\021\n\tfromL" +
+      "evel\030\004 \001(\005\022\030\n\020fromCCharacterId\030\005 \001(\005\022\014\n\004" +
+      "toId\030\006 \001(\005\022\016\n\006toName\030\007 \001(\t\022\017\n\007toLevel\030\010 " +
+      "\001(\005\022\026\n\016toCCharacterId\030\t \001(\005\022\013\n\003msg\030\n \001(\t" +
+      "\022\014\n\004time\030\013 \001(\003\022#\n\014chatRoomType\030\014 \001(\0162\r.C" +
+      "hatRoomType\022\027\n\017enterLiveUserId\030\r \001(\005\"0\n\013" +
+      "ChatRequest\022!\n\013chatMessage\030\001 \001(\0132\014.ChatM" +
+      "essage\"\250\001\n\014ChatResponse\022\027\n\006result\030\001 \001(\0162" +
+      "\007.Result\022\020\n\010errormsg\030\002 \001(\t\022\"\n\014compMessag" +
+      "es\030\003 \003(\0132\014.ChatMessage\022%\n\017privateMessage" +
+      "s\030\004 \003(\0132\014.ChatMessage\022\"\n\014roomMessages\030\005 " +
+      "\003(\0132\014.ChatMessage\")\n\026UserStatusQueryRequ" +
+      "est\022\017\n\007userIds\030\001 \003(\005\")\n\027UserStatusQueryR" +
+      "esponse\022\016\n\006status\030\001 \003(\010\"\023\n\021StartMatchReq" +
+      "uest\"?\n\022StartMatchResponse\022\027\n\006result\030\001 \001" +
+      "(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\"P\n\rMatchRe" +
+      "sponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010error" +
+      "msg\030\002 \001(\t\022\024\n\004room\030\003 \001(\0132\006.NRoom\"%\n\020GameO" +
+      "ver2Request\022\021\n\tipPortStr\030\001 \001(\t\" \n\016AddLiv" +
+      "eRequest\022\016\n\006userId\030\001 \001(\005\"R\n\017AddLiveRespo" +
+      "nse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010errormsg" +
+      "\030\002 \001(\t\022\024\n\004room\030\003 \001(\0132\006.NRoom\"#\n\022UploadBi" +
+      "FenRequest\022\r\n\005biFen\030\001 \001(\t\"\031\n\027ValidateOpe" +
+      "nRoomRequest\"E\n\030ValidateOpenRoomResponse" +
       "\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 " +
-      "\001(\t\022\036\n\tcharacter\030\003 \001(\0132\013.NCharacter\"I\n\030U" +
-      "serStatusChangeResponse\022-\n\021userStatusCha" +
-      "nges\030\001 \003(\0132\022.NUserStatusChange\"\022\n\020HeartB" +
-      "eatRequest\"+\n\021HeartBeatResponse\022\026\n\016liveF" +
-      "enSiCount\030\001 \001(\005\"a\n\014TipsResponse\022\033\n\010tipsT" +
-      "ype\030\001 \001(\0162\t.TipsType\022\017\n\007content\030\002 \001(\t\022#\n" +
-      "\014tipsWorkType\030\003 \001(\0162\r.TipsWorkType\"X\n\010Ro" +
-      "omUser\022\016\n\006userId\030\001 \001(\005\022\020\n\010nickName\030\002 \001(\t" +
-      "\022\024\n\014cCharacterId\030\003 \001(\005\022\024\n\004user\030\004 \001(\0132\006.N" +
-      "User\"#\n\010RoomTeam\022\027\n\004Team\030\001 \003(\0132\t.RoomUse" +
-      "r\"\341\001\n\005NRoom\022\016\n\006roomId\030\001 \001(\005\022\016\n\006userId\030\002 " +
-      "\001(\005\022\023\n\013GamePattern\030\003 \001(\005\022\030\n\005Team1\030\004 \003(\0132" +
-      "\t.RoomUser\022\030\n\005Team2\030\005 \003(\0132\t.RoomUser\022\030\n\005" +
-      "Team3\030\006 \003(\0132\t.RoomUser\022\037\n\nroomStatus\030\007 \001" +
-      "(\0162\013.RoomStatus\022\021\n\tipPortStr\030\010 \001(\t\022\022\n\nra" +
-      "ndomSeed\030\t \001(\005\022\r\n\005biFen\030\n \001(\t\"\261\001\n\007NetRoo" +
-      "m\022\016\n\006roomId\030\001 \001(\005\022\016\n\006userId\030\002 \001(\005\022\023\n\013Gam" +
-      "ePattern\030\003 \001(\005\022\032\n\007AllTeam\030\004 \003(\0132\t.RoomTe" +
-      "am\022\037\n\nroomStatus\030\005 \001(\0162\013.RoomStatus\022\021\n\ti" +
-      "pPortStr\030\006 \001(\t\022\022\n\nrandomSeed\030\007 \001(\005\022\r\n\005bi" +
-      "Fen\030\010 \001(\t\"\017\n\rMyRoomRequest\"&\n\016MyRoomResp" +
-      "onse\022\024\n\004room\030\001 \001(\0132\006.NRoom\"|\n\rInviteRequ" +
-      "est\022\022\n\nfromUserId\030\001 \001(\005\022\024\n\014fromNickName\030" +
-      "\002 \001(\t\022\020\n\010toUserId\030\003 \001(\005\022\022\n\ntoNickName\030\004 " +
-      "\001(\t\022\033\n\010teamType\030\005 \001(\0162\t.TeamType\"b\n\016Invi" +
-      "teResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n\010e" +
-      "rrormsg\030\002 \001(\t\022%\n\rinviteRequest\030\003 \001(\0132\016.I" +
-      "nviteRequest\" \n\016KickOutRequest\022\016\n\006userId" +
-      "\030\001 \001(\005\"<\n\017KickOutResponse\022\027\n\006result\030\001 \001(" +
-      "\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\"\026\n\024RoomStar" +
-      "tGameRequest\"B\n\025RoomStartGameResponse\022\027\n" +
-      "\006result\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t" +
-      "\")\n\025NickNameSearchRequest\022\020\n\010nickName\030\001 " +
-      "\001(\t\"5\n\026NickNameSearchResponse\022\033\n\010roomUse" +
-      "r\030\001 \003(\0132\t.RoomUser\"J\n\016AddRoomRequest\022\016\n\006" +
-      "roomId\030\001 \001(\005\022\022\n\nfromUserId\030\002 \001(\005\022\024\n\014from" +
-      "NickName\030\003 \001(\t\"\202\001\n\017AddRoomResponse\022\027\n\006re" +
-      "sult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022\'\n" +
-      "\016addRoomRequest\030\003 \001(\0132\017.AddRoomRequest\022\033" +
-      "\n\010teamType\030\004 \001(\0162\t.TeamType\"\020\n\016OutRoomRe" +
-      "quest\"<\n\017OutRoomResponse\022\027\n\006result\030\001 \001(\016" +
-      "2\007.Result\022\020\n\010errormsg\030\002 \001(\t\"\023\n\021FollowLis" +
-      "tRequest\"-\n\022FollowListResponse\022\027\n\007follow" +
-      "s\030\001 \003(\0132\006.NUser\"\237\002\n\013ChatMessage\022!\n\013chatC" +
-      "hannel\030\001 \001(\0162\014.ChatChannel\022\016\n\006fromId\030\002 \001" +
-      "(\005\022\020\n\010fromName\030\003 \001(\t\022\021\n\tfromLevel\030\004 \001(\005\022" +
-      "\030\n\020fromCCharacterId\030\005 \001(\005\022\014\n\004toId\030\006 \001(\005\022" +
-      "\016\n\006toName\030\007 \001(\t\022\017\n\007toLevel\030\010 \001(\005\022\026\n\016toCC" +
-      "haracterId\030\t \001(\005\022\013\n\003msg\030\n \001(\t\022\014\n\004time\030\013 " +
-      "\001(\003\022#\n\014chatRoomType\030\014 \001(\0162\r.ChatRoomType" +
-      "\022\027\n\017enterLiveUserId\030\r \001(\005\"0\n\013ChatRequest" +
-      "\022!\n\013chatMessage\030\001 \001(\0132\014.ChatMessage\"\250\001\n\014" +
-      "ChatResponse\022\027\n\006result\030\001 \001(\0162\007.Result\022\020\n" +
-      "\010errormsg\030\002 \001(\t\022\"\n\014compMessages\030\003 \003(\0132\014." +
-      "ChatMessage\022%\n\017privateMessages\030\004 \003(\0132\014.C" +
-      "hatMessage\022\"\n\014roomMessages\030\005 \003(\0132\014.ChatM" +
-      "essage\")\n\026UserStatusQueryRequest\022\017\n\007user" +
-      "Ids\030\001 \003(\005\")\n\027UserStatusQueryResponse\022\016\n\006" +
-      "status\030\001 \003(\010\"\023\n\021StartMatchRequest\"?\n\022Sta" +
-      "rtMatchResponse\022\027\n\006result\030\001 \001(\0162\007.Result" +
-      "\022\020\n\010errormsg\030\002 \001(\t\"P\n\rMatchResponse\022\027\n\006r" +
-      "esult\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022\024" +
-      "\n\004room\030\003 \001(\0132\006.NRoom\"%\n\020GameOver2Request" +
-      "\022\021\n\tipPortStr\030\001 \001(\t\" \n\016AddLiveRequest\022\016\n" +
-      "\006userId\030\001 \001(\005\"R\n\017AddLiveResponse\022\027\n\006resu" +
-      "lt\030\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t\022\024\n\004r" +
-      "oom\030\003 \001(\0132\006.NRoom\"#\n\022UploadBiFenRequest\022" +
-      "\r\n\005biFen\030\001 \001(\t\"\031\n\027ValidateOpenRoomReques" +
-      "t\"E\n\030ValidateOpenRoomResponse\022\027\n\006result\030" +
-      "\001 \001(\0162\007.Result\022\020\n\010errormsg\030\002 \001(\t*!\n\006Resu" +
-      "lt\022\013\n\007Success\020\000\022\n\n\006Failed\020\001*/\n\014StatusAct" +
-      "ion\022\n\n\006UPDATE\020\000\022\007\n\003ADD\020\001\022\n\n\006DELETE\020\002*\037\n\010" +
-      "TipsType\022\010\n\004Tips\020\000\022\t\n\005Popup\020\001*;\n\nStatusT" +
-      "ype\022\t\n\005MONEY\020\000\022\007\n\003EXP\020\001\022\017\n\013SKILL_POINT\020\002" +
-      "\022\010\n\004ITEM\020\003*D\n\nUserStatus\022\n\n\006Normal\020\000\022\010\n\004" +
-      "Game\020\001\022\010\n\004Room\020\002\022\010\n\004Live\020\003\022\014\n\010GameOver\020\004" +
-      "*Z\n\014TipsWorkType\022\010\n\004None\020\000\022\021\n\rAuctionRes" +
-      "ult\020\001\022\017\n\013DismissRoom\020\002\022\017\n\013KickOutRoom\020\003\022" +
-      "\013\n\007OutRoom\020\004*\035\n\010TeamType\022\006\n\002My\020\000\022\t\n\005Enem" +
-      "y\020\001*%\n\nRoomStatus\022\013\n\007Normal_\020\000\022\n\n\006GameIn" +
-      "\020\001*2\n\013ChatChannel\022\010\n\004Comp\020\000\022\013\n\007Private\020\001" +
-      "\022\014\n\010RoomChat\020\002*/\n\014ChatRoomType\022\t\n\005Room_\020" +
-      "\000\022\t\n\005Game_\020\001\022\t\n\005Live_\020\002B\030\n\016com.game.prot" +
-      "oB\006C2GNet"
+      "\001(\t*!\n\006Result\022\013\n\007Success\020\000\022\n\n\006Failed\020\001*/" +
+      "\n\014StatusAction\022\n\n\006UPDATE\020\000\022\007\n\003ADD\020\001\022\n\n\006D" +
+      "ELETE\020\002*\037\n\010TipsType\022\010\n\004Tips\020\000\022\t\n\005Popup\020\001" +
+      "*;\n\nStatusType\022\t\n\005MONEY\020\000\022\007\n\003EXP\020\001\022\017\n\013SK" +
+      "ILL_POINT\020\002\022\010\n\004ITEM\020\003*D\n\nUserStatus\022\n\n\006N" +
+      "ormal\020\000\022\010\n\004Game\020\001\022\010\n\004Room\020\002\022\010\n\004Live\020\003\022\014\n" +
+      "\010GameOver\020\004*Z\n\014TipsWorkType\022\010\n\004None\020\000\022\021\n" +
+      "\rAuctionResult\020\001\022\017\n\013DismissRoom\020\002\022\017\n\013Kic" +
+      "kOutRoom\020\003\022\013\n\007OutRoom\020\004*%\n\nRoomStatus\022\013\n" +
+      "\007Normal_\020\000\022\n\n\006GameIn\020\001*2\n\013ChatChannel\022\010\n" +
+      "\004Comp\020\000\022\013\n\007Private\020\001\022\014\n\010RoomChat\020\002*/\n\014Ch" +
+      "atRoomType\022\t\n\005Room_\020\000\022\t\n\005Game_\020\001\022\t\n\005Live" +
+      "_\020\002B\030\n\016com.game.protoB\006C2GNet"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -63947,7 +60899,7 @@ public final class C2GNet {
     internal_static_NUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NUser_descriptor,
-        new java.lang.String[] { "Id", "Nickname", "Coin", "Character", "UnLockCharacters", "IsFollow", "Status", "FenSiCount", "UserStatus", "BiFen", "TeamType", "RoomNum", });
+        new java.lang.String[] { "Id", "Nickname", "Coin", "Character", "UnLockCharacters", "IsFollow", "Status", "FenSiCount", "UserStatus", "BiFen", });
     internal_static_UnLockCharacter_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UnLockCharacter_fieldAccessorTable = new
@@ -64109,201 +61061,195 @@ public final class C2GNet {
     internal_static_RoomUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomUser_descriptor,
-        new java.lang.String[] { "UserId", "NickName", "CCharacterId", "User", });
-    internal_static_RoomTeam_descriptor =
+        new java.lang.String[] { "UserId", "NickName", "CCharacterId", "User", "TeamId", "RoomNum", });
+    internal_static_AllTeam_descriptor =
       getDescriptor().getMessageTypes().get(28);
-    internal_static_RoomTeam_fieldAccessorTable = new
+    internal_static_AllTeam_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RoomTeam_descriptor,
+        internal_static_AllTeam_descriptor,
         new java.lang.String[] { "Team", });
     internal_static_NRoom_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_NRoom_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NRoom_descriptor,
-        new java.lang.String[] { "RoomId", "UserId", "GamePattern", "Team1", "Team2", "Team3", "RoomStatus", "IpPortStr", "RandomSeed", "BiFen", });
-    internal_static_NetRoom_descriptor =
-      getDescriptor().getMessageTypes().get(30);
-    internal_static_NetRoom_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_NetRoom_descriptor,
         new java.lang.String[] { "RoomId", "UserId", "GamePattern", "AllTeam", "RoomStatus", "IpPortStr", "RandomSeed", "BiFen", });
     internal_static_MyRoomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_MyRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MyRoomRequest_descriptor,
         new java.lang.String[] { });
     internal_static_MyRoomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_MyRoomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MyRoomResponse_descriptor,
         new java.lang.String[] { "Room", });
     internal_static_InviteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_InviteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InviteRequest_descriptor,
-        new java.lang.String[] { "FromUserId", "FromNickName", "ToUserId", "ToNickName", "TeamType", });
+        new java.lang.String[] { "FromUserId", "FromNickName", "ToUserId", "ToNickName", "TeamId", });
     internal_static_InviteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_InviteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_InviteResponse_descriptor,
-        new java.lang.String[] { "Result", "Errormsg", "InviteRequest", });
+        new java.lang.String[] { "Resultmsg", "Errormsg", "InviteRequest", });
     internal_static_KickOutRequest_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_KickOutRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_KickOutRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_KickOutResponse_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_KickOutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_KickOutResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", });
     internal_static_RoomStartGameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_RoomStartGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomStartGameRequest_descriptor,
         new java.lang.String[] { });
     internal_static_RoomStartGameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_RoomStartGameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RoomStartGameResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", });
     internal_static_NickNameSearchRequest_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_NickNameSearchRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NickNameSearchRequest_descriptor,
         new java.lang.String[] { "NickName", });
     internal_static_NickNameSearchResponse_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_NickNameSearchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NickNameSearchResponse_descriptor,
         new java.lang.String[] { "RoomUser", });
     internal_static_AddRoomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_AddRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddRoomRequest_descriptor,
         new java.lang.String[] { "RoomId", "FromUserId", "FromNickName", });
     internal_static_AddRoomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_AddRoomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddRoomResponse_descriptor,
-        new java.lang.String[] { "Result", "Errormsg", "AddRoomRequest", "TeamType", });
+        new java.lang.String[] { "Result", "Errormsg", "AddRoomRequest", "TeamId", });
     internal_static_OutRoomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_OutRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_OutRoomRequest_descriptor,
         new java.lang.String[] { });
     internal_static_OutRoomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_OutRoomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_OutRoomResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", });
     internal_static_FollowListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_FollowListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FollowListRequest_descriptor,
         new java.lang.String[] { });
     internal_static_FollowListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_FollowListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FollowListResponse_descriptor,
         new java.lang.String[] { "Follows", });
     internal_static_ChatMessage_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_ChatMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessage_descriptor,
         new java.lang.String[] { "ChatChannel", "FromId", "FromName", "FromLevel", "FromCCharacterId", "ToId", "ToName", "ToLevel", "ToCCharacterId", "Msg", "Time", "ChatRoomType", "EnterLiveUserId", });
     internal_static_ChatRequest_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_ChatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatRequest_descriptor,
         new java.lang.String[] { "ChatMessage", });
     internal_static_ChatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_ChatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", "CompMessages", "PrivateMessages", "RoomMessages", });
     internal_static_UserStatusQueryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_UserStatusQueryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStatusQueryRequest_descriptor,
         new java.lang.String[] { "UserIds", });
     internal_static_UserStatusQueryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_UserStatusQueryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserStatusQueryResponse_descriptor,
         new java.lang.String[] { "Status", });
     internal_static_StartMatchRequest_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_StartMatchRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_StartMatchRequest_descriptor,
         new java.lang.String[] { });
     internal_static_StartMatchResponse_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_StartMatchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_StartMatchResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", });
     internal_static_MatchResponse_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_MatchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_MatchResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", "Room", });
     internal_static_GameOver2Request_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_GameOver2Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameOver2Request_descriptor,
         new java.lang.String[] { "IpPortStr", });
     internal_static_AddLiveRequest_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_AddLiveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddLiveRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_AddLiveResponse_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_AddLiveResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddLiveResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", "Room", });
     internal_static_UploadBiFenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_UploadBiFenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadBiFenRequest_descriptor,
         new java.lang.String[] { "BiFen", });
     internal_static_ValidateOpenRoomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_ValidateOpenRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ValidateOpenRoomRequest_descriptor,
         new java.lang.String[] { });
     internal_static_ValidateOpenRoomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_ValidateOpenRoomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ValidateOpenRoomResponse_descriptor,
