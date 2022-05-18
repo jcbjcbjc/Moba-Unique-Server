@@ -9,6 +9,8 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
@@ -27,7 +29,7 @@ public class NettyTCPServer {
          * workerGroup的EventLoopGroup默认的线程数是CPU核数的二倍
          */
         // 这两个都是无限循环的
-        EventLoopGroup bossGroup = new NioEventLoopGroup(2);
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
@@ -61,17 +63,20 @@ public class NettyTCPServer {
                 @Override
                 protected void initChannel(SocketChannel ch) throws Exception {
                     ChannelPipeline pipeline = ch.pipeline();
-                    pipeline.addLast(new HttpServerCodec());
-                    pipeline.addLast(new ChunkedWriteHandler());
-                    pipeline.addLast(new HttpObjectAggregator(65536));
+                    // 客户端300秒没收发包，便会触发UserEventTriggered事件到IdleEventHandle
+                    pipeline.addLast(new IdleStateHandler(0, 0, 300));
+                    //pipeline.addLast(new HttpServerCodec());
+                    //pipeline.addLast(new ChunkedWriteHandler());
+                    //pipeline.addLast(new HttpObjectAggregator(65536));
                     //pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
+
 
                     pipeline.addLast(new TCPEncoder());
                     pipeline.addLast(new ProtobufEncoder());
 
                     pipeline.addLast(new TCPServerHandler());
-                    // 客户端300秒没收发包，便会触发UserEventTriggered事件到IdleEventHandler
-                    pipeline.addLast(new IdleStateHandler(0, 0, 300));
+
+
 
                 }
             });

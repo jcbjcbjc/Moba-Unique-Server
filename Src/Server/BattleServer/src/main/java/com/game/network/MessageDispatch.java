@@ -47,8 +47,8 @@ public class MessageDispatch {
 		}
 
 		//帧操作请求
-		if (message.hasFrameHandle()) {
-			battleService.OnFrameHandle(conn, message.getFrameHandle());
+		if (message.hasFrameHandles()) {
+			battleService.OnFrameHandle(conn, message.getFrameHandles());
 			return;
 		}
 

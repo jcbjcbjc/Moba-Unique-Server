@@ -35,7 +35,7 @@ public class MessageDispatch {
         matchService = SpringBeanUtil.getBean(MatchService.class);
     }
 
-    public static MessageDispatch Instance;// = new MessageDispatch();
+    public static MessageDispatch Instance = new MessageDispatch();
 
     public static MessageDispatch GetInstance(){
         if(Instance==null){
@@ -58,7 +58,14 @@ public class MessageDispatch {
                 return;
             }
         }
-        
+
+        /*conn = ConnectionManager.getConnection(ctx);
+        if (conn == null) {
+            // 暂时不处理
+            conn = createConne(ctx);
+            System.out.println("conn: " + conn);
+        }*/
+
         if (message.getRequest().hasHeartBeatReq()) {
             System.out.println("收到心跳 请求");
             userService.heartBeat(conn, message.getRequest().getHeartBeatReq());
@@ -176,7 +183,7 @@ public class MessageDispatch {
 
     // 注册,登录,需要创建新的 连接
 
-    NetConnection createConne(ChannelHandlerContext context) {
+    public NetConnection createConne(ChannelHandlerContext context) {
         NetConnection connection = ConnectionManager.getConnection(context);
         if (connection == null) {
             connection = new NetConnection(context);

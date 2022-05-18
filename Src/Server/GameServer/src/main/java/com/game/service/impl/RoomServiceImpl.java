@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.game.manager.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.game.entity.User;
-import com.game.manager.ConnectionManager;
-import com.game.manager.RoomManager;
-import com.game.manager.TipsManager;
-import com.game.manager.UserManager;
 import com.game.network.NetConnection;
 import com.game.proto.C2GNet.*;
 //import com.game.proto.Message.AddLiveRequest;
@@ -164,7 +161,8 @@ public class RoomServiceImpl implements RoomService {
 		
 		ResultInfo resultInfo = RoomManager.Instance.StartGame(user);
 		if(resultInfo.result==Result.Success) {   //开始游戏成功，开始匹配
-			matchService.OnStartMatch(connection, null);
+			MatchManager.Instance.StartGameForRoom(RoomManager.Instance.GetRoom(user).toBuilder());
+			//matchService.OnStartMatch(connection, null);
 		}
 		roomStartGameResponse.setResult(resultInfo.result).setErrormsg(resultInfo.errormsg);
 		

@@ -4,6 +4,7 @@ package com.game;
 import com.game.manager.DataManager;
 import com.game.manager.PowerRankingManager;
 import com.game.manager.UserManager;
+
 import com.game.netty.NettyTCPServer;
 import com.game.netty.TCPServerHandler;
 import com.game.service.UpdateService;
@@ -48,7 +49,7 @@ public class MobaApplication implements CommandLineRunner {
         UserManager.Instance.init();
         PowerRankingManager.Instance.init();
         new NettyTCPServer().bind(Config.PORT);
-
+        //new KCPServer().bind(Config.PORT);
     }
 
 

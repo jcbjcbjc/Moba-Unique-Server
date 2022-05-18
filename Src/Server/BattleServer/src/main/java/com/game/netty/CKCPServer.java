@@ -42,7 +42,7 @@ public class CKCPServer extends KcpServer {
             e.printStackTrace();
         }
         assert nm != null;
-        System.out.println(nm.getMessageType());
+        System.out.println(nm.getMessageType(0));
 //        System.out.println(nm);
     }
 

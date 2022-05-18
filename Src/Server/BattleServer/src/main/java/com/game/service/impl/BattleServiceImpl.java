@@ -6,6 +6,7 @@ import java.util.List;
 import com.game.manager.ConnectionManagerKCP;
 import com.game.network.NetConnectionKCP;
 import com.game.network.NetConnectionWebSocket;
+import com.game.proto.C2BNet;
 import org.springframework.stereotype.Service;
 
 import com.game.enums.UserStatus;
@@ -38,13 +39,16 @@ public class BattleServiceImpl implements BattleService {
 	 * 帧操作
 	 */
 	@Override
-	public void OnFrameHandle(NetConnectionKCP connection, FrameHandle frameHandle) {
+	public void OnFrameHandle(NetConnectionKCP connection, C2BNet.FrameHandlesFromClient frameHandles) {
 		User user=connection.user;
 		Room room=RoomManager.Instance.rooms.get(user.rooomId);
 		if(room==null) {
 			return;
 		}
-		room.AddUserFrameHandle(user.id, frameHandle);
+		for(FrameHandle fh : frameHandles.getFrameHandlesList() ){
+			room.AddUserFrameHandle(user.id, fh);
+		}
+
 	}
 
 	/**

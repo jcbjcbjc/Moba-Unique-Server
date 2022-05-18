@@ -74,7 +74,32 @@ public class MatchManager {
 		System.out.println("已经加入匹配队列");
 		this.userList.add(user);
 	}
-	
+
+	public void StartGameForRoom(NRoom.Builder roomBuilder){
+		ResultInfo resultInfo=null;
+		//发送添加对战用户信息
+		List<Integer> userIdList = RoomManager.Instance.GetRoomUserIdList(roomBuilder);
+		boolean result= BattleManager.Instance.SendAddBattleUserInfo(roomBuilder, new BattleUserVo(roomBuilder.getRoomId(), userIdList));
+		if (result) {
+			roomBuilder.setRoomStatus(RoomStatus.GameIn);
+			roomBuilder.setRandomSeed(RandomUtil.getRandomNum(0, 100)); //随机数种子
+			NRoom room= roomBuilder.build();
+			RoomManager.Instance.rooms.put(roomBuilder.getRoomId(), room);
+
+			resultInfo=new ResultInfo(Result.Success,"匹配成功");
+		}else {
+			resultInfo=new ResultInfo(Result.Failed,"请求对战服异常，请联系管理员！");
+			//移除用户
+			RoomManager.Instance.RemoveUserMapByRoom(roomBuilder);
+		}
+		//匹配响应
+		for (RoomUser roomUser : roomBuilder.getAllTeam(0).getTeamList()) {
+			matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
+		}
+		for (RoomUser roomUser : roomBuilder.getAllTeam(1).getTeamList()) {
+			matchService.OnMatchResponse(roomUser.getUserId(),resultInfo, roomBuilder, false);
+		}
+	}
 	/**
 	 * 制造假号
 	 */

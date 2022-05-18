@@ -1086,19 +1086,19 @@ public final class C2BNet {
     int getUserId();
 
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
-     * @return Whether the frameHandle field is set.
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+     * @return Whether the frameHandles field is set.
      */
-    boolean hasFrameHandle();
+    boolean hasFrameHandles();
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
-     * @return The frameHandle.
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+     * @return The frameHandles.
      */
-    com.game.proto.C2BNet.FrameHandle getFrameHandle();
+    com.game.proto.C2BNet.FrameHandlesFromClient getFrameHandles();
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
      */
-    com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandleOrBuilder();
+    com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder getFrameHandlesOrBuilder();
 
     /**
      * <code>optional .PercentForward percentForward = 3;</code>
@@ -1212,14 +1212,14 @@ public final class C2BNet {
               break;
             }
             case 18: {
-              com.game.proto.C2BNet.FrameHandle.Builder subBuilder = null;
+              com.game.proto.C2BNet.FrameHandlesFromClient.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = frameHandle_.toBuilder();
+                subBuilder = frameHandles_.toBuilder();
               }
-              frameHandle_ = input.readMessage(com.game.proto.C2BNet.FrameHandle.PARSER, extensionRegistry);
+              frameHandles_ = input.readMessage(com.game.proto.C2BNet.FrameHandlesFromClient.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(frameHandle_);
-                frameHandle_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(frameHandles_);
+                frameHandles_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
               break;
@@ -1328,30 +1328,30 @@ public final class C2BNet {
       return userId_;
     }
 
-    public static final int FRAMEHANDLE_FIELD_NUMBER = 2;
-    private com.game.proto.C2BNet.FrameHandle frameHandle_;
+    public static final int FRAMEHANDLES_FIELD_NUMBER = 2;
+    private com.game.proto.C2BNet.FrameHandlesFromClient frameHandles_;
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
-     * @return Whether the frameHandle field is set.
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+     * @return Whether the frameHandles field is set.
      */
     @java.lang.Override
-    public boolean hasFrameHandle() {
+    public boolean hasFrameHandles() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
-     * @return The frameHandle.
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+     * @return The frameHandles.
      */
     @java.lang.Override
-    public com.game.proto.C2BNet.FrameHandle getFrameHandle() {
-      return frameHandle_ == null ? com.game.proto.C2BNet.FrameHandle.getDefaultInstance() : frameHandle_;
+    public com.game.proto.C2BNet.FrameHandlesFromClient getFrameHandles() {
+      return frameHandles_ == null ? com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance() : frameHandles_;
     }
     /**
-     * <code>optional .FrameHandle frameHandle = 2;</code>
+     * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
      */
     @java.lang.Override
-    public com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandleOrBuilder() {
-      return frameHandle_ == null ? com.game.proto.C2BNet.FrameHandle.getDefaultInstance() : frameHandle_;
+    public com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder getFrameHandlesOrBuilder() {
+      return frameHandles_ == null ? com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance() : frameHandles_;
     }
 
     public static final int PERCENTFORWARD_FIELD_NUMBER = 3;
@@ -1476,7 +1476,7 @@ public final class C2BNet {
         output.writeInt32(1, userId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeMessage(2, getFrameHandle());
+        output.writeMessage(2, getFrameHandles());
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeMessage(3, getPercentForward());
@@ -1505,7 +1505,7 @@ public final class C2BNet {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getFrameHandle());
+          .computeMessageSize(2, getFrameHandles());
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1543,10 +1543,10 @@ public final class C2BNet {
         if (getUserId()
             != other.getUserId()) return false;
       }
-      if (hasFrameHandle() != other.hasFrameHandle()) return false;
-      if (hasFrameHandle()) {
-        if (!getFrameHandle()
-            .equals(other.getFrameHandle())) return false;
+      if (hasFrameHandles() != other.hasFrameHandles()) return false;
+      if (hasFrameHandles()) {
+        if (!getFrameHandles()
+            .equals(other.getFrameHandles())) return false;
       }
       if (hasPercentForward() != other.hasPercentForward()) return false;
       if (hasPercentForward()) {
@@ -1583,9 +1583,9 @@ public final class C2BNet {
         hash = (37 * hash) + USERID_FIELD_NUMBER;
         hash = (53 * hash) + getUserId();
       }
-      if (hasFrameHandle()) {
-        hash = (37 * hash) + FRAMEHANDLE_FIELD_NUMBER;
-        hash = (53 * hash) + getFrameHandle().hashCode();
+      if (hasFrameHandles()) {
+        hash = (37 * hash) + FRAMEHANDLES_FIELD_NUMBER;
+        hash = (53 * hash) + getFrameHandles().hashCode();
       }
       if (hasPercentForward()) {
         hash = (37 * hash) + PERCENTFORWARD_FIELD_NUMBER;
@@ -1731,7 +1731,7 @@ public final class C2BNet {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getFrameHandleFieldBuilder();
+          getFrameHandlesFieldBuilder();
           getPercentForwardFieldBuilder();
           getGameOverReqFieldBuilder();
           getRepairFrameReqFieldBuilder();
@@ -1743,10 +1743,10 @@ public final class C2BNet {
         super.clear();
         userId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (frameHandleBuilder_ == null) {
-          frameHandle_ = null;
+        if (frameHandlesBuilder_ == null) {
+          frameHandles_ = null;
         } else {
-          frameHandleBuilder_.clear();
+          frameHandlesBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         if (percentForwardBuilder_ == null) {
@@ -1806,10 +1806,10 @@ public final class C2BNet {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (frameHandleBuilder_ == null) {
-            result.frameHandle_ = frameHandle_;
+          if (frameHandlesBuilder_ == null) {
+            result.frameHandles_ = frameHandles_;
           } else {
-            result.frameHandle_ = frameHandleBuilder_.build();
+            result.frameHandles_ = frameHandlesBuilder_.build();
           }
           to_bitField0_ |= 0x00000002;
         }
@@ -1897,8 +1897,8 @@ public final class C2BNet {
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
-        if (other.hasFrameHandle()) {
-          mergeFrameHandle(other.getFrameHandle());
+        if (other.hasFrameHandles()) {
+          mergeFrameHandles(other.getFrameHandles());
         }
         if (other.hasPercentForward()) {
           mergePercentForward(other.getPercentForward());
@@ -1981,124 +1981,124 @@ public final class C2BNet {
         return this;
       }
 
-      private com.game.proto.C2BNet.FrameHandle frameHandle_;
+      private com.game.proto.C2BNet.FrameHandlesFromClient frameHandles_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder> frameHandleBuilder_;
+          com.game.proto.C2BNet.FrameHandlesFromClient, com.game.proto.C2BNet.FrameHandlesFromClient.Builder, com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder> frameHandlesBuilder_;
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
-       * @return Whether the frameHandle field is set.
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+       * @return Whether the frameHandles field is set.
        */
-      public boolean hasFrameHandle() {
+      public boolean hasFrameHandles() {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
-       * @return The frameHandle.
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
+       * @return The frameHandles.
        */
-      public com.game.proto.C2BNet.FrameHandle getFrameHandle() {
-        if (frameHandleBuilder_ == null) {
-          return frameHandle_ == null ? com.game.proto.C2BNet.FrameHandle.getDefaultInstance() : frameHandle_;
+      public com.game.proto.C2BNet.FrameHandlesFromClient getFrameHandles() {
+        if (frameHandlesBuilder_ == null) {
+          return frameHandles_ == null ? com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance() : frameHandles_;
         } else {
-          return frameHandleBuilder_.getMessage();
+          return frameHandlesBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public Builder setFrameHandle(com.game.proto.C2BNet.FrameHandle value) {
-        if (frameHandleBuilder_ == null) {
+      public Builder setFrameHandles(com.game.proto.C2BNet.FrameHandlesFromClient value) {
+        if (frameHandlesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          frameHandle_ = value;
+          frameHandles_ = value;
           onChanged();
         } else {
-          frameHandleBuilder_.setMessage(value);
+          frameHandlesBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public Builder setFrameHandle(
-          com.game.proto.C2BNet.FrameHandle.Builder builderForValue) {
-        if (frameHandleBuilder_ == null) {
-          frameHandle_ = builderForValue.build();
+      public Builder setFrameHandles(
+          com.game.proto.C2BNet.FrameHandlesFromClient.Builder builderForValue) {
+        if (frameHandlesBuilder_ == null) {
+          frameHandles_ = builderForValue.build();
           onChanged();
         } else {
-          frameHandleBuilder_.setMessage(builderForValue.build());
+          frameHandlesBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public Builder mergeFrameHandle(com.game.proto.C2BNet.FrameHandle value) {
-        if (frameHandleBuilder_ == null) {
+      public Builder mergeFrameHandles(com.game.proto.C2BNet.FrameHandlesFromClient value) {
+        if (frameHandlesBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              frameHandle_ != null &&
-              frameHandle_ != com.game.proto.C2BNet.FrameHandle.getDefaultInstance()) {
-            frameHandle_ =
-              com.game.proto.C2BNet.FrameHandle.newBuilder(frameHandle_).mergeFrom(value).buildPartial();
+              frameHandles_ != null &&
+              frameHandles_ != com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance()) {
+            frameHandles_ =
+              com.game.proto.C2BNet.FrameHandlesFromClient.newBuilder(frameHandles_).mergeFrom(value).buildPartial();
           } else {
-            frameHandle_ = value;
+            frameHandles_ = value;
           }
           onChanged();
         } else {
-          frameHandleBuilder_.mergeFrom(value);
+          frameHandlesBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public Builder clearFrameHandle() {
-        if (frameHandleBuilder_ == null) {
-          frameHandle_ = null;
+      public Builder clearFrameHandles() {
+        if (frameHandlesBuilder_ == null) {
+          frameHandles_ = null;
           onChanged();
         } else {
-          frameHandleBuilder_.clear();
+          frameHandlesBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public com.game.proto.C2BNet.FrameHandle.Builder getFrameHandleBuilder() {
+      public com.game.proto.C2BNet.FrameHandlesFromClient.Builder getFrameHandlesBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getFrameHandleFieldBuilder().getBuilder();
+        return getFrameHandlesFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
-      public com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandleOrBuilder() {
-        if (frameHandleBuilder_ != null) {
-          return frameHandleBuilder_.getMessageOrBuilder();
+      public com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder getFrameHandlesOrBuilder() {
+        if (frameHandlesBuilder_ != null) {
+          return frameHandlesBuilder_.getMessageOrBuilder();
         } else {
-          return frameHandle_ == null ?
-              com.game.proto.C2BNet.FrameHandle.getDefaultInstance() : frameHandle_;
+          return frameHandles_ == null ?
+              com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance() : frameHandles_;
         }
       }
       /**
-       * <code>optional .FrameHandle frameHandle = 2;</code>
+       * <code>optional .FrameHandlesFromClient frameHandles = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder> 
-          getFrameHandleFieldBuilder() {
-        if (frameHandleBuilder_ == null) {
-          frameHandleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder>(
-                  getFrameHandle(),
+          com.game.proto.C2BNet.FrameHandlesFromClient, com.game.proto.C2BNet.FrameHandlesFromClient.Builder, com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder> 
+          getFrameHandlesFieldBuilder() {
+        if (frameHandlesBuilder_ == null) {
+          frameHandlesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.game.proto.C2BNet.FrameHandlesFromClient, com.game.proto.C2BNet.FrameHandlesFromClient.Builder, com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder>(
+                  getFrameHandles(),
                   getParentForChildren(),
                   isClean());
-          frameHandle_ = null;
+          frameHandles_ = null;
         }
-        return frameHandleBuilder_;
+        return frameHandlesBuilder_;
       }
 
       private com.game.proto.C2BNet.PercentForward percentForward_;
@@ -4976,6 +4976,17 @@ public final class C2BNet {
     int getOpt();
 
     /**
+     * <code>optional int32 OpretionId = 3;</code>
+     * @return Whether the opretionId field is set.
+     */
+    boolean hasOpretionId();
+    /**
+     * <code>optional int32 OpretionId = 3;</code>
+     * @return The opretionId.
+     */
+    int getOpretionId();
+
+    /**
      * <pre>
      *值1
      * </pre>
@@ -5099,20 +5110,25 @@ public final class C2BNet {
               opt_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 24: {
               bitField0_ |= 0x00000004;
+              opretionId_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
               optValue1_ = input.readInt32();
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               optValue2_ = input.readInt32();
               break;
             }
             case 48: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
                 optDetail_ = newLongList();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               optDetail_.addLong(input.readUInt64());
               break;
@@ -5120,9 +5136,9 @@ public final class C2BNet {
             case 50: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
                 optDetail_ = newLongList();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               while (input.getBytesUntilLimit() > 0) {
                 optDetail_.addLong(input.readUInt64());
@@ -5145,7 +5161,7 @@ public final class C2BNet {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
           optDetail_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
@@ -5220,6 +5236,25 @@ public final class C2BNet {
       return opt_;
     }
 
+    public static final int OPRETIONID_FIELD_NUMBER = 3;
+    private int opretionId_;
+    /**
+     * <code>optional int32 OpretionId = 3;</code>
+     * @return Whether the opretionId field is set.
+     */
+    @java.lang.Override
+    public boolean hasOpretionId() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional int32 OpretionId = 3;</code>
+     * @return The opretionId.
+     */
+    @java.lang.Override
+    public int getOpretionId() {
+      return opretionId_;
+    }
+
     public static final int OPTVALUE1_FIELD_NUMBER = 4;
     private int optValue1_;
     /**
@@ -5232,7 +5267,7 @@ public final class C2BNet {
      */
     @java.lang.Override
     public boolean hasOptValue1() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -5259,7 +5294,7 @@ public final class C2BNet {
      */
     @java.lang.Override
     public boolean hasOptValue2() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -5334,9 +5369,12 @@ public final class C2BNet {
         output.writeInt32(2, opt_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt32(4, optValue1_);
+        output.writeInt32(3, opretionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeInt32(4, optValue1_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, optValue2_);
       }
       for (int i = 0; i < optDetail_.size(); i++) {
@@ -5361,9 +5399,13 @@ public final class C2BNet {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, optValue1_);
+          .computeInt32Size(3, opretionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, optValue1_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, optValue2_);
       }
@@ -5401,6 +5443,11 @@ public final class C2BNet {
         if (getOpt()
             != other.getOpt()) return false;
       }
+      if (hasOpretionId() != other.hasOpretionId()) return false;
+      if (hasOpretionId()) {
+        if (getOpretionId()
+            != other.getOpretionId()) return false;
+      }
       if (hasOptValue1() != other.hasOptValue1()) return false;
       if (hasOptValue1()) {
         if (getOptValue1()
@@ -5431,6 +5478,10 @@ public final class C2BNet {
       if (hasOpt()) {
         hash = (37 * hash) + OPT_FIELD_NUMBER;
         hash = (53 * hash) + getOpt();
+      }
+      if (hasOpretionId()) {
+        hash = (37 * hash) + OPRETIONID_FIELD_NUMBER;
+        hash = (53 * hash) + getOpretionId();
       }
       if (hasOptValue1()) {
         hash = (37 * hash) + OPTVALUE1_FIELD_NUMBER;
@@ -5581,12 +5632,14 @@ public final class C2BNet {
         bitField0_ = (bitField0_ & ~0x00000001);
         opt_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        optValue1_ = 0;
+        opretionId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        optValue2_ = 0;
+        optValue1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        optDetail_ = emptyLongList();
+        optValue2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
+        optDetail_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -5624,16 +5677,20 @@ public final class C2BNet {
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.optValue1_ = optValue1_;
+          result.opretionId_ = opretionId_;
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.optValue2_ = optValue2_;
+          result.optValue1_ = optValue1_;
           to_bitField0_ |= 0x00000008;
         }
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.optValue2_ = optValue2_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((bitField0_ & 0x00000020) != 0)) {
           optDetail_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.optDetail_ = optDetail_;
         result.bitField0_ = to_bitField0_;
@@ -5691,6 +5748,9 @@ public final class C2BNet {
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
+        if (other.hasOpretionId()) {
+          setOpretionId(other.getOpretionId());
+        }
         if (other.hasOptValue1()) {
           setOptValue1(other.getOptValue1());
         }
@@ -5700,7 +5760,7 @@ public final class C2BNet {
         if (!other.optDetail_.isEmpty()) {
           if (optDetail_.isEmpty()) {
             optDetail_ = other.optDetail_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureOptDetailIsMutable();
             optDetail_.addAll(other.optDetail_);
@@ -5847,6 +5907,45 @@ public final class C2BNet {
         return this;
       }
 
+      private int opretionId_ ;
+      /**
+       * <code>optional int32 OpretionId = 3;</code>
+       * @return Whether the opretionId field is set.
+       */
+      @java.lang.Override
+      public boolean hasOpretionId() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional int32 OpretionId = 3;</code>
+       * @return The opretionId.
+       */
+      @java.lang.Override
+      public int getOpretionId() {
+        return opretionId_;
+      }
+      /**
+       * <code>optional int32 OpretionId = 3;</code>
+       * @param value The opretionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOpretionId(int value) {
+        bitField0_ |= 0x00000004;
+        opretionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 OpretionId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOpretionId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        opretionId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int optValue1_ ;
       /**
        * <pre>
@@ -5858,7 +5957,7 @@ public final class C2BNet {
        */
       @java.lang.Override
       public boolean hasOptValue1() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -5882,7 +5981,7 @@ public final class C2BNet {
        * @return This builder for chaining.
        */
       public Builder setOptValue1(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         optValue1_ = value;
         onChanged();
         return this;
@@ -5896,7 +5995,7 @@ public final class C2BNet {
        * @return This builder for chaining.
        */
       public Builder clearOptValue1() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         optValue1_ = 0;
         onChanged();
         return this;
@@ -5913,7 +6012,7 @@ public final class C2BNet {
        */
       @java.lang.Override
       public boolean hasOptValue2() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -5937,7 +6036,7 @@ public final class C2BNet {
        * @return This builder for chaining.
        */
       public Builder setOptValue2(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         optValue2_ = value;
         onChanged();
         return this;
@@ -5951,7 +6050,7 @@ public final class C2BNet {
        * @return This builder for chaining.
        */
       public Builder clearOptValue2() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         optValue2_ = 0;
         onChanged();
         return this;
@@ -5959,9 +6058,9 @@ public final class C2BNet {
 
       private com.google.protobuf.Internal.LongList optDetail_ = emptyLongList();
       private void ensureOptDetailIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           optDetail_ = mutableCopy(optDetail_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
@@ -5974,7 +6073,7 @@ public final class C2BNet {
        */
       public java.util.List<java.lang.Long>
           getOptDetailList() {
-        return ((bitField0_ & 0x00000010) != 0) ?
+        return ((bitField0_ & 0x00000020) != 0) ?
                  java.util.Collections.unmodifiableList(optDetail_) : optDetail_;
       }
       /**
@@ -6059,7 +6158,7 @@ public final class C2BNet {
        */
       public Builder clearOptDetail() {
         optDetail_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -7150,6 +7249,1045 @@ public final class C2BNet {
 
     @java.lang.Override
     public com.game.proto.C2BNet.FrameHandleResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FrameHandlesFromClientOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:FrameHandlesFromClient)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 userId = 1;</code>
+     * @return Whether the userId field is set.
+     */
+    boolean hasUserId();
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 userId = 1;</code>
+     * @return The userId.
+     */
+    int getUserId();
+
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    java.util.List<com.game.proto.C2BNet.FrameHandle> 
+        getFrameHandlesList();
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    com.game.proto.C2BNet.FrameHandle getFrameHandles(int index);
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    int getFrameHandlesCount();
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    java.util.List<? extends com.game.proto.C2BNet.FrameHandleOrBuilder> 
+        getFrameHandlesOrBuilderList();
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandlesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code FrameHandlesFromClient}
+   */
+  public static final class FrameHandlesFromClient extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:FrameHandlesFromClient)
+      FrameHandlesFromClientOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FrameHandlesFromClient.newBuilder() to construct.
+    private FrameHandlesFromClient(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FrameHandlesFromClient() {
+      frameHandles_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FrameHandlesFromClient();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FrameHandlesFromClient(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                frameHandles_ = new java.util.ArrayList<com.game.proto.C2BNet.FrameHandle>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              frameHandles_.add(
+                  input.readMessage(com.game.proto.C2BNet.FrameHandle.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          frameHandles_ = java.util.Collections.unmodifiableList(frameHandles_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.C2BNet.internal_static_FrameHandlesFromClient_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.C2BNet.internal_static_FrameHandlesFromClient_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.C2BNet.FrameHandlesFromClient.class, com.game.proto.C2BNet.FrameHandlesFromClient.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 userId = 1;</code>
+     * @return Whether the userId field is set.
+     */
+    @java.lang.Override
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 userId = 1;</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int FRAMEHANDLES_FIELD_NUMBER = 2;
+    private java.util.List<com.game.proto.C2BNet.FrameHandle> frameHandles_;
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.game.proto.C2BNet.FrameHandle> getFrameHandlesList() {
+      return frameHandles_;
+    }
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.game.proto.C2BNet.FrameHandleOrBuilder> 
+        getFrameHandlesOrBuilderList() {
+      return frameHandles_;
+    }
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    @java.lang.Override
+    public int getFrameHandlesCount() {
+      return frameHandles_.size();
+    }
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.FrameHandle getFrameHandles(int index) {
+      return frameHandles_.get(index);
+    }
+    /**
+     * <pre>
+     *用户帧操作集合
+     * </pre>
+     *
+     * <code>repeated .FrameHandle frameHandles = 2;</code>
+     */
+    @java.lang.Override
+    public com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandlesOrBuilder(
+        int index) {
+      return frameHandles_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, userId_);
+      }
+      for (int i = 0; i < frameHandles_.size(); i++) {
+        output.writeMessage(2, frameHandles_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, userId_);
+      }
+      for (int i = 0; i < frameHandles_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, frameHandles_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.game.proto.C2BNet.FrameHandlesFromClient)) {
+        return super.equals(obj);
+      }
+      com.game.proto.C2BNet.FrameHandlesFromClient other = (com.game.proto.C2BNet.FrameHandlesFromClient) obj;
+
+      if (hasUserId() != other.hasUserId()) return false;
+      if (hasUserId()) {
+        if (getUserId()
+            != other.getUserId()) return false;
+      }
+      if (!getFrameHandlesList()
+          .equals(other.getFrameHandlesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
+      }
+      if (getFrameHandlesCount() > 0) {
+        hash = (37 * hash) + FRAMEHANDLES_FIELD_NUMBER;
+        hash = (53 * hash) + getFrameHandlesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2BNet.FrameHandlesFromClient parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.game.proto.C2BNet.FrameHandlesFromClient prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code FrameHandlesFromClient}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:FrameHandlesFromClient)
+        com.game.proto.C2BNet.FrameHandlesFromClientOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.C2BNet.internal_static_FrameHandlesFromClient_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.C2BNet.internal_static_FrameHandlesFromClient_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.C2BNet.FrameHandlesFromClient.class, com.game.proto.C2BNet.FrameHandlesFromClient.Builder.class);
+      }
+
+      // Construct using com.game.proto.C2BNet.FrameHandlesFromClient.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFrameHandlesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (frameHandlesBuilder_ == null) {
+          frameHandles_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          frameHandlesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.C2BNet.internal_static_FrameHandlesFromClient_descriptor;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.FrameHandlesFromClient getDefaultInstanceForType() {
+        return com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.FrameHandlesFromClient build() {
+        com.game.proto.C2BNet.FrameHandlesFromClient result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2BNet.FrameHandlesFromClient buildPartial() {
+        com.game.proto.C2BNet.FrameHandlesFromClient result = new com.game.proto.C2BNet.FrameHandlesFromClient(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.userId_ = userId_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (frameHandlesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            frameHandles_ = java.util.Collections.unmodifiableList(frameHandles_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.frameHandles_ = frameHandles_;
+        } else {
+          result.frameHandles_ = frameHandlesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.C2BNet.FrameHandlesFromClient) {
+          return mergeFrom((com.game.proto.C2BNet.FrameHandlesFromClient)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.C2BNet.FrameHandlesFromClient other) {
+        if (other == com.game.proto.C2BNet.FrameHandlesFromClient.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (frameHandlesBuilder_ == null) {
+          if (!other.frameHandles_.isEmpty()) {
+            if (frameHandles_.isEmpty()) {
+              frameHandles_ = other.frameHandles_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureFrameHandlesIsMutable();
+              frameHandles_.addAll(other.frameHandles_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.frameHandles_.isEmpty()) {
+            if (frameHandlesBuilder_.isEmpty()) {
+              frameHandlesBuilder_.dispose();
+              frameHandlesBuilder_ = null;
+              frameHandles_ = other.frameHandles_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              frameHandlesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFrameHandlesFieldBuilder() : null;
+            } else {
+              frameHandlesBuilder_.addAllMessages(other.frameHandles_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.C2BNet.FrameHandlesFromClient parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.C2BNet.FrameHandlesFromClient) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 userId = 1;</code>
+       * @return Whether the userId field is set.
+       */
+      @java.lang.Override
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 userId = 1;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 userId = 1;</code>
+       * @param value The userId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 userId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.game.proto.C2BNet.FrameHandle> frameHandles_ =
+        java.util.Collections.emptyList();
+      private void ensureFrameHandlesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          frameHandles_ = new java.util.ArrayList<com.game.proto.C2BNet.FrameHandle>(frameHandles_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder> frameHandlesBuilder_;
+
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public java.util.List<com.game.proto.C2BNet.FrameHandle> getFrameHandlesList() {
+        if (frameHandlesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(frameHandles_);
+        } else {
+          return frameHandlesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public int getFrameHandlesCount() {
+        if (frameHandlesBuilder_ == null) {
+          return frameHandles_.size();
+        } else {
+          return frameHandlesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public com.game.proto.C2BNet.FrameHandle getFrameHandles(int index) {
+        if (frameHandlesBuilder_ == null) {
+          return frameHandles_.get(index);
+        } else {
+          return frameHandlesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder setFrameHandles(
+          int index, com.game.proto.C2BNet.FrameHandle value) {
+        if (frameHandlesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrameHandlesIsMutable();
+          frameHandles_.set(index, value);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder setFrameHandles(
+          int index, com.game.proto.C2BNet.FrameHandle.Builder builderForValue) {
+        if (frameHandlesBuilder_ == null) {
+          ensureFrameHandlesIsMutable();
+          frameHandles_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          frameHandlesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder addFrameHandles(com.game.proto.C2BNet.FrameHandle value) {
+        if (frameHandlesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrameHandlesIsMutable();
+          frameHandles_.add(value);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder addFrameHandles(
+          int index, com.game.proto.C2BNet.FrameHandle value) {
+        if (frameHandlesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFrameHandlesIsMutable();
+          frameHandles_.add(index, value);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder addFrameHandles(
+          com.game.proto.C2BNet.FrameHandle.Builder builderForValue) {
+        if (frameHandlesBuilder_ == null) {
+          ensureFrameHandlesIsMutable();
+          frameHandles_.add(builderForValue.build());
+          onChanged();
+        } else {
+          frameHandlesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder addFrameHandles(
+          int index, com.game.proto.C2BNet.FrameHandle.Builder builderForValue) {
+        if (frameHandlesBuilder_ == null) {
+          ensureFrameHandlesIsMutable();
+          frameHandles_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          frameHandlesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder addAllFrameHandles(
+          java.lang.Iterable<? extends com.game.proto.C2BNet.FrameHandle> values) {
+        if (frameHandlesBuilder_ == null) {
+          ensureFrameHandlesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, frameHandles_);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder clearFrameHandles() {
+        if (frameHandlesBuilder_ == null) {
+          frameHandles_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public Builder removeFrameHandles(int index) {
+        if (frameHandlesBuilder_ == null) {
+          ensureFrameHandlesIsMutable();
+          frameHandles_.remove(index);
+          onChanged();
+        } else {
+          frameHandlesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public com.game.proto.C2BNet.FrameHandle.Builder getFrameHandlesBuilder(
+          int index) {
+        return getFrameHandlesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public com.game.proto.C2BNet.FrameHandleOrBuilder getFrameHandlesOrBuilder(
+          int index) {
+        if (frameHandlesBuilder_ == null) {
+          return frameHandles_.get(index);  } else {
+          return frameHandlesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public java.util.List<? extends com.game.proto.C2BNet.FrameHandleOrBuilder> 
+           getFrameHandlesOrBuilderList() {
+        if (frameHandlesBuilder_ != null) {
+          return frameHandlesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(frameHandles_);
+        }
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public com.game.proto.C2BNet.FrameHandle.Builder addFrameHandlesBuilder() {
+        return getFrameHandlesFieldBuilder().addBuilder(
+            com.game.proto.C2BNet.FrameHandle.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public com.game.proto.C2BNet.FrameHandle.Builder addFrameHandlesBuilder(
+          int index) {
+        return getFrameHandlesFieldBuilder().addBuilder(
+            index, com.game.proto.C2BNet.FrameHandle.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *用户帧操作集合
+       * </pre>
+       *
+       * <code>repeated .FrameHandle frameHandles = 2;</code>
+       */
+      public java.util.List<com.game.proto.C2BNet.FrameHandle.Builder> 
+           getFrameHandlesBuilderList() {
+        return getFrameHandlesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder> 
+          getFrameHandlesFieldBuilder() {
+        if (frameHandlesBuilder_ == null) {
+          frameHandlesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.game.proto.C2BNet.FrameHandle, com.game.proto.C2BNet.FrameHandle.Builder, com.game.proto.C2BNet.FrameHandleOrBuilder>(
+                  frameHandles_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          frameHandles_ = null;
+        }
+        return frameHandlesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:FrameHandlesFromClient)
+    }
+
+    // @@protoc_insertion_point(class_scope:FrameHandlesFromClient)
+    private static final com.game.proto.C2BNet.FrameHandlesFromClient DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.game.proto.C2BNet.FrameHandlesFromClient();
+    }
+
+    public static com.game.proto.C2BNet.FrameHandlesFromClient getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<FrameHandlesFromClient>
+        PARSER = new com.google.protobuf.AbstractParser<FrameHandlesFromClient>() {
+      @java.lang.Override
+      public FrameHandlesFromClient parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FrameHandlesFromClient(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FrameHandlesFromClient> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FrameHandlesFromClient> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.game.proto.C2BNet.FrameHandlesFromClient getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12430,6 +13568,11 @@ public final class C2BNet {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_FrameHandleResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_FrameHandlesFromClient_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_FrameHandlesFromClient_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PercentForward_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12476,36 +13619,38 @@ public final class C2BNet {
       "\n\023C2BNetMessage.proto\"v\n\rC2BNetMessage\022\023" +
       "\n\013messageType\030\001 \003(\t\022&\n\007Request\030\002 \001(\0132\025.C" +
       "2BNetMessageRequest\022(\n\010Response\030\003 \001(\0132\026." +
-      "C2BNetMessageResponse\"\363\001\n\024C2BNetMessageR" +
-      "equest\022\016\n\006userId\030\001 \001(\005\022!\n\013frameHandle\030\002 " +
-      "\001(\0132\014.FrameHandle\022\'\n\016percentForward\030\003 \001(" +
-      "\0132\017.PercentForward\022%\n\013gameOverReq\030\004 \001(\0132" +
-      "\020.GameOverRequest\022+\n\016repairFrameReq\030\005 \001(" +
-      "\0132\023.RepairFrameRequest\022+\n\020heartBeatReque" +
-      "st\030\006 \001(\0132\021.HeartBeatRequest\"\373\001\n\025C2BNetMe" +
-      "ssageResponse\022,\n\016frameHandleRes\030\001 \001(\0132\024." +
-      "FrameHandleResponse\0222\n\021percentForwardRes" +
-      "\030\002 \001(\0132\027.PercentForwardResponse\022,\n\016repai" +
-      "rFrameRes\030\003 \001(\0132\024.RepairFrameResponse\022(\n" +
-      "\014liveFrameRes\030\004 \001(\0132\022.LiveFrameResponse\022" +
-      "(\n\014heartBeatRes\030\005 \001(\0132\022.HeartBeatRespons" +
-      "e\"\022\n\020HeartBeatRequest\"\023\n\021HeartBeatRespon" +
-      "se\"c\n\013FrameHandle\022\016\n\006userId\030\001 \001(\005\022\013\n\003opt" +
-      "\030\002 \001(\005\022\021\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005" +
-      " \001(\005\022\021\n\toptDetail\030\006 \003(\004\"H\n\023FrameHandleRe" +
-      "sponse\022\r\n\005frame\030\001 \001(\005\022\"\n\014frameHandles\030\002 " +
-      "\003(\0132\014.FrameHandle\"1\n\016PercentForward\022\016\n\006u" +
-      "serId\030\001 \001(\005\022\017\n\007percent\030\002 \001(\005\"\\\n\026PercentF" +
-      "orwardResponse\022\'\n\016percentForward\030\001 \001(\0132\017" +
-      ".PercentForward\022\031\n\021allUserLoadSucess\030\002 \001" +
-      "(\010\"\021\n\017GameOverRequest\":\n\022RepairFrameRequ" +
-      "est\022\022\n\nstartFrame\030\001 \001(\005\022\020\n\010endFrame\030\002 \001(" +
-      "\005\"9\n\023RepairFrameResponse\022\"\n\014repairFrames" +
-      "\030\001 \003(\0132\014.RepairFrame\"@\n\013RepairFrame\022\r\n\005f" +
-      "rame\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Frame" +
-      "Handle\"5\n\021LiveFrameResponse\022 \n\nliveFrame" +
-      "s\030\001 \003(\0132\014.RepairFrameB\030\n\016com.game.protoB" +
-      "\006C2BNet"
+      "C2BNetMessageResponse\"\377\001\n\024C2BNetMessageR" +
+      "equest\022\016\n\006userId\030\001 \001(\005\022-\n\014frameHandles\030\002" +
+      " \001(\0132\027.FrameHandlesFromClient\022\'\n\016percent" +
+      "Forward\030\003 \001(\0132\017.PercentForward\022%\n\013gameOv" +
+      "erReq\030\004 \001(\0132\020.GameOverRequest\022+\n\016repairF" +
+      "rameReq\030\005 \001(\0132\023.RepairFrameRequest\022+\n\020he" +
+      "artBeatRequest\030\006 \001(\0132\021.HeartBeatRequest\"" +
+      "\373\001\n\025C2BNetMessageResponse\022,\n\016frameHandle" +
+      "Res\030\001 \001(\0132\024.FrameHandleResponse\0222\n\021perce" +
+      "ntForwardRes\030\002 \001(\0132\027.PercentForwardRespo" +
+      "nse\022,\n\016repairFrameRes\030\003 \001(\0132\024.RepairFram" +
+      "eResponse\022(\n\014liveFrameRes\030\004 \001(\0132\022.LiveFr" +
+      "ameResponse\022(\n\014heartBeatRes\030\005 \001(\0132\022.Hear" +
+      "tBeatResponse\"\022\n\020HeartBeatRequest\"\023\n\021Hea" +
+      "rtBeatResponse\"w\n\013FrameHandle\022\016\n\006userId\030" +
+      "\001 \001(\005\022\013\n\003opt\030\002 \001(\005\022\022\n\nOpretionId\030\003 \001(\005\022\021" +
+      "\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005 \001(\005\022\021\n\t" +
+      "optDetail\030\006 \003(\004\"H\n\023FrameHandleResponse\022\r" +
+      "\n\005frame\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Fr" +
+      "ameHandle\"L\n\026FrameHandlesFromClient\022\016\n\006u" +
+      "serId\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Fram" +
+      "eHandle\"1\n\016PercentForward\022\016\n\006userId\030\001 \001(" +
+      "\005\022\017\n\007percent\030\002 \001(\005\"\\\n\026PercentForwardResp" +
+      "onse\022\'\n\016percentForward\030\001 \001(\0132\017.PercentFo" +
+      "rward\022\031\n\021allUserLoadSucess\030\002 \001(\010\"\021\n\017Game" +
+      "OverRequest\":\n\022RepairFrameRequest\022\022\n\nsta" +
+      "rtFrame\030\001 \001(\005\022\020\n\010endFrame\030\002 \001(\005\"9\n\023Repai" +
+      "rFrameResponse\022\"\n\014repairFrames\030\001 \003(\0132\014.R" +
+      "epairFrame\"@\n\013RepairFrame\022\r\n\005frame\030\001 \001(\005" +
+      "\022\"\n\014frameHandles\030\002 \003(\0132\014.FrameHandle\"5\n\021" +
+      "LiveFrameResponse\022 \n\nliveFrames\030\001 \003(\0132\014." +
+      "RepairFrameB\030\n\016com.game.protoB\006C2BNet"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12522,7 +13667,7 @@ public final class C2BNet {
     internal_static_C2BNetMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessageRequest_descriptor,
-        new java.lang.String[] { "UserId", "FrameHandle", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", });
+        new java.lang.String[] { "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", });
     internal_static_C2BNetMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_C2BNetMessageResponse_fieldAccessorTable = new
@@ -12546,51 +13691,57 @@ public final class C2BNet {
     internal_static_FrameHandle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandle_descriptor,
-        new java.lang.String[] { "UserId", "Opt", "OptValue1", "OptValue2", "OptDetail", });
+        new java.lang.String[] { "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2", "OptDetail", });
     internal_static_FrameHandleResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_FrameHandleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandleResponse_descriptor,
         new java.lang.String[] { "Frame", "FrameHandles", });
-    internal_static_PercentForward_descriptor =
+    internal_static_FrameHandlesFromClient_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_FrameHandlesFromClient_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_FrameHandlesFromClient_descriptor,
+        new java.lang.String[] { "UserId", "FrameHandles", });
+    internal_static_PercentForward_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_PercentForward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForward_descriptor,
         new java.lang.String[] { "UserId", "Percent", });
     internal_static_PercentForwardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_PercentForwardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForwardResponse_descriptor,
         new java.lang.String[] { "PercentForward", "AllUserLoadSucess", });
     internal_static_GameOverRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_GameOverRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameOverRequest_descriptor,
         new java.lang.String[] { });
     internal_static_RepairFrameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_RepairFrameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrameRequest_descriptor,
         new java.lang.String[] { "StartFrame", "EndFrame", });
     internal_static_RepairFrameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_RepairFrameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrameResponse_descriptor,
         new java.lang.String[] { "RepairFrames", });
     internal_static_RepairFrame_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_RepairFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrame_descriptor,
         new java.lang.String[] { "Frame", "FrameHandles", });
     internal_static_LiveFrameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_LiveFrameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LiveFrameResponse_descriptor,

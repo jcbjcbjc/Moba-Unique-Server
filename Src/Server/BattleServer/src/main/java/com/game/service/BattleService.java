@@ -2,6 +2,7 @@ package com.game.service;
 
 import com.game.network.NetConnectionKCP;
 import com.game.network.NetConnectionWebSocket;
+import com.game.proto.C2BNet;
 import com.game.proto.C2BNet.FrameHandle;
 import com.game.proto.C2BNet.GameOverRequest;
 import com.game.proto.C2BNet.PercentForward;
@@ -14,7 +15,7 @@ import com.game.proto.C2BNet.RepairFrameRequest;
 public interface BattleService {
 	
 	 // 帧操作
-    void OnFrameHandle(NetConnectionKCP connection, FrameHandle frameHandle);
+    void OnFrameHandle(NetConnectionKCP connection, C2BNet.FrameHandlesFromClient frameHandles);
     // 进度转发
     void OnPercentForward(NetConnectionKCP connection, PercentForward percentForward);
     // 游戏结束

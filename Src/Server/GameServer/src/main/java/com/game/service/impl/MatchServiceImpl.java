@@ -67,7 +67,7 @@ public class MatchServiceImpl implements MatchService {
 		  if(user != null) {			  
 	        user.setStatus(UserStatus.Normal);
 		    user.roomId=0;
-			user.teamId=0;
+			user.teamId=-1;
 		  }
 		}
 		if(connection == null) {

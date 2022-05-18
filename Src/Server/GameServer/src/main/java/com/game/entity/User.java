@@ -287,7 +287,7 @@ public class User {
 		this.status=userStatus;
 		if(userStatus == UserStatus.Normal) {
 			this.roomId=0;
-            this.teamId=0;
+            this.teamId=-1;
 			this.chat.roomChatIdx=0;
 		}
 	}

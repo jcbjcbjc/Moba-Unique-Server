@@ -1,6 +1,7 @@
 package com.game.netty;
 
 import com.game.network.MessageDispatch;
+import com.game.network.NetConnection;
 import com.game.proto.C2GNet;
 import com.game.service.UserService;
 import com.game.spring.SpringBeanUtil;
@@ -8,6 +9,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.timeout.IdleState;
@@ -20,7 +22,7 @@ import java.net.InetSocketAddress;
 
 @Component
 @ChannelHandler.Sharable
-public class TCPServerHandler extends SimpleChannelInboundHandler<Object> {
+public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChannelInboundHandler<Object>*/ {
 
     static UserService userService;
 
@@ -30,7 +32,7 @@ public class TCPServerHandler extends SimpleChannelInboundHandler<Object> {
 
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
         ByteBuf Buf=(ByteBuf) msg;
 
@@ -56,12 +58,15 @@ public class TCPServerHandler extends SimpleChannelInboundHandler<Object> {
         String clientIp = insocket.getAddress().getHostAddress();
         //此处不能使用ctx.close()，否则客户端始终无法与服务端建立连接
         System.out.println("handlerAdded:" + clientIp + ctx.name());
+
     }
 
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("handlerRemoved");
+        InetSocketAddress insocket = (InetSocketAddress) ctx.channel().remoteAddress();
+        String clientIp = insocket.getAddress().getHostAddress();
+        System.out.println("handlerRemoved"+ clientIp + ctx.name());
 //      userService = SpringBeanUtil.getBean(UserService.class);
         userService.gameLeave(ctx);
         ctx.flush();

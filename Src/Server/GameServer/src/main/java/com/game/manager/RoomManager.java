@@ -1,5 +1,6 @@
 package com.game.manager;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -245,7 +246,17 @@ public class RoomManager {
 
 		return new ResultInfo(Result.Success, "开始游戏！");
 	}
+	/**
+	 * 开始游戏
+	 */
+	@SuppressWarnings("rawtypes")
+	public NRoom GetRoom(User user){
+		NRoom room = rooms.get(user.roomId);
 
+			//TODO log
+
+		return room;
+	}
 	/**
 	 * 退出房间
 	 */
