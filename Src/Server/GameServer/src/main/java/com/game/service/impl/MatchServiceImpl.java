@@ -79,7 +79,4 @@ public class MatchServiceImpl implements MatchService {
 		response.setMatchRes(matchResponse);
 		connection.send();
 	}
-
-
-	
 }

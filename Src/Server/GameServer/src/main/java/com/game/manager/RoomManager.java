@@ -416,11 +416,11 @@ public class RoomManager {
 			return;
 		}
 		user.setStatus(UserStatus.GameOver);
-		// int gameOverNum = this.GetRoomUserCountByStatus(room, UserStatus.GameOver);
+		 int gameOverNum = this.GetRoomUserCountByStatus(room, UserStatus.GameOver);
 		// //游戏结束人数
 
-		// 游戏结束
-//		if(gameOverNum >= overNum) {
+		 //游戏结束
+		if(gameOverNum >= overNum) {
 		rooms.remove(user.roomId); // 移除房间
 		this.roomUserIds.remove(room.getRoomId()); // 从房间用户统计中移除房间
 		this.UpdateRoomUserStatus(room, UserStatus.Normal); // 修改房间用户为正常状态
@@ -428,7 +428,7 @@ public class RoomManager {
 		this.RemoveUserMapByRoom(room.toBuilder()); // 移除房间用户信息
 		// 奖励发放
 
-//		}
+		}
 	}
 
 	/**

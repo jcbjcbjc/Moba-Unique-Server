@@ -15,6 +15,8 @@ import com.game.proto.C2BNet.RepairFrame;
 //import com.game.proto.Message.RepairFrame;
 import com.game.thread.BattleRoomThread;
 import com.game.util.CachedThreadPoolUtil;
+import com.game.util.Config;
+
 /**
  * @author 贾超博
  *
@@ -30,7 +32,7 @@ public class Room {
 	public long createTime = 0; // 创建时间
 	public int loadResOverMs = 2000;// 60000; //加载资源超时毫秒 1分钟
 	public int gameOverMs = 2 * 60 * 60 * 1000; // 游戏超时毫秒 2小时
-	public int overNum = 2; // 游戏结束人数判断
+	//public int overNum = 2; // 游戏结束人数判断
 	public int startSleepMs = 10 * 1000; // 开始休眠毫秒
 
 	// 帧操作数据 key:帧id value：key:用户id value：帧操作
@@ -110,9 +112,9 @@ public class Room {
 			}
 		}
 		// 游戏结束
-//		if(gameOverNum >= overNum && !this.isGameOver) {
+		if(gameOverNum >= Config.overNumIngameover && !this.isGameOver) {
 		this.GameOver();
-//		}
+		}
 	}
 
 	/**
