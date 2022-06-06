@@ -5,7 +5,8 @@
 ###  1 主要技术栈和特点
 网络框架+协议栈：网络框架用的是高性能IO库Netty，协议栈为低延迟的可靠UDP协议KCP+FEC前向纠错技术（同时支持websocket协议以支持H5游戏）
 
-服务器架构：服务器采用双层架构，通过大厅服务器GameServer和战斗服务器BattleServer两层来实现业务分离和负载均衡，其中可以开多个BattleServer来进行负载均衡，服务器内部通过HTTPS的RPC调用来在多服务器之间传递消息
+服务器架构：服务器采用三层架构为分区分层模型，通过网关服务层Gateway，大厅服务器GameServer和战斗服务器BattleServer两层来实现业务分离和负载均衡，其中可以开多个BattleServer来进行负载均衡，服务器内部通过HTTPS的RPC调用来在多服务器之间传递消息
+![3049683c946cba031e1becabe4649a3](https://user-images.githubusercontent.com/91889375/172151299-3410c76f-3a28-4141-912e-b5d572a19a84.jpg)
 
 数据库：mysql+myBatis
 
@@ -39,8 +40,9 @@ P3 = (3, 2, 1)
 
 
 ### 3 JAVA帧同步服务器后端框架实现及性能分析
-
-
+网关层：反向代理，负责与客户端连接
+Game层：一个Game服务器就为一个区服
+Battle层：负责战斗的独立服务器
 ![image](https://user-images.githubusercontent.com/91889375/164408950-0cd0c680-0bd4-447f-a9da-43ba0122b120.png)
 
 
