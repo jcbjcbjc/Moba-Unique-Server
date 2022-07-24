@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
@@ -71,7 +72,7 @@ public class NettyTCPServer {
                     //pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
 
-                    pipeline.addLast(new TCPEncoder());
+                    //pipeline.addLast(new TCPEncoder());
                     pipeline.addLast(new ProtobufEncoder());
 
                     pipeline.addLast(new TCPServerHandler());

@@ -121,12 +121,12 @@ public final class C2BNet {
               done = true;
               break;
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 messageType_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              messageType_.add(bs);
+              messageType_.add(s);
               break;
             }
             case 18: {
@@ -134,7 +134,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = request_.toBuilder();
               }
-              request_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageRequest.PARSER, extensionRegistry);
+              request_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
@@ -147,7 +147,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = response_.toBuilder();
               }
-              response_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageResponse.PARSER, extensionRegistry);
+              response_ = input.readMessage(com.game.proto.C2BNet.C2BNetMessageResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
@@ -166,6 +166,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -772,7 +774,8 @@ public final class C2BNet {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureMessageTypeIsMutable();
+  checkByteStringIsUtf8(value);
+        ensureMessageTypeIsMutable();
         messageType_.add(value);
         onChanged();
         return this;
@@ -1043,7 +1046,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<C2BNetMessage>
+    private static final com.google.protobuf.Parser<C2BNetMessage>
         PARSER = new com.google.protobuf.AbstractParser<C2BNetMessage>() {
       @java.lang.Override
       public C2BNetMessage parsePartialFrom(
@@ -1216,7 +1219,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = frameHandles_.toBuilder();
               }
-              frameHandles_ = input.readMessage(com.game.proto.C2BNet.FrameHandlesFromClient.PARSER, extensionRegistry);
+              frameHandles_ = input.readMessage(com.game.proto.C2BNet.FrameHandlesFromClient.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(frameHandles_);
                 frameHandles_ = subBuilder.buildPartial();
@@ -1229,7 +1232,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000004) != 0)) {
                 subBuilder = percentForward_.toBuilder();
               }
-              percentForward_ = input.readMessage(com.game.proto.C2BNet.PercentForward.PARSER, extensionRegistry);
+              percentForward_ = input.readMessage(com.game.proto.C2BNet.PercentForward.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(percentForward_);
                 percentForward_ = subBuilder.buildPartial();
@@ -1242,7 +1245,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000008) != 0)) {
                 subBuilder = gameOverReq_.toBuilder();
               }
-              gameOverReq_ = input.readMessage(com.game.proto.C2BNet.GameOverRequest.PARSER, extensionRegistry);
+              gameOverReq_ = input.readMessage(com.game.proto.C2BNet.GameOverRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(gameOverReq_);
                 gameOverReq_ = subBuilder.buildPartial();
@@ -1255,7 +1258,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000010) != 0)) {
                 subBuilder = repairFrameReq_.toBuilder();
               }
-              repairFrameReq_ = input.readMessage(com.game.proto.C2BNet.RepairFrameRequest.PARSER, extensionRegistry);
+              repairFrameReq_ = input.readMessage(com.game.proto.C2BNet.RepairFrameRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(repairFrameReq_);
                 repairFrameReq_ = subBuilder.buildPartial();
@@ -1268,7 +1271,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000020) != 0)) {
                 subBuilder = heartBeatRequest_.toBuilder();
               }
-              heartBeatRequest_ = input.readMessage(com.game.proto.C2BNet.HeartBeatRequest.PARSER, extensionRegistry);
+              heartBeatRequest_ = input.readMessage(com.game.proto.C2BNet.HeartBeatRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(heartBeatRequest_);
                 heartBeatRequest_ = subBuilder.buildPartial();
@@ -1287,6 +1290,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -2606,7 +2611,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<C2BNetMessageRequest>
+    private static final com.google.protobuf.Parser<C2BNetMessageRequest>
         PARSER = new com.google.protobuf.AbstractParser<C2BNetMessageRequest>() {
       @java.lang.Override
       public C2BNetMessageRequest parsePartialFrom(
@@ -2763,7 +2768,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = frameHandleRes_.toBuilder();
               }
-              frameHandleRes_ = input.readMessage(com.game.proto.C2BNet.FrameHandleResponse.PARSER, extensionRegistry);
+              frameHandleRes_ = input.readMessage(com.game.proto.C2BNet.FrameHandleResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(frameHandleRes_);
                 frameHandleRes_ = subBuilder.buildPartial();
@@ -2776,7 +2781,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000002) != 0)) {
                 subBuilder = percentForwardRes_.toBuilder();
               }
-              percentForwardRes_ = input.readMessage(com.game.proto.C2BNet.PercentForwardResponse.PARSER, extensionRegistry);
+              percentForwardRes_ = input.readMessage(com.game.proto.C2BNet.PercentForwardResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(percentForwardRes_);
                 percentForwardRes_ = subBuilder.buildPartial();
@@ -2789,7 +2794,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000004) != 0)) {
                 subBuilder = repairFrameRes_.toBuilder();
               }
-              repairFrameRes_ = input.readMessage(com.game.proto.C2BNet.RepairFrameResponse.PARSER, extensionRegistry);
+              repairFrameRes_ = input.readMessage(com.game.proto.C2BNet.RepairFrameResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(repairFrameRes_);
                 repairFrameRes_ = subBuilder.buildPartial();
@@ -2802,7 +2807,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000008) != 0)) {
                 subBuilder = liveFrameRes_.toBuilder();
               }
-              liveFrameRes_ = input.readMessage(com.game.proto.C2BNet.LiveFrameResponse.PARSER, extensionRegistry);
+              liveFrameRes_ = input.readMessage(com.game.proto.C2BNet.LiveFrameResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(liveFrameRes_);
                 liveFrameRes_ = subBuilder.buildPartial();
@@ -2815,7 +2820,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000010) != 0)) {
                 subBuilder = heartBeatRes_.toBuilder();
               }
-              heartBeatRes_ = input.readMessage(com.game.proto.C2BNet.HeartBeatResponse.PARSER, extensionRegistry);
+              heartBeatRes_ = input.readMessage(com.game.proto.C2BNet.HeartBeatResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(heartBeatRes_);
                 heartBeatRes_ = subBuilder.buildPartial();
@@ -2834,6 +2839,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4070,7 +4077,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<C2BNetMessageResponse>
+    private static final com.google.protobuf.Parser<C2BNetMessageResponse>
         PARSER = new com.google.protobuf.AbstractParser<C2BNetMessageResponse>() {
       @java.lang.Override
       public C2BNetMessageResponse parsePartialFrom(
@@ -4157,6 +4164,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4488,7 +4497,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<HeartBeatRequest>
+    private static final com.google.protobuf.Parser<HeartBeatRequest>
         PARSER = new com.google.protobuf.AbstractParser<HeartBeatRequest>() {
       @java.lang.Override
       public HeartBeatRequest parsePartialFrom(
@@ -4575,6 +4584,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4906,7 +4917,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<HeartBeatResponse>
+    private static final com.google.protobuf.Parser<HeartBeatResponse>
         PARSER = new com.google.protobuf.AbstractParser<HeartBeatResponse>() {
       @java.lang.Override
       public HeartBeatResponse parsePartialFrom(
@@ -4991,7 +5002,7 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional int32 optValue1 = 4;</code>
+     * <code>optional float optValue1 = 4;</code>
      * @return Whether the optValue1 field is set.
      */
     boolean hasOptValue1();
@@ -5000,17 +5011,17 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional int32 optValue1 = 4;</code>
+     * <code>optional float optValue1 = 4;</code>
      * @return The optValue1.
      */
-    int getOptValue1();
+    float getOptValue1();
 
     /**
      * <pre>
      *值2
      * </pre>
      *
-     * <code>optional int32 optValue2 = 5;</code>
+     * <code>optional float optValue2 = 5;</code>
      * @return Whether the optValue2 field is set.
      */
     boolean hasOptValue2();
@@ -5019,26 +5030,26 @@ public final class C2BNet {
      *值2
      * </pre>
      *
-     * <code>optional int32 optValue2 = 5;</code>
+     * <code>optional float optValue2 = 5;</code>
      * @return The optValue2.
      */
-    int getOptValue2();
+    float getOptValue2();
 
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @return A list containing the optDetail.
      */
-    java.util.List<java.lang.Long> getOptDetailList();
+    java.util.List<java.lang.Float> getOptDetailList();
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @return The count of optDetail.
      */
     int getOptDetailCount();
@@ -5047,11 +5058,11 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @param index The index of the element to return.
      * @return The optDetail at the given index.
      */
-    long getOptDetail(int index);
+    float getOptDetail(int index);
   }
   /**
    * Protobuf type {@code FrameHandle}
@@ -5066,7 +5077,7 @@ public final class C2BNet {
       super(builder);
     }
     private FrameHandle() {
-      optDetail_ = emptyLongList();
+      optDetail_ = emptyFloatList();
     }
 
     @java.lang.Override
@@ -5115,33 +5126,33 @@ public final class C2BNet {
               opretionId_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 37: {
               bitField0_ |= 0x00000008;
-              optValue1_ = input.readInt32();
+              optValue1_ = input.readFloat();
               break;
             }
-            case 40: {
+            case 45: {
               bitField0_ |= 0x00000010;
-              optValue2_ = input.readInt32();
+              optValue2_ = input.readFloat();
               break;
             }
-            case 48: {
+            case 53: {
               if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                optDetail_ = newLongList();
+                optDetail_ = newFloatList();
                 mutable_bitField0_ |= 0x00000020;
               }
-              optDetail_.addLong(input.readUInt64());
+              optDetail_.addFloat(input.readFloat());
               break;
             }
             case 50: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-                optDetail_ = newLongList();
+                optDetail_ = newFloatList();
                 mutable_bitField0_ |= 0x00000020;
               }
               while (input.getBytesUntilLimit() > 0) {
-                optDetail_.addLong(input.readUInt64());
+                optDetail_.addFloat(input.readFloat());
               }
               input.popLimit(limit);
               break;
@@ -5157,6 +5168,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -5256,13 +5269,13 @@ public final class C2BNet {
     }
 
     public static final int OPTVALUE1_FIELD_NUMBER = 4;
-    private int optValue1_;
+    private float optValue1_;
     /**
      * <pre>
      *值1
      * </pre>
      *
-     * <code>optional int32 optValue1 = 4;</code>
+     * <code>optional float optValue1 = 4;</code>
      * @return Whether the optValue1 field is set.
      */
     @java.lang.Override
@@ -5274,22 +5287,22 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional int32 optValue1 = 4;</code>
+     * <code>optional float optValue1 = 4;</code>
      * @return The optValue1.
      */
     @java.lang.Override
-    public int getOptValue1() {
+    public float getOptValue1() {
       return optValue1_;
     }
 
     public static final int OPTVALUE2_FIELD_NUMBER = 5;
-    private int optValue2_;
+    private float optValue2_;
     /**
      * <pre>
      *值2
      * </pre>
      *
-     * <code>optional int32 optValue2 = 5;</code>
+     * <code>optional float optValue2 = 5;</code>
      * @return Whether the optValue2 field is set.
      */
     @java.lang.Override
@@ -5301,26 +5314,26 @@ public final class C2BNet {
      *值2
      * </pre>
      *
-     * <code>optional int32 optValue2 = 5;</code>
+     * <code>optional float optValue2 = 5;</code>
      * @return The optValue2.
      */
     @java.lang.Override
-    public int getOptValue2() {
+    public float getOptValue2() {
       return optValue2_;
     }
 
     public static final int OPTDETAIL_FIELD_NUMBER = 6;
-    private com.google.protobuf.Internal.LongList optDetail_;
+    private com.google.protobuf.Internal.FloatList optDetail_;
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @return A list containing the optDetail.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Long>
+    public java.util.List<java.lang.Float>
         getOptDetailList() {
       return optDetail_;
     }
@@ -5329,7 +5342,7 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @return The count of optDetail.
      */
     public int getOptDetailCount() {
@@ -5340,13 +5353,14 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated uint64 optDetail = 6;</code>
+     * <code>repeated float optDetail = 6;</code>
      * @param index The index of the element to return.
      * @return The optDetail at the given index.
      */
-    public long getOptDetail(int index) {
-      return optDetail_.getLong(index);
+    public float getOptDetail(int index) {
+      return optDetail_.getFloat(index);
     }
+    private int optDetailMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -5362,6 +5376,7 @@ public final class C2BNet {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, userId_);
       }
@@ -5372,13 +5387,17 @@ public final class C2BNet {
         output.writeInt32(3, opretionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt32(4, optValue1_);
+        output.writeFloat(4, optValue1_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt32(5, optValue2_);
+        output.writeFloat(5, optValue2_);
+      }
+      if (getOptDetailList().size() > 0) {
+        output.writeUInt32NoTag(50);
+        output.writeUInt32NoTag(optDetailMemoizedSerializedSize);
       }
       for (int i = 0; i < optDetail_.size(); i++) {
-        output.writeUInt64(6, optDetail_.getLong(i));
+        output.writeFloatNoTag(optDetail_.getFloat(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5403,20 +5422,22 @@ public final class C2BNet {
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, optValue1_);
+          .computeFloatSize(4, optValue1_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, optValue2_);
+          .computeFloatSize(5, optValue2_);
       }
       {
         int dataSize = 0;
-        for (int i = 0; i < optDetail_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt64SizeNoTag(optDetail_.getLong(i));
-        }
+        dataSize = 4 * getOptDetailList().size();
         size += dataSize;
-        size += 1 * getOptDetailList().size();
+        if (!getOptDetailList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        optDetailMemoizedSerializedSize = dataSize;
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5450,13 +5471,15 @@ public final class C2BNet {
       }
       if (hasOptValue1() != other.hasOptValue1()) return false;
       if (hasOptValue1()) {
-        if (getOptValue1()
-            != other.getOptValue1()) return false;
+        if (java.lang.Float.floatToIntBits(getOptValue1())
+            != java.lang.Float.floatToIntBits(
+                other.getOptValue1())) return false;
       }
       if (hasOptValue2() != other.hasOptValue2()) return false;
       if (hasOptValue2()) {
-        if (getOptValue2()
-            != other.getOptValue2()) return false;
+        if (java.lang.Float.floatToIntBits(getOptValue2())
+            != java.lang.Float.floatToIntBits(
+                other.getOptValue2())) return false;
       }
       if (!getOptDetailList()
           .equals(other.getOptDetailList())) return false;
@@ -5485,11 +5508,13 @@ public final class C2BNet {
       }
       if (hasOptValue1()) {
         hash = (37 * hash) + OPTVALUE1_FIELD_NUMBER;
-        hash = (53 * hash) + getOptValue1();
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getOptValue1());
       }
       if (hasOptValue2()) {
         hash = (37 * hash) + OPTVALUE2_FIELD_NUMBER;
-        hash = (53 * hash) + getOptValue2();
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getOptValue2());
       }
       if (getOptDetailCount() > 0) {
         hash = (37 * hash) + OPTDETAIL_FIELD_NUMBER;
@@ -5634,11 +5659,11 @@ public final class C2BNet {
         bitField0_ = (bitField0_ & ~0x00000002);
         opretionId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        optValue1_ = 0;
+        optValue1_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000008);
-        optValue2_ = 0;
+        optValue2_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000010);
-        optDetail_ = emptyLongList();
+        optDetail_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
@@ -5946,13 +5971,13 @@ public final class C2BNet {
         return this;
       }
 
-      private int optValue1_ ;
+      private float optValue1_ ;
       /**
        * <pre>
        *值1
        * </pre>
        *
-       * <code>optional int32 optValue1 = 4;</code>
+       * <code>optional float optValue1 = 4;</code>
        * @return Whether the optValue1 field is set.
        */
       @java.lang.Override
@@ -5964,11 +5989,11 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional int32 optValue1 = 4;</code>
+       * <code>optional float optValue1 = 4;</code>
        * @return The optValue1.
        */
       @java.lang.Override
-      public int getOptValue1() {
+      public float getOptValue1() {
         return optValue1_;
       }
       /**
@@ -5976,11 +6001,11 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional int32 optValue1 = 4;</code>
+       * <code>optional float optValue1 = 4;</code>
        * @param value The optValue1 to set.
        * @return This builder for chaining.
        */
-      public Builder setOptValue1(int value) {
+      public Builder setOptValue1(float value) {
         bitField0_ |= 0x00000008;
         optValue1_ = value;
         onChanged();
@@ -5991,23 +6016,23 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional int32 optValue1 = 4;</code>
+       * <code>optional float optValue1 = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptValue1() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        optValue1_ = 0;
+        optValue1_ = 0F;
         onChanged();
         return this;
       }
 
-      private int optValue2_ ;
+      private float optValue2_ ;
       /**
        * <pre>
        *值2
        * </pre>
        *
-       * <code>optional int32 optValue2 = 5;</code>
+       * <code>optional float optValue2 = 5;</code>
        * @return Whether the optValue2 field is set.
        */
       @java.lang.Override
@@ -6019,11 +6044,11 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional int32 optValue2 = 5;</code>
+       * <code>optional float optValue2 = 5;</code>
        * @return The optValue2.
        */
       @java.lang.Override
-      public int getOptValue2() {
+      public float getOptValue2() {
         return optValue2_;
       }
       /**
@@ -6031,11 +6056,11 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional int32 optValue2 = 5;</code>
+       * <code>optional float optValue2 = 5;</code>
        * @param value The optValue2 to set.
        * @return This builder for chaining.
        */
-      public Builder setOptValue2(int value) {
+      public Builder setOptValue2(float value) {
         bitField0_ |= 0x00000010;
         optValue2_ = value;
         onChanged();
@@ -6046,17 +6071,17 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional int32 optValue2 = 5;</code>
+       * <code>optional float optValue2 = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptValue2() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        optValue2_ = 0;
+        optValue2_ = 0F;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList optDetail_ = emptyLongList();
+      private com.google.protobuf.Internal.FloatList optDetail_ = emptyFloatList();
       private void ensureOptDetailIsMutable() {
         if (!((bitField0_ & 0x00000020) != 0)) {
           optDetail_ = mutableCopy(optDetail_);
@@ -6068,10 +6093,10 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @return A list containing the optDetail.
        */
-      public java.util.List<java.lang.Long>
+      public java.util.List<java.lang.Float>
           getOptDetailList() {
         return ((bitField0_ & 0x00000020) != 0) ?
                  java.util.Collections.unmodifiableList(optDetail_) : optDetail_;
@@ -6081,7 +6106,7 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @return The count of optDetail.
        */
       public int getOptDetailCount() {
@@ -6092,27 +6117,27 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @param index The index of the element to return.
        * @return The optDetail at the given index.
        */
-      public long getOptDetail(int index) {
-        return optDetail_.getLong(index);
+      public float getOptDetail(int index) {
+        return optDetail_.getFloat(index);
       }
       /**
        * <pre>
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @param index The index to set the value at.
        * @param value The optDetail to set.
        * @return This builder for chaining.
        */
       public Builder setOptDetail(
-          int index, long value) {
+          int index, float value) {
         ensureOptDetailIsMutable();
-        optDetail_.setLong(index, value);
+        optDetail_.setFloat(index, value);
         onChanged();
         return this;
       }
@@ -6121,13 +6146,13 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @param value The optDetail to add.
        * @return This builder for chaining.
        */
-      public Builder addOptDetail(long value) {
+      public Builder addOptDetail(float value) {
         ensureOptDetailIsMutable();
-        optDetail_.addLong(value);
+        optDetail_.addFloat(value);
         onChanged();
         return this;
       }
@@ -6136,12 +6161,12 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @param values The optDetail to add.
        * @return This builder for chaining.
        */
       public Builder addAllOptDetail(
-          java.lang.Iterable<? extends java.lang.Long> values) {
+          java.lang.Iterable<? extends java.lang.Float> values) {
         ensureOptDetailIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, optDetail_);
@@ -6153,11 +6178,11 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated uint64 optDetail = 6;</code>
+       * <code>repeated float optDetail = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptDetail() {
-        optDetail_ = emptyLongList();
+        optDetail_ = emptyFloatList();
         bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
@@ -6188,7 +6213,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FrameHandle>
+    private static final com.google.protobuf.Parser<FrameHandle>
         PARSER = new com.google.protobuf.AbstractParser<FrameHandle>() {
       @java.lang.Override
       public FrameHandle parsePartialFrom(
@@ -6340,7 +6365,7 @@ public final class C2BNet {
                 mutable_bitField0_ |= 0x00000002;
               }
               frameHandles_.add(
-                  input.readMessage(com.game.proto.C2BNet.FrameHandle.PARSER, extensionRegistry));
+                  input.readMessage(com.game.proto.C2BNet.FrameHandle.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -6354,6 +6379,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -7227,7 +7254,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FrameHandleResponse>
+    private static final com.google.protobuf.Parser<FrameHandleResponse>
         PARSER = new com.google.protobuf.AbstractParser<FrameHandleResponse>() {
       @java.lang.Override
       public FrameHandleResponse parsePartialFrom(
@@ -7379,7 +7406,7 @@ public final class C2BNet {
                 mutable_bitField0_ |= 0x00000002;
               }
               frameHandles_.add(
-                  input.readMessage(com.game.proto.C2BNet.FrameHandle.PARSER, extensionRegistry));
+                  input.readMessage(com.game.proto.C2BNet.FrameHandle.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -7393,6 +7420,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -8266,7 +8295,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FrameHandlesFromClient>
+    private static final com.google.protobuf.Parser<FrameHandlesFromClient>
         PARSER = new com.google.protobuf.AbstractParser<FrameHandlesFromClient>() {
       @java.lang.Override
       public FrameHandlesFromClient parsePartialFrom(
@@ -8402,6 +8431,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -8952,7 +8983,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PercentForward>
+    private static final com.google.protobuf.Parser<PercentForward>
         PARSER = new com.google.protobuf.AbstractParser<PercentForward>() {
       @java.lang.Override
       public PercentForward parsePartialFrom(
@@ -9080,7 +9111,7 @@ public final class C2BNet {
               if (((bitField0_ & 0x00000001) != 0)) {
                 subBuilder = percentForward_.toBuilder();
               }
-              percentForward_ = input.readMessage(com.game.proto.C2BNet.PercentForward.PARSER, extensionRegistry);
+              percentForward_ = input.readMessage(com.game.proto.C2BNet.PercentForward.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(percentForward_);
                 percentForward_ = subBuilder.buildPartial();
@@ -9104,6 +9135,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -9776,7 +9809,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PercentForwardResponse>
+    private static final com.google.protobuf.Parser<PercentForwardResponse>
         PARSER = new com.google.protobuf.AbstractParser<PercentForwardResponse>() {
       @java.lang.Override
       public PercentForwardResponse parsePartialFrom(
@@ -9863,6 +9896,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10194,7 +10229,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameOverRequest>
+    private static final com.google.protobuf.Parser<GameOverRequest>
         PARSER = new com.google.protobuf.AbstractParser<GameOverRequest>() {
       @java.lang.Override
       public GameOverRequest parsePartialFrom(
@@ -10330,6 +10365,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -10880,7 +10917,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RepairFrameRequest>
+    private static final com.google.protobuf.Parser<RepairFrameRequest>
         PARSER = new com.google.protobuf.AbstractParser<RepairFrameRequest>() {
       @java.lang.Override
       public RepairFrameRequest parsePartialFrom(
@@ -10988,7 +11025,7 @@ public final class C2BNet {
                 mutable_bitField0_ |= 0x00000001;
               }
               repairFrames_.add(
-                  input.readMessage(com.game.proto.C2BNet.RepairFrame.PARSER, extensionRegistry));
+                  input.readMessage(com.game.proto.C2BNet.RepairFrame.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -11002,6 +11039,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -11673,7 +11712,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RepairFrameResponse>
+    private static final com.google.protobuf.Parser<RepairFrameResponse>
         PARSER = new com.google.protobuf.AbstractParser<RepairFrameResponse>() {
       @java.lang.Override
       public RepairFrameResponse parsePartialFrom(
@@ -11825,7 +11864,7 @@ public final class C2BNet {
                 mutable_bitField0_ |= 0x00000002;
               }
               frameHandles_.add(
-                  input.readMessage(com.game.proto.C2BNet.FrameHandle.PARSER, extensionRegistry));
+                  input.readMessage(com.game.proto.C2BNet.FrameHandle.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -11839,6 +11878,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -12712,7 +12753,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RepairFrame>
+    private static final com.google.protobuf.Parser<RepairFrame>
         PARSER = new com.google.protobuf.AbstractParser<RepairFrame>() {
       @java.lang.Override
       public RepairFrame parsePartialFrom(
@@ -12820,7 +12861,7 @@ public final class C2BNet {
                 mutable_bitField0_ |= 0x00000001;
               }
               liveFrames_.add(
-                  input.readMessage(com.game.proto.C2BNet.RepairFrame.PARSER, extensionRegistry));
+                  input.readMessage(com.game.proto.C2BNet.RepairFrame.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -12834,6 +12875,8 @@ public final class C2BNet {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -13505,7 +13548,7 @@ public final class C2BNet {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<LiveFrameResponse>
+    private static final com.google.protobuf.Parser<LiveFrameResponse>
         PARSER = new com.google.protobuf.AbstractParser<LiveFrameResponse>() {
       @java.lang.Override
       public LiveFrameResponse parsePartialFrom(
@@ -13616,41 +13659,55 @@ public final class C2BNet {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023C2BNetMessage.proto\"v\n\rC2BNetMessage\022\023" +
-      "\n\013messageType\030\001 \003(\t\022&\n\007Request\030\002 \001(\0132\025.C" +
-      "2BNetMessageRequest\022(\n\010Response\030\003 \001(\0132\026." +
-      "C2BNetMessageResponse\"\377\001\n\024C2BNetMessageR" +
-      "equest\022\016\n\006userId\030\001 \001(\005\022-\n\014frameHandles\030\002" +
-      " \001(\0132\027.FrameHandlesFromClient\022\'\n\016percent" +
-      "Forward\030\003 \001(\0132\017.PercentForward\022%\n\013gameOv" +
-      "erReq\030\004 \001(\0132\020.GameOverRequest\022+\n\016repairF" +
-      "rameReq\030\005 \001(\0132\023.RepairFrameRequest\022+\n\020he" +
-      "artBeatRequest\030\006 \001(\0132\021.HeartBeatRequest\"" +
-      "\373\001\n\025C2BNetMessageResponse\022,\n\016frameHandle" +
-      "Res\030\001 \001(\0132\024.FrameHandleResponse\0222\n\021perce" +
-      "ntForwardRes\030\002 \001(\0132\027.PercentForwardRespo" +
-      "nse\022,\n\016repairFrameRes\030\003 \001(\0132\024.RepairFram" +
-      "eResponse\022(\n\014liveFrameRes\030\004 \001(\0132\022.LiveFr" +
-      "ameResponse\022(\n\014heartBeatRes\030\005 \001(\0132\022.Hear" +
-      "tBeatResponse\"\022\n\020HeartBeatRequest\"\023\n\021Hea" +
-      "rtBeatResponse\"w\n\013FrameHandle\022\016\n\006userId\030" +
-      "\001 \001(\005\022\013\n\003opt\030\002 \001(\005\022\022\n\nOpretionId\030\003 \001(\005\022\021" +
-      "\n\toptValue1\030\004 \001(\005\022\021\n\toptValue2\030\005 \001(\005\022\021\n\t" +
-      "optDetail\030\006 \003(\004\"H\n\023FrameHandleResponse\022\r" +
-      "\n\005frame\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Fr" +
-      "ameHandle\"L\n\026FrameHandlesFromClient\022\016\n\006u" +
-      "serId\030\001 \001(\005\022\"\n\014frameHandles\030\002 \003(\0132\014.Fram" +
-      "eHandle\"1\n\016PercentForward\022\016\n\006userId\030\001 \001(" +
-      "\005\022\017\n\007percent\030\002 \001(\005\"\\\n\026PercentForwardResp" +
-      "onse\022\'\n\016percentForward\030\001 \001(\0132\017.PercentFo" +
-      "rward\022\031\n\021allUserLoadSucess\030\002 \001(\010\"\021\n\017Game" +
-      "OverRequest\":\n\022RepairFrameRequest\022\022\n\nsta" +
-      "rtFrame\030\001 \001(\005\022\020\n\010endFrame\030\002 \001(\005\"9\n\023Repai" +
-      "rFrameResponse\022\"\n\014repairFrames\030\001 \003(\0132\014.R" +
-      "epairFrame\"@\n\013RepairFrame\022\r\n\005frame\030\001 \001(\005" +
-      "\022\"\n\014frameHandles\030\002 \003(\0132\014.FrameHandle\"5\n\021" +
-      "LiveFrameResponse\022 \n\nliveFrames\030\001 \003(\0132\014." +
-      "RepairFrameB\030\n\016com.game.protoB\006C2BNet"
+      "\n\023C2BNetMessage.proto\"\231\001\n\rC2BNetMessage\022" +
+      "\023\n\013messageType\030\001 \003(\t\022+\n\007Request\030\002 \001(\0132\025." +
+      "C2BNetMessageRequestH\000\210\001\001\022-\n\010Response\030\003 " +
+      "\001(\0132\026.C2BNetMessageResponseH\001\210\001\001B\n\n\010_Req" +
+      "uestB\013\n\t_Response\"\204\003\n\024C2BNetMessageReque" +
+      "st\022\023\n\006userId\030\001 \001(\005H\000\210\001\001\0222\n\014frameHandles\030" +
+      "\002 \001(\0132\027.FrameHandlesFromClientH\001\210\001\001\022,\n\016p" +
+      "ercentForward\030\003 \001(\0132\017.PercentForwardH\002\210\001" +
+      "\001\022*\n\013gameOverReq\030\004 \001(\0132\020.GameOverRequest" +
+      "H\003\210\001\001\0220\n\016repairFrameReq\030\005 \001(\0132\023.RepairFr" +
+      "ameRequestH\004\210\001\001\0220\n\020heartBeatRequest\030\006 \001(" +
+      "\0132\021.HeartBeatRequestH\005\210\001\001B\t\n\007_userIdB\017\n\r" +
+      "_frameHandlesB\021\n\017_percentForwardB\016\n\014_gam" +
+      "eOverReqB\021\n\017_repairFrameReqB\023\n\021_heartBea" +
+      "tRequest\"\362\002\n\025C2BNetMessageResponse\0221\n\016fr" +
+      "ameHandleRes\030\001 \001(\0132\024.FrameHandleResponse" +
+      "H\000\210\001\001\0227\n\021percentForwardRes\030\002 \001(\0132\027.Perce" +
+      "ntForwardResponseH\001\210\001\001\0221\n\016repairFrameRes" +
+      "\030\003 \001(\0132\024.RepairFrameResponseH\002\210\001\001\022-\n\014liv" +
+      "eFrameRes\030\004 \001(\0132\022.LiveFrameResponseH\003\210\001\001" +
+      "\022-\n\014heartBeatRes\030\005 \001(\0132\022.HeartBeatRespon" +
+      "seH\004\210\001\001B\021\n\017_frameHandleResB\024\n\022_percentFo" +
+      "rwardResB\021\n\017_repairFrameResB\017\n\r_liveFram" +
+      "eResB\017\n\r_heartBeatRes\"\022\n\020HeartBeatReques" +
+      "t\"\023\n\021HeartBeatResponse\"\316\001\n\013FrameHandle\022\023" +
+      "\n\006userId\030\001 \001(\005H\000\210\001\001\022\020\n\003opt\030\002 \001(\005H\001\210\001\001\022\027\n" +
+      "\nOpretionId\030\003 \001(\005H\002\210\001\001\022\026\n\toptValue1\030\004 \001(" +
+      "\002H\003\210\001\001\022\026\n\toptValue2\030\005 \001(\002H\004\210\001\001\022\021\n\toptDet" +
+      "ail\030\006 \003(\002B\t\n\007_userIdB\006\n\004_optB\r\n\013_Opretio" +
+      "nIdB\014\n\n_optValue1B\014\n\n_optValue2\"W\n\023Frame" +
+      "HandleResponse\022\022\n\005frame\030\001 \001(\005H\000\210\001\001\022\"\n\014fr" +
+      "ameHandles\030\002 \003(\0132\014.FrameHandleB\010\n\006_frame" +
+      "\"\\\n\026FrameHandlesFromClient\022\023\n\006userId\030\001 \001" +
+      "(\005H\000\210\001\001\022\"\n\014frameHandles\030\002 \003(\0132\014.FrameHan" +
+      "dleB\t\n\007_userId\"R\n\016PercentForward\022\023\n\006user" +
+      "Id\030\001 \001(\005H\000\210\001\001\022\024\n\007percent\030\002 \001(\005H\001\210\001\001B\t\n\007_" +
+      "userIdB\n\n\010_percent\"\217\001\n\026PercentForwardRes" +
+      "ponse\022,\n\016percentForward\030\001 \001(\0132\017.PercentF" +
+      "orwardH\000\210\001\001\022\036\n\021allUserLoadSucess\030\002 \001(\010H\001" +
+      "\210\001\001B\021\n\017_percentForwardB\024\n\022_allUserLoadSu" +
+      "cess\"\021\n\017GameOverRequest\"`\n\022RepairFrameRe" +
+      "quest\022\027\n\nstartFrame\030\001 \001(\005H\000\210\001\001\022\025\n\010endFra" +
+      "me\030\002 \001(\005H\001\210\001\001B\r\n\013_startFrameB\013\n\t_endFram" +
+      "e\"9\n\023RepairFrameResponse\022\"\n\014repairFrames" +
+      "\030\001 \003(\0132\014.RepairFrame\"O\n\013RepairFrame\022\022\n\005f" +
+      "rame\030\001 \001(\005H\000\210\001\001\022\"\n\014frameHandles\030\002 \003(\0132\014." +
+      "FrameHandleB\010\n\006_frame\"5\n\021LiveFrameRespon" +
+      "se\022 \n\nliveFrames\030\001 \003(\0132\014.RepairFrameB\030\n\016" +
+      "com.game.protoB\006C2BNetb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13661,19 +13718,19 @@ public final class C2BNet {
     internal_static_C2BNetMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessage_descriptor,
-        new java.lang.String[] { "MessageType", "Request", "Response", });
+        new java.lang.String[] { "MessageType", "Request", "Response", "Request", "Response", });
     internal_static_C2BNetMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_C2BNetMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessageRequest_descriptor,
-        new java.lang.String[] { "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", });
+        new java.lang.String[] { "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest", });
     internal_static_C2BNetMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_C2BNetMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_C2BNetMessageResponse_descriptor,
-        new java.lang.String[] { "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", });
+        new java.lang.String[] { "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", });
     internal_static_HeartBeatRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_HeartBeatRequest_fieldAccessorTable = new
@@ -13691,31 +13748,31 @@ public final class C2BNet {
     internal_static_FrameHandle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandle_descriptor,
-        new java.lang.String[] { "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2", "OptDetail", });
+        new java.lang.String[] { "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2", "OptDetail", "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2", });
     internal_static_FrameHandleResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_FrameHandleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandleResponse_descriptor,
-        new java.lang.String[] { "Frame", "FrameHandles", });
+        new java.lang.String[] { "Frame", "FrameHandles", "Frame", });
     internal_static_FrameHandlesFromClient_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_FrameHandlesFromClient_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FrameHandlesFromClient_descriptor,
-        new java.lang.String[] { "UserId", "FrameHandles", });
+        new java.lang.String[] { "UserId", "FrameHandles", "UserId", });
     internal_static_PercentForward_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_PercentForward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForward_descriptor,
-        new java.lang.String[] { "UserId", "Percent", });
+        new java.lang.String[] { "UserId", "Percent", "UserId", "Percent", });
     internal_static_PercentForwardResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_PercentForwardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PercentForwardResponse_descriptor,
-        new java.lang.String[] { "PercentForward", "AllUserLoadSucess", });
+        new java.lang.String[] { "PercentForward", "AllUserLoadSucess", "PercentForward", "AllUserLoadSucess", });
     internal_static_GameOverRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_GameOverRequest_fieldAccessorTable = new
@@ -13727,7 +13784,7 @@ public final class C2BNet {
     internal_static_RepairFrameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrameRequest_descriptor,
-        new java.lang.String[] { "StartFrame", "EndFrame", });
+        new java.lang.String[] { "StartFrame", "EndFrame", "StartFrame", "EndFrame", });
     internal_static_RepairFrameResponse_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_RepairFrameResponse_fieldAccessorTable = new
@@ -13739,7 +13796,7 @@ public final class C2BNet {
     internal_static_RepairFrame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RepairFrame_descriptor,
-        new java.lang.String[] { "Frame", "FrameHandles", });
+        new java.lang.String[] { "Frame", "FrameHandles", "Frame", });
     internal_static_LiveFrameResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_LiveFrameResponse_fieldAccessorTable = new

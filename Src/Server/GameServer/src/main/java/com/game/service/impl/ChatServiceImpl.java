@@ -6,7 +6,7 @@ import com.game.manager.ChatManager;
 import com.game.manager.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.network.NetConnection;
-import com.game.proto.Message;
+
 import com.game.proto.C2GNet.*;
 //import com.game.proto.Message.ChatChannel;
 //import com.game.proto.Message.ChatMessage;

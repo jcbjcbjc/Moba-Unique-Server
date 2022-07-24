@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.game.proto.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.game.manager.RoomManager;
 import com.game.manager.UserManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.proto.Message.Result;
+
 import com.game.vo.BattleUserVo;
 import com.game.vo.LiveUserVo;
 import com.game.vo.ResultInfo;
@@ -48,7 +49,7 @@ public class BattleController {
 		}
     	RoomManager.Instance.GameOver(battleUserVo.roomId);
     	RoomManager.Instance.rooms.put(battleUserVo.roomId, new Room(battleUserVo.roomId, userList));
-    	return new ResultInfo(Result.Success, "");
+    	return new ResultInfo(Message.Result.Success, "");
     }
     
 	/**
@@ -72,6 +73,6 @@ public class BattleController {
 		}
 		RoomManager.Instance.liveRooms.put(liveUserVo.roomId, room);
     	
-    	return new ResultInfo(Result.Success, "");
+    	return new ResultInfo(Message.Result.Success, "");
     }
 }

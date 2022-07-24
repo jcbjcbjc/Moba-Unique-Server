@@ -1,7 +1,7 @@
 package com.game.entity;
 
 
-import com.game.proto.Message.AttrPromoteType;
+
 import com.game.proto.C2GNet.NCharacter;
 import com.game.spring.DBUtil;
 /**

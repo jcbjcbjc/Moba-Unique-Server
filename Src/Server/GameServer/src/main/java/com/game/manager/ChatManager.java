@@ -2,7 +2,7 @@ package com.game.manager;
 
 import com.game.entity.Character;
 import com.game.entity.User;
-import com.game.proto.Message;
+
 //import com.game.proto.Message.ChatChannel;
 //import com.game.proto.Message.ChatMessage;
 import com.game.proto.C2GNet.ChatChannel;

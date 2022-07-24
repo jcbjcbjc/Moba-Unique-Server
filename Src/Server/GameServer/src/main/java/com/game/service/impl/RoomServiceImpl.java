@@ -16,7 +16,7 @@ import com.game.proto.C2GNet.*;
 //import com.game.proto.Message.AddLiveResponse;
 //import com.game.proto.Message.AddRoomRequest;
 //import com.game.proto.Message.AddRoomResponse;
-import com.game.proto.Message.AuctionResponse;
+
 //import com.game.proto.Message.GameOver2Request;
 //import com.game.proto.Message.InviteRequest;
 //import com.game.proto.Message.InviteResponse;
@@ -35,7 +35,7 @@ import com.game.proto.Message.AuctionResponse;
 //import com.game.proto.Message.RoomStartGameResponse;
 //import com.game.proto.Message.RoomUser;
 //import com.game.proto.Message.TipsType;
-import com.game.proto.Message.TipsWorkType;
+
 //import com.game.proto.Message.UploadBiFenRequest;
 //import com.game.proto.Message.UserStatus;
 //import com.game.proto.Message.ValidateOpenRoomRequest;

@@ -16,13 +16,11 @@ import com.game.manager.RoomManager;
 import com.game.manager.StatusManager;
 import com.game.models.Chat;
 //import com.game.proto.Message.ChatResponse;
-import com.game.proto.Message.FollowListResponse;
-import com.game.proto.Message.NCharacter;
-import com.game.proto.Message.NItem;
+
 import com.game.proto.C2GNet.ChatResponse;
 import com.game.proto.C2GNet.NRoom;
 import com.game.proto.C2GNet.NUser;
-import com.game.proto.Message.NUserStatusChange;
+
 import com.game.proto.C2GNet.NetMessageResponse;
 import com.game.proto.C2GNet.StatusNotify;
 
@@ -64,7 +62,7 @@ public class User {
     public Map<Integer, Character> characters=null;  //所有角色信息
     public Character character; //模型属性
     public int fenSiCount;  //粉丝数量
-    public int roomId; //房间id
+    public int roomId=0; //房间id
     public int teamId;
     private UserStatus status=UserStatus.Normal;  //用户状态
     public long matchTime;  //匹配时间

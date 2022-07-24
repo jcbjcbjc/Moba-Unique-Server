@@ -118,5 +118,4 @@ public class BattleServiceImpl implements BattleService {
 		response.setRepairFrameRes(repairFrameResponseBuilder);
 //		conn.send();
 	}
-
 }

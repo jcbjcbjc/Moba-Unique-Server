@@ -4,7 +4,7 @@ import com.game.entity.Character;
 import com.game.entity.Follow;
 import com.game.entity.User;
 import com.game.network.NetConnection;
-import com.game.proto.Message;
+
 import com.game.proto.C2GNet.NUser;
 //import com.game.proto.Message.NUser;
 import com.game.spring.DBUtil;

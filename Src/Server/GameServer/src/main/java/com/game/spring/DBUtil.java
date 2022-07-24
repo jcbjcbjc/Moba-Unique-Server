@@ -4,7 +4,7 @@ import com.game.dao.*;
 import com.game.entity.Character;
 import com.game.entity.Follow;
 import com.game.entity.User;
-import com.game.proto.Message;
+
 import com.game.service.FollowService;
 
 import org.springframework.stereotype.Component;

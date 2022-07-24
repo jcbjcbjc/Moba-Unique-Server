@@ -1,7 +1,7 @@
 package com.game.manager;
 
 import com.game.network.NetConnection;
-import com.game.proto.Message.HeartBeatResponse;
+
 import com.game.proto.C2GNet.NetMessageResponse;
 import com.game.proto.C2GNet.TipsResponse;
 import com.game.proto.C2GNet.TipsType;

@@ -14,27 +14,19 @@ import com.game.manager.PowerRankingManager;
 import com.game.manager.RoomManager;
 import com.game.manager.UserManager;
 import com.game.network.NetConnection;
-import com.game.proto.Message.AddAttrType;
-import com.game.proto.Message.AttrPromoteInfoResponse;
-import com.game.proto.Message.AttrPromoteRequest;
+
 import com.game.proto.C2GNet.CharacterDetailRequest;
 import com.game.proto.C2GNet.CharacterDetailResponse;
-import com.game.proto.Message.CombatPowerRankingRequest;
-import com.game.proto.Message.CombatPowerRankingResponse;
+
 import com.game.proto.C2GNet.FollowRequest;
 import com.game.proto.C2GNet.FollowResponse;
 import com.game.proto.C2GNet.HeartBeatRequest;
 import com.game.proto.C2GNet.HeartBeatResponse;
-import com.game.proto.Message.ItemType;
-import com.game.proto.Message.NItem;
+
 import com.game.proto.C2GNet.NUser;
 import com.game.proto.C2GNet.NetMessageResponse;
 import com.game.proto.C2GNet.Result;
-import com.game.proto.Message.SwitchCharacterRequest;
-import com.game.proto.Message.SwitchCharacterResponse;
-import com.game.proto.Message.UnLockCharacter;
-import com.game.proto.Message.UnLockRequest;
-import com.game.proto.Message.UnLockResponse;
+
 import com.game.proto.C2GNet.UpdateNickNameRequest;
 import com.game.proto.C2GNet.UpdateNickNameResponse;
 import com.game.proto.C2GNet.UserLoginRequest;
@@ -207,6 +199,7 @@ public class UserServiceImpl implements UserService {
 		User user = connection.getSession().user;
 		NetMessageResponse.Builder response = connection.getResponse();
 		HeartBeatResponse.Builder heartBeatResponse = HeartBeatResponse.newBuilder();
+		if(user==null) return;
 		if (user.roomId != 0) {
 			heartBeatResponse.setLiveFenSiCount(user.liveFanSiIdList.size());
 		}

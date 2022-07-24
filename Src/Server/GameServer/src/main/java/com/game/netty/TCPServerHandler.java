@@ -1,5 +1,6 @@
 package com.game.netty;
 
+import com.game.manager.MatchManager;
 import com.game.network.MessageDispatch;
 import com.game.network.NetConnection;
 import com.game.proto.C2GNet;
@@ -12,6 +13,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
@@ -33,6 +35,7 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChann
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+
 
         ByteBuf Buf=(ByteBuf) msg;
 
