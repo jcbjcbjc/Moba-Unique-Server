@@ -29,8 +29,6 @@ public class BattleMobaApplication implements CommandLineRunner {
 		UpdateService updateService = context.getBean(UpdateService.class);
 		updateService.update(100);
 
-
-
 	}
 
 	@Async
