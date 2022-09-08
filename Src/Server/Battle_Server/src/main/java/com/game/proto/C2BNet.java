@@ -5002,7 +5002,7 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional float optValue1 = 4;</code>
+     * <code>optional int32 optValue1 = 4;</code>
      * @return Whether the optValue1 field is set.
      */
     boolean hasOptValue1();
@@ -5011,17 +5011,17 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional float optValue1 = 4;</code>
+     * <code>optional int32 optValue1 = 4;</code>
      * @return The optValue1.
      */
-    float getOptValue1();
+    int getOptValue1();
 
     /**
      * <pre>
      *值2
      * </pre>
      *
-     * <code>optional float optValue2 = 5;</code>
+     * <code>optional int32 optValue2 = 5;</code>
      * @return Whether the optValue2 field is set.
      */
     boolean hasOptValue2();
@@ -5030,26 +5030,26 @@ public final class C2BNet {
      *值2
      * </pre>
      *
-     * <code>optional float optValue2 = 5;</code>
+     * <code>optional int32 optValue2 = 5;</code>
      * @return The optValue2.
      */
-    float getOptValue2();
+    int getOptValue2();
 
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @return A list containing the optDetail.
      */
-    java.util.List<java.lang.Float> getOptDetailList();
+    java.util.List<java.lang.Integer> getOptDetailList();
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @return The count of optDetail.
      */
     int getOptDetailCount();
@@ -5058,11 +5058,11 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @param index The index of the element to return.
      * @return The optDetail at the given index.
      */
-    float getOptDetail(int index);
+    int getOptDetail(int index);
   }
   /**
    * Protobuf type {@code FrameHandle}
@@ -5077,7 +5077,7 @@ public final class C2BNet {
       super(builder);
     }
     private FrameHandle() {
-      optDetail_ = emptyFloatList();
+      optDetail_ = emptyIntList();
     }
 
     @java.lang.Override
@@ -5126,33 +5126,33 @@ public final class C2BNet {
               opretionId_ = input.readInt32();
               break;
             }
-            case 37: {
+            case 32: {
               bitField0_ |= 0x00000008;
-              optValue1_ = input.readFloat();
+              optValue1_ = input.readInt32();
               break;
             }
-            case 45: {
+            case 40: {
               bitField0_ |= 0x00000010;
-              optValue2_ = input.readFloat();
+              optValue2_ = input.readInt32();
               break;
             }
-            case 53: {
+            case 48: {
               if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                optDetail_ = newFloatList();
+                optDetail_ = newIntList();
                 mutable_bitField0_ |= 0x00000020;
               }
-              optDetail_.addFloat(input.readFloat());
+              optDetail_.addInt(input.readInt32());
               break;
             }
             case 50: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-                optDetail_ = newFloatList();
+                optDetail_ = newIntList();
                 mutable_bitField0_ |= 0x00000020;
               }
               while (input.getBytesUntilLimit() > 0) {
-                optDetail_.addFloat(input.readFloat());
+                optDetail_.addInt(input.readInt32());
               }
               input.popLimit(limit);
               break;
@@ -5269,13 +5269,13 @@ public final class C2BNet {
     }
 
     public static final int OPTVALUE1_FIELD_NUMBER = 4;
-    private float optValue1_;
+    private int optValue1_;
     /**
      * <pre>
      *值1
      * </pre>
      *
-     * <code>optional float optValue1 = 4;</code>
+     * <code>optional int32 optValue1 = 4;</code>
      * @return Whether the optValue1 field is set.
      */
     @java.lang.Override
@@ -5287,22 +5287,22 @@ public final class C2BNet {
      *值1
      * </pre>
      *
-     * <code>optional float optValue1 = 4;</code>
+     * <code>optional int32 optValue1 = 4;</code>
      * @return The optValue1.
      */
     @java.lang.Override
-    public float getOptValue1() {
+    public int getOptValue1() {
       return optValue1_;
     }
 
     public static final int OPTVALUE2_FIELD_NUMBER = 5;
-    private float optValue2_;
+    private int optValue2_;
     /**
      * <pre>
      *值2
      * </pre>
      *
-     * <code>optional float optValue2 = 5;</code>
+     * <code>optional int32 optValue2 = 5;</code>
      * @return Whether the optValue2 field is set.
      */
     @java.lang.Override
@@ -5314,26 +5314,26 @@ public final class C2BNet {
      *值2
      * </pre>
      *
-     * <code>optional float optValue2 = 5;</code>
+     * <code>optional int32 optValue2 = 5;</code>
      * @return The optValue2.
      */
     @java.lang.Override
-    public float getOptValue2() {
+    public int getOptValue2() {
       return optValue2_;
     }
 
     public static final int OPTDETAIL_FIELD_NUMBER = 6;
-    private com.google.protobuf.Internal.FloatList optDetail_;
+    private com.google.protobuf.Internal.IntList optDetail_;
     /**
      * <pre>
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @return A list containing the optDetail.
      */
     @java.lang.Override
-    public java.util.List<java.lang.Float>
+    public java.util.List<java.lang.Integer>
         getOptDetailList() {
       return optDetail_;
     }
@@ -5342,7 +5342,7 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @return The count of optDetail.
      */
     public int getOptDetailCount() {
@@ -5353,12 +5353,12 @@ public final class C2BNet {
      *值3
      * </pre>
      *
-     * <code>repeated float optDetail = 6;</code>
+     * <code>repeated int32 optDetail = 6;</code>
      * @param index The index of the element to return.
      * @return The optDetail at the given index.
      */
-    public float getOptDetail(int index) {
-      return optDetail_.getFloat(index);
+    public int getOptDetail(int index) {
+      return optDetail_.getInt(index);
     }
     private int optDetailMemoizedSerializedSize = -1;
 
@@ -5387,17 +5387,17 @@ public final class C2BNet {
         output.writeInt32(3, opretionId_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeFloat(4, optValue1_);
+        output.writeInt32(4, optValue1_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeFloat(5, optValue2_);
+        output.writeInt32(5, optValue2_);
       }
       if (getOptDetailList().size() > 0) {
         output.writeUInt32NoTag(50);
         output.writeUInt32NoTag(optDetailMemoizedSerializedSize);
       }
       for (int i = 0; i < optDetail_.size(); i++) {
-        output.writeFloatNoTag(optDetail_.getFloat(i));
+        output.writeInt32NoTag(optDetail_.getInt(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5422,15 +5422,18 @@ public final class C2BNet {
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, optValue1_);
+          .computeInt32Size(4, optValue1_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(5, optValue2_);
+          .computeInt32Size(5, optValue2_);
       }
       {
         int dataSize = 0;
-        dataSize = 4 * getOptDetailList().size();
+        for (int i = 0; i < optDetail_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(optDetail_.getInt(i));
+        }
         size += dataSize;
         if (!getOptDetailList().isEmpty()) {
           size += 1;
@@ -5471,15 +5474,13 @@ public final class C2BNet {
       }
       if (hasOptValue1() != other.hasOptValue1()) return false;
       if (hasOptValue1()) {
-        if (java.lang.Float.floatToIntBits(getOptValue1())
-            != java.lang.Float.floatToIntBits(
-                other.getOptValue1())) return false;
+        if (getOptValue1()
+            != other.getOptValue1()) return false;
       }
       if (hasOptValue2() != other.hasOptValue2()) return false;
       if (hasOptValue2()) {
-        if (java.lang.Float.floatToIntBits(getOptValue2())
-            != java.lang.Float.floatToIntBits(
-                other.getOptValue2())) return false;
+        if (getOptValue2()
+            != other.getOptValue2()) return false;
       }
       if (!getOptDetailList()
           .equals(other.getOptDetailList())) return false;
@@ -5508,13 +5509,11 @@ public final class C2BNet {
       }
       if (hasOptValue1()) {
         hash = (37 * hash) + OPTVALUE1_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getOptValue1());
+        hash = (53 * hash) + getOptValue1();
       }
       if (hasOptValue2()) {
         hash = (37 * hash) + OPTVALUE2_FIELD_NUMBER;
-        hash = (53 * hash) + java.lang.Float.floatToIntBits(
-            getOptValue2());
+        hash = (53 * hash) + getOptValue2();
       }
       if (getOptDetailCount() > 0) {
         hash = (37 * hash) + OPTDETAIL_FIELD_NUMBER;
@@ -5659,11 +5658,11 @@ public final class C2BNet {
         bitField0_ = (bitField0_ & ~0x00000002);
         opretionId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        optValue1_ = 0F;
+        optValue1_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        optValue2_ = 0F;
+        optValue2_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        optDetail_ = emptyFloatList();
+        optDetail_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
@@ -5971,13 +5970,13 @@ public final class C2BNet {
         return this;
       }
 
-      private float optValue1_ ;
+      private int optValue1_ ;
       /**
        * <pre>
        *值1
        * </pre>
        *
-       * <code>optional float optValue1 = 4;</code>
+       * <code>optional int32 optValue1 = 4;</code>
        * @return Whether the optValue1 field is set.
        */
       @java.lang.Override
@@ -5989,11 +5988,11 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional float optValue1 = 4;</code>
+       * <code>optional int32 optValue1 = 4;</code>
        * @return The optValue1.
        */
       @java.lang.Override
-      public float getOptValue1() {
+      public int getOptValue1() {
         return optValue1_;
       }
       /**
@@ -6001,11 +6000,11 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional float optValue1 = 4;</code>
+       * <code>optional int32 optValue1 = 4;</code>
        * @param value The optValue1 to set.
        * @return This builder for chaining.
        */
-      public Builder setOptValue1(float value) {
+      public Builder setOptValue1(int value) {
         bitField0_ |= 0x00000008;
         optValue1_ = value;
         onChanged();
@@ -6016,23 +6015,23 @@ public final class C2BNet {
        *值1
        * </pre>
        *
-       * <code>optional float optValue1 = 4;</code>
+       * <code>optional int32 optValue1 = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptValue1() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        optValue1_ = 0F;
+        optValue1_ = 0;
         onChanged();
         return this;
       }
 
-      private float optValue2_ ;
+      private int optValue2_ ;
       /**
        * <pre>
        *值2
        * </pre>
        *
-       * <code>optional float optValue2 = 5;</code>
+       * <code>optional int32 optValue2 = 5;</code>
        * @return Whether the optValue2 field is set.
        */
       @java.lang.Override
@@ -6044,11 +6043,11 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional float optValue2 = 5;</code>
+       * <code>optional int32 optValue2 = 5;</code>
        * @return The optValue2.
        */
       @java.lang.Override
-      public float getOptValue2() {
+      public int getOptValue2() {
         return optValue2_;
       }
       /**
@@ -6056,11 +6055,11 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional float optValue2 = 5;</code>
+       * <code>optional int32 optValue2 = 5;</code>
        * @param value The optValue2 to set.
        * @return This builder for chaining.
        */
-      public Builder setOptValue2(float value) {
+      public Builder setOptValue2(int value) {
         bitField0_ |= 0x00000010;
         optValue2_ = value;
         onChanged();
@@ -6071,17 +6070,17 @@ public final class C2BNet {
        *值2
        * </pre>
        *
-       * <code>optional float optValue2 = 5;</code>
+       * <code>optional int32 optValue2 = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptValue2() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        optValue2_ = 0F;
+        optValue2_ = 0;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList optDetail_ = emptyFloatList();
+      private com.google.protobuf.Internal.IntList optDetail_ = emptyIntList();
       private void ensureOptDetailIsMutable() {
         if (!((bitField0_ & 0x00000020) != 0)) {
           optDetail_ = mutableCopy(optDetail_);
@@ -6093,10 +6092,10 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @return A list containing the optDetail.
        */
-      public java.util.List<java.lang.Float>
+      public java.util.List<java.lang.Integer>
           getOptDetailList() {
         return ((bitField0_ & 0x00000020) != 0) ?
                  java.util.Collections.unmodifiableList(optDetail_) : optDetail_;
@@ -6106,7 +6105,7 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @return The count of optDetail.
        */
       public int getOptDetailCount() {
@@ -6117,27 +6116,27 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @param index The index of the element to return.
        * @return The optDetail at the given index.
        */
-      public float getOptDetail(int index) {
-        return optDetail_.getFloat(index);
+      public int getOptDetail(int index) {
+        return optDetail_.getInt(index);
       }
       /**
        * <pre>
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @param index The index to set the value at.
        * @param value The optDetail to set.
        * @return This builder for chaining.
        */
       public Builder setOptDetail(
-          int index, float value) {
+          int index, int value) {
         ensureOptDetailIsMutable();
-        optDetail_.setFloat(index, value);
+        optDetail_.setInt(index, value);
         onChanged();
         return this;
       }
@@ -6146,13 +6145,13 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @param value The optDetail to add.
        * @return This builder for chaining.
        */
-      public Builder addOptDetail(float value) {
+      public Builder addOptDetail(int value) {
         ensureOptDetailIsMutable();
-        optDetail_.addFloat(value);
+        optDetail_.addInt(value);
         onChanged();
         return this;
       }
@@ -6161,12 +6160,12 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @param values The optDetail to add.
        * @return This builder for chaining.
        */
       public Builder addAllOptDetail(
-          java.lang.Iterable<? extends java.lang.Float> values) {
+          java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureOptDetailIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, optDetail_);
@@ -6178,11 +6177,11 @@ public final class C2BNet {
        *值3
        * </pre>
        *
-       * <code>repeated float optDetail = 6;</code>
+       * <code>repeated int32 optDetail = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearOptDetail() {
-        optDetail_ = emptyFloatList();
+        optDetail_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
@@ -13686,8 +13685,8 @@ public final class C2BNet {
       "t\"\023\n\021HeartBeatResponse\"\316\001\n\013FrameHandle\022\023" +
       "\n\006userId\030\001 \001(\005H\000\210\001\001\022\020\n\003opt\030\002 \001(\005H\001\210\001\001\022\027\n" +
       "\nOpretionId\030\003 \001(\005H\002\210\001\001\022\026\n\toptValue1\030\004 \001(" +
-      "\002H\003\210\001\001\022\026\n\toptValue2\030\005 \001(\002H\004\210\001\001\022\021\n\toptDet" +
-      "ail\030\006 \003(\002B\t\n\007_userIdB\006\n\004_optB\r\n\013_Opretio" +
+      "\005H\003\210\001\001\022\026\n\toptValue2\030\005 \001(\005H\004\210\001\001\022\021\n\toptDet" +
+      "ail\030\006 \003(\005B\t\n\007_userIdB\006\n\004_optB\r\n\013_Opretio" +
       "nIdB\014\n\n_optValue1B\014\n\n_optValue2\"W\n\023Frame" +
       "HandleResponse\022\022\n\005frame\030\001 \001(\005H\000\210\001\001\022\"\n\014fr" +
       "ameHandles\030\002 \003(\0132\014.FrameHandleB\010\n\006_frame" +
