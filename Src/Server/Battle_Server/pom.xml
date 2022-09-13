@@ -7,18 +7,13 @@
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Battle_Server</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <java.version>1.8</java.version>
     </properties>
-
-
     <dependencies>
 
         <dependency>
@@ -150,7 +145,7 @@
         </resources> -->
         <resources>
             <resource>
-                <directory>../Battle_Server/src/main/resources</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**</include>
                 </includes>

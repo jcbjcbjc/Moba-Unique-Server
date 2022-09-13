@@ -12,8 +12,7 @@
     <artifactId>Game_Server</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <!--KCP-->
@@ -164,7 +163,7 @@
 
                 <configuration>
                     <!-- 注意最下面的一定要配置否则打jar的时候会说找不 到主类 -->
-                    <mainClass>com.game.BattleMobaApplication</mainClass>
+                    <mainClass>com.game.MobaApplication</mainClass>
                 </configuration>
             </plugin>
             <!-- plugins 下-->

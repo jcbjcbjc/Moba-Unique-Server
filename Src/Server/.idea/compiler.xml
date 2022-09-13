@@ -12,6 +12,13 @@
         <module name="Common" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Battle_Server" target="1.8" />
+      <module name="Common" target="1.8" />
+      <module name="Game_Server" target="1.8" />
+      <module name="Login_Server" target="1.8" />
+      <module name="Server" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

@@ -44,7 +44,9 @@ public class MatchManager {
 	//有房间用户集合  key:用户id
 //	public List<User> haveRoomUserList = Collections.synchronizedList(new ArrayList<User>());
 	MatchService matchService;
-	public int gameOverMs=2*60*60*1000;  //游戏超时毫秒 2小时
+	//TODO test
+	public int gameOverMs=2*10;  //游戏超时毫秒 2小时
+	//public int gameOverMs=2*60*60*1000;  //游戏超时毫秒 2小时
 	
 	public MatchManager() {
 		matchService = SpringBeanUtil.getBean(MatchService.class);
