@@ -39,7 +39,7 @@ P3 = (3, 2, 1)
 
 
 ### 3 JAVA帧同步服务器后端框架实现及性能分析
-网关层：反向代理，负责与客户端连接
+login层：负责选择区服
 Game层：一个Game服务器就为一个区服
 Battle层：负责战斗的独立服务器
 ![image](https://user-images.githubusercontent.com/91889375/164408950-0cd0c680-0bd4-447f-a9da-43ba0122b120.png)
@@ -93,6 +93,11 @@ Battle层：负责战斗的独立服务器
        如果想改绑定端口的话可以自行修改 要开多个BattleServer的话在GameServer里加上IP地址即可
 
 ###  7 更新日志
+###  8 更新计划
+1，增加redis集群和mysql集群
+2，使用分布式数据库解决分区问题
+3，拆分Game层，形成多进程结构，以restful调用为基础构建完整的通信机制
+
 
 
 
