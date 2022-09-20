@@ -73,5 +73,4 @@ public class NetConnectionKCP {
     public void send(C2BNet.C2BNetMessageResponse.Builder message2) {
         this.kcp.write(Unpooled.wrappedBuffer(message2.build().toByteArray()));
     }
-
 }

@@ -32,7 +32,7 @@ public class MessageDispatch {
 	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 		int userId=message.getUserId();
 		User battleUser=userManager.getuser(userId) ;  //对战用户
-		User liveUser=userManager.getliveuser(userId) ;  //直播用户
+		User liveUser=userManager.liveUsers.get(userId) ;  //直播用户
 		if(battleUser==null && liveUser==null) {  //非法请求
 			System.out.println("非法请求");
 			return;

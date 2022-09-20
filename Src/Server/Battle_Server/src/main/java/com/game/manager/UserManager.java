@@ -30,6 +30,7 @@ public class UserManager {
 	}
 
 	public void adduser(int userId,User user){
+
 		users.put(userId, user);
 	}
 
@@ -38,6 +39,7 @@ public class UserManager {
 	}
 
 	public User getuser(int userId){
+
 		return users.get(userId);
 	}
 

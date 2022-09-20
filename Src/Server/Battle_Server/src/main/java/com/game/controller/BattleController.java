@@ -49,7 +49,8 @@ public class BattleController {
 		}
     	RoomManager.Instance.GameOver(battleUserVo.roomId);
     	RoomManager.Instance.rooms.put(battleUserVo.roomId, new Room(battleUserVo.roomId, userList));
-    	return new ResultInfo(Message.Result.Success, "");
+		System.out.println("RoomId: " + battleUserVo.roomId + "has been created");
+		return new ResultInfo(Message.Result.Success, "");
     }
     
 	/**

@@ -121,6 +121,7 @@ public class Room {
 	 * 游戏结束
 	 */
 	public void GameOver() {
+		System.out.println("gameover");
 		RoomManager.Instance.GameOver(id);
 	}
 

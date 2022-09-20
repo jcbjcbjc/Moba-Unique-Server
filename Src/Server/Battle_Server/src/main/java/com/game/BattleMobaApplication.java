@@ -39,7 +39,6 @@ public class BattleMobaApplication implements CommandLineRunner {
 		 */
 		//new CSKCPServer().bind(Config.PORT);
 		new KCPServer().bind(Config.PORT);
-
 	}
 
 }

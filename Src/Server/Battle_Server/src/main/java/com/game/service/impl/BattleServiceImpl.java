@@ -56,6 +56,7 @@ public class BattleServiceImpl implements BattleService {
 	 */
 	@Override
 	public void OnPercentForward(NetConnectionKCP connection, PercentForward percentForward) {
+		System.out.println("OnPercentForward");
 		User user=connection.user;
 		//当前资源加载成功
 		if(percentForward.getPercent() >= 100) {  
@@ -79,7 +80,7 @@ public class BattleServiceImpl implements BattleService {
 				if(conn == null) {
 					continue;
 				}
-//				System.out.println(user.id +"===="+ u.id);
+				//System.out.println(user.id +"===="+ u.id);
 				conn.send(response);
 		}
 	}
