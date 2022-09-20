@@ -171,12 +171,9 @@ public class MatchManager {
 				user.teamId=teamId;
 				RoomManager.Instance.userMap.put(user.id, user);
 				RoomUser roomUser=RoomManager.Instance.CreatorRoomUser(user,teamId);
-				roomBuilder.getAllTeam(teamId).getTeamList().add(roomUser);
-				/*if(teamType==TeamType.My) {
-					roomBuilder.addTeam1(roomUser);
-				}else {
-					roomBuilder.addTeam2(roomUser);
-				}*/
+				AllTeam.Builder allTeam=roomBuilder.getAllTeam(teamId).toBuilder();
+				allTeam.addTeam(roomUser);
+				roomBuilder.addAllTeam(teamId,allTeam);
 			}
 		}
 	}
@@ -194,8 +191,11 @@ public class MatchManager {
     		roomBuilder.setRoomId(RoomManager.Instance.GetRoomId());
 			AllTeam.Builder Team1=AllTeam.newBuilder();
 			AllTeam.Builder Team2=AllTeam.newBuilder();
+
 			roomBuilder.addAllTeam(Team1);
 			roomBuilder.addAllTeam(Team2);
+
+
     		//开始匹配
     		this.RoomMatch(roomBuilder);
     	}
@@ -234,12 +234,12 @@ public class MatchManager {
 			 RoomManager.Instance.RemoveUserMapByRoom(roomBuilder);
 		  }
 	  //匹配响应
-	  for (RoomUser roomUser : roomBuilder.getAllTeam(0).getTeamList()) {
-		  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
-	  }
-	  for (RoomUser roomUser : roomBuilder.getAllTeam(1).getTeamList()) {
-		  matchService.OnMatchResponse(roomUser.getUserId(),resultInfo, roomBuilder, false);
-	  }
+		 for (RoomUser roomUser : roomBuilder.getAllTeam(0).getTeamList()) {
+			  matchService.OnMatchResponse(roomUser.getUserId(), resultInfo, roomBuilder, false);
+		  }
+		  for (RoomUser roomUser : roomBuilder.getAllTeam(1).getTeamList()) {
+			  matchService.OnMatchResponse(roomUser.getUserId(),resultInfo, roomBuilder, false);
+		  }
 	}
     
 	

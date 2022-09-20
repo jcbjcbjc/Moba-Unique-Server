@@ -50,7 +50,7 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChann
             offset = 0;
         }
         C2GNet.C2GNetMessage nm = C2GNet.C2GNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
-        System.out.println(nm);
+        //System.out.println(nm);
         MessageDispatch.Instance.receiveData(ctx, nm.toBuilder());
     }
 

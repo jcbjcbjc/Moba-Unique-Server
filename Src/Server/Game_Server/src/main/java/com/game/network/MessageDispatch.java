@@ -67,7 +67,7 @@ public class MessageDispatch {
         }*/
 
         if (message.getRequest().hasHeartBeatReq()) {
-            System.out.println("收到心跳 请求");
+            //System.out.println("收到心跳 请求");
             userService.heartBeat(conn, message.getRequest().getHeartBeatReq());
         }
 

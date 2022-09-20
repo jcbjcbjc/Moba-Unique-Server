@@ -14,9 +14,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Battle_Server" target="1.8" />
-      <module name="Common" target="1.8" />
+      <module name="Common" target="11" />
       <module name="Game_Server" target="1.8" />
-      <module name="Login_Server" target="1.8" />
+      <module name="Login_Server" target="11" />
       <module name="Server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
