@@ -13,7 +13,7 @@ public class NetConnection {
         this.ctx = ctx;
         this.user=user;
     }
-
+    private C2BNet.C2BNetMessage.Builder netMessage= C2BNet.C2BNetMessage.newBuilder();
     private C2BNet.C2BNetMessageResponse.Builder message;
 
     public C2BNet.C2BNetMessageResponse.Builder getResponse() {
@@ -32,7 +32,9 @@ public class NetConnection {
             message.setFrameHandleRes(message2.getFrameHandleRes());
             this.send();
         }else {
-            ctx.writeAndFlush(message2);
+            netMessage.setResponse(message2);
+            ctx.writeAndFlush(netMessage);
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
 
@@ -45,19 +47,23 @@ public class NetConnection {
             message.setLiveFrameRes(message2.getLiveFrameRes());
             this.send();
         }else {
-            ctx.writeAndFlush(message2);
+            netMessage.setResponse(message2);
+            ctx.writeAndFlush(netMessage);
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
 
     public void send() {
         if(message != null) {
-            ctx.writeAndFlush(message);
+            netMessage.setResponse(message);
+            ctx.writeAndFlush(netMessage);
             message=null;
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
 
 
-    public void send(C2BNet.C2BNetMessageResponse.Builder message2) {
+    public void send(C2BNet.C2BNetMessage.Builder message2) {
         ctx.writeAndFlush(message2);
     }
 }

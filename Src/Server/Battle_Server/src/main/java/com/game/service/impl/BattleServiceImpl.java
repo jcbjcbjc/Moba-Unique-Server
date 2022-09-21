@@ -56,11 +56,10 @@ public class BattleServiceImpl implements BattleService {
 	 */
 	@Override
 	public void OnPercentForward(NetConnection connection, PercentForward percentForward) {
-		System.out.println("OnPercentForward");
 		User user=connection.user;
 		//当前资源加载成功
-		if(percentForward.getPercent() >= 100) {  
-			user.userStatus=UserStatus.resourcesLoadSucess;  
+		if(percentForward.getPercent() >= 100) {
+			user.userStatus=UserStatus.resourcesLoadSucess;
 		}
 		//将当前用户加载进度转发其它人
 		Room room=RoomManager.Instance.rooms.get(user.rooomId);
@@ -74,14 +73,17 @@ public class BattleServiceImpl implements BattleService {
 		
 		C2BNetMessageResponse.Builder response=C2BNetMessageResponse.newBuilder();
 		response.setPercentForwardRes(percentForwardBuilder);
-		
+
+		C2BNet.C2BNetMessage.Builder net=C2BNet.C2BNetMessage.newBuilder();
+		net.setResponse(response);
+
 		for (User u : room.users) {
 				NetConnection conn= ConnectionManager.getConnection(u.id);
 				if(conn == null) {
 					continue;
 				}
 				//System.out.println(user.id +"===="+ u.id);
-				conn.send(response);
+				conn.send(net);
 		}
 	}
 

@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
-import com.game.manager.ConnectionManagerKCP;
-import com.game.network.NetConnectionKCP;
+
+import com.game.network.NetConnection;
+
+import com.game.proto.C2BNet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,10 +84,12 @@ public class BattleRoomThread extends Thread{
 				this.setFrameData();
 				//下发房间用户当前帧所有用户的操作
 				for (User user: room.users) {
-					NetConnectionKCP conn= ConnectionManagerKCP.getConnection(user.id);
+					NetConnection conn= ConnectionManager.getConnection(user.id);
 					if(conn==null) {
 						continue;
 					}
+
+
 					conn.sendFrameHandleRes(response);
 				}
 				

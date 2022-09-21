@@ -30,7 +30,7 @@ public class Room {
 	public int id; // 房间id
 	public List<User> users; // 用户集合
 	public long createTime = 0; // 创建时间
-	public int loadResOverMs = 2000;// 60000; //加载资源超时毫秒 1分钟
+	public int loadResOverMs = 60000; //加载资源超时毫秒 1分钟
 	public int gameOverMs = 2 * 60 * 60 * 1000; // 游戏超时毫秒 2小时
 	//public int overNum = 2; // 游戏结束人数判断
 	public int startSleepMs = 10 * 1000; // 开始休眠毫秒
@@ -74,6 +74,7 @@ public class Room {
 	public synchronized boolean ValidateAllUserLoadSucess() {
 		boolean isLoadSucess = true;
 		// 判断是否超时
+
 		if (!this.getMatchOverMsFlag()) { // 未超时
 			// 判断用户资源是否加载成功
 			for (User user : users) {
@@ -152,6 +153,7 @@ public class Room {
 
 			// 获取线程池对象
 			ExecutorService cachedThreadPool = CachedThreadPoolUtil.instance();
+			System.out.println("StartRoomThread");
 			cachedThreadPool.execute(new BattleRoomThread(this));
 		}
 	}

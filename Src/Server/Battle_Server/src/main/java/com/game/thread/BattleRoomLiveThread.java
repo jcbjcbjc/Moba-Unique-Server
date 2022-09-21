@@ -5,7 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.game.manager.ConnectionManagerKCP;
+
+import com.game.network.NetConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +70,7 @@ public class BattleRoomLiveThread extends Thread{
 						response.setLiveFrameRes(liveFrameResponseBuilder);
 						
 						for (User user: liveUsers) {
-							NetConnectionKCP conn= ConnectionManagerKCP.getConnection(user.id);
+							NetConnection conn= ConnectionManager.getConnection(user.id);
 							if(conn==null) {
 								continue;
 							}
