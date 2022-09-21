@@ -1,7 +1,6 @@
 package com.game.network;
 
 import com.game.manager.ConnectionManager;
-import com.game.manager.ConnectionManagerKCP;
 import com.game.manager.UserManager;
 import com.game.models.User;
 //import com.game.proto.Message;
@@ -26,24 +25,20 @@ public class MessageDispatch {
     public static MessageDispatch Instance=new MessageDispatch();
 
     public void DispatchData(ChannelHandlerContext ctx, C2BNet.C2BNetMessageRequest message) {
-
-        
-    }
-	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 		int userId=message.getUserId();
-		User battleUser=userManager.getuser(userId) ;  //对战用户
-		User liveUser=userManager.liveUsers.get(userId) ;  //直播用户
+		User battleUser=userManager.users.get(userId);  //对战用户
+		User liveUser=userManager.liveUsers.get(userId);  //直播用户
 		if(battleUser==null && liveUser==null) {  //非法请求
 			System.out.println("非法请求");
 			return;
 		}
 
-		NetConnectionKCP conn= ConnectionManagerKCP.getConnection(userId);
+		NetConnection conn=ConnectionManager.getConnection(userId);
 		if (conn == null) {
-			conn=new NetConnectionKCP( battleUser != null ? battleUser : liveUser,kcp);
-			ConnectionManagerKCP.addToConnection(userId, conn);
+			conn=new NetConnection(ctx, battleUser != null ? battleUser : liveUser);
+			ConnectionManager.addToConnection(userId, conn);
 		}else {
-			conn.kcp=kcp;
+			conn.ctx=ctx;
 		}
 
 		//帧操作请求
@@ -70,12 +65,8 @@ public class MessageDispatch {
 			return;
 		}
 
-		if(message.hasHeartBeatRequest()){
-            User user = conn.user;
-            C2BNet.C2BNetMessageResponse.Builder response = conn.getResponse();
-            C2BNet.HeartBeatResponse.Builder heartBeatResponse = C2BNet.HeartBeatResponse.newBuilder();
-            response.setHeartBeatRes(heartBeatResponse);
-            conn.send();
-		}
+
+	}
+	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 	}
 }

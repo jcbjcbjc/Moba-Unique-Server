@@ -3,8 +3,8 @@ package com.game.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.game.manager.ConnectionManagerKCP;
-import com.game.network.NetConnectionKCP;
+import com.game.network.NetConnection;
+
 import com.game.network.NetConnectionWebSocket;
 import com.game.proto.C2BNet;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class BattleServiceImpl implements BattleService {
 	 * 帧操作
 	 */
 	@Override
-	public void OnFrameHandle(NetConnectionKCP connection, C2BNet.FrameHandlesFromClient frameHandles) {
+	public void OnFrameHandle(NetConnection connection, C2BNet.FrameHandlesFromClient frameHandles) {
 		User user=connection.user;
 		Room room=RoomManager.Instance.rooms.get(user.rooomId);
 		if(room==null) {
@@ -55,7 +55,7 @@ public class BattleServiceImpl implements BattleService {
 	 * 进度转发
 	 */
 	@Override
-	public void OnPercentForward(NetConnectionKCP connection, PercentForward percentForward) {
+	public void OnPercentForward(NetConnection connection, PercentForward percentForward) {
 		System.out.println("OnPercentForward");
 		User user=connection.user;
 		//当前资源加载成功
@@ -76,7 +76,7 @@ public class BattleServiceImpl implements BattleService {
 		response.setPercentForwardRes(percentForwardBuilder);
 		
 		for (User u : room.users) {
-				NetConnectionKCP conn= ConnectionManagerKCP.getConnection(u.id);
+				NetConnection conn= ConnectionManager.getConnection(u.id);
 				if(conn == null) {
 					continue;
 				}
@@ -89,7 +89,7 @@ public class BattleServiceImpl implements BattleService {
 	 * 游戏结束
 	 */
 	@Override
-	public void OnGameOver(NetConnectionKCP connection, GameOverRequest gameOverRequest) {
+	public void OnGameOver(NetConnection connection, GameOverRequest gameOverRequest) {
 		User user=connection.user;
 		user.userStatus=UserStatus.GameOver;
 		Room room=RoomManager.Instance.rooms.get(user.rooomId);
@@ -103,7 +103,7 @@ public class BattleServiceImpl implements BattleService {
 	 * 补帧
 	 */
 	@Override
-	public void OnRepairFrame(NetConnectionKCP conn, RepairFrameRequest repairFrameRequest) {
+	public void OnRepairFrame(NetConnection conn, RepairFrameRequest repairFrameRequest) {
 		User user=conn.user;
 		Room room=RoomManager.Instance.rooms.get(user.rooomId);
 		if(room==null) {
@@ -117,6 +117,6 @@ public class BattleServiceImpl implements BattleService {
 		repairFrameResponseBuilder.addAllRepairFrames(rangeFrameList);
 		C2BNetMessageResponse.Builder response=conn.getResponse();
 		response.setRepairFrameRes(repairFrameResponseBuilder);
-//		conn.send();
+//		conn.send()
 	}
 }
