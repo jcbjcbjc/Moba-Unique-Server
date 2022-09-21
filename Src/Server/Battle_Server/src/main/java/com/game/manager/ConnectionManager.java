@@ -53,13 +53,15 @@ public class ConnectionManager {
         conns.remove(userId);
         if(netConnection != null) {
             ctxs.remove(netConnection.ctx);
+            System.out.println("玩家id: " + userId + "断开连接");
             netConnection.ctx.close();
         }
     }
 
     public static NetConnection getConnection(int userId) {
         return conns.get(userId);
-
     }
-
+    public static int GetUserID(ChannelHandlerContext ctx){
+        return ctxs.get(ctx);
+    }
 }

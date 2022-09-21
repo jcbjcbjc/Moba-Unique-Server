@@ -48,7 +48,6 @@ public class BattleServiceImpl implements BattleService {
 		for(FrameHandle fh : frameHandles.getFrameHandlesList() ){
 			room.AddUserFrameHandle(user.id, fh);
 		}
-
 	}
 
 	/**

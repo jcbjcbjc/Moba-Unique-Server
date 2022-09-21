@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
 
+import com.game.enums.UserStatus;
 import com.game.network.NetConnection;
 
 import com.game.proto.C2BNet;
@@ -74,9 +75,9 @@ public class BattleRoomThread extends Thread{
 		} catch (Exception e) {
 			logger.error("异常",e);
 		}
-		//开直播线程
-		ExecutorService cachedThreadPool = CachedThreadPoolUtil.instance();
-        cachedThreadPool.execute(new BattleRoomLiveThread(this.room));
+		//开观战线程
+		//ExecutorService cachedThreadPool = CachedThreadPoolUtil.instance();
+        //cachedThreadPool.execute(new BattleRoomLiveThread(this.room));
 		while(true) {
 			try {
 				Thread.sleep(Config.FPS);  
@@ -85,17 +86,20 @@ public class BattleRoomThread extends Thread{
 				//下发房间用户当前帧所有用户的操作
 				for (User user: room.users) {
 					NetConnection conn= ConnectionManager.getConnection(user.id);
+
 					if(conn==null) {
 						continue;
 					}
-
-
 					conn.sendFrameHandleRes(response);
 				}
 				
 				room.currentFramId++;  //帧号+1
+				if(room.users.isEmpty()){
+					room.isGameOver=true;
+				}
 				if(room.isGameOver) { //游戏结束退出线程
 					logger.error("房间id:"+room.id+"，游戏正常结束");
+					room.GameOver();
 					room.overFramId = room.currentFramId;
 					return;
 				}

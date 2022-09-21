@@ -28,6 +28,7 @@ public class RoomManager {
 	 * 游戏结束
 	 */
 	public void GameOver(int roomId) {
+		System.out.println("RoomID: "+roomId+"has been destroyed");
 		this.removeUser(rooms, roomId);
 		this.removeUser(liveRooms, roomId);
 	}
@@ -38,8 +39,19 @@ public class RoomManager {
 			room.isGameOver=true;
 			for (User user: room.users) {
 				UserManager.Instance.removeuser(user.id);
-				ConnectionManagerKCP.removeConnection(user.id);
+				ConnectionManager.removeConnection(user.id);
 			}
+		}
+	}
+	//TODO 断线重连
+	// TODO 核心离开逻辑
+	public void UserLeave(int userId){
+		User user=UserManager.Instance.users.get(userId);
+		Room room=rooms.get(user.rooomId);
+		if(room!=null){
+			room.users.remove(user);
+			UserManager.Instance.removeuser(userId);
+			ConnectionManager.removeConnection(userId);
 		}
 	}
 }
