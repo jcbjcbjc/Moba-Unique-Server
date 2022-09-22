@@ -45,13 +45,12 @@ public class RoomManager {
 	}
 	//TODO 断线重连
 	// TODO 核心离开逻辑
-	public void UserLeave(int userId){
-		User user=UserManager.Instance.users.get(userId);
+	public void removeUser(User user){
 		Room room=rooms.get(user.rooomId);
 		if(room!=null){
 			room.users.remove(user);
-			UserManager.Instance.removeuser(userId);
-			ConnectionManager.removeConnection(userId);
+			UserManager.Instance.removeuser(user.rooomId);
 		}
+
 	}
 }

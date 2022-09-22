@@ -16099,6 +16099,21 @@ public final class C2GNet {
     com.game.proto.C2GNet.FollowResponseOrBuilder getFollowResOrBuilder();
 
     /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     * @return Whether the gameOver2Res field is set.
+     */
+    boolean hasGameOver2Res();
+    /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     * @return The gameOver2Res.
+     */
+    com.game.proto.C2GNet.GameOver2Response getGameOver2Res();
+    /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     */
+    com.game.proto.C2GNet.GameOver2ResponseOrBuilder getGameOver2ResOrBuilder();
+
+    /**
      * <code>optional .UnLockResponse unLockRes = 10;</code>
      * @return Whether the unLockRes field is set.
      */
@@ -16539,9 +16554,22 @@ public final class C2GNet {
               bitField0_ |= 0x00000010;
               break;
             }
+            case 74: {
+              com.game.proto.C2GNet.GameOver2Response.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) != 0)) {
+                subBuilder = gameOver2Res_.toBuilder();
+              }
+              gameOver2Res_ = input.readMessage(com.game.proto.C2GNet.GameOver2Response.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(gameOver2Res_);
+                gameOver2Res_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
             case 82: {
               com.game.proto.C2GNet.UnLockResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000020) != 0)) {
+              if (((bitField0_ & 0x00000040) != 0)) {
                 subBuilder = unLockRes_.toBuilder();
               }
               unLockRes_ = input.readMessage(com.game.proto.C2GNet.UnLockResponse.parser(), extensionRegistry);
@@ -16549,12 +16577,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(unLockRes_);
                 unLockRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             }
             case 90: {
               com.game.proto.C2GNet.SwitchCharacterResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000040) != 0)) {
+              if (((bitField0_ & 0x00000080) != 0)) {
                 subBuilder = switchCharacterRes_.toBuilder();
               }
               switchCharacterRes_ = input.readMessage(com.game.proto.C2GNet.SwitchCharacterResponse.parser(), extensionRegistry);
@@ -16562,12 +16590,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(switchCharacterRes_);
                 switchCharacterRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               break;
             }
             case 106: {
               com.game.proto.C2GNet.UserStatusChangeResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000080) != 0)) {
+              if (((bitField0_ & 0x00000100) != 0)) {
                 subBuilder = userStatusChangeRes_.toBuilder();
               }
               userStatusChangeRes_ = input.readMessage(com.game.proto.C2GNet.UserStatusChangeResponse.parser(), extensionRegistry);
@@ -16575,12 +16603,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(userStatusChangeRes_);
                 userStatusChangeRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               break;
             }
             case 130: {
               com.game.proto.C2GNet.HeartBeatResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000100) != 0)) {
+              if (((bitField0_ & 0x00000200) != 0)) {
                 subBuilder = heartBeatRes_.toBuilder();
               }
               heartBeatRes_ = input.readMessage(com.game.proto.C2GNet.HeartBeatResponse.parser(), extensionRegistry);
@@ -16588,12 +16616,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(heartBeatRes_);
                 heartBeatRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             }
             case 162: {
               com.game.proto.C2GNet.TipsResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000200) != 0)) {
+              if (((bitField0_ & 0x00000400) != 0)) {
                 subBuilder = tipsRes_.toBuilder();
               }
               tipsRes_ = input.readMessage(com.game.proto.C2GNet.TipsResponse.parser(), extensionRegistry);
@@ -16601,12 +16629,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(tipsRes_);
                 tipsRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             }
             case 170: {
               com.game.proto.C2GNet.MyRoomResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000400) != 0)) {
+              if (((bitField0_ & 0x00000800) != 0)) {
                 subBuilder = myRoomRes_.toBuilder();
               }
               myRoomRes_ = input.readMessage(com.game.proto.C2GNet.MyRoomResponse.parser(), extensionRegistry);
@@ -16614,12 +16642,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(myRoomRes_);
                 myRoomRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000800;
               break;
             }
             case 178: {
               com.game.proto.C2GNet.InviteRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000800) != 0)) {
+              if (((bitField0_ & 0x00001000) != 0)) {
                 subBuilder = inviteReq_.toBuilder();
               }
               inviteReq_ = input.readMessage(com.game.proto.C2GNet.InviteRequest.parser(), extensionRegistry);
@@ -16627,12 +16655,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(inviteReq_);
                 inviteReq_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00001000;
               break;
             }
             case 186: {
               com.game.proto.C2GNet.InviteResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00001000) != 0)) {
+              if (((bitField0_ & 0x00002000) != 0)) {
                 subBuilder = inviteRes_.toBuilder();
               }
               inviteRes_ = input.readMessage(com.game.proto.C2GNet.InviteResponse.parser(), extensionRegistry);
@@ -16640,12 +16668,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(inviteRes_);
                 inviteRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00001000;
+              bitField0_ |= 0x00002000;
               break;
             }
             case 194: {
               com.game.proto.C2GNet.KickOutResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00002000) != 0)) {
+              if (((bitField0_ & 0x00004000) != 0)) {
                 subBuilder = kickOutRes_.toBuilder();
               }
               kickOutRes_ = input.readMessage(com.game.proto.C2GNet.KickOutResponse.parser(), extensionRegistry);
@@ -16653,12 +16681,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(kickOutRes_);
                 kickOutRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00002000;
+              bitField0_ |= 0x00004000;
               break;
             }
             case 202: {
               com.game.proto.C2GNet.RoomStartGameResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00004000) != 0)) {
+              if (((bitField0_ & 0x00008000) != 0)) {
                 subBuilder = roomStartGameRes_.toBuilder();
               }
               roomStartGameRes_ = input.readMessage(com.game.proto.C2GNet.RoomStartGameResponse.parser(), extensionRegistry);
@@ -16666,12 +16694,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(roomStartGameRes_);
                 roomStartGameRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00004000;
+              bitField0_ |= 0x00008000;
               break;
             }
             case 210: {
               com.game.proto.C2GNet.NickNameSearchResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00008000) != 0)) {
+              if (((bitField0_ & 0x00010000) != 0)) {
                 subBuilder = nickNameSearchRes_.toBuilder();
               }
               nickNameSearchRes_ = input.readMessage(com.game.proto.C2GNet.NickNameSearchResponse.parser(), extensionRegistry);
@@ -16679,12 +16707,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(nickNameSearchRes_);
                 nickNameSearchRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00008000;
+              bitField0_ |= 0x00010000;
               break;
             }
             case 218: {
               com.game.proto.C2GNet.FollowListResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00010000) != 0)) {
+              if (((bitField0_ & 0x00020000) != 0)) {
                 subBuilder = followListRes_.toBuilder();
               }
               followListRes_ = input.readMessage(com.game.proto.C2GNet.FollowListResponse.parser(), extensionRegistry);
@@ -16692,12 +16720,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(followListRes_);
                 followListRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00010000;
+              bitField0_ |= 0x00020000;
               break;
             }
             case 226: {
               com.game.proto.C2GNet.AddRoomRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00020000) != 0)) {
+              if (((bitField0_ & 0x00040000) != 0)) {
                 subBuilder = addRoomReq_.toBuilder();
               }
               addRoomReq_ = input.readMessage(com.game.proto.C2GNet.AddRoomRequest.parser(), extensionRegistry);
@@ -16705,12 +16733,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(addRoomReq_);
                 addRoomReq_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00020000;
+              bitField0_ |= 0x00040000;
               break;
             }
             case 234: {
               com.game.proto.C2GNet.AddRoomResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00040000) != 0)) {
+              if (((bitField0_ & 0x00080000) != 0)) {
                 subBuilder = addRoomRes_.toBuilder();
               }
               addRoomRes_ = input.readMessage(com.game.proto.C2GNet.AddRoomResponse.parser(), extensionRegistry);
@@ -16718,12 +16746,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(addRoomRes_);
                 addRoomRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00040000;
+              bitField0_ |= 0x00080000;
               break;
             }
             case 242: {
               com.game.proto.C2GNet.OutRoomResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00080000) != 0)) {
+              if (((bitField0_ & 0x00100000) != 0)) {
                 subBuilder = outRoomRes_.toBuilder();
               }
               outRoomRes_ = input.readMessage(com.game.proto.C2GNet.OutRoomResponse.parser(), extensionRegistry);
@@ -16731,12 +16759,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(outRoomRes_);
                 outRoomRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00080000;
+              bitField0_ |= 0x00100000;
               break;
             }
             case 250: {
               com.game.proto.C2GNet.ChatResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00100000) != 0)) {
+              if (((bitField0_ & 0x00200000) != 0)) {
                 subBuilder = chatRes_.toBuilder();
               }
               chatRes_ = input.readMessage(com.game.proto.C2GNet.ChatResponse.parser(), extensionRegistry);
@@ -16744,12 +16772,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(chatRes_);
                 chatRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00100000;
+              bitField0_ |= 0x00200000;
               break;
             }
             case 258: {
               com.game.proto.C2GNet.UserStatusQueryResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00200000) != 0)) {
+              if (((bitField0_ & 0x00400000) != 0)) {
                 subBuilder = userStatusQueryRes_.toBuilder();
               }
               userStatusQueryRes_ = input.readMessage(com.game.proto.C2GNet.UserStatusQueryResponse.parser(), extensionRegistry);
@@ -16757,12 +16785,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(userStatusQueryRes_);
                 userStatusQueryRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00200000;
+              bitField0_ |= 0x00400000;
               break;
             }
             case 266: {
               com.game.proto.C2GNet.StartMatchResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00400000) != 0)) {
+              if (((bitField0_ & 0x00800000) != 0)) {
                 subBuilder = startMatchRes_.toBuilder();
               }
               startMatchRes_ = input.readMessage(com.game.proto.C2GNet.StartMatchResponse.parser(), extensionRegistry);
@@ -16770,12 +16798,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(startMatchRes_);
                 startMatchRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00400000;
+              bitField0_ |= 0x00800000;
               break;
             }
             case 274: {
               com.game.proto.C2GNet.MatchResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00800000) != 0)) {
+              if (((bitField0_ & 0x01000000) != 0)) {
                 subBuilder = matchRes_.toBuilder();
               }
               matchRes_ = input.readMessage(com.game.proto.C2GNet.MatchResponse.parser(), extensionRegistry);
@@ -16783,12 +16811,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(matchRes_);
                 matchRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00800000;
+              bitField0_ |= 0x01000000;
               break;
             }
             case 282: {
               com.game.proto.C2GNet.AddLiveResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x01000000) != 0)) {
+              if (((bitField0_ & 0x02000000) != 0)) {
                 subBuilder = addLiveRes_.toBuilder();
               }
               addLiveRes_ = input.readMessage(com.game.proto.C2GNet.AddLiveResponse.parser(), extensionRegistry);
@@ -16796,12 +16824,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(addLiveRes_);
                 addLiveRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x01000000;
+              bitField0_ |= 0x02000000;
               break;
             }
             case 290: {
               com.game.proto.C2GNet.ValidateOpenRoomResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x02000000) != 0)) {
+              if (((bitField0_ & 0x04000000) != 0)) {
                 subBuilder = validateOpenRoomRes_.toBuilder();
               }
               validateOpenRoomRes_ = input.readMessage(com.game.proto.C2GNet.ValidateOpenRoomResponse.parser(), extensionRegistry);
@@ -16809,12 +16837,12 @@ public final class C2GNet {
                 subBuilder.mergeFrom(validateOpenRoomRes_);
                 validateOpenRoomRes_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x02000000;
+              bitField0_ |= 0x04000000;
               break;
             }
             case 802: {
               com.game.proto.C2GNet.StatusNotify.Builder subBuilder = null;
-              if (((bitField0_ & 0x04000000) != 0)) {
+              if (((bitField0_ & 0x08000000) != 0)) {
                 subBuilder = statusNotify_.toBuilder();
               }
               statusNotify_ = input.readMessage(com.game.proto.C2GNet.StatusNotify.parser(), extensionRegistry);
@@ -16822,7 +16850,7 @@ public final class C2GNet {
                 subBuilder.mergeFrom(statusNotify_);
                 statusNotify_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x04000000;
+              bitField0_ |= 0x08000000;
               break;
             }
             default: {
@@ -16990,6 +17018,32 @@ public final class C2GNet {
       return followRes_ == null ? com.game.proto.C2GNet.FollowResponse.getDefaultInstance() : followRes_;
     }
 
+    public static final int GAMEOVER2RES_FIELD_NUMBER = 9;
+    private com.game.proto.C2GNet.GameOver2Response gameOver2Res_;
+    /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     * @return Whether the gameOver2Res field is set.
+     */
+    @java.lang.Override
+    public boolean hasGameOver2Res() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     * @return The gameOver2Res.
+     */
+    @java.lang.Override
+    public com.game.proto.C2GNet.GameOver2Response getGameOver2Res() {
+      return gameOver2Res_ == null ? com.game.proto.C2GNet.GameOver2Response.getDefaultInstance() : gameOver2Res_;
+    }
+    /**
+     * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+     */
+    @java.lang.Override
+    public com.game.proto.C2GNet.GameOver2ResponseOrBuilder getGameOver2ResOrBuilder() {
+      return gameOver2Res_ == null ? com.game.proto.C2GNet.GameOver2Response.getDefaultInstance() : gameOver2Res_;
+    }
+
     public static final int UNLOCKRES_FIELD_NUMBER = 10;
     private com.game.proto.C2GNet.UnLockResponse unLockRes_;
     /**
@@ -16998,7 +17052,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasUnLockRes() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>optional .UnLockResponse unLockRes = 10;</code>
@@ -17024,7 +17078,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasSwitchCharacterRes() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional .SwitchCharacterResponse switchCharacterRes = 11;</code>
@@ -17050,7 +17104,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasUserStatusChangeRes() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>optional .UserStatusChangeResponse userStatusChangeRes = 13;</code>
@@ -17076,7 +17130,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasHeartBeatRes() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <code>optional .HeartBeatResponse heartBeatRes = 16;</code>
@@ -17102,7 +17156,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasTipsRes() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <code>optional .TipsResponse tipsRes = 20;</code>
@@ -17128,7 +17182,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasMyRoomRes() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <code>optional .MyRoomResponse myRoomRes = 21;</code>
@@ -17154,7 +17208,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasInviteReq() {
-      return ((bitField0_ & 0x00000800) != 0);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <code>optional .InviteRequest inviteReq = 22;</code>
@@ -17180,7 +17234,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasInviteRes() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <code>optional .InviteResponse inviteRes = 23;</code>
@@ -17206,7 +17260,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasKickOutRes() {
-      return ((bitField0_ & 0x00002000) != 0);
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <code>optional .KickOutResponse kickOutRes = 24;</code>
@@ -17232,7 +17286,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasRoomStartGameRes() {
-      return ((bitField0_ & 0x00004000) != 0);
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <code>optional .RoomStartGameResponse roomStartGameRes = 25;</code>
@@ -17258,7 +17312,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasNickNameSearchRes() {
-      return ((bitField0_ & 0x00008000) != 0);
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <code>optional .NickNameSearchResponse nickNameSearchRes = 26;</code>
@@ -17284,7 +17338,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasFollowListRes() {
-      return ((bitField0_ & 0x00010000) != 0);
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <code>optional .FollowListResponse followListRes = 27;</code>
@@ -17310,7 +17364,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasAddRoomReq() {
-      return ((bitField0_ & 0x00020000) != 0);
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <code>optional .AddRoomRequest addRoomReq = 28;</code>
@@ -17336,7 +17390,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasAddRoomRes() {
-      return ((bitField0_ & 0x00040000) != 0);
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <code>optional .AddRoomResponse addRoomRes = 29;</code>
@@ -17362,7 +17416,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasOutRoomRes() {
-      return ((bitField0_ & 0x00080000) != 0);
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <code>optional .OutRoomResponse outRoomRes = 30;</code>
@@ -17388,7 +17442,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasChatRes() {
-      return ((bitField0_ & 0x00100000) != 0);
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <code>optional .ChatResponse chatRes = 31;</code>
@@ -17414,7 +17468,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasUserStatusQueryRes() {
-      return ((bitField0_ & 0x00200000) != 0);
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <code>optional .UserStatusQueryResponse userStatusQueryRes = 32;</code>
@@ -17440,7 +17494,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasStartMatchRes() {
-      return ((bitField0_ & 0x00400000) != 0);
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <code>optional .StartMatchResponse startMatchRes = 33;</code>
@@ -17466,7 +17520,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasMatchRes() {
-      return ((bitField0_ & 0x00800000) != 0);
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <code>optional .MatchResponse matchRes = 34;</code>
@@ -17492,7 +17546,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasAddLiveRes() {
-      return ((bitField0_ & 0x01000000) != 0);
+      return ((bitField0_ & 0x02000000) != 0);
     }
     /**
      * <code>optional .AddLiveResponse addLiveRes = 35;</code>
@@ -17518,7 +17572,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasValidateOpenRoomRes() {
-      return ((bitField0_ & 0x02000000) != 0);
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <code>optional .ValidateOpenRoomResponse validateOpenRoomRes = 36;</code>
@@ -17544,7 +17598,7 @@ public final class C2GNet {
      */
     @java.lang.Override
     public boolean hasStatusNotify() {
-      return ((bitField0_ & 0x04000000) != 0);
+      return ((bitField0_ & 0x08000000) != 0);
     }
     /**
      * <code>optional .StatusNotify statusNotify = 100;</code>
@@ -17592,69 +17646,72 @@ public final class C2GNet {
         output.writeMessage(8, getFollowRes());
       }
       if (((bitField0_ & 0x00000020) != 0)) {
-        output.writeMessage(10, getUnLockRes());
+        output.writeMessage(9, getGameOver2Res());
       }
       if (((bitField0_ & 0x00000040) != 0)) {
-        output.writeMessage(11, getSwitchCharacterRes());
+        output.writeMessage(10, getUnLockRes());
       }
       if (((bitField0_ & 0x00000080) != 0)) {
-        output.writeMessage(13, getUserStatusChangeRes());
+        output.writeMessage(11, getSwitchCharacterRes());
       }
       if (((bitField0_ & 0x00000100) != 0)) {
-        output.writeMessage(16, getHeartBeatRes());
+        output.writeMessage(13, getUserStatusChangeRes());
       }
       if (((bitField0_ & 0x00000200) != 0)) {
-        output.writeMessage(20, getTipsRes());
+        output.writeMessage(16, getHeartBeatRes());
       }
       if (((bitField0_ & 0x00000400) != 0)) {
-        output.writeMessage(21, getMyRoomRes());
+        output.writeMessage(20, getTipsRes());
       }
       if (((bitField0_ & 0x00000800) != 0)) {
-        output.writeMessage(22, getInviteReq());
+        output.writeMessage(21, getMyRoomRes());
       }
       if (((bitField0_ & 0x00001000) != 0)) {
-        output.writeMessage(23, getInviteRes());
+        output.writeMessage(22, getInviteReq());
       }
       if (((bitField0_ & 0x00002000) != 0)) {
-        output.writeMessage(24, getKickOutRes());
+        output.writeMessage(23, getInviteRes());
       }
       if (((bitField0_ & 0x00004000) != 0)) {
-        output.writeMessage(25, getRoomStartGameRes());
+        output.writeMessage(24, getKickOutRes());
       }
       if (((bitField0_ & 0x00008000) != 0)) {
-        output.writeMessage(26, getNickNameSearchRes());
+        output.writeMessage(25, getRoomStartGameRes());
       }
       if (((bitField0_ & 0x00010000) != 0)) {
-        output.writeMessage(27, getFollowListRes());
+        output.writeMessage(26, getNickNameSearchRes());
       }
       if (((bitField0_ & 0x00020000) != 0)) {
-        output.writeMessage(28, getAddRoomReq());
+        output.writeMessage(27, getFollowListRes());
       }
       if (((bitField0_ & 0x00040000) != 0)) {
-        output.writeMessage(29, getAddRoomRes());
+        output.writeMessage(28, getAddRoomReq());
       }
       if (((bitField0_ & 0x00080000) != 0)) {
-        output.writeMessage(30, getOutRoomRes());
+        output.writeMessage(29, getAddRoomRes());
       }
       if (((bitField0_ & 0x00100000) != 0)) {
-        output.writeMessage(31, getChatRes());
+        output.writeMessage(30, getOutRoomRes());
       }
       if (((bitField0_ & 0x00200000) != 0)) {
-        output.writeMessage(32, getUserStatusQueryRes());
+        output.writeMessage(31, getChatRes());
       }
       if (((bitField0_ & 0x00400000) != 0)) {
-        output.writeMessage(33, getStartMatchRes());
+        output.writeMessage(32, getUserStatusQueryRes());
       }
       if (((bitField0_ & 0x00800000) != 0)) {
-        output.writeMessage(34, getMatchRes());
+        output.writeMessage(33, getStartMatchRes());
       }
       if (((bitField0_ & 0x01000000) != 0)) {
-        output.writeMessage(35, getAddLiveRes());
+        output.writeMessage(34, getMatchRes());
       }
       if (((bitField0_ & 0x02000000) != 0)) {
-        output.writeMessage(36, getValidateOpenRoomRes());
+        output.writeMessage(35, getAddLiveRes());
       }
       if (((bitField0_ & 0x04000000) != 0)) {
+        output.writeMessage(36, getValidateOpenRoomRes());
+      }
+      if (((bitField0_ & 0x08000000) != 0)) {
         output.writeMessage(100, getStatusNotify());
       }
       unknownFields.writeTo(output);
@@ -17688,89 +17745,93 @@ public final class C2GNet {
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, getUnLockRes());
+          .computeMessageSize(9, getGameOver2Res());
       }
       if (((bitField0_ & 0x00000040) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, getSwitchCharacterRes());
+          .computeMessageSize(10, getUnLockRes());
       }
       if (((bitField0_ & 0x00000080) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, getUserStatusChangeRes());
+          .computeMessageSize(11, getSwitchCharacterRes());
       }
       if (((bitField0_ & 0x00000100) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(16, getHeartBeatRes());
+          .computeMessageSize(13, getUserStatusChangeRes());
       }
       if (((bitField0_ & 0x00000200) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(20, getTipsRes());
+          .computeMessageSize(16, getHeartBeatRes());
       }
       if (((bitField0_ & 0x00000400) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(21, getMyRoomRes());
+          .computeMessageSize(20, getTipsRes());
       }
       if (((bitField0_ & 0x00000800) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(22, getInviteReq());
+          .computeMessageSize(21, getMyRoomRes());
       }
       if (((bitField0_ & 0x00001000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(23, getInviteRes());
+          .computeMessageSize(22, getInviteReq());
       }
       if (((bitField0_ & 0x00002000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(24, getKickOutRes());
+          .computeMessageSize(23, getInviteRes());
       }
       if (((bitField0_ & 0x00004000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(25, getRoomStartGameRes());
+          .computeMessageSize(24, getKickOutRes());
       }
       if (((bitField0_ & 0x00008000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(26, getNickNameSearchRes());
+          .computeMessageSize(25, getRoomStartGameRes());
       }
       if (((bitField0_ & 0x00010000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(27, getFollowListRes());
+          .computeMessageSize(26, getNickNameSearchRes());
       }
       if (((bitField0_ & 0x00020000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(28, getAddRoomReq());
+          .computeMessageSize(27, getFollowListRes());
       }
       if (((bitField0_ & 0x00040000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(29, getAddRoomRes());
+          .computeMessageSize(28, getAddRoomReq());
       }
       if (((bitField0_ & 0x00080000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(30, getOutRoomRes());
+          .computeMessageSize(29, getAddRoomRes());
       }
       if (((bitField0_ & 0x00100000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(31, getChatRes());
+          .computeMessageSize(30, getOutRoomRes());
       }
       if (((bitField0_ & 0x00200000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(32, getUserStatusQueryRes());
+          .computeMessageSize(31, getChatRes());
       }
       if (((bitField0_ & 0x00400000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(33, getStartMatchRes());
+          .computeMessageSize(32, getUserStatusQueryRes());
       }
       if (((bitField0_ & 0x00800000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(34, getMatchRes());
+          .computeMessageSize(33, getStartMatchRes());
       }
       if (((bitField0_ & 0x01000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(35, getAddLiveRes());
+          .computeMessageSize(34, getMatchRes());
       }
       if (((bitField0_ & 0x02000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(36, getValidateOpenRoomRes());
+          .computeMessageSize(35, getAddLiveRes());
       }
       if (((bitField0_ & 0x04000000) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(36, getValidateOpenRoomRes());
+      }
+      if (((bitField0_ & 0x08000000) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(100, getStatusNotify());
       }
@@ -17813,6 +17874,11 @@ public final class C2GNet {
       if (hasFollowRes()) {
         if (!getFollowRes()
             .equals(other.getFollowRes())) return false;
+      }
+      if (hasGameOver2Res() != other.hasGameOver2Res()) return false;
+      if (hasGameOver2Res()) {
+        if (!getGameOver2Res()
+            .equals(other.getGameOver2Res())) return false;
       }
       if (hasUnLockRes() != other.hasUnLockRes()) return false;
       if (hasUnLockRes()) {
@@ -17954,6 +18020,10 @@ public final class C2GNet {
       if (hasFollowRes()) {
         hash = (37 * hash) + FOLLOWRES_FIELD_NUMBER;
         hash = (53 * hash) + getFollowRes().hashCode();
+      }
+      if (hasGameOver2Res()) {
+        hash = (37 * hash) + GAMEOVER2RES_FIELD_NUMBER;
+        hash = (53 * hash) + getGameOver2Res().hashCode();
       }
       if (hasUnLockRes()) {
         hash = (37 * hash) + UNLOCKRES_FIELD_NUMBER;
@@ -18176,6 +18246,7 @@ public final class C2GNet {
           getCharacterDetailFieldBuilder();
           getUpdateNickNameFieldBuilder();
           getFollowResFieldBuilder();
+          getGameOver2ResFieldBuilder();
           getUnLockResFieldBuilder();
           getSwitchCharacterResFieldBuilder();
           getUserStatusChangeResFieldBuilder();
@@ -18233,138 +18304,144 @@ public final class C2GNet {
           followResBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (gameOver2ResBuilder_ == null) {
+          gameOver2Res_ = null;
+        } else {
+          gameOver2ResBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (unLockResBuilder_ == null) {
           unLockRes_ = null;
         } else {
           unLockResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         if (switchCharacterResBuilder_ == null) {
           switchCharacterRes_ = null;
         } else {
           switchCharacterResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         if (userStatusChangeResBuilder_ == null) {
           userStatusChangeRes_ = null;
         } else {
           userStatusChangeResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         if (heartBeatResBuilder_ == null) {
           heartBeatRes_ = null;
         } else {
           heartBeatResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         if (tipsResBuilder_ == null) {
           tipsRes_ = null;
         } else {
           tipsResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         if (myRoomResBuilder_ == null) {
           myRoomRes_ = null;
         } else {
           myRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000800);
         if (inviteReqBuilder_ == null) {
           inviteReq_ = null;
         } else {
           inviteReqBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00001000);
         if (inviteResBuilder_ == null) {
           inviteRes_ = null;
         } else {
           inviteResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         if (kickOutResBuilder_ == null) {
           kickOutRes_ = null;
         } else {
           kickOutResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         if (roomStartGameResBuilder_ == null) {
           roomStartGameRes_ = null;
         } else {
           roomStartGameResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         if (nickNameSearchResBuilder_ == null) {
           nickNameSearchRes_ = null;
         } else {
           nickNameSearchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         if (followListResBuilder_ == null) {
           followListRes_ = null;
         } else {
           followListResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         if (addRoomReqBuilder_ == null) {
           addRoomReq_ = null;
         } else {
           addRoomReqBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         if (addRoomResBuilder_ == null) {
           addRoomRes_ = null;
         } else {
           addRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         if (outRoomResBuilder_ == null) {
           outRoomRes_ = null;
         } else {
           outRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         if (chatResBuilder_ == null) {
           chatRes_ = null;
         } else {
           chatResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         if (userStatusQueryResBuilder_ == null) {
           userStatusQueryRes_ = null;
         } else {
           userStatusQueryResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         if (startMatchResBuilder_ == null) {
           startMatchRes_ = null;
         } else {
           startMatchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00800000);
         if (matchResBuilder_ == null) {
           matchRes_ = null;
         } else {
           matchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00800000);
+        bitField0_ = (bitField0_ & ~0x01000000);
         if (addLiveResBuilder_ == null) {
           addLiveRes_ = null;
         } else {
           addLiveResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x01000000);
+        bitField0_ = (bitField0_ & ~0x02000000);
         if (validateOpenRoomResBuilder_ == null) {
           validateOpenRoomRes_ = null;
         } else {
           validateOpenRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x02000000);
+        bitField0_ = (bitField0_ & ~0x04000000);
         if (statusNotifyBuilder_ == null) {
           statusNotify_ = null;
         } else {
           statusNotifyBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x04000000);
+        bitField0_ = (bitField0_ & ~0x08000000);
         return this;
       }
 
@@ -18434,180 +18511,188 @@ public final class C2GNet {
           to_bitField0_ |= 0x00000010;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
+          if (gameOver2ResBuilder_ == null) {
+            result.gameOver2Res_ = gameOver2Res_;
+          } else {
+            result.gameOver2Res_ = gameOver2ResBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
           if (unLockResBuilder_ == null) {
             result.unLockRes_ = unLockRes_;
           } else {
             result.unLockRes_ = unLockResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000020;
+          to_bitField0_ |= 0x00000040;
         }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
+        if (((from_bitField0_ & 0x00000080) != 0)) {
           if (switchCharacterResBuilder_ == null) {
             result.switchCharacterRes_ = switchCharacterRes_;
           } else {
             result.switchCharacterRes_ = switchCharacterResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000040;
+          to_bitField0_ |= 0x00000080;
         }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
+        if (((from_bitField0_ & 0x00000100) != 0)) {
           if (userStatusChangeResBuilder_ == null) {
             result.userStatusChangeRes_ = userStatusChangeRes_;
           } else {
             result.userStatusChangeRes_ = userStatusChangeResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000080;
+          to_bitField0_ |= 0x00000100;
         }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
+        if (((from_bitField0_ & 0x00000200) != 0)) {
           if (heartBeatResBuilder_ == null) {
             result.heartBeatRes_ = heartBeatRes_;
           } else {
             result.heartBeatRes_ = heartBeatResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000100;
+          to_bitField0_ |= 0x00000200;
         }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
+        if (((from_bitField0_ & 0x00000400) != 0)) {
           if (tipsResBuilder_ == null) {
             result.tipsRes_ = tipsRes_;
           } else {
             result.tipsRes_ = tipsResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000200;
+          to_bitField0_ |= 0x00000400;
         }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
+        if (((from_bitField0_ & 0x00000800) != 0)) {
           if (myRoomResBuilder_ == null) {
             result.myRoomRes_ = myRoomRes_;
           } else {
             result.myRoomRes_ = myRoomResBuilder_.build();
           }
-          to_bitField0_ |= 0x00000400;
+          to_bitField0_ |= 0x00000800;
         }
-        if (((from_bitField0_ & 0x00000800) != 0)) {
+        if (((from_bitField0_ & 0x00001000) != 0)) {
           if (inviteReqBuilder_ == null) {
             result.inviteReq_ = inviteReq_;
           } else {
             result.inviteReq_ = inviteReqBuilder_.build();
           }
-          to_bitField0_ |= 0x00000800;
+          to_bitField0_ |= 0x00001000;
         }
-        if (((from_bitField0_ & 0x00001000) != 0)) {
+        if (((from_bitField0_ & 0x00002000) != 0)) {
           if (inviteResBuilder_ == null) {
             result.inviteRes_ = inviteRes_;
           } else {
             result.inviteRes_ = inviteResBuilder_.build();
           }
-          to_bitField0_ |= 0x00001000;
+          to_bitField0_ |= 0x00002000;
         }
-        if (((from_bitField0_ & 0x00002000) != 0)) {
+        if (((from_bitField0_ & 0x00004000) != 0)) {
           if (kickOutResBuilder_ == null) {
             result.kickOutRes_ = kickOutRes_;
           } else {
             result.kickOutRes_ = kickOutResBuilder_.build();
           }
-          to_bitField0_ |= 0x00002000;
+          to_bitField0_ |= 0x00004000;
         }
-        if (((from_bitField0_ & 0x00004000) != 0)) {
+        if (((from_bitField0_ & 0x00008000) != 0)) {
           if (roomStartGameResBuilder_ == null) {
             result.roomStartGameRes_ = roomStartGameRes_;
           } else {
             result.roomStartGameRes_ = roomStartGameResBuilder_.build();
           }
-          to_bitField0_ |= 0x00004000;
+          to_bitField0_ |= 0x00008000;
         }
-        if (((from_bitField0_ & 0x00008000) != 0)) {
+        if (((from_bitField0_ & 0x00010000) != 0)) {
           if (nickNameSearchResBuilder_ == null) {
             result.nickNameSearchRes_ = nickNameSearchRes_;
           } else {
             result.nickNameSearchRes_ = nickNameSearchResBuilder_.build();
           }
-          to_bitField0_ |= 0x00008000;
+          to_bitField0_ |= 0x00010000;
         }
-        if (((from_bitField0_ & 0x00010000) != 0)) {
+        if (((from_bitField0_ & 0x00020000) != 0)) {
           if (followListResBuilder_ == null) {
             result.followListRes_ = followListRes_;
           } else {
             result.followListRes_ = followListResBuilder_.build();
           }
-          to_bitField0_ |= 0x00010000;
+          to_bitField0_ |= 0x00020000;
         }
-        if (((from_bitField0_ & 0x00020000) != 0)) {
+        if (((from_bitField0_ & 0x00040000) != 0)) {
           if (addRoomReqBuilder_ == null) {
             result.addRoomReq_ = addRoomReq_;
           } else {
             result.addRoomReq_ = addRoomReqBuilder_.build();
           }
-          to_bitField0_ |= 0x00020000;
+          to_bitField0_ |= 0x00040000;
         }
-        if (((from_bitField0_ & 0x00040000) != 0)) {
+        if (((from_bitField0_ & 0x00080000) != 0)) {
           if (addRoomResBuilder_ == null) {
             result.addRoomRes_ = addRoomRes_;
           } else {
             result.addRoomRes_ = addRoomResBuilder_.build();
           }
-          to_bitField0_ |= 0x00040000;
+          to_bitField0_ |= 0x00080000;
         }
-        if (((from_bitField0_ & 0x00080000) != 0)) {
+        if (((from_bitField0_ & 0x00100000) != 0)) {
           if (outRoomResBuilder_ == null) {
             result.outRoomRes_ = outRoomRes_;
           } else {
             result.outRoomRes_ = outRoomResBuilder_.build();
           }
-          to_bitField0_ |= 0x00080000;
+          to_bitField0_ |= 0x00100000;
         }
-        if (((from_bitField0_ & 0x00100000) != 0)) {
+        if (((from_bitField0_ & 0x00200000) != 0)) {
           if (chatResBuilder_ == null) {
             result.chatRes_ = chatRes_;
           } else {
             result.chatRes_ = chatResBuilder_.build();
           }
-          to_bitField0_ |= 0x00100000;
+          to_bitField0_ |= 0x00200000;
         }
-        if (((from_bitField0_ & 0x00200000) != 0)) {
+        if (((from_bitField0_ & 0x00400000) != 0)) {
           if (userStatusQueryResBuilder_ == null) {
             result.userStatusQueryRes_ = userStatusQueryRes_;
           } else {
             result.userStatusQueryRes_ = userStatusQueryResBuilder_.build();
           }
-          to_bitField0_ |= 0x00200000;
+          to_bitField0_ |= 0x00400000;
         }
-        if (((from_bitField0_ & 0x00400000) != 0)) {
+        if (((from_bitField0_ & 0x00800000) != 0)) {
           if (startMatchResBuilder_ == null) {
             result.startMatchRes_ = startMatchRes_;
           } else {
             result.startMatchRes_ = startMatchResBuilder_.build();
           }
-          to_bitField0_ |= 0x00400000;
+          to_bitField0_ |= 0x00800000;
         }
-        if (((from_bitField0_ & 0x00800000) != 0)) {
+        if (((from_bitField0_ & 0x01000000) != 0)) {
           if (matchResBuilder_ == null) {
             result.matchRes_ = matchRes_;
           } else {
             result.matchRes_ = matchResBuilder_.build();
           }
-          to_bitField0_ |= 0x00800000;
+          to_bitField0_ |= 0x01000000;
         }
-        if (((from_bitField0_ & 0x01000000) != 0)) {
+        if (((from_bitField0_ & 0x02000000) != 0)) {
           if (addLiveResBuilder_ == null) {
             result.addLiveRes_ = addLiveRes_;
           } else {
             result.addLiveRes_ = addLiveResBuilder_.build();
           }
-          to_bitField0_ |= 0x01000000;
+          to_bitField0_ |= 0x02000000;
         }
-        if (((from_bitField0_ & 0x02000000) != 0)) {
+        if (((from_bitField0_ & 0x04000000) != 0)) {
           if (validateOpenRoomResBuilder_ == null) {
             result.validateOpenRoomRes_ = validateOpenRoomRes_;
           } else {
             result.validateOpenRoomRes_ = validateOpenRoomResBuilder_.build();
           }
-          to_bitField0_ |= 0x02000000;
+          to_bitField0_ |= 0x04000000;
         }
-        if (((from_bitField0_ & 0x04000000) != 0)) {
+        if (((from_bitField0_ & 0x08000000) != 0)) {
           if (statusNotifyBuilder_ == null) {
             result.statusNotify_ = statusNotify_;
           } else {
             result.statusNotify_ = statusNotifyBuilder_.build();
           }
-          to_bitField0_ |= 0x04000000;
+          to_bitField0_ |= 0x08000000;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -18672,6 +18757,9 @@ public final class C2GNet {
         }
         if (other.hasFollowRes()) {
           mergeFollowRes(other.getFollowRes());
+        }
+        if (other.hasGameOver2Res()) {
+          mergeGameOver2Res(other.getGameOver2Res());
         }
         if (other.hasUnLockRes()) {
           mergeUnLockRes(other.getUnLockRes());
@@ -19369,6 +19457,126 @@ public final class C2GNet {
         return followResBuilder_;
       }
 
+      private com.game.proto.C2GNet.GameOver2Response gameOver2Res_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2GNet.GameOver2Response, com.game.proto.C2GNet.GameOver2Response.Builder, com.game.proto.C2GNet.GameOver2ResponseOrBuilder> gameOver2ResBuilder_;
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       * @return Whether the gameOver2Res field is set.
+       */
+      public boolean hasGameOver2Res() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       * @return The gameOver2Res.
+       */
+      public com.game.proto.C2GNet.GameOver2Response getGameOver2Res() {
+        if (gameOver2ResBuilder_ == null) {
+          return gameOver2Res_ == null ? com.game.proto.C2GNet.GameOver2Response.getDefaultInstance() : gameOver2Res_;
+        } else {
+          return gameOver2ResBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public Builder setGameOver2Res(com.game.proto.C2GNet.GameOver2Response value) {
+        if (gameOver2ResBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          gameOver2Res_ = value;
+          onChanged();
+        } else {
+          gameOver2ResBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public Builder setGameOver2Res(
+          com.game.proto.C2GNet.GameOver2Response.Builder builderForValue) {
+        if (gameOver2ResBuilder_ == null) {
+          gameOver2Res_ = builderForValue.build();
+          onChanged();
+        } else {
+          gameOver2ResBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public Builder mergeGameOver2Res(com.game.proto.C2GNet.GameOver2Response value) {
+        if (gameOver2ResBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+              gameOver2Res_ != null &&
+              gameOver2Res_ != com.game.proto.C2GNet.GameOver2Response.getDefaultInstance()) {
+            gameOver2Res_ =
+              com.game.proto.C2GNet.GameOver2Response.newBuilder(gameOver2Res_).mergeFrom(value).buildPartial();
+          } else {
+            gameOver2Res_ = value;
+          }
+          onChanged();
+        } else {
+          gameOver2ResBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public Builder clearGameOver2Res() {
+        if (gameOver2ResBuilder_ == null) {
+          gameOver2Res_ = null;
+          onChanged();
+        } else {
+          gameOver2ResBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public com.game.proto.C2GNet.GameOver2Response.Builder getGameOver2ResBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getGameOver2ResFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      public com.game.proto.C2GNet.GameOver2ResponseOrBuilder getGameOver2ResOrBuilder() {
+        if (gameOver2ResBuilder_ != null) {
+          return gameOver2ResBuilder_.getMessageOrBuilder();
+        } else {
+          return gameOver2Res_ == null ?
+              com.game.proto.C2GNet.GameOver2Response.getDefaultInstance() : gameOver2Res_;
+        }
+      }
+      /**
+       * <code>optional .GameOver2Response gameOver2Res = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.game.proto.C2GNet.GameOver2Response, com.game.proto.C2GNet.GameOver2Response.Builder, com.game.proto.C2GNet.GameOver2ResponseOrBuilder> 
+          getGameOver2ResFieldBuilder() {
+        if (gameOver2ResBuilder_ == null) {
+          gameOver2ResBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.game.proto.C2GNet.GameOver2Response, com.game.proto.C2GNet.GameOver2Response.Builder, com.game.proto.C2GNet.GameOver2ResponseOrBuilder>(
+                  getGameOver2Res(),
+                  getParentForChildren(),
+                  isClean());
+          gameOver2Res_ = null;
+        }
+        return gameOver2ResBuilder_;
+      }
+
       private com.game.proto.C2GNet.UnLockResponse unLockRes_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.game.proto.C2GNet.UnLockResponse, com.game.proto.C2GNet.UnLockResponse.Builder, com.game.proto.C2GNet.UnLockResponseOrBuilder> unLockResBuilder_;
@@ -19377,7 +19585,7 @@ public final class C2GNet {
        * @return Whether the unLockRes field is set.
        */
       public boolean hasUnLockRes() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <code>optional .UnLockResponse unLockRes = 10;</code>
@@ -19403,7 +19611,7 @@ public final class C2GNet {
         } else {
           unLockResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
@@ -19417,7 +19625,7 @@ public final class C2GNet {
         } else {
           unLockResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
@@ -19425,7 +19633,7 @@ public final class C2GNet {
        */
       public Builder mergeUnLockRes(com.game.proto.C2GNet.UnLockResponse value) {
         if (unLockResBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0) &&
+          if (((bitField0_ & 0x00000040) != 0) &&
               unLockRes_ != null &&
               unLockRes_ != com.game.proto.C2GNet.UnLockResponse.getDefaultInstance()) {
             unLockRes_ =
@@ -19437,7 +19645,7 @@ public final class C2GNet {
         } else {
           unLockResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
@@ -19450,14 +19658,14 @@ public final class C2GNet {
         } else {
           unLockResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
       /**
        * <code>optional .UnLockResponse unLockRes = 10;</code>
        */
       public com.game.proto.C2GNet.UnLockResponse.Builder getUnLockResBuilder() {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return getUnLockResFieldBuilder().getBuilder();
       }
@@ -19497,7 +19705,7 @@ public final class C2GNet {
        * @return Whether the switchCharacterRes field is set.
        */
       public boolean hasSwitchCharacterRes() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <code>optional .SwitchCharacterResponse switchCharacterRes = 11;</code>
@@ -19523,7 +19731,7 @@ public final class C2GNet {
         } else {
           switchCharacterResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -19537,7 +19745,7 @@ public final class C2GNet {
         } else {
           switchCharacterResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -19545,7 +19753,7 @@ public final class C2GNet {
        */
       public Builder mergeSwitchCharacterRes(com.game.proto.C2GNet.SwitchCharacterResponse value) {
         if (switchCharacterResBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0) &&
+          if (((bitField0_ & 0x00000080) != 0) &&
               switchCharacterRes_ != null &&
               switchCharacterRes_ != com.game.proto.C2GNet.SwitchCharacterResponse.getDefaultInstance()) {
             switchCharacterRes_ =
@@ -19557,7 +19765,7 @@ public final class C2GNet {
         } else {
           switchCharacterResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -19570,14 +19778,14 @@ public final class C2GNet {
         } else {
           switchCharacterResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
       /**
        * <code>optional .SwitchCharacterResponse switchCharacterRes = 11;</code>
        */
       public com.game.proto.C2GNet.SwitchCharacterResponse.Builder getSwitchCharacterResBuilder() {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
         return getSwitchCharacterResFieldBuilder().getBuilder();
       }
@@ -19617,7 +19825,7 @@ public final class C2GNet {
        * @return Whether the userStatusChangeRes field is set.
        */
       public boolean hasUserStatusChangeRes() {
-        return ((bitField0_ & 0x00000080) != 0);
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <code>optional .UserStatusChangeResponse userStatusChangeRes = 13;</code>
@@ -19643,7 +19851,7 @@ public final class C2GNet {
         } else {
           userStatusChangeResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -19657,7 +19865,7 @@ public final class C2GNet {
         } else {
           userStatusChangeResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -19665,7 +19873,7 @@ public final class C2GNet {
        */
       public Builder mergeUserStatusChangeRes(com.game.proto.C2GNet.UserStatusChangeResponse value) {
         if (userStatusChangeResBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) != 0) &&
+          if (((bitField0_ & 0x00000100) != 0) &&
               userStatusChangeRes_ != null &&
               userStatusChangeRes_ != com.game.proto.C2GNet.UserStatusChangeResponse.getDefaultInstance()) {
             userStatusChangeRes_ =
@@ -19677,7 +19885,7 @@ public final class C2GNet {
         } else {
           userStatusChangeResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -19690,14 +19898,14 @@ public final class C2GNet {
         } else {
           userStatusChangeResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
       /**
        * <code>optional .UserStatusChangeResponse userStatusChangeRes = 13;</code>
        */
       public com.game.proto.C2GNet.UserStatusChangeResponse.Builder getUserStatusChangeResBuilder() {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return getUserStatusChangeResFieldBuilder().getBuilder();
       }
@@ -19737,7 +19945,7 @@ public final class C2GNet {
        * @return Whether the heartBeatRes field is set.
        */
       public boolean hasHeartBeatRes() {
-        return ((bitField0_ & 0x00000100) != 0);
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <code>optional .HeartBeatResponse heartBeatRes = 16;</code>
@@ -19763,7 +19971,7 @@ public final class C2GNet {
         } else {
           heartBeatResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
@@ -19777,7 +19985,7 @@ public final class C2GNet {
         } else {
           heartBeatResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
@@ -19785,7 +19993,7 @@ public final class C2GNet {
        */
       public Builder mergeHeartBeatRes(com.game.proto.C2GNet.HeartBeatResponse value) {
         if (heartBeatResBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) != 0) &&
+          if (((bitField0_ & 0x00000200) != 0) &&
               heartBeatRes_ != null &&
               heartBeatRes_ != com.game.proto.C2GNet.HeartBeatResponse.getDefaultInstance()) {
             heartBeatRes_ =
@@ -19797,7 +20005,7 @@ public final class C2GNet {
         } else {
           heartBeatResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
@@ -19810,14 +20018,14 @@ public final class C2GNet {
         } else {
           heartBeatResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
       /**
        * <code>optional .HeartBeatResponse heartBeatRes = 16;</code>
        */
       public com.game.proto.C2GNet.HeartBeatResponse.Builder getHeartBeatResBuilder() {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return getHeartBeatResFieldBuilder().getBuilder();
       }
@@ -19857,7 +20065,7 @@ public final class C2GNet {
        * @return Whether the tipsRes field is set.
        */
       public boolean hasTipsRes() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <code>optional .TipsResponse tipsRes = 20;</code>
@@ -19883,7 +20091,7 @@ public final class C2GNet {
         } else {
           tipsResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -19897,7 +20105,7 @@ public final class C2GNet {
         } else {
           tipsResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -19905,7 +20113,7 @@ public final class C2GNet {
        */
       public Builder mergeTipsRes(com.game.proto.C2GNet.TipsResponse value) {
         if (tipsResBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) != 0) &&
+          if (((bitField0_ & 0x00000400) != 0) &&
               tipsRes_ != null &&
               tipsRes_ != com.game.proto.C2GNet.TipsResponse.getDefaultInstance()) {
             tipsRes_ =
@@ -19917,7 +20125,7 @@ public final class C2GNet {
         } else {
           tipsResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -19930,14 +20138,14 @@ public final class C2GNet {
         } else {
           tipsResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
       /**
        * <code>optional .TipsResponse tipsRes = 20;</code>
        */
       public com.game.proto.C2GNet.TipsResponse.Builder getTipsResBuilder() {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return getTipsResFieldBuilder().getBuilder();
       }
@@ -19977,7 +20185,7 @@ public final class C2GNet {
        * @return Whether the myRoomRes field is set.
        */
       public boolean hasMyRoomRes() {
-        return ((bitField0_ & 0x00000400) != 0);
+        return ((bitField0_ & 0x00000800) != 0);
       }
       /**
        * <code>optional .MyRoomResponse myRoomRes = 21;</code>
@@ -20003,7 +20211,7 @@ public final class C2GNet {
         } else {
           myRoomResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -20017,7 +20225,7 @@ public final class C2GNet {
         } else {
           myRoomResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -20025,7 +20233,7 @@ public final class C2GNet {
        */
       public Builder mergeMyRoomRes(com.game.proto.C2GNet.MyRoomResponse value) {
         if (myRoomResBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) != 0) &&
+          if (((bitField0_ & 0x00000800) != 0) &&
               myRoomRes_ != null &&
               myRoomRes_ != com.game.proto.C2GNet.MyRoomResponse.getDefaultInstance()) {
             myRoomRes_ =
@@ -20037,7 +20245,7 @@ public final class C2GNet {
         } else {
           myRoomResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -20050,14 +20258,14 @@ public final class C2GNet {
         } else {
           myRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
       /**
        * <code>optional .MyRoomResponse myRoomRes = 21;</code>
        */
       public com.game.proto.C2GNet.MyRoomResponse.Builder getMyRoomResBuilder() {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         onChanged();
         return getMyRoomResFieldBuilder().getBuilder();
       }
@@ -20097,7 +20305,7 @@ public final class C2GNet {
        * @return Whether the inviteReq field is set.
        */
       public boolean hasInviteReq() {
-        return ((bitField0_ & 0x00000800) != 0);
+        return ((bitField0_ & 0x00001000) != 0);
       }
       /**
        * <code>optional .InviteRequest inviteReq = 22;</code>
@@ -20123,7 +20331,7 @@ public final class C2GNet {
         } else {
           inviteReqBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
@@ -20137,7 +20345,7 @@ public final class C2GNet {
         } else {
           inviteReqBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
@@ -20145,7 +20353,7 @@ public final class C2GNet {
        */
       public Builder mergeInviteReq(com.game.proto.C2GNet.InviteRequest value) {
         if (inviteReqBuilder_ == null) {
-          if (((bitField0_ & 0x00000800) != 0) &&
+          if (((bitField0_ & 0x00001000) != 0) &&
               inviteReq_ != null &&
               inviteReq_ != com.game.proto.C2GNet.InviteRequest.getDefaultInstance()) {
             inviteReq_ =
@@ -20157,7 +20365,7 @@ public final class C2GNet {
         } else {
           inviteReqBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
@@ -20170,14 +20378,14 @@ public final class C2GNet {
         } else {
           inviteReqBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
       /**
        * <code>optional .InviteRequest inviteReq = 22;</code>
        */
       public com.game.proto.C2GNet.InviteRequest.Builder getInviteReqBuilder() {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00001000;
         onChanged();
         return getInviteReqFieldBuilder().getBuilder();
       }
@@ -20217,7 +20425,7 @@ public final class C2GNet {
        * @return Whether the inviteRes field is set.
        */
       public boolean hasInviteRes() {
-        return ((bitField0_ & 0x00001000) != 0);
+        return ((bitField0_ & 0x00002000) != 0);
       }
       /**
        * <code>optional .InviteResponse inviteRes = 23;</code>
@@ -20243,7 +20451,7 @@ public final class C2GNet {
         } else {
           inviteResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -20257,7 +20465,7 @@ public final class C2GNet {
         } else {
           inviteResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -20265,7 +20473,7 @@ public final class C2GNet {
        */
       public Builder mergeInviteRes(com.game.proto.C2GNet.InviteResponse value) {
         if (inviteResBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) != 0) &&
+          if (((bitField0_ & 0x00002000) != 0) &&
               inviteRes_ != null &&
               inviteRes_ != com.game.proto.C2GNet.InviteResponse.getDefaultInstance()) {
             inviteRes_ =
@@ -20277,7 +20485,7 @@ public final class C2GNet {
         } else {
           inviteResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -20290,14 +20498,14 @@ public final class C2GNet {
         } else {
           inviteResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
       /**
        * <code>optional .InviteResponse inviteRes = 23;</code>
        */
       public com.game.proto.C2GNet.InviteResponse.Builder getInviteResBuilder() {
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00002000;
         onChanged();
         return getInviteResFieldBuilder().getBuilder();
       }
@@ -20337,7 +20545,7 @@ public final class C2GNet {
        * @return Whether the kickOutRes field is set.
        */
       public boolean hasKickOutRes() {
-        return ((bitField0_ & 0x00002000) != 0);
+        return ((bitField0_ & 0x00004000) != 0);
       }
       /**
        * <code>optional .KickOutResponse kickOutRes = 24;</code>
@@ -20363,7 +20571,7 @@ public final class C2GNet {
         } else {
           kickOutResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00004000;
         return this;
       }
       /**
@@ -20377,7 +20585,7 @@ public final class C2GNet {
         } else {
           kickOutResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00004000;
         return this;
       }
       /**
@@ -20385,7 +20593,7 @@ public final class C2GNet {
        */
       public Builder mergeKickOutRes(com.game.proto.C2GNet.KickOutResponse value) {
         if (kickOutResBuilder_ == null) {
-          if (((bitField0_ & 0x00002000) != 0) &&
+          if (((bitField0_ & 0x00004000) != 0) &&
               kickOutRes_ != null &&
               kickOutRes_ != com.game.proto.C2GNet.KickOutResponse.getDefaultInstance()) {
             kickOutRes_ =
@@ -20397,7 +20605,7 @@ public final class C2GNet {
         } else {
           kickOutResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00004000;
         return this;
       }
       /**
@@ -20410,14 +20618,14 @@ public final class C2GNet {
         } else {
           kickOutResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00004000);
         return this;
       }
       /**
        * <code>optional .KickOutResponse kickOutRes = 24;</code>
        */
       public com.game.proto.C2GNet.KickOutResponse.Builder getKickOutResBuilder() {
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00004000;
         onChanged();
         return getKickOutResFieldBuilder().getBuilder();
       }
@@ -20457,7 +20665,7 @@ public final class C2GNet {
        * @return Whether the roomStartGameRes field is set.
        */
       public boolean hasRoomStartGameRes() {
-        return ((bitField0_ & 0x00004000) != 0);
+        return ((bitField0_ & 0x00008000) != 0);
       }
       /**
        * <code>optional .RoomStartGameResponse roomStartGameRes = 25;</code>
@@ -20483,7 +20691,7 @@ public final class C2GNet {
         } else {
           roomStartGameResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -20497,7 +20705,7 @@ public final class C2GNet {
         } else {
           roomStartGameResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -20505,7 +20713,7 @@ public final class C2GNet {
        */
       public Builder mergeRoomStartGameRes(com.game.proto.C2GNet.RoomStartGameResponse value) {
         if (roomStartGameResBuilder_ == null) {
-          if (((bitField0_ & 0x00004000) != 0) &&
+          if (((bitField0_ & 0x00008000) != 0) &&
               roomStartGameRes_ != null &&
               roomStartGameRes_ != com.game.proto.C2GNet.RoomStartGameResponse.getDefaultInstance()) {
             roomStartGameRes_ =
@@ -20517,7 +20725,7 @@ public final class C2GNet {
         } else {
           roomStartGameResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -20530,14 +20738,14 @@ public final class C2GNet {
         } else {
           roomStartGameResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
       /**
        * <code>optional .RoomStartGameResponse roomStartGameRes = 25;</code>
        */
       public com.game.proto.C2GNet.RoomStartGameResponse.Builder getRoomStartGameResBuilder() {
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00008000;
         onChanged();
         return getRoomStartGameResFieldBuilder().getBuilder();
       }
@@ -20577,7 +20785,7 @@ public final class C2GNet {
        * @return Whether the nickNameSearchRes field is set.
        */
       public boolean hasNickNameSearchRes() {
-        return ((bitField0_ & 0x00008000) != 0);
+        return ((bitField0_ & 0x00010000) != 0);
       }
       /**
        * <code>optional .NickNameSearchResponse nickNameSearchRes = 26;</code>
@@ -20603,7 +20811,7 @@ public final class C2GNet {
         } else {
           nickNameSearchResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00010000;
         return this;
       }
       /**
@@ -20617,7 +20825,7 @@ public final class C2GNet {
         } else {
           nickNameSearchResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00010000;
         return this;
       }
       /**
@@ -20625,7 +20833,7 @@ public final class C2GNet {
        */
       public Builder mergeNickNameSearchRes(com.game.proto.C2GNet.NickNameSearchResponse value) {
         if (nickNameSearchResBuilder_ == null) {
-          if (((bitField0_ & 0x00008000) != 0) &&
+          if (((bitField0_ & 0x00010000) != 0) &&
               nickNameSearchRes_ != null &&
               nickNameSearchRes_ != com.game.proto.C2GNet.NickNameSearchResponse.getDefaultInstance()) {
             nickNameSearchRes_ =
@@ -20637,7 +20845,7 @@ public final class C2GNet {
         } else {
           nickNameSearchResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00010000;
         return this;
       }
       /**
@@ -20650,14 +20858,14 @@ public final class C2GNet {
         } else {
           nickNameSearchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
       /**
        * <code>optional .NickNameSearchResponse nickNameSearchRes = 26;</code>
        */
       public com.game.proto.C2GNet.NickNameSearchResponse.Builder getNickNameSearchResBuilder() {
-        bitField0_ |= 0x00008000;
+        bitField0_ |= 0x00010000;
         onChanged();
         return getNickNameSearchResFieldBuilder().getBuilder();
       }
@@ -20697,7 +20905,7 @@ public final class C2GNet {
        * @return Whether the followListRes field is set.
        */
       public boolean hasFollowListRes() {
-        return ((bitField0_ & 0x00010000) != 0);
+        return ((bitField0_ & 0x00020000) != 0);
       }
       /**
        * <code>optional .FollowListResponse followListRes = 27;</code>
@@ -20723,7 +20931,7 @@ public final class C2GNet {
         } else {
           followListResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         return this;
       }
       /**
@@ -20737,7 +20945,7 @@ public final class C2GNet {
         } else {
           followListResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         return this;
       }
       /**
@@ -20745,7 +20953,7 @@ public final class C2GNet {
        */
       public Builder mergeFollowListRes(com.game.proto.C2GNet.FollowListResponse value) {
         if (followListResBuilder_ == null) {
-          if (((bitField0_ & 0x00010000) != 0) &&
+          if (((bitField0_ & 0x00020000) != 0) &&
               followListRes_ != null &&
               followListRes_ != com.game.proto.C2GNet.FollowListResponse.getDefaultInstance()) {
             followListRes_ =
@@ -20757,7 +20965,7 @@ public final class C2GNet {
         } else {
           followListResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         return this;
       }
       /**
@@ -20770,14 +20978,14 @@ public final class C2GNet {
         } else {
           followListResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
       /**
        * <code>optional .FollowListResponse followListRes = 27;</code>
        */
       public com.game.proto.C2GNet.FollowListResponse.Builder getFollowListResBuilder() {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00020000;
         onChanged();
         return getFollowListResFieldBuilder().getBuilder();
       }
@@ -20817,7 +21025,7 @@ public final class C2GNet {
        * @return Whether the addRoomReq field is set.
        */
       public boolean hasAddRoomReq() {
-        return ((bitField0_ & 0x00020000) != 0);
+        return ((bitField0_ & 0x00040000) != 0);
       }
       /**
        * <code>optional .AddRoomRequest addRoomReq = 28;</code>
@@ -20843,7 +21051,7 @@ public final class C2GNet {
         } else {
           addRoomReqBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00040000;
         return this;
       }
       /**
@@ -20857,7 +21065,7 @@ public final class C2GNet {
         } else {
           addRoomReqBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00040000;
         return this;
       }
       /**
@@ -20865,7 +21073,7 @@ public final class C2GNet {
        */
       public Builder mergeAddRoomReq(com.game.proto.C2GNet.AddRoomRequest value) {
         if (addRoomReqBuilder_ == null) {
-          if (((bitField0_ & 0x00020000) != 0) &&
+          if (((bitField0_ & 0x00040000) != 0) &&
               addRoomReq_ != null &&
               addRoomReq_ != com.game.proto.C2GNet.AddRoomRequest.getDefaultInstance()) {
             addRoomReq_ =
@@ -20877,7 +21085,7 @@ public final class C2GNet {
         } else {
           addRoomReqBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00040000;
         return this;
       }
       /**
@@ -20890,14 +21098,14 @@ public final class C2GNet {
         } else {
           addRoomReqBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         return this;
       }
       /**
        * <code>optional .AddRoomRequest addRoomReq = 28;</code>
        */
       public com.game.proto.C2GNet.AddRoomRequest.Builder getAddRoomReqBuilder() {
-        bitField0_ |= 0x00020000;
+        bitField0_ |= 0x00040000;
         onChanged();
         return getAddRoomReqFieldBuilder().getBuilder();
       }
@@ -20937,7 +21145,7 @@ public final class C2GNet {
        * @return Whether the addRoomRes field is set.
        */
       public boolean hasAddRoomRes() {
-        return ((bitField0_ & 0x00040000) != 0);
+        return ((bitField0_ & 0x00080000) != 0);
       }
       /**
        * <code>optional .AddRoomResponse addRoomRes = 29;</code>
@@ -20963,7 +21171,7 @@ public final class C2GNet {
         } else {
           addRoomResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00080000;
         return this;
       }
       /**
@@ -20977,7 +21185,7 @@ public final class C2GNet {
         } else {
           addRoomResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00080000;
         return this;
       }
       /**
@@ -20985,7 +21193,7 @@ public final class C2GNet {
        */
       public Builder mergeAddRoomRes(com.game.proto.C2GNet.AddRoomResponse value) {
         if (addRoomResBuilder_ == null) {
-          if (((bitField0_ & 0x00040000) != 0) &&
+          if (((bitField0_ & 0x00080000) != 0) &&
               addRoomRes_ != null &&
               addRoomRes_ != com.game.proto.C2GNet.AddRoomResponse.getDefaultInstance()) {
             addRoomRes_ =
@@ -20997,7 +21205,7 @@ public final class C2GNet {
         } else {
           addRoomResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00080000;
         return this;
       }
       /**
@@ -21010,14 +21218,14 @@ public final class C2GNet {
         } else {
           addRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00040000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         return this;
       }
       /**
        * <code>optional .AddRoomResponse addRoomRes = 29;</code>
        */
       public com.game.proto.C2GNet.AddRoomResponse.Builder getAddRoomResBuilder() {
-        bitField0_ |= 0x00040000;
+        bitField0_ |= 0x00080000;
         onChanged();
         return getAddRoomResFieldBuilder().getBuilder();
       }
@@ -21057,7 +21265,7 @@ public final class C2GNet {
        * @return Whether the outRoomRes field is set.
        */
       public boolean hasOutRoomRes() {
-        return ((bitField0_ & 0x00080000) != 0);
+        return ((bitField0_ & 0x00100000) != 0);
       }
       /**
        * <code>optional .OutRoomResponse outRoomRes = 30;</code>
@@ -21083,7 +21291,7 @@ public final class C2GNet {
         } else {
           outRoomResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         return this;
       }
       /**
@@ -21097,7 +21305,7 @@ public final class C2GNet {
         } else {
           outRoomResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         return this;
       }
       /**
@@ -21105,7 +21313,7 @@ public final class C2GNet {
        */
       public Builder mergeOutRoomRes(com.game.proto.C2GNet.OutRoomResponse value) {
         if (outRoomResBuilder_ == null) {
-          if (((bitField0_ & 0x00080000) != 0) &&
+          if (((bitField0_ & 0x00100000) != 0) &&
               outRoomRes_ != null &&
               outRoomRes_ != com.game.proto.C2GNet.OutRoomResponse.getDefaultInstance()) {
             outRoomRes_ =
@@ -21117,7 +21325,7 @@ public final class C2GNet {
         } else {
           outRoomResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         return this;
       }
       /**
@@ -21130,14 +21338,14 @@ public final class C2GNet {
         } else {
           outRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         return this;
       }
       /**
        * <code>optional .OutRoomResponse outRoomRes = 30;</code>
        */
       public com.game.proto.C2GNet.OutRoomResponse.Builder getOutRoomResBuilder() {
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         onChanged();
         return getOutRoomResFieldBuilder().getBuilder();
       }
@@ -21177,7 +21385,7 @@ public final class C2GNet {
        * @return Whether the chatRes field is set.
        */
       public boolean hasChatRes() {
-        return ((bitField0_ & 0x00100000) != 0);
+        return ((bitField0_ & 0x00200000) != 0);
       }
       /**
        * <code>optional .ChatResponse chatRes = 31;</code>
@@ -21203,7 +21411,7 @@ public final class C2GNet {
         } else {
           chatResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         return this;
       }
       /**
@@ -21217,7 +21425,7 @@ public final class C2GNet {
         } else {
           chatResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         return this;
       }
       /**
@@ -21225,7 +21433,7 @@ public final class C2GNet {
        */
       public Builder mergeChatRes(com.game.proto.C2GNet.ChatResponse value) {
         if (chatResBuilder_ == null) {
-          if (((bitField0_ & 0x00100000) != 0) &&
+          if (((bitField0_ & 0x00200000) != 0) &&
               chatRes_ != null &&
               chatRes_ != com.game.proto.C2GNet.ChatResponse.getDefaultInstance()) {
             chatRes_ =
@@ -21237,7 +21445,7 @@ public final class C2GNet {
         } else {
           chatResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         return this;
       }
       /**
@@ -21250,14 +21458,14 @@ public final class C2GNet {
         } else {
           chatResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         return this;
       }
       /**
        * <code>optional .ChatResponse chatRes = 31;</code>
        */
       public com.game.proto.C2GNet.ChatResponse.Builder getChatResBuilder() {
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         onChanged();
         return getChatResFieldBuilder().getBuilder();
       }
@@ -21297,7 +21505,7 @@ public final class C2GNet {
        * @return Whether the userStatusQueryRes field is set.
        */
       public boolean hasUserStatusQueryRes() {
-        return ((bitField0_ & 0x00200000) != 0);
+        return ((bitField0_ & 0x00400000) != 0);
       }
       /**
        * <code>optional .UserStatusQueryResponse userStatusQueryRes = 32;</code>
@@ -21323,7 +21531,7 @@ public final class C2GNet {
         } else {
           userStatusQueryResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         return this;
       }
       /**
@@ -21337,7 +21545,7 @@ public final class C2GNet {
         } else {
           userStatusQueryResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         return this;
       }
       /**
@@ -21345,7 +21553,7 @@ public final class C2GNet {
        */
       public Builder mergeUserStatusQueryRes(com.game.proto.C2GNet.UserStatusQueryResponse value) {
         if (userStatusQueryResBuilder_ == null) {
-          if (((bitField0_ & 0x00200000) != 0) &&
+          if (((bitField0_ & 0x00400000) != 0) &&
               userStatusQueryRes_ != null &&
               userStatusQueryRes_ != com.game.proto.C2GNet.UserStatusQueryResponse.getDefaultInstance()) {
             userStatusQueryRes_ =
@@ -21357,7 +21565,7 @@ public final class C2GNet {
         } else {
           userStatusQueryResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         return this;
       }
       /**
@@ -21370,14 +21578,14 @@ public final class C2GNet {
         } else {
           userStatusQueryResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         return this;
       }
       /**
        * <code>optional .UserStatusQueryResponse userStatusQueryRes = 32;</code>
        */
       public com.game.proto.C2GNet.UserStatusQueryResponse.Builder getUserStatusQueryResBuilder() {
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         onChanged();
         return getUserStatusQueryResFieldBuilder().getBuilder();
       }
@@ -21417,7 +21625,7 @@ public final class C2GNet {
        * @return Whether the startMatchRes field is set.
        */
       public boolean hasStartMatchRes() {
-        return ((bitField0_ & 0x00400000) != 0);
+        return ((bitField0_ & 0x00800000) != 0);
       }
       /**
        * <code>optional .StartMatchResponse startMatchRes = 33;</code>
@@ -21443,7 +21651,7 @@ public final class C2GNet {
         } else {
           startMatchResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         return this;
       }
       /**
@@ -21457,7 +21665,7 @@ public final class C2GNet {
         } else {
           startMatchResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         return this;
       }
       /**
@@ -21465,7 +21673,7 @@ public final class C2GNet {
        */
       public Builder mergeStartMatchRes(com.game.proto.C2GNet.StartMatchResponse value) {
         if (startMatchResBuilder_ == null) {
-          if (((bitField0_ & 0x00400000) != 0) &&
+          if (((bitField0_ & 0x00800000) != 0) &&
               startMatchRes_ != null &&
               startMatchRes_ != com.game.proto.C2GNet.StartMatchResponse.getDefaultInstance()) {
             startMatchRes_ =
@@ -21477,7 +21685,7 @@ public final class C2GNet {
         } else {
           startMatchResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         return this;
       }
       /**
@@ -21490,14 +21698,14 @@ public final class C2GNet {
         } else {
           startMatchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00800000);
         return this;
       }
       /**
        * <code>optional .StartMatchResponse startMatchRes = 33;</code>
        */
       public com.game.proto.C2GNet.StartMatchResponse.Builder getStartMatchResBuilder() {
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         onChanged();
         return getStartMatchResFieldBuilder().getBuilder();
       }
@@ -21537,7 +21745,7 @@ public final class C2GNet {
        * @return Whether the matchRes field is set.
        */
       public boolean hasMatchRes() {
-        return ((bitField0_ & 0x00800000) != 0);
+        return ((bitField0_ & 0x01000000) != 0);
       }
       /**
        * <code>optional .MatchResponse matchRes = 34;</code>
@@ -21563,7 +21771,7 @@ public final class C2GNet {
         } else {
           matchResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         return this;
       }
       /**
@@ -21577,7 +21785,7 @@ public final class C2GNet {
         } else {
           matchResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         return this;
       }
       /**
@@ -21585,7 +21793,7 @@ public final class C2GNet {
        */
       public Builder mergeMatchRes(com.game.proto.C2GNet.MatchResponse value) {
         if (matchResBuilder_ == null) {
-          if (((bitField0_ & 0x00800000) != 0) &&
+          if (((bitField0_ & 0x01000000) != 0) &&
               matchRes_ != null &&
               matchRes_ != com.game.proto.C2GNet.MatchResponse.getDefaultInstance()) {
             matchRes_ =
@@ -21597,7 +21805,7 @@ public final class C2GNet {
         } else {
           matchResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         return this;
       }
       /**
@@ -21610,14 +21818,14 @@ public final class C2GNet {
         } else {
           matchResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00800000);
+        bitField0_ = (bitField0_ & ~0x01000000);
         return this;
       }
       /**
        * <code>optional .MatchResponse matchRes = 34;</code>
        */
       public com.game.proto.C2GNet.MatchResponse.Builder getMatchResBuilder() {
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         onChanged();
         return getMatchResFieldBuilder().getBuilder();
       }
@@ -21657,7 +21865,7 @@ public final class C2GNet {
        * @return Whether the addLiveRes field is set.
        */
       public boolean hasAddLiveRes() {
-        return ((bitField0_ & 0x01000000) != 0);
+        return ((bitField0_ & 0x02000000) != 0);
       }
       /**
        * <code>optional .AddLiveResponse addLiveRes = 35;</code>
@@ -21683,7 +21891,7 @@ public final class C2GNet {
         } else {
           addLiveResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         return this;
       }
       /**
@@ -21697,7 +21905,7 @@ public final class C2GNet {
         } else {
           addLiveResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         return this;
       }
       /**
@@ -21705,7 +21913,7 @@ public final class C2GNet {
        */
       public Builder mergeAddLiveRes(com.game.proto.C2GNet.AddLiveResponse value) {
         if (addLiveResBuilder_ == null) {
-          if (((bitField0_ & 0x01000000) != 0) &&
+          if (((bitField0_ & 0x02000000) != 0) &&
               addLiveRes_ != null &&
               addLiveRes_ != com.game.proto.C2GNet.AddLiveResponse.getDefaultInstance()) {
             addLiveRes_ =
@@ -21717,7 +21925,7 @@ public final class C2GNet {
         } else {
           addLiveResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         return this;
       }
       /**
@@ -21730,14 +21938,14 @@ public final class C2GNet {
         } else {
           addLiveResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x01000000);
+        bitField0_ = (bitField0_ & ~0x02000000);
         return this;
       }
       /**
        * <code>optional .AddLiveResponse addLiveRes = 35;</code>
        */
       public com.game.proto.C2GNet.AddLiveResponse.Builder getAddLiveResBuilder() {
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         onChanged();
         return getAddLiveResFieldBuilder().getBuilder();
       }
@@ -21777,7 +21985,7 @@ public final class C2GNet {
        * @return Whether the validateOpenRoomRes field is set.
        */
       public boolean hasValidateOpenRoomRes() {
-        return ((bitField0_ & 0x02000000) != 0);
+        return ((bitField0_ & 0x04000000) != 0);
       }
       /**
        * <code>optional .ValidateOpenRoomResponse validateOpenRoomRes = 36;</code>
@@ -21803,7 +22011,7 @@ public final class C2GNet {
         } else {
           validateOpenRoomResBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         return this;
       }
       /**
@@ -21817,7 +22025,7 @@ public final class C2GNet {
         } else {
           validateOpenRoomResBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         return this;
       }
       /**
@@ -21825,7 +22033,7 @@ public final class C2GNet {
        */
       public Builder mergeValidateOpenRoomRes(com.game.proto.C2GNet.ValidateOpenRoomResponse value) {
         if (validateOpenRoomResBuilder_ == null) {
-          if (((bitField0_ & 0x02000000) != 0) &&
+          if (((bitField0_ & 0x04000000) != 0) &&
               validateOpenRoomRes_ != null &&
               validateOpenRoomRes_ != com.game.proto.C2GNet.ValidateOpenRoomResponse.getDefaultInstance()) {
             validateOpenRoomRes_ =
@@ -21837,7 +22045,7 @@ public final class C2GNet {
         } else {
           validateOpenRoomResBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         return this;
       }
       /**
@@ -21850,14 +22058,14 @@ public final class C2GNet {
         } else {
           validateOpenRoomResBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x02000000);
+        bitField0_ = (bitField0_ & ~0x04000000);
         return this;
       }
       /**
        * <code>optional .ValidateOpenRoomResponse validateOpenRoomRes = 36;</code>
        */
       public com.game.proto.C2GNet.ValidateOpenRoomResponse.Builder getValidateOpenRoomResBuilder() {
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         onChanged();
         return getValidateOpenRoomResFieldBuilder().getBuilder();
       }
@@ -21897,7 +22105,7 @@ public final class C2GNet {
        * @return Whether the statusNotify field is set.
        */
       public boolean hasStatusNotify() {
-        return ((bitField0_ & 0x04000000) != 0);
+        return ((bitField0_ & 0x08000000) != 0);
       }
       /**
        * <code>optional .StatusNotify statusNotify = 100;</code>
@@ -21923,7 +22131,7 @@ public final class C2GNet {
         } else {
           statusNotifyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         return this;
       }
       /**
@@ -21937,7 +22145,7 @@ public final class C2GNet {
         } else {
           statusNotifyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         return this;
       }
       /**
@@ -21945,7 +22153,7 @@ public final class C2GNet {
        */
       public Builder mergeStatusNotify(com.game.proto.C2GNet.StatusNotify value) {
         if (statusNotifyBuilder_ == null) {
-          if (((bitField0_ & 0x04000000) != 0) &&
+          if (((bitField0_ & 0x08000000) != 0) &&
               statusNotify_ != null &&
               statusNotify_ != com.game.proto.C2GNet.StatusNotify.getDefaultInstance()) {
             statusNotify_ =
@@ -21957,7 +22165,7 @@ public final class C2GNet {
         } else {
           statusNotifyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         return this;
       }
       /**
@@ -21970,14 +22178,14 @@ public final class C2GNet {
         } else {
           statusNotifyBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x04000000);
+        bitField0_ = (bitField0_ & ~0x08000000);
         return this;
       }
       /**
        * <code>optional .StatusNotify statusNotify = 100;</code>
        */
       public com.game.proto.C2GNet.StatusNotify.Builder getStatusNotifyBuilder() {
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         onChanged();
         return getStatusNotifyFieldBuilder().getBuilder();
       }
@@ -59956,6 +60164,426 @@ public final class C2GNet {
 
   }
 
+  public interface GameOver2ResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GameOver2Response)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code GameOver2Response}
+   */
+  public static final class GameOver2Response extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GameOver2Response)
+      GameOver2ResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameOver2Response.newBuilder() to construct.
+    private GameOver2Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameOver2Response() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GameOver2Response();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameOver2Response(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.game.proto.C2GNet.internal_static_GameOver2Response_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.game.proto.C2GNet.internal_static_GameOver2Response_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.game.proto.C2GNet.GameOver2Response.class, com.game.proto.C2GNet.GameOver2Response.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.game.proto.C2GNet.GameOver2Response)) {
+        return super.equals(obj);
+      }
+      com.game.proto.C2GNet.GameOver2Response other = (com.game.proto.C2GNet.GameOver2Response) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.game.proto.C2GNet.GameOver2Response parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.game.proto.C2GNet.GameOver2Response prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GameOver2Response}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GameOver2Response)
+        com.game.proto.C2GNet.GameOver2ResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.game.proto.C2GNet.internal_static_GameOver2Response_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.game.proto.C2GNet.internal_static_GameOver2Response_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.game.proto.C2GNet.GameOver2Response.class, com.game.proto.C2GNet.GameOver2Response.Builder.class);
+      }
+
+      // Construct using com.game.proto.C2GNet.GameOver2Response.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.game.proto.C2GNet.internal_static_GameOver2Response_descriptor;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2GNet.GameOver2Response getDefaultInstanceForType() {
+        return com.game.proto.C2GNet.GameOver2Response.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2GNet.GameOver2Response build() {
+        com.game.proto.C2GNet.GameOver2Response result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.game.proto.C2GNet.GameOver2Response buildPartial() {
+        com.game.proto.C2GNet.GameOver2Response result = new com.game.proto.C2GNet.GameOver2Response(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.game.proto.C2GNet.GameOver2Response) {
+          return mergeFrom((com.game.proto.C2GNet.GameOver2Response)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.game.proto.C2GNet.GameOver2Response other) {
+        if (other == com.game.proto.C2GNet.GameOver2Response.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.game.proto.C2GNet.GameOver2Response parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.game.proto.C2GNet.GameOver2Response) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GameOver2Response)
+    }
+
+    // @@protoc_insertion_point(class_scope:GameOver2Response)
+    private static final com.game.proto.C2GNet.GameOver2Response DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.game.proto.C2GNet.GameOver2Response();
+    }
+
+    public static com.game.proto.C2GNet.GameOver2Response getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GameOver2Response>
+        PARSER = new com.google.protobuf.AbstractParser<GameOver2Response>() {
+      @java.lang.Override
+      public GameOver2Response parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GameOver2Response(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameOver2Response> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameOver2Response> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.game.proto.C2GNet.GameOver2Response getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AddLiveRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:AddLiveRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -63640,6 +64268,11 @@ public final class C2GNet {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GameOver2Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GameOver2Response_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GameOver2Response_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AddLiveRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -63752,196 +64385,198 @@ public final class C2GNet {
       "\n\n\010_chatReqB\025\n\023_userStatusQueryReqB\020\n\016_s" +
       "tartMatchReqB\017\n\r_gameOver2ReqB\r\n\013_addLiv" +
       "eReqB\021\n\017_uploadBiFenReqB\020\n\016_followListRe" +
-      "qB\026\n\024_validateOpenRoomReq\"\331\r\n\022NetMessage" +
+      "qB\026\n\024_validateOpenRoomReq\"\231\016\n\022NetMessage" +
       "Response\0220\n\014userRegister\030\001 \001(\0132\025.UserReg" +
       "isterResponseH\000\210\001\001\022*\n\tuserLogin\030\002 \001(\0132\022." +
       "UserLoginResponseH\001\210\001\001\0226\n\017characterDetai" +
       "l\030\003 \001(\0132\030.CharacterDetailResponseH\002\210\001\001\0224" +
       "\n\016updateNickName\030\004 \001(\0132\027.UpdateNickNameR" +
       "esponseH\003\210\001\001\022\'\n\tfollowRes\030\010 \001(\0132\017.Follow" +
-      "ResponseH\004\210\001\001\022\'\n\tunLockRes\030\n \001(\0132\017.UnLoc" +
-      "kResponseH\005\210\001\001\0229\n\022switchCharacterRes\030\013 \001" +
-      "(\0132\030.SwitchCharacterResponseH\006\210\001\001\022;\n\023use" +
-      "rStatusChangeRes\030\r \001(\0132\031.UserStatusChang" +
-      "eResponseH\007\210\001\001\022-\n\014heartBeatRes\030\020 \001(\0132\022.H" +
-      "eartBeatResponseH\010\210\001\001\022#\n\007tipsRes\030\024 \001(\0132\r" +
-      ".TipsResponseH\t\210\001\001\022\'\n\tmyRoomRes\030\025 \001(\0132\017." +
-      "MyRoomResponseH\n\210\001\001\022&\n\tinviteReq\030\026 \001(\0132\016" +
-      ".InviteRequestH\013\210\001\001\022\'\n\tinviteRes\030\027 \001(\0132\017" +
-      ".InviteResponseH\014\210\001\001\022)\n\nkickOutRes\030\030 \001(\013" +
-      "2\020.KickOutResponseH\r\210\001\001\0225\n\020roomStartGame" +
-      "Res\030\031 \001(\0132\026.RoomStartGameResponseH\016\210\001\001\0227" +
-      "\n\021nickNameSearchRes\030\032 \001(\0132\027.NickNameSear" +
-      "chResponseH\017\210\001\001\022/\n\rfollowListRes\030\033 \001(\0132\023" +
-      ".FollowListResponseH\020\210\001\001\022(\n\naddRoomReq\030\034" +
-      " \001(\0132\017.AddRoomRequestH\021\210\001\001\022)\n\naddRoomRes" +
-      "\030\035 \001(\0132\020.AddRoomResponseH\022\210\001\001\022)\n\noutRoom" +
-      "Res\030\036 \001(\0132\020.OutRoomResponseH\023\210\001\001\022#\n\007chat" +
-      "Res\030\037 \001(\0132\r.ChatResponseH\024\210\001\001\0229\n\022userSta" +
-      "tusQueryRes\030  \001(\0132\030.UserStatusQueryRespo" +
-      "nseH\025\210\001\001\022/\n\rstartMatchRes\030! \001(\0132\023.StartM" +
-      "atchResponseH\026\210\001\001\022%\n\010matchRes\030\" \001(\0132\016.Ma" +
-      "tchResponseH\027\210\001\001\022)\n\naddLiveRes\030# \001(\0132\020.A" +
-      "ddLiveResponseH\030\210\001\001\022;\n\023validateOpenRoomR" +
-      "es\030$ \001(\0132\031.ValidateOpenRoomResponseH\031\210\001\001" +
-      "\022(\n\014statusNotify\030d \001(\0132\r.StatusNotifyH\032\210" +
-      "\001\001B\017\n\r_userRegisterB\014\n\n_userLoginB\022\n\020_ch" +
-      "aracterDetailB\021\n\017_updateNickNameB\014\n\n_fol" +
-      "lowResB\014\n\n_unLockResB\025\n\023_switchCharacter" +
-      "ResB\026\n\024_userStatusChangeResB\017\n\r_heartBea" +
-      "tResB\n\n\010_tipsResB\014\n\n_myRoomResB\014\n\n_invit" +
-      "eReqB\014\n\n_inviteResB\r\n\013_kickOutResB\023\n\021_ro" +
-      "omStartGameResB\024\n\022_nickNameSearchResB\020\n\016" +
-      "_followListResB\r\n\013_addRoomReqB\r\n\013_addRoo" +
-      "mResB\r\n\013_outRoomResB\n\n\010_chatResB\025\n\023_user" +
-      "StatusQueryResB\020\n\016_startMatchResB\013\n\t_mat" +
-      "chResB\r\n\013_addLiveResB\026\n\024_validateOpenRoo" +
-      "mResB\017\n\r_statusNotify\"Z\n\020UserLoginReques" +
-      "t\022\025\n\010userName\030\001 \001(\tH\000\210\001\001\022\025\n\010passward\030\002 \001" +
-      "(\tH\001\210\001\001B\013\n\t_userNameB\013\n\t_passward\"\204\001\n\021Us" +
-      "erLoginResponse\022\034\n\006result\030\001 \001(\0162\007.Result" +
-      "H\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022\031\n\004user\030\003 \001" +
-      "(\0132\006.NUserH\002\210\001\001B\t\n\007_resultB\013\n\t_errormsgB" +
-      "\007\n\005_user\"]\n\023UserRegisterRequest\022\025\n\010userN" +
-      "ame\030\001 \001(\tH\000\210\001\001\022\025\n\010password\030\002 \001(\tH\001\210\001\001B\013\n" +
-      "\t_userNameB\013\n\t_password\"c\n\024UserRegisterR" +
-      "esponse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n" +
-      "\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_erro" +
-      "rmsg\"d\n\026CharacterDetailRequest\022\023\n\006userId" +
-      "\030\001 \001(\005H\000\210\001\001\022\031\n\014tCharacterId\030\002 \001(\005H\001\210\001\001B\t" +
-      "\n\007_userIdB\017\n\r_tCharacterId\"\212\001\n\027Character" +
-      "DetailResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH" +
-      "\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022\031\n\004user\030\003 \001(" +
-      "\0132\006.NUserH\002\210\001\001B\t\n\007_resultB\013\n\t_errormsgB\007" +
-      "\n\005_user\";\n\025UpdateNickNameRequest\022\025\n\010nick" +
-      "name\030\001 \001(\tH\000\210\001\001B\013\n\t_nickname\"e\n\026UpdateNi" +
-      "ckNameResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH" +
-      "\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013" +
-      "\n\t_errormsg\"S\n\rFollowRequest\022\023\n\006userId\030\001" +
-      " \001(\005H\000\210\001\001\022\025\n\010isFollow\030\002 \001(\010H\001\210\001\001B\t\n\007_use" +
-      "rIdB\013\n\t_isFollow\"]\n\016FollowResponse\022\034\n\006re" +
-      "sult\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001" +
-      "(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\";\n\rUnLoc" +
-      "kRequest\022\031\n\014cCharacterId\030\001 \001(\005H\000\210\001\001B\017\n\r_" +
-      "cCharacterId\"\241\001\n\016UnLockResponse\022\034\n\006resul" +
+      "ResponseH\004\210\001\001\022-\n\014gameOver2Res\030\t \001(\0132\022.Ga" +
+      "meOver2ResponseH\005\210\001\001\022\'\n\tunLockRes\030\n \001(\0132" +
+      "\017.UnLockResponseH\006\210\001\001\0229\n\022switchCharacter" +
+      "Res\030\013 \001(\0132\030.SwitchCharacterResponseH\007\210\001\001" +
+      "\022;\n\023userStatusChangeRes\030\r \001(\0132\031.UserStat" +
+      "usChangeResponseH\010\210\001\001\022-\n\014heartBeatRes\030\020 " +
+      "\001(\0132\022.HeartBeatResponseH\t\210\001\001\022#\n\007tipsRes\030" +
+      "\024 \001(\0132\r.TipsResponseH\n\210\001\001\022\'\n\tmyRoomRes\030\025" +
+      " \001(\0132\017.MyRoomResponseH\013\210\001\001\022&\n\tinviteReq\030" +
+      "\026 \001(\0132\016.InviteRequestH\014\210\001\001\022\'\n\tinviteRes\030" +
+      "\027 \001(\0132\017.InviteResponseH\r\210\001\001\022)\n\nkickOutRe" +
+      "s\030\030 \001(\0132\020.KickOutResponseH\016\210\001\001\0225\n\020roomSt" +
+      "artGameRes\030\031 \001(\0132\026.RoomStartGameResponse" +
+      "H\017\210\001\001\0227\n\021nickNameSearchRes\030\032 \001(\0132\027.NickN" +
+      "ameSearchResponseH\020\210\001\001\022/\n\rfollowListRes\030" +
+      "\033 \001(\0132\023.FollowListResponseH\021\210\001\001\022(\n\naddRo" +
+      "omReq\030\034 \001(\0132\017.AddRoomRequestH\022\210\001\001\022)\n\nadd" +
+      "RoomRes\030\035 \001(\0132\020.AddRoomResponseH\023\210\001\001\022)\n\n" +
+      "outRoomRes\030\036 \001(\0132\020.OutRoomResponseH\024\210\001\001\022" +
+      "#\n\007chatRes\030\037 \001(\0132\r.ChatResponseH\025\210\001\001\0229\n\022" +
+      "userStatusQueryRes\030  \001(\0132\030.UserStatusQue" +
+      "ryResponseH\026\210\001\001\022/\n\rstartMatchRes\030! \001(\0132\023" +
+      ".StartMatchResponseH\027\210\001\001\022%\n\010matchRes\030\" \001" +
+      "(\0132\016.MatchResponseH\030\210\001\001\022)\n\naddLiveRes\030# " +
+      "\001(\0132\020.AddLiveResponseH\031\210\001\001\022;\n\023validateOp" +
+      "enRoomRes\030$ \001(\0132\031.ValidateOpenRoomRespon" +
+      "seH\032\210\001\001\022(\n\014statusNotify\030d \001(\0132\r.StatusNo" +
+      "tifyH\033\210\001\001B\017\n\r_userRegisterB\014\n\n_userLogin" +
+      "B\022\n\020_characterDetailB\021\n\017_updateNickNameB" +
+      "\014\n\n_followResB\017\n\r_gameOver2ResB\014\n\n_unLoc" +
+      "kResB\025\n\023_switchCharacterResB\026\n\024_userStat" +
+      "usChangeResB\017\n\r_heartBeatResB\n\n\010_tipsRes" +
+      "B\014\n\n_myRoomResB\014\n\n_inviteReqB\014\n\n_inviteR" +
+      "esB\r\n\013_kickOutResB\023\n\021_roomStartGameResB\024" +
+      "\n\022_nickNameSearchResB\020\n\016_followListResB\r" +
+      "\n\013_addRoomReqB\r\n\013_addRoomResB\r\n\013_outRoom" +
+      "ResB\n\n\010_chatResB\025\n\023_userStatusQueryResB\020" +
+      "\n\016_startMatchResB\013\n\t_matchResB\r\n\013_addLiv" +
+      "eResB\026\n\024_validateOpenRoomResB\017\n\r_statusN" +
+      "otify\"Z\n\020UserLoginRequest\022\025\n\010userName\030\001 " +
+      "\001(\tH\000\210\001\001\022\025\n\010passward\030\002 \001(\tH\001\210\001\001B\013\n\t_user" +
+      "NameB\013\n\t_passward\"\204\001\n\021UserLoginResponse\022" +
+      "\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errorms" +
+      "g\030\002 \001(\tH\001\210\001\001\022\031\n\004user\030\003 \001(\0132\006.NUserH\002\210\001\001B" +
+      "\t\n\007_resultB\013\n\t_errormsgB\007\n\005_user\"]\n\023User" +
+      "RegisterRequest\022\025\n\010userName\030\001 \001(\tH\000\210\001\001\022\025" +
+      "\n\010password\030\002 \001(\tH\001\210\001\001B\013\n\t_userNameB\013\n\t_p" +
+      "assword\"c\n\024UserRegisterResponse\022\034\n\006resul" +
       "t\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH" +
-      "\001\210\001\001\022.\n\017unLockCharacter\030\003 \001(\0132\020.UnLockCh" +
-      "aracterH\002\210\001\001B\t\n\007_resultB\013\n\t_errormsgB\022\n\020" +
-      "_unLockCharacter\"D\n\026SwitchCharacterReque" +
-      "st\022\031\n\014tCharacterId\030\001 \001(\005H\000\210\001\001B\017\n\r_tChara" +
-      "cterId\"\231\001\n\027SwitchCharacterResponse\022\034\n\006re" +
-      "sult\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001" +
-      "(\tH\001\210\001\001\022#\n\tcharacter\030\003 \001(\0132\013.NCharacterH" +
-      "\002\210\001\001B\t\n\007_resultB\013\n\t_errormsgB\014\n\n_charact" +
-      "er\"I\n\030UserStatusChangeResponse\022-\n\021userSt" +
-      "atusChanges\030\001 \003(\0132\022.NUserStatusChange\"\022\n" +
-      "\020HeartBeatRequest\"C\n\021HeartBeatResponse\022\033" +
-      "\n\016liveFenSiCount\030\001 \001(\005H\000\210\001\001B\021\n\017_liveFenS" +
-      "iCount\"\232\001\n\014TipsResponse\022 \n\010tipsType\030\001 \001(" +
-      "\0162\t.TipsTypeH\000\210\001\001\022\024\n\007content\030\002 \001(\tH\001\210\001\001\022" +
-      "(\n\014tipsWorkType\030\003 \001(\0162\r.TipsWorkTypeH\002\210\001" +
-      "\001B\013\n\t_tipsTypeB\n\n\010_contentB\017\n\r_tipsWorkT" +
-      "ype\"\340\001\n\010RoomUser\022\023\n\006userId\030\001 \001(\005H\000\210\001\001\022\025\n" +
-      "\010nickName\030\002 \001(\tH\001\210\001\001\022\031\n\014cCharacterId\030\003 \001" +
-      "(\005H\002\210\001\001\022\031\n\004user\030\004 \001(\0132\006.NUserH\003\210\001\001\022\023\n\006te" +
-      "amId\030\005 \001(\005H\004\210\001\001\022\024\n\007roomNum\030\006 \001(\005H\005\210\001\001B\t\n" +
-      "\007_userIdB\013\n\t_nickNameB\017\n\r_cCharacterIdB\007" +
-      "\n\005_userB\t\n\007_teamIdB\n\n\010_roomNum\"\"\n\007AllTea" +
-      "m\022\027\n\004Team\030\001 \003(\0132\t.RoomUser\"\255\002\n\005NRoom\022\023\n\006" +
-      "roomId\030\001 \001(\005H\000\210\001\001\022\023\n\006userId\030\002 \001(\005H\001\210\001\001\022\030" +
-      "\n\013GamePattern\030\003 \001(\005H\002\210\001\001\022\031\n\007allTeam\030\004 \003(" +
-      "\0132\010.AllTeam\022$\n\nroomStatus\030\005 \001(\0162\013.RoomSt" +
-      "atusH\003\210\001\001\022\026\n\tipPortStr\030\006 \001(\tH\004\210\001\001\022\027\n\nran" +
-      "domSeed\030\007 \001(\005H\005\210\001\001\022\022\n\005biFen\030\010 \001(\tH\006\210\001\001B\t" +
-      "\n\007_roomIdB\t\n\007_userIdB\016\n\014_GamePatternB\r\n\013" +
-      "_roomStatusB\014\n\n_ipPortStrB\r\n\013_randomSeed" +
-      "B\010\n\006_biFen\"\017\n\rMyRoomRequest\"4\n\016MyRoomRes" +
-      "ponse\022\031\n\004room\030\001 \001(\0132\006.NRoomH\000\210\001\001B\007\n\005_roo" +
-      "m\"\317\001\n\rInviteRequest\022\027\n\nfromUserId\030\001 \001(\005H" +
-      "\000\210\001\001\022\031\n\014fromNickName\030\002 \001(\tH\001\210\001\001\022\025\n\010toUse" +
-      "rId\030\003 \001(\005H\002\210\001\001\022\027\n\ntoNickName\030\004 \001(\tH\003\210\001\001\022" +
-      "\023\n\006teamId\030\005 \001(\005H\004\210\001\001B\r\n\013_fromUserIdB\017\n\r_" +
-      "fromNickNameB\013\n\t_toUserIdB\r\n\013_toNickName" +
-      "B\t\n\007_teamId\"\241\001\n\016InviteResponse\022\037\n\tresult" +
-      "msg\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(" +
-      "\tH\001\210\001\001\022*\n\rinviteRequest\030\003 \001(\0132\016.InviteRe" +
-      "questH\002\210\001\001B\014\n\n_resultmsgB\013\n\t_errormsgB\020\n" +
-      "\016_inviteRequest\"0\n\016KickOutRequest\022\023\n\006use" +
-      "rId\030\001 \001(\005H\000\210\001\001B\t\n\007_userId\"^\n\017KickOutResp" +
-      "onse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010er" +
-      "rormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errorms" +
-      "g\"\026\n\024RoomStartGameRequest\"d\n\025RoomStartGa" +
-      "meResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001" +
-      "\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_e" +
-      "rrormsg\";\n\025NickNameSearchRequest\022\025\n\010nick" +
-      "Name\030\001 \001(\tH\000\210\001\001B\013\n\t_nickName\"5\n\026NickName" +
-      "SearchResponse\022\033\n\010roomUser\030\001 \003(\0132\t.RoomU" +
-      "ser\"\204\001\n\016AddRoomRequest\022\023\n\006roomId\030\001 \001(\005H\000" +
-      "\210\001\001\022\027\n\nfromUserId\030\002 \001(\005H\001\210\001\001\022\031\n\014fromNick" +
-      "Name\030\003 \001(\tH\002\210\001\001B\t\n\007_roomIdB\r\n\013_fromUserI" +
-      "dB\017\n\r_fromNickName\"\277\001\n\017AddRoomResponse\022\034" +
+      "\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\"d\n\026Characte" +
+      "rDetailRequest\022\023\n\006userId\030\001 \001(\005H\000\210\001\001\022\031\n\014t" +
+      "CharacterId\030\002 \001(\005H\001\210\001\001B\t\n\007_userIdB\017\n\r_tC" +
+      "haracterId\"\212\001\n\027CharacterDetailResponse\022\034" +
       "\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg" +
-      "\030\002 \001(\tH\001\210\001\001\022,\n\016addRoomRequest\030\003 \001(\0132\017.Ad" +
-      "dRoomRequestH\002\210\001\001\022\023\n\006teamId\030\004 \001(\005H\003\210\001\001B\t" +
-      "\n\007_resultB\013\n\t_errormsgB\021\n\017_addRoomReques" +
-      "tB\t\n\007_teamId\"\020\n\016OutRoomRequest\"^\n\017OutRoo" +
-      "mResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022" +
-      "\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_er" +
-      "rormsg\"\023\n\021FollowListRequest\"-\n\022FollowLis" +
-      "tResponse\022\027\n\007follows\030\001 \003(\0132\006.NUser\"\224\004\n\013C" +
-      "hatMessage\022&\n\013chatChannel\030\001 \001(\0162\014.ChatCh" +
-      "annelH\000\210\001\001\022\023\n\006fromId\030\002 \001(\005H\001\210\001\001\022\025\n\010fromN" +
-      "ame\030\003 \001(\tH\002\210\001\001\022\026\n\tfromLevel\030\004 \001(\005H\003\210\001\001\022\035" +
-      "\n\020fromCCharacterId\030\005 \001(\005H\004\210\001\001\022\021\n\004toId\030\006 " +
-      "\001(\005H\005\210\001\001\022\023\n\006toName\030\007 \001(\tH\006\210\001\001\022\024\n\007toLevel" +
-      "\030\010 \001(\005H\007\210\001\001\022\033\n\016toCCharacterId\030\t \001(\005H\010\210\001\001" +
-      "\022\020\n\003msg\030\n \001(\tH\t\210\001\001\022\021\n\004time\030\013 \001(\003H\n\210\001\001\022(\n" +
-      "\014chatRoomType\030\014 \001(\0162\r.ChatRoomTypeH\013\210\001\001\022" +
-      "\034\n\017enterLiveUserId\030\r \001(\005H\014\210\001\001B\016\n\014_chatCh" +
-      "annelB\t\n\007_fromIdB\013\n\t_fromNameB\014\n\n_fromLe" +
-      "velB\023\n\021_fromCCharacterIdB\007\n\005_toIdB\t\n\007_to" +
-      "NameB\n\n\010_toLevelB\021\n\017_toCCharacterIdB\006\n\004_" +
-      "msgB\007\n\005_timeB\017\n\r_chatRoomTypeB\022\n\020_enterL" +
-      "iveUserId\"E\n\013ChatRequest\022&\n\013chatMessage\030" +
-      "\001 \001(\0132\014.ChatMessageH\000\210\001\001B\016\n\014_chatMessage" +
-      "\"\312\001\n\014ChatResponse\022\034\n\006result\030\001 \001(\0162\007.Resu" +
-      "ltH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022\"\n\014compMe" +
-      "ssages\030\003 \003(\0132\014.ChatMessage\022%\n\017privateMes" +
-      "sages\030\004 \003(\0132\014.ChatMessage\022\"\n\014roomMessage" +
-      "s\030\005 \003(\0132\014.ChatMessageB\t\n\007_resultB\013\n\t_err" +
-      "ormsg\")\n\026UserStatusQueryRequest\022\017\n\007userI" +
-      "ds\030\001 \003(\005\")\n\027UserStatusQueryResponse\022\016\n\006s" +
-      "tatus\030\001 \003(\010\"\023\n\021StartMatchRequest\"a\n\022Star" +
-      "tMatchResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH" +
-      "\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013" +
-      "\n\t_errormsg\"\200\001\n\rMatchResponse\022\034\n\006result\030" +
-      "\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210" +
-      "\001\001\022\031\n\004room\030\003 \001(\0132\006.NRoomH\002\210\001\001B\t\n\007_result" +
-      "B\013\n\t_errormsgB\007\n\005_room\"8\n\020GameOver2Reque" +
-      "st\022\026\n\tipPortStr\030\001 \001(\tH\000\210\001\001B\014\n\n_ipPortStr" +
-      "\"0\n\016AddLiveRequest\022\023\n\006userId\030\001 \001(\005H\000\210\001\001B" +
-      "\t\n\007_userId\"\202\001\n\017AddLiveResponse\022\034\n\006result" +
-      "\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001" +
-      "\210\001\001\022\031\n\004room\030\003 \001(\0132\006.NRoomH\002\210\001\001B\t\n\007_resul" +
-      "tB\013\n\t_errormsgB\007\n\005_room\"2\n\022UploadBiFenRe" +
-      "quest\022\022\n\005biFen\030\001 \001(\tH\000\210\001\001B\010\n\006_biFen\"\031\n\027V" +
-      "alidateOpenRoomRequest\"g\n\030ValidateOpenRo" +
-      "omResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001" +
-      "\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_e" +
-      "rrormsg*!\n\006Result\022\013\n\007Success\020\000\022\n\n\006Failed" +
-      "\020\001*/\n\014StatusAction\022\n\n\006UPDATE\020\000\022\007\n\003ADD\020\001\022" +
-      "\n\n\006DELETE\020\002*\037\n\010TipsType\022\010\n\004Tips\020\000\022\t\n\005Pop" +
-      "up\020\001*;\n\nStatusType\022\t\n\005MONEY\020\000\022\007\n\003EXP\020\001\022\017" +
-      "\n\013SKILL_POINT\020\002\022\010\n\004ITEM\020\003*D\n\nUserStatus\022" +
-      "\n\n\006Normal\020\000\022\010\n\004Game\020\001\022\010\n\004Room\020\002\022\010\n\004Live\020" +
-      "\003\022\014\n\010GameOver\020\004*Z\n\014TipsWorkType\022\010\n\004None\020" +
-      "\000\022\021\n\rAuctionResult\020\001\022\017\n\013DismissRoom\020\002\022\017\n" +
-      "\013KickOutRoom\020\003\022\013\n\007OutRoom\020\004*%\n\nRoomStatu" +
-      "s\022\013\n\007Normal_\020\000\022\n\n\006GameIn\020\001*2\n\013ChatChanne" +
-      "l\022\010\n\004Comp\020\000\022\013\n\007Private\020\001\022\014\n\010RoomChat\020\002*/" +
-      "\n\014ChatRoomType\022\t\n\005Room_\020\000\022\t\n\005Game_\020\001\022\t\n\005" +
-      "Live_\020\002B\030\n\016com.game.protoB\006C2GNetb\006proto" +
-      "3"
+      "\030\002 \001(\tH\001\210\001\001\022\031\n\004user\030\003 \001(\0132\006.NUserH\002\210\001\001B\t" +
+      "\n\007_resultB\013\n\t_errormsgB\007\n\005_user\";\n\025Updat" +
+      "eNickNameRequest\022\025\n\010nickname\030\001 \001(\tH\000\210\001\001B" +
+      "\013\n\t_nickname\"e\n\026UpdateNickNameResponse\022\034" +
+      "\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg" +
+      "\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\"S\n\rF" +
+      "ollowRequest\022\023\n\006userId\030\001 \001(\005H\000\210\001\001\022\025\n\010isF" +
+      "ollow\030\002 \001(\010H\001\210\001\001B\t\n\007_userIdB\013\n\t_isFollow" +
+      "\"]\n\016FollowResponse\022\034\n\006result\030\001 \001(\0162\007.Res" +
+      "ultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resu" +
+      "ltB\013\n\t_errormsg\";\n\rUnLockRequest\022\031\n\014cCha" +
+      "racterId\030\001 \001(\005H\000\210\001\001B\017\n\r_cCharacterId\"\241\001\n" +
+      "\016UnLockResponse\022\034\n\006result\030\001 \001(\0162\007.Result" +
+      "H\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022.\n\017unLockCh" +
+      "aracter\030\003 \001(\0132\020.UnLockCharacterH\002\210\001\001B\t\n\007" +
+      "_resultB\013\n\t_errormsgB\022\n\020_unLockCharacter" +
+      "\"D\n\026SwitchCharacterRequest\022\031\n\014tCharacter" +
+      "Id\030\001 \001(\005H\000\210\001\001B\017\n\r_tCharacterId\"\231\001\n\027Switc" +
+      "hCharacterResponse\022\034\n\006result\030\001 \001(\0162\007.Res" +
+      "ultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022#\n\tchara" +
+      "cter\030\003 \001(\0132\013.NCharacterH\002\210\001\001B\t\n\007_resultB" +
+      "\013\n\t_errormsgB\014\n\n_character\"I\n\030UserStatus" +
+      "ChangeResponse\022-\n\021userStatusChanges\030\001 \003(" +
+      "\0132\022.NUserStatusChange\"\022\n\020HeartBeatReques" +
+      "t\"C\n\021HeartBeatResponse\022\033\n\016liveFenSiCount" +
+      "\030\001 \001(\005H\000\210\001\001B\021\n\017_liveFenSiCount\"\232\001\n\014TipsR" +
+      "esponse\022 \n\010tipsType\030\001 \001(\0162\t.TipsTypeH\000\210\001" +
+      "\001\022\024\n\007content\030\002 \001(\tH\001\210\001\001\022(\n\014tipsWorkType\030" +
+      "\003 \001(\0162\r.TipsWorkTypeH\002\210\001\001B\013\n\t_tipsTypeB\n" +
+      "\n\010_contentB\017\n\r_tipsWorkType\"\340\001\n\010RoomUser" +
+      "\022\023\n\006userId\030\001 \001(\005H\000\210\001\001\022\025\n\010nickName\030\002 \001(\tH" +
+      "\001\210\001\001\022\031\n\014cCharacterId\030\003 \001(\005H\002\210\001\001\022\031\n\004user\030" +
+      "\004 \001(\0132\006.NUserH\003\210\001\001\022\023\n\006teamId\030\005 \001(\005H\004\210\001\001\022" +
+      "\024\n\007roomNum\030\006 \001(\005H\005\210\001\001B\t\n\007_userIdB\013\n\t_nic" +
+      "kNameB\017\n\r_cCharacterIdB\007\n\005_userB\t\n\007_team" +
+      "IdB\n\n\010_roomNum\"\"\n\007AllTeam\022\027\n\004Team\030\001 \003(\0132" +
+      "\t.RoomUser\"\255\002\n\005NRoom\022\023\n\006roomId\030\001 \001(\005H\000\210\001" +
+      "\001\022\023\n\006userId\030\002 \001(\005H\001\210\001\001\022\030\n\013GamePattern\030\003 " +
+      "\001(\005H\002\210\001\001\022\031\n\007allTeam\030\004 \003(\0132\010.AllTeam\022$\n\nr" +
+      "oomStatus\030\005 \001(\0162\013.RoomStatusH\003\210\001\001\022\026\n\tipP" +
+      "ortStr\030\006 \001(\tH\004\210\001\001\022\027\n\nrandomSeed\030\007 \001(\005H\005\210" +
+      "\001\001\022\022\n\005biFen\030\010 \001(\tH\006\210\001\001B\t\n\007_roomIdB\t\n\007_us" +
+      "erIdB\016\n\014_GamePatternB\r\n\013_roomStatusB\014\n\n_" +
+      "ipPortStrB\r\n\013_randomSeedB\010\n\006_biFen\"\017\n\rMy" +
+      "RoomRequest\"4\n\016MyRoomResponse\022\031\n\004room\030\001 " +
+      "\001(\0132\006.NRoomH\000\210\001\001B\007\n\005_room\"\317\001\n\rInviteRequ" +
+      "est\022\027\n\nfromUserId\030\001 \001(\005H\000\210\001\001\022\031\n\014fromNick" +
+      "Name\030\002 \001(\tH\001\210\001\001\022\025\n\010toUserId\030\003 \001(\005H\002\210\001\001\022\027" +
+      "\n\ntoNickName\030\004 \001(\tH\003\210\001\001\022\023\n\006teamId\030\005 \001(\005H" +
+      "\004\210\001\001B\r\n\013_fromUserIdB\017\n\r_fromNickNameB\013\n\t" +
+      "_toUserIdB\r\n\013_toNickNameB\t\n\007_teamId\"\241\001\n\016" +
+      "InviteResponse\022\037\n\tresultmsg\030\001 \001(\0162\007.Resu" +
+      "ltH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022*\n\rinvite" +
+      "Request\030\003 \001(\0132\016.InviteRequestH\002\210\001\001B\014\n\n_r" +
+      "esultmsgB\013\n\t_errormsgB\020\n\016_inviteRequest\"" +
+      "0\n\016KickOutRequest\022\023\n\006userId\030\001 \001(\005H\000\210\001\001B\t" +
+      "\n\007_userId\"^\n\017KickOutResponse\022\034\n\006result\030\001" +
+      " \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001" +
+      "\001B\t\n\007_resultB\013\n\t_errormsg\"\026\n\024RoomStartGa" +
+      "meRequest\"d\n\025RoomStartGameResponse\022\034\n\006re" +
+      "sult\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001" +
+      "(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\";\n\025NickN" +
+      "ameSearchRequest\022\025\n\010nickName\030\001 \001(\tH\000\210\001\001B" +
+      "\013\n\t_nickName\"5\n\026NickNameSearchResponse\022\033" +
+      "\n\010roomUser\030\001 \003(\0132\t.RoomUser\"\204\001\n\016AddRoomR" +
+      "equest\022\023\n\006roomId\030\001 \001(\005H\000\210\001\001\022\027\n\nfromUserI" +
+      "d\030\002 \001(\005H\001\210\001\001\022\031\n\014fromNickName\030\003 \001(\tH\002\210\001\001B" +
+      "\t\n\007_roomIdB\r\n\013_fromUserIdB\017\n\r_fromNickNa" +
+      "me\"\277\001\n\017AddRoomResponse\022\034\n\006result\030\001 \001(\0162\007" +
+      ".ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022,\n\016a" +
+      "ddRoomRequest\030\003 \001(\0132\017.AddRoomRequestH\002\210\001" +
+      "\001\022\023\n\006teamId\030\004 \001(\005H\003\210\001\001B\t\n\007_resultB\013\n\t_er" +
+      "rormsgB\021\n\017_addRoomRequestB\t\n\007_teamId\"\020\n\016" +
+      "OutRoomRequest\"^\n\017OutRoomResponse\022\034\n\006res" +
+      "ult\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 \001(" +
+      "\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\"\023\n\021Follow" +
+      "ListRequest\"-\n\022FollowListResponse\022\027\n\007fol" +
+      "lows\030\001 \003(\0132\006.NUser\"\224\004\n\013ChatMessage\022&\n\013ch" +
+      "atChannel\030\001 \001(\0162\014.ChatChannelH\000\210\001\001\022\023\n\006fr" +
+      "omId\030\002 \001(\005H\001\210\001\001\022\025\n\010fromName\030\003 \001(\tH\002\210\001\001\022\026" +
+      "\n\tfromLevel\030\004 \001(\005H\003\210\001\001\022\035\n\020fromCCharacter" +
+      "Id\030\005 \001(\005H\004\210\001\001\022\021\n\004toId\030\006 \001(\005H\005\210\001\001\022\023\n\006toNa" +
+      "me\030\007 \001(\tH\006\210\001\001\022\024\n\007toLevel\030\010 \001(\005H\007\210\001\001\022\033\n\016t" +
+      "oCCharacterId\030\t \001(\005H\010\210\001\001\022\020\n\003msg\030\n \001(\tH\t\210" +
+      "\001\001\022\021\n\004time\030\013 \001(\003H\n\210\001\001\022(\n\014chatRoomType\030\014 " +
+      "\001(\0162\r.ChatRoomTypeH\013\210\001\001\022\034\n\017enterLiveUser" +
+      "Id\030\r \001(\005H\014\210\001\001B\016\n\014_chatChannelB\t\n\007_fromId" +
+      "B\013\n\t_fromNameB\014\n\n_fromLevelB\023\n\021_fromCCha" +
+      "racterIdB\007\n\005_toIdB\t\n\007_toNameB\n\n\010_toLevel" +
+      "B\021\n\017_toCCharacterIdB\006\n\004_msgB\007\n\005_timeB\017\n\r" +
+      "_chatRoomTypeB\022\n\020_enterLiveUserId\"E\n\013Cha" +
+      "tRequest\022&\n\013chatMessage\030\001 \001(\0132\014.ChatMess" +
+      "ageH\000\210\001\001B\016\n\014_chatMessage\"\312\001\n\014ChatRespons" +
+      "e\022\034\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010error" +
+      "msg\030\002 \001(\tH\001\210\001\001\022\"\n\014compMessages\030\003 \003(\0132\014.C" +
+      "hatMessage\022%\n\017privateMessages\030\004 \003(\0132\014.Ch" +
+      "atMessage\022\"\n\014roomMessages\030\005 \003(\0132\014.ChatMe" +
+      "ssageB\t\n\007_resultB\013\n\t_errormsg\")\n\026UserSta" +
+      "tusQueryRequest\022\017\n\007userIds\030\001 \003(\005\")\n\027User" +
+      "StatusQueryResponse\022\016\n\006status\030\001 \003(\010\"\023\n\021S" +
+      "tartMatchRequest\"a\n\022StartMatchResponse\022\034" +
+      "\n\006result\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg" +
+      "\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB\013\n\t_errormsg\"\200\001\n\r" +
+      "MatchResponse\022\034\n\006result\030\001 \001(\0162\007.ResultH\000" +
+      "\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001\022\031\n\004room\030\003 \001(\013" +
+      "2\006.NRoomH\002\210\001\001B\t\n\007_resultB\013\n\t_errormsgB\007\n" +
+      "\005_room\"8\n\020GameOver2Request\022\026\n\tipPortStr\030" +
+      "\001 \001(\tH\000\210\001\001B\014\n\n_ipPortStr\"\023\n\021GameOver2Res" +
+      "ponse\"0\n\016AddLiveRequest\022\023\n\006userId\030\001 \001(\005H" +
+      "\000\210\001\001B\t\n\007_userId\"\202\001\n\017AddLiveResponse\022\034\n\006r" +
+      "esult\030\001 \001(\0162\007.ResultH\000\210\001\001\022\025\n\010errormsg\030\002 " +
+      "\001(\tH\001\210\001\001\022\031\n\004room\030\003 \001(\0132\006.NRoomH\002\210\001\001B\t\n\007_" +
+      "resultB\013\n\t_errormsgB\007\n\005_room\"2\n\022UploadBi" +
+      "FenRequest\022\022\n\005biFen\030\001 \001(\tH\000\210\001\001B\010\n\006_biFen" +
+      "\"\031\n\027ValidateOpenRoomRequest\"g\n\030ValidateO" +
+      "penRoomResponse\022\034\n\006result\030\001 \001(\0162\007.Result" +
+      "H\000\210\001\001\022\025\n\010errormsg\030\002 \001(\tH\001\210\001\001B\t\n\007_resultB" +
+      "\013\n\t_errormsg*!\n\006Result\022\013\n\007Success\020\000\022\n\n\006F" +
+      "ailed\020\001*/\n\014StatusAction\022\n\n\006UPDATE\020\000\022\007\n\003A" +
+      "DD\020\001\022\n\n\006DELETE\020\002*\037\n\010TipsType\022\010\n\004Tips\020\000\022\t" +
+      "\n\005Popup\020\001*;\n\nStatusType\022\t\n\005MONEY\020\000\022\007\n\003EX" +
+      "P\020\001\022\017\n\013SKILL_POINT\020\002\022\010\n\004ITEM\020\003*D\n\nUserSt" +
+      "atus\022\n\n\006Normal\020\000\022\010\n\004Game\020\001\022\010\n\004Room\020\002\022\010\n\004" +
+      "Live\020\003\022\014\n\010GameOver\020\004*Z\n\014TipsWorkType\022\010\n\004" +
+      "None\020\000\022\021\n\rAuctionResult\020\001\022\017\n\013DismissRoom" +
+      "\020\002\022\017\n\013KickOutRoom\020\003\022\013\n\007OutRoom\020\004*%\n\nRoom" +
+      "Status\022\013\n\007Normal_\020\000\022\n\n\006GameIn\020\001*2\n\013ChatC" +
+      "hannel\022\010\n\004Comp\020\000\022\013\n\007Private\020\001\022\014\n\010RoomCha" +
+      "t\020\002*/\n\014ChatRoomType\022\t\n\005Room_\020\000\022\t\n\005Game_\020" +
+      "\001\022\t\n\005Live_\020\002B\030\n\016com.game.protoB\006C2GNetb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -64000,7 +64635,7 @@ public final class C2GNet {
     internal_static_NetMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NetMessageResponse_descriptor,
-        new java.lang.String[] { "UserRegister", "UserLogin", "CharacterDetail", "UpdateNickName", "FollowRes", "UnLockRes", "SwitchCharacterRes", "UserStatusChangeRes", "HeartBeatRes", "TipsRes", "MyRoomRes", "InviteReq", "InviteRes", "KickOutRes", "RoomStartGameRes", "NickNameSearchRes", "FollowListRes", "AddRoomReq", "AddRoomRes", "OutRoomRes", "ChatRes", "UserStatusQueryRes", "StartMatchRes", "MatchRes", "AddLiveRes", "ValidateOpenRoomRes", "StatusNotify", "UserRegister", "UserLogin", "CharacterDetail", "UpdateNickName", "FollowRes", "UnLockRes", "SwitchCharacterRes", "UserStatusChangeRes", "HeartBeatRes", "TipsRes", "MyRoomRes", "InviteReq", "InviteRes", "KickOutRes", "RoomStartGameRes", "NickNameSearchRes", "FollowListRes", "AddRoomReq", "AddRoomRes", "OutRoomRes", "ChatRes", "UserStatusQueryRes", "StartMatchRes", "MatchRes", "AddLiveRes", "ValidateOpenRoomRes", "StatusNotify", });
+        new java.lang.String[] { "UserRegister", "UserLogin", "CharacterDetail", "UpdateNickName", "FollowRes", "GameOver2Res", "UnLockRes", "SwitchCharacterRes", "UserStatusChangeRes", "HeartBeatRes", "TipsRes", "MyRoomRes", "InviteReq", "InviteRes", "KickOutRes", "RoomStartGameRes", "NickNameSearchRes", "FollowListRes", "AddRoomReq", "AddRoomRes", "OutRoomRes", "ChatRes", "UserStatusQueryRes", "StartMatchRes", "MatchRes", "AddLiveRes", "ValidateOpenRoomRes", "StatusNotify", "UserRegister", "UserLogin", "CharacterDetail", "UpdateNickName", "FollowRes", "GameOver2Res", "UnLockRes", "SwitchCharacterRes", "UserStatusChangeRes", "HeartBeatRes", "TipsRes", "MyRoomRes", "InviteReq", "InviteRes", "KickOutRes", "RoomStartGameRes", "NickNameSearchRes", "FollowListRes", "AddRoomReq", "AddRoomRes", "OutRoomRes", "ChatRes", "UserStatusQueryRes", "StartMatchRes", "MatchRes", "AddLiveRes", "ValidateOpenRoomRes", "StatusNotify", });
     internal_static_UserLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_UserLoginRequest_fieldAccessorTable = new
@@ -64277,32 +64912,38 @@ public final class C2GNet {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameOver2Request_descriptor,
         new java.lang.String[] { "IpPortStr", "IpPortStr", });
-    internal_static_AddLiveRequest_descriptor =
+    internal_static_GameOver2Response_descriptor =
       getDescriptor().getMessageTypes().get(55);
+    internal_static_GameOver2Response_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GameOver2Response_descriptor,
+        new java.lang.String[] { });
+    internal_static_AddLiveRequest_descriptor =
+      getDescriptor().getMessageTypes().get(56);
     internal_static_AddLiveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddLiveRequest_descriptor,
         new java.lang.String[] { "UserId", "UserId", });
     internal_static_AddLiveResponse_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_AddLiveResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AddLiveResponse_descriptor,
         new java.lang.String[] { "Result", "Errormsg", "Room", "Result", "Errormsg", "Room", });
     internal_static_UploadBiFenRequest_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_UploadBiFenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadBiFenRequest_descriptor,
         new java.lang.String[] { "BiFen", "BiFen", });
     internal_static_ValidateOpenRoomRequest_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_ValidateOpenRoomRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ValidateOpenRoomRequest_descriptor,
         new java.lang.String[] { });
     internal_static_ValidateOpenRoomResponse_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_ValidateOpenRoomResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ValidateOpenRoomResponse_descriptor,

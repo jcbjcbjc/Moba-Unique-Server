@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.game.data.BattleConfig;
 import com.game.entity.User;
+import com.game.network.NetConnection;
 import com.game.proto.C2GNet;
 import com.game.proto.C2GNet.GameOver2Request;
 import com.game.proto.C2GNet.NRoom;
@@ -272,7 +273,6 @@ public class RoomManager {
 		}
 		if (room.getUserId() == user.id) { // 房主
 			this.roomUserIds.remove(room.getRoomId()); // 从房间用户统计中移除房间
-
 			rooms.remove(user.roomId);
 			this.UpdateRoomUserStatus(room, UserStatus.Normal);
 			// 同步消息给房间其他玩家
@@ -377,7 +377,6 @@ public class RoomManager {
 				userMap.remove(roomUser.getUserId());
 			}
 		}
-
 	}
 
 	/**
@@ -421,13 +420,26 @@ public class RoomManager {
 
 		 //游戏结束
 		if(gameOverNum >= overNum) {
-		rooms.remove(user.roomId); // 移除房间
-		this.roomUserIds.remove(room.getRoomId()); // 从房间用户统计中移除房间
-		this.UpdateRoomUserStatus(room, UserStatus.Normal); // 修改房间用户为正常状态
-		BattleManager.Instance.updateRoomNum(gameOver2Request.getIpPortStr(), 2); // 减少服务器房间数
-		this.RemoveUserMapByRoom(room.toBuilder()); // 移除房间用户信息
-		// 奖励发放
-
+			rooms.remove(user.roomId); // 移除房间
+			this.roomUserIds.remove(room.getRoomId()); // 从房间用户统计中移除房间
+			this.UpdateRoomUserStatus(room, UserStatus.Normal); // 修改房间用户为正常状态
+			BattleManager.Instance.updateRoomNum(gameOver2Request.getIpPortStr(), 2); // 减少服务器房间数
+			this.RemoveUserMapByRoom(room.toBuilder()); // 移除房间用户信息
+			// gameover and send message
+			//sync the message
+			for( C2GNet.AllTeam allTeam : room.getAllTeamList()  ){
+				List<RoomUser> roomUserList=allTeam.getTeamList();
+				for (RoomUser roomUser : roomUserList) {
+					NetConnection connection=ConnectionManager.getConnection(roomUser.getUserId());
+					if(connection == null) {
+						return;
+					}
+					C2GNet.NetMessageResponse.Builder response = connection.getResponse();
+					C2GNet.GameOver2Response.Builder gameoverResponse=C2GNet.GameOver2Response.newBuilder();
+					response.setGameOver2Res(gameoverResponse);
+					connection.send();
+				}
+			}
 		}
 	}
 

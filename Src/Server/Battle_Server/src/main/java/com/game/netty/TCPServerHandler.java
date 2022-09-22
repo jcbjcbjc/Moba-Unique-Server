@@ -57,9 +57,7 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChann
         InetSocketAddress insocket = (InetSocketAddress) ctx.channel().remoteAddress();
         String clientIp = insocket.getAddress().getHostAddress();
         System.out.println("handlerRemoved"+ clientIp + ctx.name());
-        int userId=ConnectionManager.GetUserID(ctx);
-        RoomManager.Instance.UserLeave(userId);
-        //ConnectionManager.removeConnection(ctx);
+        ConnectionManager.removeConnection(ctx);
         ctx.flush();
         ctx.close();
     }

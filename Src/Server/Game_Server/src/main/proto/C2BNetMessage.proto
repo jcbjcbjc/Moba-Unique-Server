@@ -32,6 +32,7 @@ message C2BNetMessageResponse
    optional RepairFrameResponse repairFrameRes = 3;
    optional LiveFrameResponse liveFrameRes = 4;
    optional HeartBeatResponse heartBeatRes=5;
+   optional GameOverResponse gameOverRes=6;
 }
 
 message HeartBeatRequest{
@@ -44,9 +45,9 @@ message FrameHandle{
     optional int32 userId = 1;  //用户id
     optional int32 opt = 2;  //操作1
     optional int32 OpretionId=3;
-    optional float optValue1 = 4; //值1
-    optional float optValue2 = 5; //值2
-    repeated float optDetail = 6; //值3
+    optional int32 optValue1 = 4; //值1
+    optional int32 optValue2 = 5; //值2
+    repeated int32 optDetail = 6; //值3
  }
 
  message FrameHandleResponse{
@@ -70,6 +71,9 @@ message FrameHandle{
  }
 
  message GameOverRequest{
+
+}
+message GameOverResponse{
 
 }
 

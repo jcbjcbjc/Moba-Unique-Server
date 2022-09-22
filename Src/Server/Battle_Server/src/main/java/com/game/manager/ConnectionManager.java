@@ -1,6 +1,7 @@
 package com.game.manager;
 
 
+import com.game.models.Room;
 import com.game.models.User;
 import com.game.network.NetConnection;
 import io.netty.channel.ChannelHandlerContext;
@@ -42,16 +43,17 @@ public class ConnectionManager {
 
     public static void removeConnection(ChannelHandlerContext context) {
         Integer userId = ctxs.get(context);
-        conns.remove(userId);
-        ctxs.remove(context);
-        System.out.println("玩家id: " + userId + "断开连接");
-        context.close();
+        if(userId!=null){
+            removeConnection(userId);
+        }
     }
 
     public static void removeConnection(int userId) {
         NetConnection netConnection = conns.get(userId);
         conns.remove(userId);
         if(netConnection != null) {
+            User user=netConnection.user;
+            RoomManager.Instance.removeUser(user);
             ctxs.remove(netConnection.ctx);
             System.out.println("玩家id: " + userId + "断开连接");
             netConnection.ctx.close();
