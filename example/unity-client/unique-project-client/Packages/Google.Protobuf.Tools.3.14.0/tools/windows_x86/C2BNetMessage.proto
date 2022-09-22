@@ -1,0 +1,85 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+package C2BNet;
+
+
+enum result
+{
+    Success = 0;
+    Failed = 1;
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  Messages
+//
+////////////////////////////////////////////////////////////////
+ 
+message C2BNetMessage{
+   optional string messageType=1;
+   optional C2BNetMessageRequest Request = 2;
+	optional C2BNetMessageResponse Response = 3;
+}
+
+message C2BNetMessageRequest
+{
+   optional int32 userId = 1; 
+   optional FrameHandle frameHandle = 2;
+   optional PercentForward percentForward = 3;
+   optional GameOverRequest gameOverReq =4;
+   optional RepairFrameRequest repairFrameReq =5;
+}
+
+message C2BNetMessageResponse
+{
+   optional FrameHandleResponse frameHandleRes = 1;
+   optional PercentForwardResponse percentForwardRes = 2;
+   optional RepairFrameResponse repairFrameRes = 3;
+   optional LiveFrameResponse liveFrameRes = 4;
+}
+
+message FrameHandle{
+    optional int32 userId = 1;  //用户id
+    optional int32 opt = 2;  //操作1
+    optional int32 optValue1 = 4; //值1
+    optional int32 optValue2 = 5; //值2
+    optional int32 optValue3 = 6; //值3
+    optional int32 optValue4 = 7; //值4
+ }
+
+ message FrameHandleResponse{
+    optional int32 frame = 1;  //帧号
+    repeated FrameHandle frameHandles = 2;  //用户帧操作集合
+ }
+
+ message PercentForward{
+    optional int32 userId = 1;  //用户id
+    optional int32 percent = 2;  //百分比
+ }
+
+ message PercentForwardResponse{
+   optional PercentForward percentForward = 1;  //进度
+    optional  bool allUserLoadSucess = 2;   //全部用户是否加载成功
+ }
+
+ message GameOverRequest{
+
+}
+
+message RepairFrameRequest{
+    optional int32 startFrame = 1;  //起始帧
+    optional int32 endFrame = 2;  //结束帧  -1获取全部帧
+ }
+
+ message RepairFrameResponse{
+    repeated RepairFrame repairFrames = 1;
+ }
+
+ message RepairFrame{
+   optional  int32 frame = 1;  //帧号
+    repeated FrameHandle frameHandles = 2;  //用户帧操作集合
+ }
+
+ message LiveFrameResponse{
+    repeated RepairFrame liveFrames = 1;
+ }

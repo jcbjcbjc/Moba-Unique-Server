@@ -1,0 +1,483 @@
+syntax = "proto3";
+option optimize_for = SPEED;
+package C2GNet;
+
+////////////////////////////////////////////////////////////////
+//
+//  Basic Defines
+//  Defines needed in NetSession
+//
+////////////////////////////////////////////////////////////////
+
+
+
+enum Result
+{
+	Success = 0;
+	Failed = 1;
+}
+
+enum StatusAction
+{
+	UPDATE = 0;
+	ADD = 1;
+	DELETE = 2;
+}
+
+message NUser {
+	optional int32 id = 1;   
+	optional string nickname = 2;  //昵称
+	optional int64 coin= 3;
+	optional NCharacter character = 4;   //已选角色信息
+	repeated UnLockCharacter unLockCharacters = 5;  //解锁角色信息
+	optional bool isFollow = 6;
+	//repeated NItem bag = 7;  //背包
+	optional bool status = 8; // 在线状态
+	optional int32 fenSiCount = 9;
+	optional UserStatus userStatus=10;  //用户状态
+	optional string biFen = 11;  //比分
+	optional TeamType teamType = 12;  //队伍类型
+	optional int32 roomNum = 13; //房间人数
+	
+}
+
+message UnLockCharacter {
+	optional int32 tid = 1; // db id
+	optional int32 cid = 2; // 配置id 角色1,2,3   
+}
+
+message NCharacter {
+
+}
+enum StatusType
+{
+	MONEY = 0;
+	EXP = 1;
+	SKILL_POINT = 2;
+	ITEM = 3;
+}
+message NStatus
+{
+	optional StatusType type = 1;
+	optional StatusAction action = 2;
+	optional int32 id = 3;
+	optional int64 value = 4;
+}
+
+message StatusNotify
+{
+	repeated NStatus status = 1;
+}
+
+message NUserStatusChange
+{
+	optional int32 userId = 1; // 用户id
+	optional bool status = 2; // 是否在线
+}
+
+// UserStatus
+enum UserStatus
+{
+	Normal = 0; //正常
+	Game = 1; //游戏中
+	Room = 2; //房间中
+	Live=3; //观看直播中
+	GameOver=4; //游戏结束
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  Messages
+//
+////////////////////////////////////////////////////////////////
+
+message C2GNetMessage{
+    optional string messageType=1;
+	optional NetMessageRequest Request = 2;
+	optional NetMessageResponse Response = 3;
+}
+
+message NetMessageRequest{
+	// 注册
+	optional UserRegisterRequest userRegister = 1;
+	// 登录
+	optional UserLoginRequest userLogin = 2;
+	optional CharacterDetailRequest characterDetail = 3;
+	optional UpdateNickNameRequest updateNickName = 4;
+	optional FollowRequest followReq = 8;
+	optional UnLockRequest unLockReq=9;
+	optional SwitchCharacterRequest switchCharacterReq=10;
+	optional HeartBeatRequest heartBeatReq=14;
+	optional MyRoomRequest myRoomReq=18;
+	optional InviteRequest inviteReq=19;
+	optional InviteResponse inviteRes=20;
+	optional KickOutRequest kickOutReq=21;
+	optional RoomStartGameRequest roomStartGameReq=22;
+	optional NickNameSearchRequest nickNameSearchReq=23;
+	optional AddRoomRequest addRoomReq=24;
+	optional AddRoomResponse addRoomRes=25;
+	optional OutRoomRequest outRoomReq=26;
+	optional ChatRequest chatReq=27;
+	optional UserStatusQueryRequest userStatusQueryReq=28;
+	optional StartMatchRequest startMatchReq=29;
+	optional GameOver2Request gameOver2Req=30;
+	optional AddLiveRequest addLiveReq=31;
+	optional UploadBiFenRequest uploadBiFenReq=32;
+	optional FollowListRequest followListReq=33;
+	optional ValidateOpenRoomRequest validateOpenRoomReq=34;
+}
+
+message NetMessageResponse{
+	optional UserRegisterResponse userRegister = 1;
+	optional UserLoginResponse userLogin = 2;
+    optional CharacterDetailResponse characterDetail = 3;
+    optional UpdateNickNameResponse updateNickName = 4;
+    optional FollowResponse followRes = 8;
+
+    optional UnLockResponse unLockRes = 10;
+    optional SwitchCharacterResponse switchCharacterRes=11;
+    optional UserStatusChangeResponse userStatusChangeRes=13;
+    optional HeartBeatResponse heartBeatRes=16;
+    optional MyRoomResponse myRoomRes=21;
+	optional InviteRequest inviteReq=22;
+	optional InviteResponse inviteRes=23;
+	optional KickOutResponse kickOutRes=24;
+	optional RoomStartGameResponse roomStartGameRes=25;
+	optional NickNameSearchResponse nickNameSearchRes=26;
+	optional FollowListResponse followListRes=27;
+    optional AddRoomRequest addRoomReq=28;
+	optional AddRoomResponse addRoomRes=29;
+    optional OutRoomResponse outRoomRes=30;
+    optional ChatResponse chatRes=31;
+    optional UserStatusQueryResponse userStatusQueryRes=32;
+    optional StartMatchResponse startMatchRes=33;
+    optional MatchResponse matchRes=34;
+    optional AddLiveResponse addLiveRes=35;
+    optional ValidateOpenRoomResponse validateOpenRoomRes=36;
+	optional StatusNotify statusNotify = 100;
+
+}
+
+///////////////User///////////////////////
+
+//login
+message UserLoginRequest {
+	optional string userName = 1;
+	optional string passward = 2;
+}
+
+
+message UserLoginResponse {
+	optional Result result = 1;
+	optional string errormsg = 2;
+	optional NUser user = 3;   //当前用户角色信息
+
+}
+
+//register
+message UserRegisterRequest
+{
+	string userName = 1;
+	string password = 2;
+}
+
+message UserRegisterResponse {
+	Result result = 1;
+	string errormsg = 2;
+}
+
+//英雄详情
+message CharacterDetailRequest
+{
+	int32 userId = 1;
+	int32 tCharacterId = 2;
+}
+
+message CharacterDetailResponse {
+    Result result = 1;
+	string errormsg = 2;
+	NUser user = 3;
+}
+
+//修改昵称
+message UpdateNickNameRequest
+{
+	string nickname = 1;
+}
+
+message UpdateNickNameResponse {
+	Result result = 1;
+	string errormsg = 2;
+}
+
+//关注或取消关注
+message FollowRequest
+{
+	int32 userId = 1;
+	bool isFollow = 2;  //是否关注
+}
+
+message FollowResponse
+{
+	Result result = 1;// 如果申请添加的人 不在线,或者是自己,直接返回错误提示
+	string errormsg = 2;
+}
+
+//解锁请求
+message UnLockRequest
+{
+	int32 cCharacterId = 1;
+}
+
+message UnLockResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	UnLockCharacter unLockCharacter=3;
+}
+
+//切换英雄请求
+message SwitchCharacterRequest
+{
+	int32 tCharacterId = 1;
+}
+
+message SwitchCharacterResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	NCharacter character = 3;   //已选角色信息
+}
+
+//用户状态变更列表
+message UserStatusChangeResponse{
+    repeated NUserStatusChange userStatusChanges = 1;
+}
+
+///////////////////////HeartBeat/////////////////////
+
+
+//心跳请求
+message HeartBeatRequest{
+}
+
+message HeartBeatResponse{
+  int32 liveFenSiCount = 1;  //观看直播粉丝数量
+}
+
+//////////////////////Room/////////////////////
+
+message RoomUser
+{
+  int32 userId = 1; // 用户id
+  string nickName = 2; // 用户昵称
+  int32 cCharacterId = 3; // 角色配置id
+  NUser user = 4;   //当前用户信息
+}
+
+enum TeamType{
+	My = 0;   //友方
+	Enemy = 1;  //敌方
+}
+
+enum RoomStatus{
+	Normal_= 0;   //正常
+	GameIn=1;   //游戏中
+}
+
+message NRoom{
+	int32 roomId = 1;  //房间id
+	int32 userId = 2;   //用户id
+	int32 GamePattern=3;
+	repeated RoomUser Team1 = 4;  //友方用户列表
+	repeated RoomUser Team2 = 5;  //敌方用户列表
+	repeated RoomUser Team3 = 6;
+	RoomStatus roomStatus = 7;  //房间状态
+	string ipPortStr = 8; //房间ip和端口
+	int32 randomSeed = 9;  //随机数种子
+	string biFen = 10; //比分  
+}
+
+//我的房间请求
+message MyRoomRequest{
+
+}
+message MyRoomResponse{
+   NRoom room = 1;   //房间
+}
+
+//邀请请求
+message InviteRequest{
+	int32 fromUserId = 1;  //发送用户id
+	string fromNickName = 2;  //发送用户昵称
+	int32 toUserId = 3;  //接收用户id
+	string toNickName = 4;  //接收用户昵称
+	TeamType teamType = 5;  //队伍类型
+  }
+  message InviteResponse{
+	Result result = 1;
+	string errormsg = 2;
+	InviteRequest inviteRequest = 3;
+  }
+
+  //踢出请求
+message KickOutRequest{
+	int32 userId = 1;  //用户id
+}
+message KickOutResponse{
+	Result result = 1;
+	string errormsg = 2;
+}
+
+//开始游戏请求
+message RoomStartGameRequest{
+
+}
+message RoomStartGameResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//昵称搜索请求
+message NickNameSearchRequest{
+	string nickName = 1;
+}
+  message NickNameSearchResponse{
+	repeated RoomUser roomUser = 1;
+}
+
+//加入房间请求
+message AddRoomRequest{
+	int32 roomId = 1;  //房间id  
+	int32 fromUserId = 2;  //发送用户id
+	string fromNickName = 3;  //发送用户昵称
+}
+message AddRoomResponse{
+	Result result = 1;
+	string errormsg = 2;
+	AddRoomRequest addRoomRequest = 3;
+	TeamType teamType = 4;  //队伍类型
+}
+
+//退出房间请求
+message OutRoomRequest{
+
+}
+message OutRoomResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+//关注列表请求
+message FollowListRequest{
+
+}
+
+//关注列表响应
+message FollowListResponse{
+  repeated NUser follows = 1;
+}
+
+// Chat System
+enum ChatChannel
+{
+	Comp = 0;   //综合
+	Private = 1;   //私聊
+	RoomChat = 2;  //房间
+}
+
+message ChatMessage
+{
+	ChatChannel chatChannel = 1;
+	int32 fromId = 2;
+	string fromName = 3;
+	int32 fromLevel = 4;
+	int32 fromCCharacterId = 5; 
+	int32 toId = 6;
+	string toName = 7;
+	int32 toLevel = 8;
+	int32 toCCharacterId = 9; 
+	string msg = 10;
+	int64 time = 11;
+	ChatRoomType chatRoomType = 12;  //聊天房间类型
+	int32 enterLiveUserId = 13;  //进入直播用户的id
+}
+
+enum ChatRoomType
+{
+  Room_ = 0;  //房间
+  Game_ = 1;  //游戏中
+  Live_ = 2;  //观看直播
+}
+
+message ChatRequest
+{
+	ChatMessage chatMessage = 1;
+}
+message ChatResponse
+{
+	Result result = 1;
+	string errormsg = 2;
+	repeated ChatMessage compMessages = 3;
+	repeated ChatMessage privateMessages = 4;
+	repeated ChatMessage roomMessages = 5;
+}
+//用户在线、离线状态查询请求
+message UserStatusQueryRequest
+{
+	repeated int32 userIds = 1;  //用户id集合
+}
+
+message UserStatusQueryResponse
+{
+    repeated bool status = 1; // 是否在线集合
+}
+
+//开始匹配请求
+message StartMatchRequest{
+   
+}
+//开始匹配响应
+message StartMatchResponse{
+   Result result = 1;
+   string errormsg = 2;
+}
+//匹配响应
+message MatchResponse{
+   Result result = 1;
+   string errormsg = 2;
+   NRoom room = 3;   //房间
+}
+
+//游戏结束请求
+message GameOver2Request{
+  string ipPortStr = 1;
+  
+}
+
+//进入直播请求
+message AddLiveRequest{
+   int32 userId = 1;  //用户id
+}
+//进入直播响应
+message AddLiveResponse{
+   Result result = 1;
+   string errormsg = 2;
+   NRoom room = 3;   //房间
+}
+
+//上传比分请求
+message UploadBiFenRequest{
+   string biFen = 1;  //比分
+}
+
+//效验是否可以开房间请求
+message ValidateOpenRoomRequest{
+
+}
+message ValidateOpenRoomResponse{
+  Result result = 1;
+  string errormsg = 2;
+}
+
+

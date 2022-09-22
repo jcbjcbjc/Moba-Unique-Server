@@ -1,0 +1,22 @@
+﻿{
+"ConfigInfo":
+[
+{"Key":"本配置文件说明,LogState 表示日志状态，可以选择修改为 Develop 代码输出模式，Speacial部署模式，Deploy停止模式"},
+
+{"Key":"LogDriveName",
+"Value":"F"},
+
+{"Key":"LogPath",
+"Value":"SUIFW_Log"},
+
+{"Key":"LogState",
+"Value":"Develop"},
+
+{"Key":"LogMaxCapacity",
+"Value":"300"},
+
+{"Key":"LogBufferNumber",
+"Value":"10"}
+]
+}
+

@@ -1,0 +1,6 @@
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\bin\NET35\Release\Google.ProtocolBuffersLite.Serialization.xml
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\bin\NET35\Release\Google.ProtocolBuffersLite.Serialization.dll
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\bin\NET35\Release\Google.ProtocolBuffersLite.Serialization.pdb
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\obj\NET35\Release\ResolveAssemblyReference.cache
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\obj\NET35\Release\Google.ProtocolBuffersLite.Serialization.dll
+E:\protobuf-csharp-port-master\src\ProtocolBuffers.Serialization\obj\NET35\Release\Google.ProtocolBuffersLite.Serialization.pdb
