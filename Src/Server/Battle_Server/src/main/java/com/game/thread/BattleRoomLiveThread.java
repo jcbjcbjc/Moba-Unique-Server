@@ -25,8 +25,8 @@ import com.game.proto.C2BNet.RepairFrame;
 import com.game.util.Config;
 
 /**
- * 直播房间线程
- * @author Administrator
+ * 实时观战线程
+ * @author 贾超博
  *
  */
 public class BattleRoomLiveThread extends Thread{

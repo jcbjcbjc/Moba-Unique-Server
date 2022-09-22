@@ -76,8 +76,8 @@ public class BattleRoomThread extends Thread{
 			logger.error("异常",e);
 		}
 		//开观战线程
-		//ExecutorService cachedThreadPool = CachedThreadPoolUtil.instance();
-        //cachedThreadPool.execute(new BattleRoomLiveThread(this.room));
+		ExecutorService cachedThreadPool = CachedThreadPoolUtil.instance();
+        cachedThreadPool.execute(new BattleRoomLiveThread(this.room));
 		while(true) {
 			try {
 				Thread.sleep(Config.FPS);  

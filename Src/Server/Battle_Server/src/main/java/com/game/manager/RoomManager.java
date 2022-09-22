@@ -51,6 +51,10 @@ public class RoomManager {
 			room.users.remove(user);
 			UserManager.Instance.removeuser(user.rooomId);
 		}
-
+		Room liveroom=liveRooms.get(user.rooomId);
+		if(liveroom!=null){
+			liveroom.users.remove(user);
+			UserManager.Instance.removeuser(user.rooomId);
+		}
 	}
 }
