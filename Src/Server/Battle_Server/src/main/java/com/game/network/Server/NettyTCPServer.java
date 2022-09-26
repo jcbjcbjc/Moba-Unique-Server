@@ -1,4 +1,4 @@
-package com.game.netty;
+package com.game.network.Server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;

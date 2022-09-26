@@ -1,10 +1,10 @@
-package com.game.controller;
+package com.game.network.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.game.proto.Message;
+import com.game.network.proto.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

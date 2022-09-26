@@ -1,4 +1,4 @@
-package com.game.netty;
+package com.game.network.Server;
 
 public class CSKCPServer {
     public void bind(int port){

@@ -1,25 +1,37 @@
-package com.game.manager;
+package com.game.network.Connection.Impl;
 
-import com.game.network.NetConnectionKCP;
-import com.game.network.NetConnectionWebSocket;
-import io.netty.channel.ChannelHandlerContext;
+import com.game.network.Connection.ConnectionManager;
+import com.game.network.Connection.NetConnection;
 import kcp.Ukcp;
-import org.beykery.jkcp.KcpOnUdp;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConnectionManagerKCP {
+public class ConnectionManagerKCP implements ConnectionManager {
     private static Map<Integer, NetConnectionKCP> conns = Collections.synchronizedMap(new HashMap<>(128));
     // ChannelHandlerContext 获取用户id,再通过用户id 获取NetConnection
     private static Map< NetConnectionKCP,Integer> ctxs = Collections.synchronizedMap(new HashMap<>(128));
-    public static void addToConnection(int userId, NetConnectionKCP conn) {
-        System.out.println("用户: " + userId + " 已加入连接");
-        conns.put(userId, conn);
-        ctxs.put(conn, userId);
+
+//    @Override
+//    public NetConnectionKCP getConnection(Ukcp ctx) {
+//        return null;
+//    }
+
+    @Override
+    public <T> NetConnectionKCP getConnection(T ctx) {
+        return null;
     }
-    public static void removeConnection( Ukcp kcp) {
+
+    @Override
+    public void addToConnection(int userId, NetConnection conn) {
+        System.out.println("用户: " + userId + " 已加入连接");
+        conns.put(userId, (NetConnectionKCP) conn);
+        ctxs.put((NetConnectionKCP) conn, userId);
+    }
+    @Override
+    public <T> void removeConnection( T t) {
+            Ukcp kcp=(Ukcp)t;
             Integer userId = ctxs.get(kcp);
             if(userId!=null){
                 conns.remove(userId);
@@ -31,8 +43,8 @@ public class ConnectionManagerKCP {
             }
     }
 
-
-    public static void removeConnection(int userId) {
+    @Override
+    public void removeConnection(int userId) {
         NetConnectionKCP netConnection = conns.get(userId);
         conns.remove(userId);
         if(netConnection != null) {
@@ -42,8 +54,8 @@ public class ConnectionManagerKCP {
             System.out.println("uKcp binding userId"+userId+"doesn't exist");
         }
     }
-
-    public static NetConnectionKCP getConnection(int userId) {
+    @Override
+    public NetConnectionKCP getConnection(int userId) {
         return conns.get(userId);
 
     }

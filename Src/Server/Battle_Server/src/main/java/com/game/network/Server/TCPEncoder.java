@@ -1,4 +1,4 @@
-package com.game.netty;
+package com.game.network.Server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;

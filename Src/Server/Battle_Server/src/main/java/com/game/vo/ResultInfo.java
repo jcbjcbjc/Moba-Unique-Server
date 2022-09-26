@@ -1,6 +1,6 @@
 package com.game.vo;
 
-import com.game.proto.Message.Result;
+import com.game.network.proto.Message.Result;
 
 public class ResultInfo {
 	public Result result;

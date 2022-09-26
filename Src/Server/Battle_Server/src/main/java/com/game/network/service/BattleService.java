@@ -1,13 +1,10 @@
-package com.game.service;
+package com.game.network.service;
 
-import com.game.network.NetConnection;
-import com.game.network.NetConnectionKCP;
-import com.game.network.NetConnectionWebSocket;
-import com.game.proto.C2BNet;
-import com.game.proto.C2BNet.FrameHandle;
-import com.game.proto.C2BNet.GameOverRequest;
-import com.game.proto.C2BNet.PercentForward;
-import com.game.proto.C2BNet.RepairFrameRequest;
+import com.game.network.Connection.NetConnection;
+import com.game.network.proto.C2BNet;
+import com.game.network.proto.C2BNet.GameOverRequest;
+import com.game.network.proto.C2BNet.PercentForward;
+import com.game.network.proto.C2BNet.RepairFrameRequest;
 //import com.game.proto.Message.FrameHandle;
 //import com.game.proto.Message.GameOverRequest;
 //import com.game.proto.Message.PercentForward;

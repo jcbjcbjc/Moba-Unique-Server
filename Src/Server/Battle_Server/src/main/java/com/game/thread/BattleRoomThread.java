@@ -4,26 +4,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
 
-import com.game.enums.UserStatus;
-import com.game.network.NetConnection;
+import com.game.network.Connection.NetConnection;
 
-import com.game.proto.C2BNet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.game.manager.ConnectionManager;
-import com.game.manager.RoomManager;
+import com.game.network.Connection.ConnectionManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.network.NetConnectionWebSocket;
-import com.game.proto.C2BNet.FrameHandle;
-import com.game.proto.C2BNet.FrameHandleResponse;
-import com.game.proto.C2BNet.C2BNetMessageResponse;
+import com.game.network.proto.C2BNet.FrameHandle;
+import com.game.network.proto.C2BNet.FrameHandleResponse;
+import com.game.network.proto.C2BNet.C2BNetMessageResponse;
 //import com.game.proto.Message.FrameHandle;
 //import com.game.proto.Message.FrameHandleResponse;
 //import com.game.proto.Message.NetMessageResponse2;

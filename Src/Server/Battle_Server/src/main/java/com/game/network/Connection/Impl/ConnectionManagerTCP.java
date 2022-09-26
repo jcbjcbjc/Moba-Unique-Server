@@ -1,9 +1,10 @@
-package com.game.manager;
+package com.game.network.Connection.Impl;
 
 
-import com.game.models.Room;
+import com.game.manager.RoomManager;
 import com.game.models.User;
-import com.game.network.NetConnection;
+import com.game.network.Connection.ConnectionManager;
+import com.game.network.Connection.NetConnection;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.Collections;
@@ -21,35 +22,40 @@ import java.util.Map;
  * 用户登录成功后,储存,用户断线之后,需要移出
  */
 
-public class ConnectionManager {
+public class ConnectionManagerTCP implements ConnectionManager {
 
     // 默认128, 可以储存 96 个链接,根据user id,获取连接
-    private static Map<Integer, NetConnection> conns = Collections.synchronizedMap(new HashMap<>(128));
+    private static Map<Integer, NetConnectionTCP> conns = Collections.synchronizedMap(new HashMap<>(128));
     // ChannelHandlerContext 获取用户id,再通过用户id 获取NetConnection ;
     private static Map<ChannelHandlerContext, Integer> ctxs = Collections.synchronizedMap(new HashMap<>(128));
 
     // 通过ChannelHandlerContext 查询用户是否已登录 返回NetConnection
-    public static NetConnection getConnection(ChannelHandlerContext ctx) {
+    @Override
+    public <T> NetConnection getConnection(T t) {
+        ChannelHandlerContext ctx= (ChannelHandlerContext) t;
         Integer userId = ctxs.get(ctx);
         if (userId == null || userId == 0) return null;
         return conns.get(userId);
     }
-
-    public static void addToConnection(int userId, NetConnection conn) {
+    @Override
+    public void addToConnection(int userId, NetConnection conn) {
         System.out.println("用户: " + userId + " 已加入连接");
-        conns.put(userId, conn);
-        ctxs.put(conn.ctx, userId);
+        NetConnectionTCP netConnectionTCP= (NetConnectionTCP) conn;
+        conns.put(userId, netConnectionTCP);
+        ctxs.put(netConnectionTCP.ctx, userId);
     }
 
-    public static void removeConnection(ChannelHandlerContext context) {
+    @Override
+    public <T> void removeConnection(T t) {
+        ChannelHandlerContext context=(ChannelHandlerContext)t;
         Integer userId = ctxs.get(context);
         if(userId!=null){
             removeConnection(userId);
         }
     }
-
-    public static void removeConnection(int userId) {
-        NetConnection netConnection = conns.get(userId);
+    @Override
+    public void removeConnection(int userId) {
+        NetConnectionTCP netConnection = conns.get(userId);
         conns.remove(userId);
         if(netConnection != null) {
             User user=netConnection.user;
@@ -59,11 +65,8 @@ public class ConnectionManager {
             netConnection.ctx.close();
         }
     }
-
-    public static NetConnection getConnection(int userId) {
+    @Override
+    public NetConnection getConnection(int userId) {
         return conns.get(userId);
-    }
-    public static int GetUserID(ChannelHandlerContext ctx){
-        return ctxs.get(ctx);
     }
 }

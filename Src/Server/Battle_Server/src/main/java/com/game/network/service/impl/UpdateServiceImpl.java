@@ -1,4 +1,4 @@
-package com.game.service.impl;
+package com.game.network.service.impl;
 
 import java.util.Map.Entry;
 import java.util.Set;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.game.manager.RoomManager;
 import com.game.models.Room;
-import com.game.service.UpdateService;
+import com.game.network.service.UpdateService;
 import com.game.util.TimeUtil;
 
 @Service

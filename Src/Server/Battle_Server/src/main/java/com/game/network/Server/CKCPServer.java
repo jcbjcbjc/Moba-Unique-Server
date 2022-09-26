@@ -1,14 +1,8 @@
-package com.game.netty;
+package com.game.network.Server;
 
-import com.backblaze.erasure.fec.Snmp;
-import com.game.manager.ConnectionManagerKCP;
-import com.game.network.MessageDispatch;
-import com.game.proto.C2BNet;
-import com.game.proto.Message;
+import com.game.network.proto.C2BNet;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
-
-import java.nio.charset.Charset;
 
 import io.netty.buffer.ByteBufUtil;
 import org.beykery.jkcp.KcpOnUdp;

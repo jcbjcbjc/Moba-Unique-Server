@@ -1,12 +1,14 @@
 package com.game.network;
 
-import com.game.manager.ConnectionManager;
 import com.game.manager.UserManager;
 import com.game.models.User;
 //import com.game.proto.Message;
 //import com.game.proto.Message.*;
-import com.game.proto.C2BNet;
+import com.game.network.Connection.ConnectionManager;
+import com.game.network.Connection.NetConnection;
+import com.game.network.proto.C2BNet;
 
+import com.game.network.service.BattleService;
 import com.game.service.*;
 import com.game.spring.SpringBeanUtil;
 
@@ -33,7 +35,7 @@ public class MessageDispatch {
 			return;
 		}
 
-		NetConnection conn=ConnectionManager.getConnection(userId);
+		NetConnection conn= ConnectionManager.getConnection(userId);
 		if (conn == null) {
 			conn=new NetConnection(ctx, battleUser != null ? battleUser : liveUser);
 			ConnectionManager.addToConnection(userId, conn);

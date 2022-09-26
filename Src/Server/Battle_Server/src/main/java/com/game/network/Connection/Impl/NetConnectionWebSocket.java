@@ -1,32 +1,19 @@
-package com.game.network;
-import com.backblaze.erasure.FecAdapt;
-import com.backblaze.erasure.fec.Snmp;
+package com.game.network.Connection.Impl;
 import com.game.models.User;
-//import com.game.proto.Message;
-import com.game.proto.C2BNet;
-import com.google.protobuf.MessageLite;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufUtil;
-import io.netty.buffer.Unpooled;
+import com.game.network.Connection.NetConnection;
+import com.game.network.proto.C2BNet;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
-import kcp.ChannelConfig;
-import kcp.KcpListener;
-import kcp.KcpServer;
-import kcp.Ukcp;
 
-import java.net.InetSocketAddress;
-
-public class NetConnectionKCP {
-    public Ukcp kcp;
+public class NetConnectionWebSocket implements NetConnection {
+    // 连接管道，保存长连接信息
+    public ChannelHandlerContext ctx;
     public User user;
 
-    public NetConnectionKCP(User user, Ukcp kcp) {
-        this.kcp = kcp;
+    public NetConnectionWebSocket(ChannelHandlerContext ctx, User user) {
+        this.ctx = ctx;
         this.user=user;
     }
-
+    private C2BNet.C2BNetMessage.Builder netMessage= C2BNet.C2BNetMessage.newBuilder();
     private C2BNet.C2BNetMessageResponse.Builder message;
 
     public C2BNet.C2BNetMessageResponse.Builder getResponse() {
@@ -40,12 +27,15 @@ public class NetConnectionKCP {
      * 发送帧操作
      * @param message2
      */
+    @Override
     public void sendFrameHandleRes(C2BNet.C2BNetMessageResponse.Builder message2) {
         if(message != null) {   //合并包
             message.setFrameHandleRes(message2.getFrameHandleRes());
             this.send();
         }else {
-            this.kcp.write(Unpooled.wrappedBuffer(message2.build().toByteArray()));
+            netMessage.setResponse(message2);
+            ctx.writeAndFlush(netMessage);
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
 
@@ -53,24 +43,29 @@ public class NetConnectionKCP {
      * 发送直播帧操作
      * @param message2
      */
+    @Override
     public void sendLiveFrameRes(C2BNet.C2BNetMessageResponse.Builder message2) {
         if(message != null) {   //合并包
             message.setLiveFrameRes(message2.getLiveFrameRes());
             this.send();
         }else {
-            this.kcp.write(Unpooled.wrappedBuffer(message2.build().toByteArray()));
+            netMessage.setResponse(message2);
+            ctx.writeAndFlush(netMessage);
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
-
+    @Override
     public void send() {
         if(message != null) {
-            this.kcp.write(Unpooled.wrappedBuffer(message.build().toByteArray()));
+            netMessage.setResponse(message);
+            ctx.writeAndFlush(netMessage);
             message=null;
+            netMessage=C2BNet.C2BNetMessage.newBuilder();
         }
     }
 
-
-    public void send(C2BNet.C2BNetMessageResponse.Builder message2) {
-        this.kcp.write(Unpooled.wrappedBuffer(message2.build().toByteArray()));
+    @Override
+    public void send(C2BNet.C2BNetMessage.Builder message2) {
+        ctx.writeAndFlush(message2);
     }
 }

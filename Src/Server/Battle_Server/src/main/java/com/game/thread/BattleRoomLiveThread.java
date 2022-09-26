@@ -1,23 +1,21 @@
 package com.game.thread;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 
-import com.game.network.NetConnection;
+import com.game.network.Connection.NetConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.game.manager.ConnectionManager;
+import com.game.network.Connection.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.network.NetConnectionKCP;
-import com.game.proto.C2BNet.LiveFrameResponse;
-import com.game.proto.C2BNet.C2BNetMessageResponse;
-import com.game.proto.C2BNet.RepairFrame;
+import com.game.network.proto.C2BNet.LiveFrameResponse;
+import com.game.network.proto.C2BNet.C2BNetMessageResponse;
+import com.game.network.proto.C2BNet.RepairFrame;
 //import com.game.proto.Message.LiveFrameResponse;
 //import com.game.proto.Message.NetMessageResponse2;
 //import com.game.proto.Message.RepairFrame;

@@ -1,27 +1,27 @@
-package com.game.service.impl;
+package com.game.network.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.game.network.NetConnection;
+import com.game.network.Connection.NetConnection;
 
-import com.game.network.NetConnectionWebSocket;
-import com.game.proto.C2BNet;
+import com.game.network.proto.C2BNet;
+import com.game.network.service.BattleService;
 import org.springframework.stereotype.Service;
 
 import com.game.enums.UserStatus;
-import com.game.manager.ConnectionManager;
+import com.game.network.Connection.ConnectionManager;
 import com.game.manager.RoomManager;
 import com.game.models.Room;
 import com.game.models.User;
-import com.game.proto.C2BNet.FrameHandle;
-import com.game.proto.C2BNet.GameOverRequest;
-import com.game.proto.C2BNet.C2BNetMessageResponse;
-import com.game.proto.C2BNet.PercentForward;
-import com.game.proto.C2BNet.PercentForwardResponse;
-import com.game.proto.C2BNet.RepairFrame;
-import com.game.proto.C2BNet.RepairFrameRequest;
-import com.game.proto.C2BNet.RepairFrameResponse;
+import com.game.network.proto.C2BNet.FrameHandle;
+import com.game.network.proto.C2BNet.GameOverRequest;
+import com.game.network.proto.C2BNet.C2BNetMessageResponse;
+import com.game.network.proto.C2BNet.PercentForward;
+import com.game.network.proto.C2BNet.PercentForwardResponse;
+import com.game.network.proto.C2BNet.RepairFrame;
+import com.game.network.proto.C2BNet.RepairFrameRequest;
+import com.game.network.proto.C2BNet.RepairFrameResponse;
 //import com.game.proto.Message.FrameHandle;
 //import com.game.proto.Message.GameOverRequest;
 //import com.game.proto.Message.NetMessageResponse2;
@@ -30,7 +30,7 @@ import com.game.proto.C2BNet.RepairFrameResponse;
 //import com.game.proto.Message.RepairFrame;
 //import com.game.proto.Message.RepairFrameRequest;
 //import com.game.proto.Message.RepairFrameResponse;
-import com.game.service.BattleService;
+
 
 @Service
 public class BattleServiceImpl implements BattleService {

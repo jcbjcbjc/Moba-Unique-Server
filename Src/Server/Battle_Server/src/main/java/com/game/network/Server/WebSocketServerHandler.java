@@ -1,10 +1,10 @@
-package com.game.netty;
+package com.game.network.Server;
 
-import com.game.manager.ConnectionManager;
+import com.game.network.Connection.ConnectionManager;
 
 import com.game.network.MessageDispatch;
 //import com.game.proto.Message;
-import com.game.proto.C2BNet;
+import com.game.network.proto.C2BNet;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandlerContext;

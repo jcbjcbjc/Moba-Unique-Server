@@ -1,6 +1,6 @@
 package com.game;
 
-import com.game.netty.NettyTCPServer;
+import com.game.network.Server.NettyTCPServer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 
-import com.game.service.UpdateService;
+import com.game.network.service.UpdateService;
 import com.game.util.Config;
 import com.game.util.TimeUtil;
-import com.game.netty.KCPServer;
+
 //@MapperScan("com.game.dao")
 // 以下注解,需要在上服务器时  注释!!!
 // 开启 ServletContextListener 监听器

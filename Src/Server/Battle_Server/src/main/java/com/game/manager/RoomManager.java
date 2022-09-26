@@ -2,11 +2,12 @@ package com.game.manager;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.game.models.Room;
 import com.game.models.User;
+import com.game.network.Connection.ConnectionManager;
+
 /**
  * @author 贾超博
  *

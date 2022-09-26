@@ -1,25 +1,15 @@
-package com.game.netty;
-import com.backblaze.erasure.FecAdapt;
+package com.game.network.Server;
 import com.backblaze.erasure.fec.Snmp;
 
-import com.game.manager.ConnectionManagerKCP;
+import com.game.network.Connection.Impl.ConnectionManagerKCP;
 //import com.game.proto.Message;
-import com.game.proto.C2BNet;
+import com.game.network.proto.C2BNet;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
-import io.netty.buffer.Unpooled;
-import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.util.CharsetUtil;
-import kcp.ChannelConfig;
 import kcp.KcpListener;
-import kcp.KcpServer;
 import kcp.Ukcp;
 import com.game.network.MessageDispatch;
-import com.game.proto.C2BNet;
-
-import java.nio.charset.Charset;
 
 public class KCPServerHandler implements KcpListener {
 
