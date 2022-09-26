@@ -1,0 +1,27 @@
+nohup: ignoring input
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/root/Battle_Server-1.0-SNAPSHOT.jar!/BOOT-INF/lib/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/Battle_Server-1.0-SNAPSHOT.jar!/BOOT-INF/lib/slf4j-simple-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.1.13.RELEASE)
+
+2022-09-24 18:17:27.065  INFO 28674 --- [           main] com.game.BattleMobaApplication           : Starting BattleMobaApplication v1.0-SNAPSHOT on VM-16-4-centos with PID 28674 (/root/Battle_Server-1.0-SNAPSHOT.jar started by root in /root)
+2022-09-24 18:17:27.069  INFO 28674 --- [           main] com.game.BattleMobaApplication           : No active profile set, falling back to default profiles: default
+2022-09-24 18:17:29.858  INFO 28674 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-09-24 18:17:29.907  INFO 28674 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-24 18:17:29.907  INFO 28674 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-09-24 18:17:30.150  INFO 28674 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-24 18:17:30.150  INFO 28674 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2938 ms
+2022-09-24 18:17:30.627  INFO 28674 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-09-24 18:17:30.945  INFO 28674 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-09-24 18:17:31.174  INFO 28674 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2022-09-24 18:17:31.179  INFO 28674 --- [           main] com.game.BattleMobaApplication           : Started BattleMobaApplication in 4.977 seconds (JVM running for 5.867)
+netty server start success!
