@@ -10,18 +10,12 @@
 - 支持**TCP**协议**KCP**协议**websocket**协议
 
 ### 2 JAVA帧同步服务器后端框架实现及性能分析
-- login层：负责选择区服
+- Gateway层：网关层负责对接客户端，减轻GameServer性能压力，封装服务层
 - Game层：一个Game服务器就为一个区服
 - Battle层：负责战斗的独立服务器
 ![image](https://user-images.githubusercontent.com/91889375/164408950-0cd0c680-0bd4-447f-a9da-43ba0122b120.png)
 
 (=^=)...）
-
-#### 性能分析  
-
-使用netty框架及优化后单个GameServer可以同时承担数万的并发量（具体取决于服务器性能）由于Battleserver可进行水平横向负载均衡即可以开好几个所以单服务器可以承担数万人同时在线，如果是多服务器就是开更多服
-
-如果是帧同步框架java的性能和c++一样甚至更优
 
 ### 3   客户端框架实现
 对应客户端版本https://github.com/jcbjcbjc/unique-project-client
