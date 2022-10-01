@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Game_Server" />
+        <module name="Login_Server" />
+        <module name="Battle_Server" />
+        <module name="Gateway" />
+        <module name="Common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Battle_Server" target="1.8" />
+      <module name="Common" target="11" />
+      <module name="Game_Server" target="1.8" />
+      <module name="Gateway" target="11" />
+      <module name="Login_Server" target="11" />
+      <module name="Server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Battle_Server" options="-parameters" />
+      <module name="Common" options="-parameters" />
+      <module name="Game_Server" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="Login_Server" options="-parameters" />
+    </option>
+  </component>
+</project>

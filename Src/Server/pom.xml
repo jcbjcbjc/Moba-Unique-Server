@@ -13,6 +13,7 @@
         <module>Game_Server</module>
         <module>Login_Server</module>
         <module>Common</module>
+        <module>Gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
