@@ -1,0 +1,64 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"muduo/net/http/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libmuduo_http.a"
+			],
+			"targetId" : "muduo_http::@5787850c391ef1a35796",
+			"targetIndex" : 28,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include/muduo/net/http",
+			"paths" : 
+			[
+				"muduo/net/http/HttpContext.h",
+				"muduo/net/http/HttpRequest.h",
+				"muduo/net/http/HttpResponse.h",
+				"muduo/net/http/HttpServer.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "muduo/net/http",
+		"source" : "muduo/net/http"
+	}
+}

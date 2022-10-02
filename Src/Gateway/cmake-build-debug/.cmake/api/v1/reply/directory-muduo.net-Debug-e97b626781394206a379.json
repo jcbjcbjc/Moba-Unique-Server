@@ -1,0 +1,72 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"muduo/net/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libmuduo_net.a"
+			],
+			"targetId" : "muduo_net::@d48a3526fec38d23c536",
+			"targetIndex" : 30,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include/muduo/net",
+			"paths" : 
+			[
+				"muduo/net/Buffer.h",
+				"muduo/net/Callbacks.h",
+				"muduo/net/Channel.h",
+				"muduo/net/Endian.h",
+				"muduo/net/EventLoop.h",
+				"muduo/net/EventLoopThread.h",
+				"muduo/net/EventLoopThreadPool.h",
+				"muduo/net/InetAddress.h",
+				"muduo/net/TcpClient.h",
+				"muduo/net/TcpConnection.h",
+				"muduo/net/TcpServer.h",
+				"muduo/net/TimerId.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "muduo/net",
+		"source" : "muduo/net"
+	}
+}

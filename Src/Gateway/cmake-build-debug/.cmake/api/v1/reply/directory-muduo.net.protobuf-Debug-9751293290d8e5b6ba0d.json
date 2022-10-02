@@ -1,0 +1,62 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"muduo/net/protobuf/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libmuduo_protobuf_codec.a"
+			],
+			"targetId" : "muduo_protobuf_codec::@04cfcb2f7712a4baad37",
+			"targetIndex" : 31,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include/muduo/net/protobuf",
+			"paths" : 
+			[
+				"muduo/net/protobuf/BufferStream.h",
+				"muduo/net/protobuf/ProtobufCodecLite.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "muduo/net/protobuf",
+		"source" : "muduo/net/protobuf"
+	}
+}

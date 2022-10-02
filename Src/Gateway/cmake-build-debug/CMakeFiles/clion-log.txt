@@ -1,0 +1,17 @@
+/home/jcbjcbjc/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/jcbjcbjc/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/bin/ninja/linux/ninja -G Ninja -S /home/jcbjcbjc/Documents/test -B /home/jcbjcbjc/Documents/test/cmake-build-debug
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- found curl
+-- found protobuf
+-- found zlib
+-- found gd
+-- CXX_FLAGS = -g -DCHECK_PTHREAD_RETURN_VALUE -D_FILE_OFFSET_BITS=64 -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -std=c++11 -rdynamic -O0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jcbjcbjc/Documents/test/cmake-build-debug

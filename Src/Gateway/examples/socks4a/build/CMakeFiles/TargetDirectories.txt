@@ -1,0 +1,5 @@
+/home/jcbjcbjc/Documents/muduo/examples/socks4a/build/CMakeFiles/balancer.dir
+/home/jcbjcbjc/Documents/muduo/examples/socks4a/build/CMakeFiles/tcprelay.dir
+/home/jcbjcbjc/Documents/muduo/examples/socks4a/build/CMakeFiles/socks4a.dir
+/home/jcbjcbjc/Documents/muduo/examples/socks4a/build/CMakeFiles/edit_cache.dir
+/home/jcbjcbjc/Documents/muduo/examples/socks4a/build/CMakeFiles/rebuild_cache.dir
