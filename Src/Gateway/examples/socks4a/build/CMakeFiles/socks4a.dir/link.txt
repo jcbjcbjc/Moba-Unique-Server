@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/socks4a.dir/socks4a.cc.o -o socks4a  -lmuduo_net 
