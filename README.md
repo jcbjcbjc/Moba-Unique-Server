@@ -33,7 +33,7 @@
 - 在GameServer配置文件里改自己数据库用户名密码（mysql5.27以上）
 - 运行GameServer
 - 运行BattleServer
-具体部署方法和集群搭建见doc文档
+- 具体部署方法和集群搭建见doc文档
 ### 6 主要技术栈和特点
 - 网络框架+协议栈：网络框架用的是高性能IO库Netty，协议栈为低延迟的可靠UDP协议KCP+FEC前向纠错技术（同时支持websocket协议以支持H5游戏）
 
