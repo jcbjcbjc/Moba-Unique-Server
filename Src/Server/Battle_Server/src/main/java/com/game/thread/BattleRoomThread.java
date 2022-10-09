@@ -92,22 +92,18 @@ public class BattleRoomThread extends Thread{
 					}
 					conn.sendFrameHandleRes(response);
 				}
-				
+
 				room.currentFramId++;  //帧号+1
-				if(room.users.isEmpty()){
-					room.isGameOver=true;
-				}
 				if(room.isGameOver) { //游戏结束退出线程
 					logger.error("房间id:"+room.id+"，游戏正常结束");
-					room.GameOver();
 					room.overFramId = room.currentFramId;
 					return;
 				}
 				//效验是否游戏是否超时
 				if(room.currentFramId % 100 == 0) {
 					long jg=new Date().getTime()-room.createTime;
-					if(jg > room.gameOverMs) {						
-						logger.error("房间id:"+room.id+"，游戏超时结束");					
+					if(jg > room.gameOverMs) {
+						logger.error("房间id:"+room.id+"，游戏超时结束");
 						room.GameOver();
 						room.overFramId = room.currentFramId;
 						return;

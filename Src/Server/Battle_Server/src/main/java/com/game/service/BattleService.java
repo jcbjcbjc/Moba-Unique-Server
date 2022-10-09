@@ -16,11 +16,11 @@ import com.game.proto.C2BNet.RepairFrameRequest;
 public interface BattleService {
 	
 	 // 帧操作
-    void OnFrameHandle(NetConnection connection, C2BNet.FrameHandlesFromClient frameHandles);
+    void OnFrameHandle(NetConnectionKCP connection, C2BNet.FrameHandlesFromClient frameHandles);
     // 进度转发
-    void OnPercentForward(NetConnection connection, PercentForward percentForward);
+    void OnPercentForward(NetConnectionKCP connection, PercentForward percentForward);
     // 游戏结束
-    void OnGameOver(NetConnection connection, GameOverRequest gameOverRequest);
+    void OnGameOver(NetConnectionKCP connection, GameOverRequest gameOverRequest);
     // 补帧
-    void OnRepairFrame(NetConnection connection, RepairFrameRequest repairFrameRequest);
+    void OnRepairFrame(NetConnectionKCP connection, RepairFrameRequest repairFrameRequest);
 }

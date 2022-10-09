@@ -43,27 +43,23 @@ public class ConnectionManager {
 
     public static void removeConnection(ChannelHandlerContext context) {
         Integer userId = ctxs.get(context);
-        if(userId!=null){
-            removeConnection(userId);
-        }
+        conns.remove(userId);
+        ctxs.remove(context);
+        System.out.println("玩家id: " + userId + "断开连接");
+        context.close();
     }
 
     public static void removeConnection(int userId) {
         NetConnection netConnection = conns.get(userId);
         conns.remove(userId);
         if(netConnection != null) {
-            User user=netConnection.user;
-            RoomManager.Instance.removeUser(user);
             ctxs.remove(netConnection.ctx);
-            System.out.println("玩家id: " + userId + "断开连接");
             netConnection.ctx.close();
         }
     }
 
     public static NetConnection getConnection(int userId) {
         return conns.get(userId);
-    }
-    public static int GetUserID(ChannelHandlerContext ctx){
-        return ctxs.get(ctx);
+
     }
 }

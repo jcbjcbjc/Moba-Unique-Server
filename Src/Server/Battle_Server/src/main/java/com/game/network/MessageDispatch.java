@@ -1,6 +1,7 @@
 package com.game.network;
 
 import com.game.manager.ConnectionManager;
+import com.game.manager.ConnectionManagerKCP;
 import com.game.manager.UserManager;
 import com.game.models.User;
 //import com.game.proto.Message;
@@ -23,8 +24,9 @@ public class MessageDispatch {
     }
 
     public static MessageDispatch Instance=new MessageDispatch();
+	public void DispatchData(ChannelHandlerContext ctx, C2BNet.C2BNetMessageRequest message) {}
 
-    public void DispatchData(ChannelHandlerContext ctx, C2BNet.C2BNetMessageRequest message) {
+	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 		int userId=message.getUserId();
 		User battleUser=userManager.users.get(userId);  //对战用户
 		User liveUser=userManager.liveUsers.get(userId);  //直播用户
@@ -33,12 +35,12 @@ public class MessageDispatch {
 			return;
 		}
 
-		NetConnection conn=ConnectionManager.getConnection(userId);
+		NetConnectionKCP conn= ConnectionManagerKCP.getConnection(userId);
 		if (conn == null) {
-			conn=new NetConnection(ctx, battleUser != null ? battleUser : liveUser);
-			ConnectionManager.addToConnection(userId, conn);
+			conn=new NetConnectionKCP(battleUser != null ? battleUser : liveUser,kcp);
+			ConnectionManagerKCP.addToConnection(userId,conn);
 		}else {
-			conn.ctx=ctx;
+			conn.kcp=kcp;
 		}
 
 		//帧操作请求
@@ -64,9 +66,5 @@ public class MessageDispatch {
 			battleService.OnGameOver(conn, message.getGameOverReq());
 			return;
 		}
-
-
-	}
-	public void DispatchData(Ukcp kcp, C2BNet.C2BNetMessageRequest message) {
 	}
 }

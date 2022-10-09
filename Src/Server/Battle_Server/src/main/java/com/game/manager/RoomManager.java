@@ -38,23 +38,10 @@ public class RoomManager {
 		if(room != null) {
 			room.isGameOver=true;
 			for (User user: room.users) {
-				UserManager.Instance.removeuser(user.id);
+				UserManager.Instance.users.remove(user.id);
+				UserManager.Instance.liveUsers.remove(user.id);
 				ConnectionManager.removeConnection(user.id);
 			}
-		}
-	}
-	//TODO 断线重连
-	// TODO 核心离开逻辑
-	public void removeUser(User user){
-		Room room=rooms.get(user.rooomId);
-		if(room!=null){
-			room.users.remove(user);
-			UserManager.Instance.removeuser(user.rooomId);
-		}
-		Room liveroom=liveRooms.get(user.rooomId);
-		if(liveroom!=null){
-			liveroom.users.remove(user);
-			UserManager.Instance.removeuser(user.rooomId);
 		}
 	}
 }

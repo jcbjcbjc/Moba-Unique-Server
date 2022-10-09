@@ -1,6 +1,5 @@
 package com.game;
 
-import com.game.netty.NettyTCPServer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,9 +37,7 @@ public class BattleMobaApplication implements CommandLineRunner {
 		/**
 		 * 使用异步注解方式启动netty服务端服务
 		 */
-		//new CSKCPServer().bind(Config.PORT);
-		//new KCPServer().bind(Config.PORT);
-		new NettyTCPServer().bind(Config.PORT);
+		new KCPServer().bind(Config.PORT);
 	}
 
 }
