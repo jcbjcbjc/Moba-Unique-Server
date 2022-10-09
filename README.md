@@ -12,6 +12,7 @@
 
 ### 2 JAVA帧同步服务器后端框架实现及性能分析
 - Gateway层：网关层负责对接客户端，减轻GameServer性能压力，封装服务层
+- Login层：登录服务器，若只有一个GameServer即一个区服则不需要
 - Game层：一个Game服务器就为一个区服
 - Battle层：负责战斗的独立服务器
 ![image](https://user-images.githubusercontent.com/91889375/164408950-0cd0c680-0bd4-447f-a9da-43ba0122b120.png)
