@@ -1,0 +1,27 @@
+nohup: ignoring input
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.1.13.RELEASE)
+
+2022-10-15 11:59:59.587  INFO 8018 --- [           main] com.game.MobaApplication                 : Starting MobaApplication v1.0-SNAPSHOT on VM-16-4-centos with PID 8018 (/root/Game_Server-1.0-SNAPSHOT.jar started by root in /root)
+2022-10-15 11:59:59.591  INFO 8018 --- [           main] com.game.MobaApplication                 : No active profile set, falling back to default profiles: default
+2022-10-15 12:00:03.242  INFO 8018 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 81 (http)
+2022-10-15 12:00:03.335  INFO 8018 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-15 12:00:03.335  INFO 8018 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-10-15 12:00:03.462  INFO 8018 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-15 12:00:03.463  INFO 8018 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3670 ms
+2022-10-15 12:00:03.677  INFO 8018 --- [           main] com.game.util.PropertyUtil               : 加载properties文件内容完成...........
+2022-10-15 12:00:03.678  INFO 8018 --- [           main] com.game.util.PropertyUtil               : properties文件内容：{battle.service1=124.221.226.227:8888:8001}
+2022-10-15 12:00:03.721  INFO 8018 --- [           main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2022-10-15 12:00:04.231  INFO 8018 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-10-15 12:00:05.059  INFO 8018 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-15 12:00:05.478  INFO 8018 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-10-15 12:00:05.606  INFO 8018 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 81 (http) with context path ''
+2022-10-15 12:00:05.611  INFO 8018 --- [           main] com.game.MobaApplication                 : Started MobaApplication in 7.055 seconds (JVM running for 7.76)
+开始加载DataManager...
+netty server start success!

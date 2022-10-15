@@ -16,11 +16,7 @@ public class TCPDecoder extends ByteToMessageDecoder
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf buffer, List<Object> out) throws Exception
     {
-        try {
-            out.add(buffer);
-        }finally {
 
-        }
     }
 
 

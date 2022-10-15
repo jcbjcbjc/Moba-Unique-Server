@@ -1,11 +1,15 @@
 package com.game.netty;
 
+import com.game.proto.C2BNet;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
 
 
@@ -59,19 +63,10 @@ public class NettyTCPServer {
                     ChannelPipeline pipeline = ch.pipeline();
                     // 客户端300秒没收发包，便会触发UserEventTriggered事件到IdleEventHandle
                     pipeline.addLast(new IdleStateHandler(0, 0, 300));
-                    //pipeline.addLast(new HttpServerCodec());
-                    //pipeline.addLast(new ChunkedWriteHandler());
-                    //pipeline.addLast(new HttpObjectAggregator(65536));
-                    //pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
-
-
-                    //pipeline.addLast(new TCPEncoder());
+                    pipeline.addLast(new ProtobufVarint32FrameDecoder());
+                    pipeline.addLast(new ProtobufDecoder(C2BNet.C2BNetMessage.getDefaultInstance()));
                     pipeline.addLast(new ProtobufEncoder());
-
                     pipeline.addLast(new TCPServerHandler());
-
-
-
                 }
             });
 

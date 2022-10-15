@@ -9,6 +9,7 @@
         <module name="Game_Server" />
         <module name="Login_Server" />
         <module name="Battle_Server" />
+        <module name="Gateway" />
         <module name="Common" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="Battle_Server" target="1.8" />
       <module name="Common" target="11" />
       <module name="Game_Server" target="1.8" />
+      <module name="Gateway" target="11" />
       <module name="Login_Server" target="11" />
       <module name="Server" target="1.8" />
     </bytecodeTargetLevel>
@@ -25,6 +27,7 @@
       <module name="Battle_Server" options="-parameters" />
       <module name="Common" options="-parameters" />
       <module name="Game_Server" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
       <module name="Login_Server" options="-parameters" />
     </option>
   </component>

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Battle_Server/Battle_Server.iml" filepath="$PROJECT_DIR$/Battle_Server/Battle_Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/Common/Common.iml" filepath="$PROJECT_DIR$/Common/Common.iml" />
       <module fileurl="file://$PROJECT_DIR$/Game_Server/Game_Server.iml" filepath="$PROJECT_DIR$/Game_Server/Game_Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gateway/Gateway.iml" filepath="$PROJECT_DIR$/Gateway/Gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/Login_Server/Login_Server.iml" filepath="$PROJECT_DIR$/Login_Server/Login_Server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Server.iml" filepath="$PROJECT_DIR$/.idea/Server.iml" />
     </modules>

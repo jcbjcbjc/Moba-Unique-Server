@@ -35,21 +35,7 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChann
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
-
-        ByteBuf Buf=(ByteBuf) msg;
-
-        final byte[] array;
-        final int offset;
-        final int length = Buf.readableBytes();
-        if (Buf.hasArray()) {
-            array = Buf.array();
-            offset = Buf.arrayOffset() + Buf.readerIndex();
-        } else {
-            array = ByteBufUtil.getBytes(Buf, Buf.readerIndex(), length, false);
-            offset = 0;
-        }
-        C2GNet.C2GNetMessage nm = C2GNet.C2GNetMessage.getDefaultInstance().getParserForType().parseFrom(array, offset, length);
+        C2GNet.C2GNetMessage nm=(C2GNet.C2GNetMessage) msg;
         //System.out.println(nm);
         MessageDispatch.Instance.receiveData(ctx, nm.toBuilder());
     }
