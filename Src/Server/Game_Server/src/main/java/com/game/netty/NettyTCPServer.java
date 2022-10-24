@@ -12,6 +12,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
@@ -70,6 +71,9 @@ public class NettyTCPServer {
                     pipeline.addLast(new IdleStateHandler(0, 0, 300));
                     pipeline.addLast(new ProtobufVarint32FrameDecoder());
                     pipeline.addLast(new ProtobufDecoder(C2GNet.C2GNetMessage.getDefaultInstance()));
+
+                    //Google Protocol Buffers编码器
+                    pipeline.addLast(new Prepender());
                     pipeline.addLast(new ProtobufEncoder());
                     pipeline.addLast(new TCPServerHandler());
                 }

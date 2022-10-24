@@ -65,6 +65,8 @@ public class NettyTCPServer {
                     pipeline.addLast(new IdleStateHandler(0, 0, 300));
                     pipeline.addLast(new ProtobufVarint32FrameDecoder());
                     pipeline.addLast(new ProtobufDecoder(C2BNet.C2BNetMessage.getDefaultInstance()));
+                    //Google Protocol Buffers编码器
+                    pipeline.addLast(new Prepender());
                     pipeline.addLast(new ProtobufEncoder());
                     pipeline.addLast(new TCPServerHandler());
                 }
