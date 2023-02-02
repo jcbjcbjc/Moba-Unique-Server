@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutorService;
 
 import com.game.enums.UserStatus;
 import com.game.manager.RoomManager;
+import com.game.proto.C2BNet;
 import com.game.proto.C2BNet.FrameHandle;
 import com.game.proto.C2BNet.RepairFrame;
 //import com.game.proto.Message.FrameHandle;
@@ -37,7 +38,7 @@ public class Room {
 	public int startSleepMs = 10 * 1000; // 开始休眠毫秒
 
 	// 帧操作数据 key:帧id value：key:用户id value：帧操作
-	public Map<Integer, Map<Integer, FrameHandle>> frameHandles = Collections.synchronizedMap(new HashMap<>());
+	public Map<Integer, Map<Integer,C2BNet.FrameHandlesFromClient>> frameHandles = Collections.synchronizedMap(new HashMap<>());
 	public int currentFramId; // 当前帧号
 	public boolean isCreateThread = false; // 是否创建线程
 	public boolean isGameOver = false; // 是否游戏结束
@@ -58,8 +59,9 @@ public class Room {
 	 * @param userId      用户id
 	 * @param frameHandle 帧操作对象
 	 */
-	public void AddUserFrameHandle(int userId, FrameHandle frameHandle) {
-		Map<Integer, FrameHandle> userFrameHandle = frameHandles.get(currentFramId);
+	public void AddUserFrameHandle(int userId, C2BNet.FrameHandlesFromClient frameHandle) {
+		Map<Integer,C2BNet.FrameHandlesFromClient> userFrameHandle = frameHandles.get(currentFramId);
+
 		if (userFrameHandle == null) {
 			userFrameHandle = new HashMap<>();
 			frameHandles.put(currentFramId, userFrameHandle);
@@ -135,12 +137,15 @@ public class Room {
 //		}
 		// 补帧集合
 		for (int frame = startFrame; frame <= endFrame; frame++) {
-			Map<Integer, FrameHandle> userFrameHandle = frameHandles.get(frame);
+			Map<Integer,C2BNet.FrameHandlesFromClient> userFrameHandle = frameHandles.get(frame);
 			// 补帧对象
 			RepairFrame.Builder repairFrameBuilder = RepairFrame.newBuilder();
 			repairFrameBuilder.setFrame(frame);
 			if (userFrameHandle != null && userFrameHandle.size() > 0) {
-				repairFrameBuilder.addAllFrameHandles(userFrameHandle.values());
+				//TODO FIX
+				for(C2BNet.FrameHandlesFromClient value:userFrameHandle.values()){
+					repairFrameBuilder.addAllFrameHandles(value.getFrameHandlesList());
+				}
 			}
 			repairFrameList.add(repairFrameBuilder.build());
 		}

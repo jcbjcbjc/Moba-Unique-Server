@@ -42,7 +42,7 @@ public class BattleRoomThread extends Thread{
 	private FrameHandleResponse.Builder frameHandleResponseBuilder=FrameHandleResponse.newBuilder();
 	private Collection<FrameHandle> frameHandleList=new ArrayList<>();
 	private C2BNetMessageResponse.Builder response = C2BNetMessageResponse.newBuilder();
-	Map<Integer, FrameHandle> userFrameHandleMap = new HashMap<Integer, FrameHandle>();
+	Map<Integer, C2BNet.FrameHandlesFromClient> userFrameHandleMap = new HashMap<Integer, C2BNet.FrameHandlesFromClient>();
 	
 	public BattleRoomThread(Room room) {
 		this.room=room;
@@ -57,11 +57,13 @@ public class BattleRoomThread extends Thread{
 		userFrameHandleMap.clear();
 		
 		//当前帧所有用户的操作
-		Map<Integer, FrameHandle> userFrameHandle=room.frameHandles.get(room.currentFramId);
+		Map<Integer,C2BNet.FrameHandlesFromClient> userFrameHandle=room.frameHandles.get(room.currentFramId);
 		if(userFrameHandle == null) {
 			room.frameHandles.put(room.currentFramId, userFrameHandleMap);
 		}else if(userFrameHandle != null && userFrameHandle.size() > 0) {
-		    frameHandleList.addAll(userFrameHandle.values());
+			for(C2BNet.FrameHandlesFromClient value: userFrameHandle.values()){
+				frameHandleList.addAll(value.getFrameHandlesList());
+			}
 		}
 		frameHandleResponseBuilder.setFrame(room.currentFramId);
 		frameHandleResponseBuilder.addAllFrameHandles(frameHandleList);
