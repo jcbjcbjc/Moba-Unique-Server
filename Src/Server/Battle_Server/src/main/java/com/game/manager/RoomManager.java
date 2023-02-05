@@ -29,16 +29,18 @@ public class RoomManager {
 	 */
 	public void GameOver(int roomId) {
 		System.out.println("RoomID: "+roomId+"has been destroyed");
+
 		this.removeUser(rooms, roomId);
 		this.removeUser(liveRooms, roomId);
 	}
 	
 	private void removeUser(Map<Integer, Room> roomMap, int roomId) {
 		Room room=roomMap.remove(roomId);
+		//System.out.println("预备去除");
 		if(room != null) {
-			room.isGameOver=true;
 			for (User user: room.users) {
-				UserManager.Instance.removeuser(user.id);
+				//UserManager.Instance.removeuser(user.id);
+				//System.out.println("开始去除计划");
 				ConnectionManager.removeConnection(user.id);
 			}
 		}
@@ -49,12 +51,13 @@ public class RoomManager {
 		Room room=rooms.get(user.rooomId);
 		if(room!=null){
 			room.users.remove(user);
-			UserManager.Instance.removeuser(user.rooomId);
+			System.out.println("remove"+user.id+"remain"+room.users.size());
+			//UserManager.Instance.removeuser(user.rooomId);
 		}
 		Room liveroom=liveRooms.get(user.rooomId);
 		if(liveroom!=null){
 			liveroom.users.remove(user);
-			UserManager.Instance.removeuser(user.rooomId);
+			//UserManager.Instance.removeuser(user.rooomId);
 		}
 	}
 }

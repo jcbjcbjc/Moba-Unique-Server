@@ -3,6 +3,7 @@ package com.game.netty;
 import com.game.manager.ConnectionManager;
 import com.game.manager.ConnectionManagerKCP;
 import com.game.manager.RoomManager;
+import com.game.manager.UserManager;
 import com.game.network.MessageDispatch;
 import com.game.proto.C2BNet;
 import com.game.proto.C2BNet;
@@ -43,6 +44,8 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter /*SimpleChann
         InetSocketAddress insocket = (InetSocketAddress) ctx.channel().remoteAddress();
         String clientIp = insocket.getAddress().getHostAddress();
         System.out.println("handlerRemoved"+ clientIp + ctx.name());
+        //TODO FIXME
+        //RoomManager.Instance.removeUser(UserManager.Instance.getuser(ConnectionManager.GetUserID(ctx)));
         ConnectionManager.removeConnection(ctx);
         ctx.flush();
         ctx.close();

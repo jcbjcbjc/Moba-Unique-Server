@@ -24,10 +24,10 @@ public class UserManager {
 	public Map<Integer, User> users=Collections.synchronizedMap(new HashMap<Integer, User>());
 	public Map<Integer, User> liveUsers=Collections.synchronizedMap(new HashMap<Integer, User>());
 
-	public void removeuser(int userId){
+	/*public void removeuser(int userId){
 		users.remove(userId);
 		liveUsers.remove(userId);
-	}
+	}*/
 
 	public void adduser(int userId,User user){
 

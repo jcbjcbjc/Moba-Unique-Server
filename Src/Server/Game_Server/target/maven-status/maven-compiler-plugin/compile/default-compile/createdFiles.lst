@@ -53,11 +53,9 @@ com\game\proto\C2GNet$UserStatusQueryResponse$1.class
 com\game\proto\C2GNet$ChatRoomType$1.class
 com\game\proto\C2GNet$RoomStatus$1.class
 com\game\proto\C2GNet$NStatusOrBuilder.class
-com\game\netty\NettyTCPServer$1.class
 com\game\proto\C2GNet$AllTeamOrBuilder.class
 com\game\manager\DataManager.class
 com\game\proto\C2GNet$NUserStatusChange$1.class
-com\game\netty\TCPDecoder.class
 com\game\proto\C2GNet$RoomStartGameRequest$1.class
 com\game\proto\C2GNet$AddLiveRequestOrBuilder.class
 com\game\proto\C2GNet$FollowResponse.class
@@ -90,14 +88,12 @@ com\game\proto\C2GNet$ChatMessage$1.class
 com\game\proto\C2GNet$KickOutRequestOrBuilder.class
 com\game\proto\C2GNet$OutRoomRequest$1.class
 com\game\spring\SpringBeanUtil.class
-com\game\vo\LiveUserVo.class
 com\game\proto\C2GNet$UnLockCharacter$1.class
 com\game\proto\C2GNet$1.class
 com\game\proto\C2GNet$GameOver2ResponseOrBuilder.class
 com\game\proto\C2GNet$UserLoginResponseOrBuilder.class
 com\game\proto\C2GNet$NUserStatusChange$Builder.class
 com\game\proto\C2GNet$MatchResponse$Builder.class
-com\game\netty\NettyTCPServer.class
 com\game\proto\C2GNet$FollowRequest$1.class
 com\game\proto\C2GNet$UploadBiFenRequest.class
 com\game\entity\User.class
@@ -271,7 +267,6 @@ com\game\proto\C2GNet$KickOutResponse$1.class
 com\game\proto\C2GNet$UserRegisterResponse$Builder.class
 com\game\proto\C2GNet$RoomUser$1.class
 com\game\proto\C2GNet$GameOver2Response.class
-com\game\vo\BattleUserVo.class
 com\game\proto\C2GNet$MatchResponse$1.class
 com\game\proto\C2GNet$NUser$1.class
 com\game\proto\C2GNet$AddRoomRequest$Builder.class

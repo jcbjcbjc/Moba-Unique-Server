@@ -32,10 +32,10 @@ public class Room {
 	public int id; // 房间id
 	public List<User> users; // 用户集合
 	public long createTime = 0; // 创建时间
-	public int loadResOverMs = 20000; //加载资源超时毫秒 1分钟
+	public int loadResOverMs = 200000; //加载资源超时毫秒 1分钟
 	public int gameOverMs = 2 * 60*60*1000; // 游戏超时毫秒 2小时
 	public float overNum = 1; // 游戏结束人数判断
-	public int startSleepMs = 10 * 1000; // 开始休眠毫秒
+	public int startSleepMs = 3 * 1000; // 开始休眠毫秒
 
 	// 帧操作数据 key:帧id value：key:用户id value：帧操作
 	public Map<Integer, Map<Integer,C2BNet.FrameHandlesFromClient>> frameHandles = Collections.synchronizedMap(new HashMap<>());
@@ -51,6 +51,7 @@ public class Room {
 		this.id = id;
 		this.users = users;
 		this.createTime = new Date().getTime();
+		System.out.println("房间ID："+id+"目前帧号:"+currentFramId);
 	}
 
 	/**
@@ -82,10 +83,14 @@ public class Room {
 			// 判断用户资源是否加载成功
 			for (User user : users) {
 				if (user.userStatus == UserStatus.normal) {
+					System.out.println("filuasidkaskdh");
 					isLoadSucess = false;
 					break;
 				}
 			}
+		}
+		if(isLoadSucess){
+			System.out.println("success all user load");
 		}
 		this.isAllUserLoadSucess = isLoadSucess;
 		return isLoadSucess;
@@ -117,7 +122,8 @@ public class Room {
 		}
 		// 游戏结束
 		if( gameOverNum >= overNum && !this.isGameOver) {
-		    this.GameOver();
+			this.isGameOver=true;
+		    //this.GameOver();
 		}
 	}
 

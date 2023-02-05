@@ -45,7 +45,7 @@ public class MatchManager {
 //	public List<User> haveRoomUserList = Collections.synchronizedList(new ArrayList<User>());
 	MatchService matchService;
 	//TODO 断线重连
-	public int gameOverMs=2*10;  //游戏超时毫秒 2小时
+	public int gameOverMs=1;  //游戏超时毫秒 2小时
 	//public int gameOverMs=2*60*60*1000;  //游戏超时毫秒 2小时
 	
 	public MatchManager() {

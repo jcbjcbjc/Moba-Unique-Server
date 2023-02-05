@@ -51,8 +51,10 @@ public class ConnectionManager {
     public static void removeConnection(int userId) {
         NetConnection netConnection = conns.get(userId);
         conns.remove(userId);
+        //System.out.println("yubeiaidshusa玩家id: " + userId + "断开连接");
         if(netConnection != null) {
-            User user=netConnection.user;
+            User user=UserManager.Instance.users.remove(userId);
+            //User user=netConnection.user;
             RoomManager.Instance.removeUser(user);
             ctxs.remove(netConnection.ctx);
             System.out.println("玩家id: " + userId + "断开连接");
