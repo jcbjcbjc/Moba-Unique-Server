@@ -33,6 +33,9 @@ Brick Break Block    https://github.com/jcbjcbjc/BrickBlockBreak
 - 2  元宇宙虚拟现实产品
 - 3  强交互社交产品
 
+目前基于此帧同步框架可以开发的联机游戏有
+- Brick Break Block    https://github.com/jcbjcbjc/BrickBlockBreak
+
 ### 5    配置及运行方法
 最简单部署:
 - 在GameServer配置文件里改自己数据库用户名密码（mysql5.27以上）
@@ -50,12 +53,8 @@ Brick Break Block    https://github.com/jcbjcbjc/BrickBlockBreak
 
 - 性能：性能可以调整Netty参数以及KCP参数以达到最大，已通过高性能线程池及其他手段优化
 
-###  6 更新日志
-
-###  7 更新计划
-- 1，增加redis集群和mysql集群
-- 2，使用分布式数据库解决分区问题
-- 3，拆分Game层，形成多进程结构，以restful调用为基础构建完整的通信机制
+## Tips
+有任何问题请提issues
 
 
 
